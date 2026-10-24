@@ -1,0 +1,38 @@
+# Copy to harness.yaml and fill in. Paths are relative to this file.
+aqef_repo: ../AQEF                 # a checkout of the AQEF repository (CTS, schemas, validate.py)
+base_url: http://127.0.0.1:8000    # the engine's REST API (Appendix C)
+sut:
+  name: aqef-reference-engine
+  version: slice-11
+# From the engine's Conformance Statement (AQEF §10).
+capabilities_claimed: [human_review, multi_judge, seeded_controls]
+team_binding: none                 # what the statement says about Teams (CT-REL-039)
+# conformance_statement: ../aqef-reference-engine/docs/CONFORMANCE-STATEMENT.md
+
+# Bearer tokens of the CTS Principals (CTS 14.1 and the sections that add Principals).
+# For aqef-reference-engine, setup/bootstrap_reference_engine.py creates them and these
+# are its tokens. Never commit tokens of a real deployment.
+tokens:
+  P-RELEASE: cts-p-release
+  P-APPROVER: cts-p-approver
+  P-NOPERM: cts-p-noperm
+  P-EDITOR: cts-p-editor
+  P-REVIEWER: cts-p-reviewer
+  P-ADMIN: cts-p-admin
+  SA-CI: cts-sa-ci
+  SA-REVIEW: cts-sa-review
+  P-REVIEWER-2: cts-p-reviewer-2
+  P-LEAD: cts-p-lead
+  P-INVALIDATE: cts-p-invalidate
+  P-ROLE-A: cts-p-role-a
+  P-ROLE-B: cts-p-role-b
+
+loader: P-APPROVER                 # who loads fixtures (CTS 14.1)
+config_format: json                # json or yaml, as the engine takes POST /projects
+wrap_project: false                # true if the body is {"project": {...}}
+timeout_s: 30
+delete_query: retain_history=true  # how the engine is asked to keep history (Appendix C §C.8)
+conversation_form: turns           # the engine's Conversation form for fixed Evidence
+scripted_port: 9100                # where the scripted subject and Judges listen
+engine_slices_done: 11             # parts of a test beyond this are NOT_RUN (for engines built in slices)
+# manual_reviews: reviews/<file>.json   # CTS 1.8 review records to apply (Harness Contract §13)

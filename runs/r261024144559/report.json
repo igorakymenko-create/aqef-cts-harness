@@ -1,0 +1,8616 @@
+{
+ "schema_version": "0.5",
+ "run_id": "r261024144559",
+ "provenance": {
+  "aqef_version": "0.41.5",
+  "cts_revision": "WD9",
+  "harness_contract_version": "0.5",
+  "harness_version": "0.3.0",
+  "adapter_id": "aqef-rest-adapter",
+  "adapter_version": "0.1.0",
+  "sut_name": "aqef-reference-engine",
+  "sut_version": "slice-11",
+  "conformance_statement_ref": "evidence://run-001.json",
+  "capabilities_claimed": [
+   "human_review",
+   "multi_judge",
+   "seeded_controls"
+  ]
+ },
+ "plan": {
+  "scope": "full",
+  "test_ids": [
+   "CT-ABD-001",
+   "CT-ABD-002",
+   "CT-ABD-003",
+   "CT-ABD-004",
+   "CT-ABD-005",
+   "CT-ABD-006",
+   "CT-ABD-007",
+   "CT-ADM-001",
+   "CT-ADM-002",
+   "CT-ADM-003",
+   "CT-ADM-004",
+   "CT-ADM-005",
+   "CT-ADM-006",
+   "CT-ADM-007",
+   "CT-API-001",
+   "CT-API-002",
+   "CT-ASM-001",
+   "CT-ASM-002",
+   "CT-ASM-003",
+   "CT-ASM-004",
+   "CT-ASM-005",
+   "CT-ASM-006",
+   "CT-ASM-007",
+   "CT-ASM-008",
+   "CT-ASM-009",
+   "CT-ASM-010",
+   "CT-ASM-011",
+   "CT-ASM-012",
+   "CT-ASM-013",
+   "CT-ASM-014",
+   "CT-ASM-015",
+   "CT-ASM-016",
+   "CT-ASM-017",
+   "CT-ASM-018",
+   "CT-ASM-019",
+   "CT-ASM-020",
+   "CT-CFG-001",
+   "CT-CFG-002",
+   "CT-CFG-003",
+   "CT-CFG-004",
+   "CT-CFG-005",
+   "CT-CFG-006",
+   "CT-CFG-007",
+   "CT-CFG-008",
+   "CT-CFG-009",
+   "CT-CFG-010",
+   "CT-CFG-011",
+   "CT-CFG-012",
+   "CT-CFG-013",
+   "CT-CFG-014",
+   "CT-CFG-015",
+   "CT-CFG-016",
+   "CT-CFG-017",
+   "CT-CFG-018",
+   "CT-CFG-019",
+   "CT-CFG-020",
+   "CT-CFG-021",
+   "CT-CFG-022",
+   "CT-CFG-023",
+   "CT-CFG-024",
+   "CT-CFG-025",
+   "CT-CFG-026",
+   "CT-CFG-027",
+   "CT-CFG-028",
+   "CT-DEC-001",
+   "CT-DEC-002",
+   "CT-DEC-003",
+   "CT-DEC-004",
+   "CT-DEC-005",
+   "CT-DEC-006",
+   "CT-DEC-007",
+   "CT-DEC-008",
+   "CT-DEC-009",
+   "CT-DEC-010",
+   "CT-DEC-011",
+   "CT-DEC-012",
+   "CT-DEC-013",
+   "CT-DEC-014",
+   "CT-DEC-015",
+   "CT-DEC-016",
+   "CT-DEC-017",
+   "CT-DEC-018",
+   "CT-DEC-019",
+   "CT-DEC-020",
+   "CT-DEC-021",
+   "CT-DEC-022",
+   "CT-DEC-023",
+   "CT-DEC-024",
+   "CT-DSR-001",
+   "CT-DSR-002",
+   "CT-DSR-003",
+   "CT-DSR-004",
+   "CT-EXE-001",
+   "CT-EXE-002",
+   "CT-EXE-003",
+   "CT-EXE-004",
+   "CT-EXE-005",
+   "CT-EXE-006",
+   "CT-EXE-007",
+   "CT-EXE-008",
+   "CT-EXE-009",
+   "CT-EXE-010",
+   "CT-EXE-011",
+   "CT-EXE-012",
+   "CT-HRV-001",
+   "CT-HRV-002",
+   "CT-HRV-003",
+   "CT-HRV-004",
+   "CT-HRV-005",
+   "CT-HRV-006",
+   "CT-MJG-001",
+   "CT-MJG-002",
+   "CT-MJG-003",
+   "CT-MJG-004",
+   "CT-MJG-005",
+   "CT-MJG-006",
+   "CT-MJG-007",
+   "CT-MJG-008",
+   "CT-MJG-009",
+   "CT-PLG-001",
+   "CT-PLG-002",
+   "CT-PLG-003",
+   "CT-PLG-004",
+   "CT-PLG-005",
+   "CT-PLG-006",
+   "CT-PLG-007",
+   "CT-REL-001",
+   "CT-REL-002",
+   "CT-REL-003",
+   "CT-REL-004",
+   "CT-REL-005",
+   "CT-REL-006",
+   "CT-REL-007",
+   "CT-REL-008",
+   "CT-REL-009",
+   "CT-REL-010",
+   "CT-REL-011",
+   "CT-REL-012",
+   "CT-REL-013",
+   "CT-REL-014",
+   "CT-REL-015",
+   "CT-REL-016",
+   "CT-REL-017",
+   "CT-REL-018",
+   "CT-REL-019",
+   "CT-REL-020",
+   "CT-REL-021",
+   "CT-REL-022",
+   "CT-REL-023",
+   "CT-REL-024",
+   "CT-REL-025",
+   "CT-REL-026",
+   "CT-REL-027",
+   "CT-REL-028",
+   "CT-REL-029",
+   "CT-REL-030",
+   "CT-REL-031",
+   "CT-REL-032",
+   "CT-REL-033",
+   "CT-REL-034",
+   "CT-REL-035",
+   "CT-REL-036",
+   "CT-REL-037",
+   "CT-REL-038",
+   "CT-REL-039",
+   "CT-RUI-001",
+   "CT-RUI-002",
+   "CT-RUI-003",
+   "CT-RUI-004",
+   "CT-SCT-001",
+   "CT-SCT-002",
+   "CT-SCT-003",
+   "CT-SCT-004",
+   "CT-SCT-005",
+   "CT-SCT-006",
+   "CT-SCT-007",
+   "CT-SCT-008",
+   "CT-SCT-009",
+   "CT-SCT-010",
+   "CT-SCT-011",
+   "CT-SCT-012",
+   "CT-SCT-013",
+   "CT-SCT-014",
+   "CT-SCT-015",
+   "CT-SDK-001",
+   "CT-SDK-002",
+   "CT-TTP-001",
+   "CT-TTP-002"
+  ]
+ },
+ "started_at": "2026-10-24T21:45:59Z",
+ "ended_at": "2026-10-24T21:47:09Z",
+ "summary": {
+  "cases": {
+   "FAIL": 0,
+   "NOT_RUN": 1,
+   "PASS": 178,
+   "NOT_APPLICABLE": 33
+  },
+  "tests": {
+   "FAIL": 0,
+   "NOT_RUN": 1,
+   "PASS": 155,
+   "NOT_APPLICABLE": 32
+  },
+  "requirements": {
+   "verified": 357,
+   "violated": 0,
+   "unverified": 1,
+   "not_applicable": 57
+  }
+ },
+ "cases": [
+  {
+   "case_id": "CT-ABD-001",
+   "test_id": "CT-ABD-001",
+   "capability": "action_boundary",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability action_boundary is not claimed"
+  },
+  {
+   "case_id": "CT-ABD-002",
+   "test_id": "CT-ABD-002",
+   "capability": "action_boundary",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability action_boundary is not claimed"
+  },
+  {
+   "case_id": "CT-ABD-003",
+   "test_id": "CT-ABD-003",
+   "capability": "action_boundary",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability action_boundary is not claimed"
+  },
+  {
+   "case_id": "CT-ABD-004",
+   "test_id": "CT-ABD-004",
+   "capability": "action_boundary",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability action_boundary is not claimed"
+  },
+  {
+   "case_id": "CT-ABD-005",
+   "test_id": "CT-ABD-005",
+   "capability": "action_boundary",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability action_boundary is not claimed"
+  },
+  {
+   "case_id": "CT-ABD-006",
+   "test_id": "CT-ABD-006",
+   "capability": "action_boundary",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability action_boundary is not claimed"
+  },
+  {
+   "case_id": "CT-ABD-007",
+   "test_id": "CT-ABD-007",
+   "capability": "action_boundary",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability action_boundary is not claimed"
+  },
+  {
+   "case_id": "CT-ADM-001",
+   "test_id": "CT-ADM-001",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ADM-001-001.json",
+    "evidence://CT-ADM-001-002.json",
+    "evidence://CT-ADM-001-003.json",
+    "evidence://CT-ADM-001-004.json",
+    "evidence://CT-ADM-001-005.json",
+    "evidence://CT-ADM-001-006.json",
+    "evidence://CT-ADM-001-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ADM-002",
+   "test_id": "CT-ADM-002",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ADM-002-001.json",
+    "evidence://CT-ADM-002-002.json",
+    "evidence://CT-ADM-002-003.json",
+    "evidence://CT-ADM-002-004.json",
+    "evidence://CT-ADM-002-005.json",
+    "evidence://CT-ADM-002-006.json",
+    "evidence://CT-ADM-002-007.json",
+    "evidence://CT-ADM-002-008.json",
+    "evidence://CT-ADM-002-009.json",
+    "evidence://CT-ADM-002-010.json",
+    "evidence://CT-ADM-002-011.json",
+    "evidence://CT-ADM-002-012.json",
+    "evidence://CT-ADM-002-013.json",
+    "evidence://CT-ADM-002-014.json",
+    "evidence://CT-ADM-002-015.json",
+    "evidence://CT-ADM-002-016.json",
+    "evidence://CT-ADM-002-017.json",
+    "evidence://CT-ADM-002-018.json",
+    "evidence://CT-ADM-002-019.json",
+    "evidence://CT-ADM-002-020.json",
+    "evidence://CT-ADM-002-021.json",
+    "evidence://CT-ADM-002-022.json",
+    "evidence://CT-ADM-002-023.json",
+    "evidence://CT-ADM-002-024.json",
+    "evidence://CT-ADM-002-025.json",
+    "evidence://CT-ADM-002-026.json",
+    "evidence://CT-ADM-002-027.json",
+    "evidence://CT-ADM-002-028.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "variants share one Project; CTS asks one each, which changes nothing observed here"
+  },
+  {
+   "case_id": "CT-ADM-003",
+   "test_id": "CT-ADM-003",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ADM-003-001.json",
+    "evidence://CT-ADM-003-002.json",
+    "evidence://CT-ADM-003-003.json",
+    "evidence://CT-ADM-003-004.json",
+    "evidence://CT-ADM-003-005.json",
+    "evidence://CT-ADM-003-006.json",
+    "evidence://CT-ADM-003-007.json",
+    "evidence://CT-ADM-003-008.json",
+    "evidence://CT-ADM-003-009.json",
+    "evidence://CT-ADM-003-010.json",
+    "evidence://CT-ADM-003-011.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ADM-004",
+   "test_id": "CT-ADM-004",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ADM-004-001.json",
+    "evidence://CT-ADM-004-002.json",
+    "evidence://CT-ADM-004-003.json",
+    "evidence://CT-ADM-004-004.json",
+    "evidence://CT-ADM-004-005.json",
+    "evidence://CT-ADM-004-006.json",
+    "evidence://CT-ADM-004-007.json",
+    "evidence://CT-ADM-004-008.json",
+    "evidence://CT-ADM-004-009.json",
+    "evidence://CT-ADM-004-010.json",
+    "evidence://CT-ADM-004-011.json",
+    "evidence://CT-ADM-004-012.json",
+    "evidence://CT-ADM-004-013.json",
+    "evidence://CT-ADM-004-014.json",
+    "evidence://CT-ADM-004-015.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ADM-005",
+   "test_id": "CT-ADM-005",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ADM-005-001.json",
+    "evidence://CT-ADM-005-002.json",
+    "evidence://CT-ADM-005-003.json",
+    "evidence://CT-ADM-005-004.json",
+    "evidence://CT-ADM-005-005.json",
+    "evidence://CT-ADM-005-006.json",
+    "evidence://CT-ADM-005-007.json",
+    "evidence://CT-ADM-005-008.json",
+    "evidence://CT-ADM-005-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ADM-006",
+   "test_id": "CT-ADM-006",
+   "capability": "multi_judge",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ADM-006-001.json",
+    "evidence://CT-ADM-006-002.json",
+    "evidence://CT-ADM-006-003.json",
+    "evidence://CT-ADM-006-004.json",
+    "evidence://CT-ADM-006-005.json",
+    "evidence://CT-ADM-006-006.json",
+    "evidence://CT-ADM-006-007.json",
+    "evidence://CT-ADM-006-008.json",
+    "evidence://CT-ADM-006-009.json",
+    "evidence://CT-ADM-006-010.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "member identities read from the panel Result's member_results"
+  },
+  {
+   "case_id": "CT-ADM-007",
+   "test_id": "CT-ADM-007",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ADM-007-001.json",
+    "evidence://CT-ADM-007-002.json",
+    "evidence://CT-ADM-007-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-API-001",
+   "test_id": "CT-API-001",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-API-001-001.json",
+    "evidence://CT-API-001-002.json",
+    "evidence://CT-API-001-003.json",
+    "evidence://CT-API-001-004.json",
+    "evidence://CT-API-001-005.json",
+    "evidence://CT-API-001-006.json",
+    "evidence://CT-API-001-007.json",
+    "evidence://CT-API-001-008.json",
+    "evidence://CT-API-001-009.json",
+    "evidence://CT-API-001-010.json",
+    "evidence://CT-API-001-011.json",
+    "evidence://CT-API-001-012.json",
+    "evidence://CT-API-001-013.json",
+    "evidence://CT-API-001-014.json",
+    "evidence://CT-API-001-015.json",
+    "evidence://CT-API-001-016.json",
+    "evidence://CT-API-001-017.json",
+    "evidence://CT-API-001-018.json",
+    "evidence://CT-API-001-019.json",
+    "evidence://CT-API-001-020.json",
+    "evidence://CT-API-001-021.json",
+    "evidence://CT-API-001-022.json",
+    "evidence://CT-API-001-023.json",
+    "evidence://CT-API-001-024.json",
+    "evidence://CT-API-001-025.json",
+    "evidence://CT-API-001-026.json",
+    "evidence://CT-API-001-027.json",
+    "evidence://CT-API-001-028.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "p = 1 (the engine's documented minimum); offset/limit on all three; s-1's two clauses already give more than p Results, so no extra Constraints were added"
+  },
+  {
+   "case_id": "CT-API-002",
+   "test_id": "CT-API-002",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-API-002-001.json",
+    "evidence://CT-API-002-002.json",
+    "evidence://CT-API-002-003.json",
+    "evidence://CT-API-002-004.json",
+    "evidence://CT-API-002-005.json",
+    "evidence://CT-API-002-006.json",
+    "evidence://CT-API-002-007.json",
+    "evidence://CT-API-002-008.json",
+    "evidence://CT-API-002-009.json",
+    "evidence://CT-API-002-010.json",
+    "evidence://CT-API-002-011.json",
+    "evidence://CT-API-002-012.json",
+    "evidence://CT-API-002-013.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "failed",
+   "reason": "history read through the same paths after deletion"
+  },
+  {
+   "case_id": "CT-ASM-001",
+   "test_id": "CT-ASM-001",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-001-001.json",
+    "evidence://CT-ASM-001-002.json",
+    "evidence://CT-ASM-001-003.json",
+    "evidence://CT-ASM-001-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-002",
+   "test_id": "CT-ASM-002",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-002-001.json",
+    "evidence://CT-ASM-002-002.json",
+    "evidence://CT-ASM-002-003.json",
+    "evidence://CT-ASM-002-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-003",
+   "test_id": "CT-ASM-003",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-003-001.json",
+    "evidence://CT-ASM-003-002.json",
+    "evidence://CT-ASM-003-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-004",
+   "test_id": "CT-ASM-004",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-004-001.json",
+    "evidence://CT-ASM-004-002.json",
+    "evidence://CT-ASM-004-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-005",
+   "test_id": "CT-ASM-005",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-005-001.json",
+    "evidence://CT-ASM-005-002.json",
+    "evidence://CT-ASM-005-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-006",
+   "test_id": "CT-ASM-006",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-006-001.json",
+    "evidence://CT-ASM-006-002.json",
+    "evidence://CT-ASM-006-003.json",
+    "evidence://CT-ASM-006-004.json",
+    "evidence://CT-ASM-006-005.json",
+    "evidence://CT-ASM-006-006.json",
+    "evidence://CT-ASM-006-007.json",
+    "evidence://CT-ASM-006-008.json",
+    "evidence://CT-ASM-006-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-007",
+   "test_id": "CT-ASM-007",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-007-001.json",
+    "evidence://CT-ASM-007-002.json",
+    "evidence://CT-ASM-007-003.json",
+    "evidence://CT-ASM-007-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-008",
+   "test_id": "CT-ASM-008",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-008-001.json",
+    "evidence://CT-ASM-008-002.json",
+    "evidence://CT-ASM-008-003.json",
+    "evidence://CT-ASM-008-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-009",
+   "test_id": "CT-ASM-009",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-009-001.json",
+    "evidence://CT-ASM-009-002.json",
+    "evidence://CT-ASM-009-003.json",
+    "evidence://CT-ASM-009-004.json",
+    "evidence://CT-ASM-009-005.json",
+    "evidence://CT-ASM-009-006.json",
+    "evidence://CT-ASM-009-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "no re-check offered: two Executions with identical Responses"
+  },
+  {
+   "case_id": "CT-ASM-010",
+   "test_id": "CT-ASM-010",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-010-001.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "review review-openai-ct-asm-010 by reviewer://openai/gpt-6: Declaration verified against offered five built-ins. Runtime determinism across every deployed dependency is not measured by this review; the declaration is supported by documentation and inspected im"
+  },
+  {
+   "case_id": "CT-ASM-011",
+   "test_id": "CT-ASM-011",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-011-001.json",
+    "evidence://CT-ASM-011-002.json",
+    "evidence://CT-ASM-011-003.json",
+    "evidence://CT-ASM-011-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-012",
+   "test_id": "CT-ASM-012",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-012-001.json",
+    "evidence://CT-ASM-012-002.json",
+    "evidence://CT-ASM-012-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-013",
+   "test_id": "CT-ASM-013",
+   "capability": "multi_judge",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-013-001.json",
+    "evidence://CT-ASM-013-002.json",
+    "evidence://CT-ASM-013-003.json",
+    "evidence://CT-ASM-013-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-014",
+   "test_id": "CT-ASM-014",
+   "capability": "core",
+   "outcome": "NOT_RUN",
+   "reason_code": "FIXTURE_UNAVAILABLE",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "the engine offers no way to define cts-crash (its Custom Validators are declarative) and documents no fault hook (CTS CT-ASM-014)"
+  },
+  {
+   "case_id": "CT-ASM-015",
+   "test_id": "CT-ASM-015",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-015-001.json",
+    "evidence://CT-ASM-015-002.json",
+    "evidence://CT-ASM-015-003.json",
+    "evidence://CT-ASM-015-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-016",
+   "test_id": "CT-ASM-016",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-016-001.json",
+    "evidence://CT-ASM-016-002.json",
+    "evidence://CT-ASM-016-003.json",
+    "evidence://CT-ASM-016-004.json",
+    "evidence://CT-ASM-016-005.json",
+    "evidence://CT-ASM-016-006.json",
+    "evidence://CT-ASM-016-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-ASM-017",
+   "test_id": "CT-ASM-017",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-017-001.json",
+    "evidence://CT-ASM-017-002.json",
+    "evidence://CT-ASM-017-003.json",
+    "evidence://CT-ASM-017-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "review review-openai-ct-asm-017 by reviewer://openai/gpt-6: Prevention mode: both model-call registration attempts were rejected (HTTP 422); allowlisted declarative operations only. Not a claim that arbitrary executable plugin code was exercised."
+  },
+  {
+   "case_id": "CT-ASM-018",
+   "test_id": "CT-ASM-018",
+   "capability": "core",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "OPTIONAL_FEATURE_ABSENT",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "the engine offers no re-check of a Validator on stored Evidence (permitted, CTS 1.2)"
+  },
+  {
+   "case_id": "CT-ASM-019",
+   "test_id": "CT-ASM-019",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-019-001.json",
+    "evidence://CT-ASM-019-002.json",
+    "evidence://CT-ASM-019-003.json",
+    "evidence://CT-ASM-019-004.json",
+    "evidence://CT-ASM-019-005.json",
+    "evidence://CT-ASM-019-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "complete",
+   "reason": "(a) assertions 3"
+  },
+  {
+   "case_id": "CT-ASM-020",
+   "test_id": "CT-ASM-020",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-ASM-020-001.json",
+    "evidence://CT-ASM-020-002.json",
+    "evidence://CT-ASM-020-003.json",
+    "evidence://CT-ASM-020-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "variant: expected {minimum: \"one\"}; the engine documents null or {} for a parameterless Custom Validator"
+  },
+  {
+   "case_id": "CT-CFG-001",
+   "test_id": "CT-CFG-001",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-001-001.json",
+    "evidence://CT-CFG-001-002.json",
+    "evidence://CT-CFG-001-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-002",
+   "test_id": "CT-CFG-002",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-002-001.json",
+    "evidence://CT-CFG-002-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-003",
+   "test_id": "CT-CFG-003",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-003-001.json",
+    "evidence://CT-CFG-003-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-004",
+   "test_id": "CT-CFG-004",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-004-001.json",
+    "evidence://CT-CFG-004-002.json",
+    "evidence://CT-CFG-004-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-005",
+   "test_id": "CT-CFG-005",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-005-001.json",
+    "evidence://CT-CFG-005-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-006",
+   "test_id": "CT-CFG-006",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-006-001.json",
+    "evidence://CT-CFG-006-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-007",
+   "test_id": "CT-CFG-007",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-007-001.json",
+    "evidence://CT-CFG-007-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-008",
+   "test_id": "CT-CFG-008",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-008-001.json",
+    "evidence://CT-CFG-008-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-009",
+   "test_id": "CT-CFG-009",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-009-001.json",
+    "evidence://CT-CFG-009-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-010",
+   "test_id": "CT-CFG-010",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-010-001.json",
+    "evidence://CT-CFG-010-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-011",
+   "test_id": "CT-CFG-011",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-011-001.json",
+    "evidence://CT-CFG-011-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-012",
+   "test_id": "CT-CFG-012",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-012-001.json",
+    "evidence://CT-CFG-012-002.json",
+    "evidence://CT-CFG-012-003.json",
+    "evidence://CT-CFG-012-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-013",
+   "test_id": "CT-CFG-013",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-013-001.json",
+    "evidence://CT-CFG-013-002.json",
+    "evidence://CT-CFG-013-003.json",
+    "evidence://CT-CFG-013-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-014",
+   "test_id": "CT-CFG-014",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-014-001.json",
+    "evidence://CT-CFG-014-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-015",
+   "test_id": "CT-CFG-015",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-015-001.json",
+    "evidence://CT-CFG-015-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-016",
+   "test_id": "CT-CFG-016",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-016-001.json",
+    "evidence://CT-CFG-016-002.json",
+    "evidence://CT-CFG-016-003.json",
+    "evidence://CT-CFG-016-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-017",
+   "test_id": "CT-CFG-017",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-017-001.json",
+    "evidence://CT-CFG-017-002.json",
+    "evidence://CT-CFG-017-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-018",
+   "test_id": "CT-CFG-018",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-018-001.json",
+    "evidence://CT-CFG-018-002.json",
+    "evidence://CT-CFG-018-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-019",
+   "test_id": "CT-CFG-019",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-019-001.json",
+    "evidence://CT-CFG-019-002.json",
+    "evidence://CT-CFG-019-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-020",
+   "test_id": "CT-CFG-020",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-020-001.json",
+    "evidence://CT-CFG-020-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-021",
+   "test_id": "CT-CFG-021",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-021-001.json",
+    "evidence://CT-CFG-021-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-022",
+   "test_id": "CT-CFG-022",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-022-001.json",
+    "evidence://CT-CFG-022-002.json",
+    "evidence://CT-CFG-022-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-023",
+   "test_id": "CT-CFG-023",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-023-001.json",
+    "evidence://CT-CFG-023-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-024",
+   "test_id": "CT-CFG-024",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-024-001.json",
+    "evidence://CT-CFG-024-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.01",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.01-001.json",
+    "evidence://CT-CFG-025.01-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.02",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.02-001.json",
+    "evidence://CT-CFG-025.02-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.03",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.03-001.json",
+    "evidence://CT-CFG-025.03-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.04",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.04-001.json",
+    "evidence://CT-CFG-025.04-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.05",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.05-001.json",
+    "evidence://CT-CFG-025.05-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.06",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.06-001.json",
+    "evidence://CT-CFG-025.06-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.07",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.07-001.json",
+    "evidence://CT-CFG-025.07-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.08",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.08-001.json",
+    "evidence://CT-CFG-025.08-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.09",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.09-001.json",
+    "evidence://CT-CFG-025.09-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.10",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.10-001.json",
+    "evidence://CT-CFG-025.10-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.11",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.11-001.json",
+    "evidence://CT-CFG-025.11-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.12",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.12-001.json",
+    "evidence://CT-CFG-025.12-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.13",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.13-001.json",
+    "evidence://CT-CFG-025.13-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.14",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.14-001.json",
+    "evidence://CT-CFG-025.14-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.15",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.15-001.json",
+    "evidence://CT-CFG-025.15-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.16",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.16-001.json",
+    "evidence://CT-CFG-025.16-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.17",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.17-001.json",
+    "evidence://CT-CFG-025.17-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.18",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.18-001.json",
+    "evidence://CT-CFG-025.18-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.19",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.19-001.json",
+    "evidence://CT-CFG-025.19-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.20",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.20-001.json",
+    "evidence://CT-CFG-025.20-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.21",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.21-001.json",
+    "evidence://CT-CFG-025.21-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.22",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.22-001.json",
+    "evidence://CT-CFG-025.22-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.23",
+   "test_id": "CT-CFG-025",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.23-001.json",
+    "evidence://CT-CFG-025.23-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-025.24",
+   "test_id": "CT-CFG-025",
+   "capability": "dataset_mechanism:edge_cases",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability dataset_mechanism:edge_cases is not claimed"
+  },
+  {
+   "case_id": "CT-CFG-025.25",
+   "test_id": "CT-CFG-025",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-025.25-001.json",
+    "evidence://CT-CFG-025.25-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-026",
+   "test_id": "CT-CFG-026",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-026-001.json",
+    "evidence://CT-CFG-026-002.json",
+    "evidence://CT-CFG-026-003.json",
+    "evidence://CT-CFG-026-004.json",
+    "evidence://CT-CFG-026-005.json",
+    "evidence://CT-CFG-026-006.json",
+    "evidence://CT-CFG-026-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-027",
+   "test_id": "CT-CFG-027",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-027-001.json",
+    "evidence://CT-CFG-027-002.json",
+    "evidence://CT-CFG-027-003.json",
+    "evidence://CT-CFG-027-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-CFG-028",
+   "test_id": "CT-CFG-028",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-CFG-028-001.json",
+    "evidence://CT-CFG-028-002.json",
+    "evidence://CT-CFG-028-003.json",
+    "evidence://CT-CFG-028-004.json",
+    "evidence://CT-CFG-028-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "unclaimed: data_mutation, fuzzing, edge_cases, adversarial"
+  },
+  {
+   "case_id": "CT-DEC-001",
+   "test_id": "CT-DEC-001",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-001-001.json",
+    "evidence://CT-DEC-001-002.json",
+    "evidence://CT-DEC-001-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-002",
+   "test_id": "CT-DEC-002",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-002-001.json",
+    "evidence://CT-DEC-002-002.json",
+    "evidence://CT-DEC-002-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-003",
+   "test_id": "CT-DEC-003",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-003-001.json",
+    "evidence://CT-DEC-003-002.json",
+    "evidence://CT-DEC-003-003.json",
+    "evidence://CT-DEC-003-004.json",
+    "evidence://CT-DEC-003-005.json",
+    "evidence://CT-DEC-003-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-004",
+   "test_id": "CT-DEC-004",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-004-001.json",
+    "evidence://CT-DEC-004-002.json",
+    "evidence://CT-DEC-004-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-005",
+   "test_id": "CT-DEC-005",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-005-001.json",
+    "evidence://CT-DEC-005-002.json",
+    "evidence://CT-DEC-005-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-006",
+   "test_id": "CT-DEC-006",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-006-001.json",
+    "evidence://CT-DEC-006-002.json",
+    "evidence://CT-DEC-006-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-007",
+   "test_id": "CT-DEC-007",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-007-001.json",
+    "evidence://CT-DEC-007-002.json",
+    "evidence://CT-DEC-007-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-008",
+   "test_id": "CT-DEC-008",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-008-001.json",
+    "evidence://CT-DEC-008-002.json",
+    "evidence://CT-DEC-008-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-009",
+   "test_id": "CT-DEC-009",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-009-001.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "review review-openai-ct-dec-009 by reviewer://openai/gpt-6: Inspected documented Gate/Contract/Aggregation configuration and decision.py; non-actionable results add a failure reason and are not included among usable entries. This is static inspection, not an e"
+  },
+  {
+   "case_id": "CT-DEC-010",
+   "test_id": "CT-DEC-010",
+   "capability": "human_review",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-010-001.json",
+    "evidence://CT-DEC-010-002.json",
+    "evidence://CT-DEC-010-003.json",
+    "evidence://CT-DEC-010-004.json",
+    "evidence://CT-DEC-010-005.json",
+    "evidence://CT-DEC-010-006.json",
+    "evidence://CT-DEC-010-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-011",
+   "test_id": "CT-DEC-011",
+   "capability": "human_review",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-011-001.json",
+    "evidence://CT-DEC-011-002.json",
+    "evidence://CT-DEC-011-003.json",
+    "evidence://CT-DEC-011-004.json",
+    "evidence://CT-DEC-011-005.json",
+    "evidence://CT-DEC-011-006.json",
+    "evidence://CT-DEC-011-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-012",
+   "test_id": "CT-DEC-012",
+   "capability": "human_review",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-012-001.json",
+    "evidence://CT-DEC-012-002.json",
+    "evidence://CT-DEC-012-003.json",
+    "evidence://CT-DEC-012-004.json",
+    "evidence://CT-DEC-012-005.json",
+    "evidence://CT-DEC-012-006.json",
+    "evidence://CT-DEC-012-007.json",
+    "evidence://CT-DEC-012-008.json",
+    "evidence://CT-DEC-012-009.json",
+    "evidence://CT-DEC-012-010.json",
+    "evidence://CT-DEC-012-011.json",
+    "evidence://CT-DEC-012-012.json",
+    "evidence://CT-DEC-012-013.json",
+    "evidence://CT-DEC-012-014.json",
+    "evidence://CT-DEC-012-015.json",
+    "evidence://CT-DEC-012-016.json",
+    "evidence://CT-DEC-012-017.json",
+    "evidence://CT-DEC-012-018.json",
+    "evidence://CT-DEC-012-019.json",
+    "evidence://CT-DEC-012-020.json",
+    "evidence://CT-DEC-012-021.json",
+    "evidence://CT-DEC-012-022.json",
+    "evidence://CT-DEC-012-023.json",
+    "evidence://CT-DEC-012-024.json",
+    "evidence://CT-DEC-012-025.json",
+    "evidence://CT-DEC-012-026.json",
+    "evidence://CT-DEC-012-027.json",
+    "evidence://CT-DEC-012-028.json",
+    "evidence://CT-DEC-012-029.json",
+    "evidence://CT-DEC-012-030.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-013",
+   "test_id": "CT-DEC-013",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-013-001.json",
+    "evidence://CT-DEC-013-002.json",
+    "evidence://CT-DEC-013-003.json",
+    "evidence://CT-DEC-013-004.json",
+    "evidence://CT-DEC-013-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-014",
+   "test_id": "CT-DEC-014",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-014-001.json",
+    "evidence://CT-DEC-014-002.json",
+    "evidence://CT-DEC-014-003.json",
+    "evidence://CT-DEC-014-004.json",
+    "evidence://CT-DEC-014-005.json",
+    "evidence://CT-DEC-014-006.json",
+    "evidence://CT-DEC-014-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-015",
+   "test_id": "CT-DEC-015",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-015-001.json",
+    "evidence://CT-DEC-015-002.json",
+    "evidence://CT-DEC-015-003.json",
+    "evidence://CT-DEC-015-004.json",
+    "evidence://CT-DEC-015-005.json",
+    "evidence://CT-DEC-015-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-016",
+   "test_id": "CT-DEC-016",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-016-001.json",
+    "evidence://CT-DEC-016-002.json",
+    "evidence://CT-DEC-016-003.json",
+    "evidence://CT-DEC-016-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-017",
+   "test_id": "CT-DEC-017",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-017-001.json",
+    "evidence://CT-DEC-017-002.json",
+    "evidence://CT-DEC-017-003.json",
+    "evidence://CT-DEC-017-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-018",
+   "test_id": "CT-DEC-018",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-018-001.json",
+    "evidence://CT-DEC-018-002.json",
+    "evidence://CT-DEC-018-003.json",
+    "evidence://CT-DEC-018-004.json",
+    "evidence://CT-DEC-018-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-019",
+   "test_id": "CT-DEC-019",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-019-001.json",
+    "evidence://CT-DEC-019-002.json",
+    "evidence://CT-DEC-019-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-020",
+   "test_id": "CT-DEC-020",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-020-001.json",
+    "evidence://CT-DEC-020-002.json",
+    "evidence://CT-DEC-020-003.json",
+    "evidence://CT-DEC-020-004.json",
+    "evidence://CT-DEC-020-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-021",
+   "test_id": "CT-DEC-021",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-021-001.json",
+    "evidence://CT-DEC-021-002.json",
+    "evidence://CT-DEC-021-003.json",
+    "evidence://CT-DEC-021-004.json",
+    "evidence://CT-DEC-021-005.json",
+    "evidence://CT-DEC-021-006.json",
+    "evidence://CT-DEC-021-007.json",
+    "evidence://CT-DEC-021-008.json",
+    "evidence://CT-DEC-021-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "complete",
+   "reason": "review review-openai-ct-dec-021 by reviewer://openai/gpt-6: No statistical interval is exposed in checked GateResults/Reports; the negative prohibition is satisfied vacuously. Report descriptions refer to application of Oracle Confidence to assessment, not to "
+  },
+  {
+   "case_id": "CT-DEC-022",
+   "test_id": "CT-DEC-022",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-022-001.json",
+    "evidence://CT-DEC-022-002.json",
+    "evidence://CT-DEC-022-003.json",
+    "evidence://CT-DEC-022-004.json",
+    "evidence://CT-DEC-022-005.json",
+    "evidence://CT-DEC-022-006.json",
+    "evidence://CT-DEC-022-007.json",
+    "evidence://CT-DEC-022-008.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-023",
+   "test_id": "CT-DEC-023",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-023-001.json",
+    "evidence://CT-DEC-023-002.json",
+    "evidence://CT-DEC-023-003.json",
+    "evidence://CT-DEC-023-004.json",
+    "evidence://CT-DEC-023-005.json",
+    "evidence://CT-DEC-023-006.json",
+    "evidence://CT-DEC-023-007.json",
+    "evidence://CT-DEC-023-008.json",
+    "evidence://CT-DEC-023-009.json",
+    "evidence://CT-DEC-023-010.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DEC-024",
+   "test_id": "CT-DEC-024",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-DEC-024-001.json",
+    "evidence://CT-DEC-024-002.json",
+    "evidence://CT-DEC-024-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-DSR-001",
+   "test_id": "CT-DSR-001",
+   "capability": "dataset:generated",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability dataset:generated is not claimed"
+  },
+  {
+   "case_id": "CT-DSR-002",
+   "test_id": "CT-DSR-002",
+   "capability": "dataset:production_replay",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability dataset:production_replay is not claimed"
+  },
+  {
+   "case_id": "CT-DSR-003",
+   "test_id": "CT-DSR-003",
+   "capability": "dataset:generated",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability dataset:generated is not claimed"
+  },
+  {
+   "case_id": "CT-DSR-004",
+   "test_id": "CT-DSR-004",
+   "capability": "dataset:production_replay",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability dataset:production_replay is not claimed"
+  },
+  {
+   "case_id": "CT-EXE-001",
+   "test_id": "CT-EXE-001",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-001-001.json",
+    "evidence://CT-EXE-001-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-EXE-002",
+   "test_id": "CT-EXE-002",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-002-001.json",
+    "evidence://CT-EXE-002-002.json",
+    "evidence://CT-EXE-002-003.json",
+    "evidence://CT-EXE-002-004.json",
+    "evidence://CT-EXE-002-005.json",
+    "evidence://CT-EXE-002-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-EXE-003",
+   "test_id": "CT-EXE-003",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-003-001.json",
+    "evidence://CT-EXE-003-002.json",
+    "evidence://CT-EXE-003-003.json",
+    "evidence://CT-EXE-003-004.json",
+    "evidence://CT-EXE-003-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-EXE-004",
+   "test_id": "CT-EXE-004",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-004-001.json",
+    "evidence://CT-EXE-004-002.json",
+    "evidence://CT-EXE-004-003.json",
+    "evidence://CT-EXE-004-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-EXE-005",
+   "test_id": "CT-EXE-005",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-005-001.json",
+    "evidence://CT-EXE-005-002.json",
+    "evidence://CT-EXE-005-003.json",
+    "evidence://CT-EXE-005-004.json",
+    "evidence://CT-EXE-005-005.json",
+    "evidence://CT-EXE-005-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-EXE-006",
+   "test_id": "CT-EXE-006",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-006-001.json",
+    "evidence://CT-EXE-006-002.json",
+    "evidence://CT-EXE-006-003.json",
+    "evidence://CT-EXE-006-004.json",
+    "evidence://CT-EXE-006-005.json",
+    "evidence://CT-EXE-006-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-EXE-007",
+   "test_id": "CT-EXE-007",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-007-001.json",
+    "evidence://CT-EXE-007-002.json",
+    "evidence://CT-EXE-007-003.json",
+    "evidence://CT-EXE-007-004.json",
+    "evidence://CT-EXE-007-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-EXE-008",
+   "test_id": "CT-EXE-008",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-008-001.json",
+    "evidence://CT-EXE-008-002.json",
+    "evidence://CT-EXE-008-003.json",
+    "evidence://CT-EXE-008-004.json",
+    "evidence://CT-EXE-008-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-EXE-009",
+   "test_id": "CT-EXE-009",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-009-001.json",
+    "evidence://CT-EXE-009-002.json",
+    "evidence://CT-EXE-009-003.json",
+    "evidence://CT-EXE-009-004.json",
+    "evidence://CT-EXE-009-005.json",
+    "evidence://CT-EXE-009-006.json",
+    "evidence://CT-EXE-009-007.json",
+    "evidence://CT-EXE-009-008.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "review review-openai-ct-exe-009 by reviewer://openai/gpt-6: All three Executions were on-demand suite/environment triggered by P-RELEASE. Recorded sequential order is 0 for s-1, 1 for s-2, 2 for s-3, within batch 331560f5-2259-4c76-b134-94509f5fd148."
+  },
+  {
+   "case_id": "CT-EXE-010",
+   "test_id": "CT-EXE-010",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-010-001.json",
+    "evidence://CT-EXE-010-002.json",
+    "evidence://CT-EXE-010-003.json",
+    "evidence://CT-EXE-010-004.json",
+    "evidence://CT-EXE-010-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-EXE-011",
+   "test_id": "CT-EXE-011",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-011-001.json",
+    "evidence://CT-EXE-011-002.json",
+    "evidence://CT-EXE-011-003.json",
+    "evidence://CT-EXE-011-004.json",
+    "evidence://CT-EXE-011-005.json",
+    "evidence://CT-EXE-011-006.json",
+    "evidence://CT-EXE-011-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-EXE-012",
+   "test_id": "CT-EXE-012",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-EXE-012-001.json",
+    "evidence://CT-EXE-012-002.json",
+    "evidence://CT-EXE-012-003.json",
+    "evidence://CT-EXE-012-004.json",
+    "evidence://CT-EXE-012-005.json",
+    "evidence://CT-EXE-012-006.json",
+    "evidence://CT-EXE-012-007.json",
+    "evidence://CT-EXE-012-008.json",
+    "evidence://CT-EXE-012-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "1: 307 ms recorded, 200 ms at the harness, fail; 2: 145 ms recorded, 0 ms at the harness, pass"
+  },
+  {
+   "case_id": "CT-HRV-001",
+   "test_id": "CT-HRV-001",
+   "capability": "human_review",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-HRV-001-001.json",
+    "evidence://CT-HRV-001-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-HRV-002",
+   "test_id": "CT-HRV-002",
+   "capability": "human_review",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-HRV-002-001.json",
+    "evidence://CT-HRV-002-002.json",
+    "evidence://CT-HRV-002-003.json",
+    "evidence://CT-HRV-002-004.json",
+    "evidence://CT-HRV-002-005.json",
+    "evidence://CT-HRV-002-006.json",
+    "evidence://CT-HRV-002-007.json",
+    "evidence://CT-HRV-002-008.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-HRV-003",
+   "test_id": "CT-HRV-003",
+   "capability": "human_review",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-HRV-003-001.json",
+    "evidence://CT-HRV-003-002.json",
+    "evidence://CT-HRV-003-003.json",
+    "evidence://CT-HRV-003-004.json",
+    "evidence://CT-HRV-003-005.json",
+    "evidence://CT-HRV-003-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "budget 15 s; review_timeout 1s"
+  },
+  {
+   "case_id": "CT-HRV-004",
+   "test_id": "CT-HRV-004",
+   "capability": "human_review",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-HRV-004-001.json",
+    "evidence://CT-HRV-004-002.json",
+    "evidence://CT-HRV-004-003.json",
+    "evidence://CT-HRV-004-004.json",
+    "evidence://CT-HRV-004-005.json",
+    "evidence://CT-HRV-004-006.json",
+    "evidence://CT-HRV-004-007.json",
+    "evidence://CT-HRV-004-008.json",
+    "evidence://CT-HRV-004-009.json",
+    "evidence://CT-HRV-004-010.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-HRV-005",
+   "test_id": "CT-HRV-005",
+   "capability": "human_review",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-HRV-005-001.json",
+    "evidence://CT-HRV-005-002.json",
+    "evidence://CT-HRV-005-003.json",
+    "evidence://CT-HRV-005-004.json",
+    "evidence://CT-HRV-005-005.json",
+    "evidence://CT-HRV-005-006.json",
+    "evidence://CT-HRV-005-007.json",
+    "evidence://CT-HRV-005-008.json",
+    "evidence://CT-HRV-005-009.json",
+    "evidence://CT-HRV-005-010.json",
+    "evidence://CT-HRV-005-011.json",
+    "evidence://CT-HRV-005-012.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "review_timeout 2s, so that the early attempt lands before it"
+  },
+  {
+   "case_id": "CT-HRV-006",
+   "test_id": "CT-HRV-006",
+   "capability": "human_review",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-HRV-006-001.json",
+    "evidence://CT-HRV-006-002.json",
+    "evidence://CT-HRV-006-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-MJG-001",
+   "test_id": "CT-MJG-001",
+   "capability": "multi_judge",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-MJG-001-001.json",
+    "evidence://CT-MJG-001-002.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-MJG-002",
+   "test_id": "CT-MJG-002",
+   "capability": "multi_judge",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-MJG-002-001.json",
+    "evidence://CT-MJG-002-002.json",
+    "evidence://CT-MJG-002-003.json",
+    "evidence://CT-MJG-002-004.json",
+    "evidence://CT-MJG-002-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-MJG-003",
+   "test_id": "CT-MJG-003",
+   "capability": "multi_judge",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-MJG-003-001.json",
+    "evidence://CT-MJG-003-002.json",
+    "evidence://CT-MJG-003-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-MJG-004",
+   "test_id": "CT-MJG-004",
+   "capability": "multi_judge",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-MJG-004-001.json",
+    "evidence://CT-MJG-004-002.json",
+    "evidence://CT-MJG-004-003.json",
+    "evidence://CT-MJG-004-004.json",
+    "evidence://CT-MJG-004-005.json",
+    "evidence://CT-MJG-004-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-MJG-005",
+   "test_id": "CT-MJG-005",
+   "capability": "multi_judge",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-MJG-005-001.json",
+    "evidence://CT-MJG-005-002.json",
+    "evidence://CT-MJG-005-003.json",
+    "evidence://CT-MJG-005-004.json",
+    "evidence://CT-MJG-005-005.json",
+    "evidence://CT-MJG-005-006.json",
+    "evidence://CT-MJG-005-007.json",
+    "evidence://CT-MJG-005-008.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-MJG-006",
+   "test_id": "CT-MJG-006",
+   "capability": "multi_judge",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-MJG-006-001.json",
+    "evidence://CT-MJG-006-002.json",
+    "evidence://CT-MJG-006-003.json",
+    "evidence://CT-MJG-006-004.json",
+    "evidence://CT-MJG-006-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-MJG-007",
+   "test_id": "CT-MJG-007",
+   "capability": "multi_judge",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-MJG-007-001.json",
+    "evidence://CT-MJG-007-002.json",
+    "evidence://CT-MJG-007-003.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "members keep 0.9 each; agreement reported separately as 0.6666666666666666; the Inspection half is for a reviewer"
+  },
+  {
+   "case_id": "CT-MJG-008",
+   "test_id": "CT-MJG-008",
+   "capability": "multi_judge + seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-MJG-008-001.json",
+    "evidence://CT-MJG-008-002.json",
+    "evidence://CT-MJG-008-003.json",
+    "evidence://CT-MJG-008-004.json",
+    "evidence://CT-MJG-008-005.json",
+    "evidence://CT-MJG-008-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-MJG-009",
+   "test_id": "CT-MJG-009",
+   "capability": "multi_judge + seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-MJG-009-001.json",
+    "evidence://CT-MJG-009-002.json",
+    "evidence://CT-MJG-009-003.json",
+    "evidence://CT-MJG-009-004.json",
+    "evidence://CT-MJG-009-005.json",
+    "evidence://CT-MJG-009-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-PLG-001",
+   "test_id": "CT-PLG-001",
+   "capability": "plugins:validator",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability plugins:validator is not claimed"
+  },
+  {
+   "case_id": "CT-PLG-002",
+   "test_id": "CT-PLG-002",
+   "capability": "plugins:validator",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability plugins:validator is not claimed"
+  },
+  {
+   "case_id": "CT-PLG-003",
+   "test_id": "CT-PLG-003",
+   "capability": "plugins:validator",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability plugins:validator is not claimed"
+  },
+  {
+   "case_id": "CT-PLG-004",
+   "test_id": "CT-PLG-004",
+   "capability": "plugins:validator",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability plugins:validator is not claimed"
+  },
+  {
+   "case_id": "CT-PLG-005",
+   "test_id": "CT-PLG-005",
+   "capability": "plugins:validator",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability plugins:validator is not claimed"
+  },
+  {
+   "case_id": "CT-PLG-006",
+   "test_id": "CT-PLG-006",
+   "capability": "plugins:dataset",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability plugins:dataset is not claimed"
+  },
+  {
+   "case_id": "CT-PLG-007",
+   "test_id": "CT-PLG-007",
+   "capability": "plugins:report",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability plugins:report is not claimed"
+  },
+  {
+   "case_id": "CT-REL-001",
+   "test_id": "CT-REL-001",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-001-001.json",
+    "evidence://CT-REL-001-002.json",
+    "evidence://CT-REL-001-003.json",
+    "evidence://CT-REL-001-004.json",
+    "evidence://CT-REL-001-005.json",
+    "evidence://CT-REL-001-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-002",
+   "test_id": "CT-REL-002",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-002-001.json",
+    "evidence://CT-REL-002-002.json",
+    "evidence://CT-REL-002-003.json",
+    "evidence://CT-REL-002-004.json",
+    "evidence://CT-REL-002-005.json",
+    "evidence://CT-REL-002-006.json",
+    "evidence://CT-REL-002-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-003",
+   "test_id": "CT-REL-003",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-003-001.json",
+    "evidence://CT-REL-003-002.json",
+    "evidence://CT-REL-003-003.json",
+    "evidence://CT-REL-003-004.json",
+    "evidence://CT-REL-003-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-004",
+   "test_id": "CT-REL-004",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-004-001.json",
+    "evidence://CT-REL-004-002.json",
+    "evidence://CT-REL-004-003.json",
+    "evidence://CT-REL-004-004.json",
+    "evidence://CT-REL-004-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "the engine takes no GateResults from the request; every decision carries every applicable Gate, so an incomplete one cannot be submitted"
+  },
+  {
+   "case_id": "CT-REL-005",
+   "test_id": "CT-REL-005",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-005-001.json",
+    "evidence://CT-REL-005-002.json",
+    "evidence://CT-REL-005-003.json",
+    "evidence://CT-REL-005-004.json",
+    "evidence://CT-REL-005-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-006",
+   "test_id": "CT-REL-006",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-006-001.json",
+    "evidence://CT-REL-006-002.json",
+    "evidence://CT-REL-006-003.json",
+    "evidence://CT-REL-006-004.json",
+    "evidence://CT-REL-006-005.json",
+    "evidence://CT-REL-006-006.json",
+    "evidence://CT-REL-006-007.json",
+    "evidence://CT-REL-006-008.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-007",
+   "test_id": "CT-REL-007",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-007-001.json",
+    "evidence://CT-REL-007-002.json",
+    "evidence://CT-REL-007-003.json",
+    "evidence://CT-REL-007-004.json",
+    "evidence://CT-REL-007-005.json",
+    "evidence://CT-REL-007-006.json",
+    "evidence://CT-REL-007-007.json",
+    "evidence://CT-REL-007-008.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-008",
+   "test_id": "CT-REL-008",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-008-001.json",
+    "evidence://CT-REL-008-002.json",
+    "evidence://CT-REL-008-003.json",
+    "evidence://CT-REL-008-004.json",
+    "evidence://CT-REL-008-005.json",
+    "evidence://CT-REL-008-006.json",
+    "evidence://CT-REL-008-007.json",
+    "evidence://CT-REL-008-008.json",
+    "evidence://CT-REL-008-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-009",
+   "test_id": "CT-REL-009",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-009-001.json",
+    "evidence://CT-REL-009-002.json",
+    "evidence://CT-REL-009-003.json",
+    "evidence://CT-REL-009-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-010",
+   "test_id": "CT-REL-010",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-010-001.json",
+    "evidence://CT-REL-010-002.json",
+    "evidence://CT-REL-010-003.json",
+    "evidence://CT-REL-010-004.json",
+    "evidence://CT-REL-010-005.json",
+    "evidence://CT-REL-010-006.json",
+    "evidence://CT-REL-010-007.json",
+    "evidence://CT-REL-010-008.json",
+    "evidence://CT-REL-010-009.json",
+    "evidence://CT-REL-010-010.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "first rejection: {\"detail\": \"Scoped configuration changed since Snapshot\"}"
+  },
+  {
+   "case_id": "CT-REL-011",
+   "test_id": "CT-REL-011",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-011-001.json",
+    "evidence://CT-REL-011-002.json",
+    "evidence://CT-REL-011-003.json",
+    "evidence://CT-REL-011-004.json",
+    "evidence://CT-REL-011-005.json",
+    "evidence://CT-REL-011-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "rejection: {\"detail\": \"Scoped configuration changed since Snapshot\"}"
+  },
+  {
+   "case_id": "CT-REL-012",
+   "test_id": "CT-REL-012",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-012-001.json",
+    "evidence://CT-REL-012-002.json",
+    "evidence://CT-REL-012-003.json",
+    "evidence://CT-REL-012-004.json",
+    "evidence://CT-REL-012-005.json",
+    "evidence://CT-REL-012-006.json",
+    "evidence://CT-REL-012-007.json",
+    "evidence://CT-REL-012-008.json",
+    "evidence://CT-REL-012-009.json",
+    "evidence://CT-REL-012-010.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-013",
+   "test_id": "CT-REL-013",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-013-001.json",
+    "evidence://CT-REL-013-002.json",
+    "evidence://CT-REL-013-003.json",
+    "evidence://CT-REL-013-004.json",
+    "evidence://CT-REL-013-005.json",
+    "evidence://CT-REL-013-006.json",
+    "evidence://CT-REL-013-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "inline Contract keyed 'scenario:cts-suite/s-greeting'"
+  },
+  {
+   "case_id": "CT-REL-014",
+   "test_id": "CT-REL-014",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-014-001.json",
+    "evidence://CT-REL-014-002.json",
+    "evidence://CT-REL-014-003.json",
+    "evidence://CT-REL-014-004.json",
+    "evidence://CT-REL-014-005.json",
+    "evidence://CT-REL-014-006.json",
+    "evidence://CT-REL-014-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "evaluation 1's GateResult, as returned, keeps threshold 1.0"
+  },
+  {
+   "case_id": "CT-REL-015",
+   "test_id": "CT-REL-015",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-015-001.json",
+    "evidence://CT-REL-015-002.json",
+    "evidence://CT-REL-015-003.json",
+    "evidence://CT-REL-015-004.json",
+    "evidence://CT-REL-015-005.json",
+    "evidence://CT-REL-015-006.json",
+    "evidence://CT-REL-015-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-016",
+   "test_id": "CT-REL-016",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-016-001.json",
+    "evidence://CT-REL-016-002.json",
+    "evidence://CT-REL-016-003.json",
+    "evidence://CT-REL-016-004.json",
+    "evidence://CT-REL-016-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-017",
+   "test_id": "CT-REL-017",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-017-001.json",
+    "evidence://CT-REL-017-002.json",
+    "evidence://CT-REL-017-003.json",
+    "evidence://CT-REL-017-004.json",
+    "evidence://CT-REL-017-005.json",
+    "evidence://CT-REL-017-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-018",
+   "test_id": "CT-REL-018",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-018-001.json",
+    "evidence://CT-REL-018-002.json",
+    "evidence://CT-REL-018-003.json",
+    "evidence://CT-REL-018-004.json",
+    "evidence://CT-REL-018-005.json",
+    "evidence://CT-REL-018-006.json",
+    "evidence://CT-REL-018-007.json",
+    "evidence://CT-REL-018-008.json",
+    "evidence://CT-REL-018-009.json",
+    "evidence://CT-REL-018-010.json",
+    "evidence://CT-REL-018-011.json",
+    "evidence://CT-REL-018-012.json",
+    "evidence://CT-REL-018-013.json",
+    "evidence://CT-REL-018-014.json",
+    "evidence://CT-REL-018-015.json",
+    "evidence://CT-REL-018-016.json",
+    "evidence://CT-REL-018-017.json",
+    "evidence://CT-REL-018-018.json",
+    "evidence://CT-REL-018-019.json",
+    "evidence://CT-REL-018-020.json",
+    "evidence://CT-REL-018-021.json",
+    "evidence://CT-REL-018-022.json",
+    "evidence://CT-REL-018-023.json",
+    "evidence://CT-REL-018-024.json",
+    "evidence://CT-REL-018-025.json",
+    "evidence://CT-REL-018-026.json",
+    "evidence://CT-REL-018-027.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-019",
+   "test_id": "CT-REL-019",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-019-001.json",
+    "evidence://CT-REL-019-002.json",
+    "evidence://CT-REL-019-003.json",
+    "evidence://CT-REL-019-004.json",
+    "evidence://CT-REL-019-005.json",
+    "evidence://CT-REL-019-006.json",
+    "evidence://CT-REL-019-007.json",
+    "evidence://CT-REL-019-008.json",
+    "evidence://CT-REL-019-009.json",
+    "evidence://CT-REL-019-010.json",
+    "evidence://CT-REL-019-011.json",
+    "evidence://CT-REL-019-012.json",
+    "evidence://CT-REL-019-013.json",
+    "evidence://CT-REL-019-014.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "SA-CI's owner (P-RELEASE) is not retrievable through the API (no GET for Principals); left to Inspection"
+  },
+  {
+   "case_id": "CT-REL-020",
+   "test_id": "CT-REL-020",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-020-001.json",
+    "evidence://CT-REL-020-002.json",
+    "evidence://CT-REL-020-003.json",
+    "evidence://CT-REL-020-004.json",
+    "evidence://CT-REL-020-005.json",
+    "evidence://CT-REL-020-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "approver and review reference sent as the engine's documented headers"
+  },
+  {
+   "case_id": "CT-REL-021",
+   "test_id": "CT-REL-021",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-021-001.json",
+    "evidence://CT-REL-021-002.json",
+    "evidence://CT-REL-021-003.json",
+    "evidence://CT-REL-021-004.json",
+    "evidence://CT-REL-021-005.json",
+    "evidence://CT-REL-021-006.json",
+    "evidence://CT-REL-021-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "cts-approver is the Role holding baseline_approve"
+  },
+  {
+   "case_id": "CT-REL-022",
+   "test_id": "CT-REL-022",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-022-001.json",
+    "evidence://CT-REL-022-002.json",
+    "evidence://CT-REL-022-003.json",
+    "evidence://CT-REL-022-004.json",
+    "evidence://CT-REL-022-005.json",
+    "evidence://CT-REL-022-006.json",
+    "evidence://CT-REL-022-007.json",
+    "evidence://CT-REL-022-008.json",
+    "evidence://CT-REL-022-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "the deletion was rejected (409)"
+  },
+  {
+   "case_id": "CT-REL-023",
+   "test_id": "CT-REL-023",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-023-001.json",
+    "evidence://CT-REL-023-002.json",
+    "evidence://CT-REL-023-003.json",
+    "evidence://CT-REL-023-004.json",
+    "evidence://CT-REL-023-005.json",
+    "evidence://CT-REL-023-006.json",
+    "evidence://CT-REL-023-007.json",
+    "evidence://CT-REL-023-008.json",
+    "evidence://CT-REL-023-009.json",
+    "evidence://CT-REL-023-010.json",
+    "evidence://CT-REL-023-011.json",
+    "evidence://CT-REL-023-012.json",
+    "evidence://CT-REL-023-013.json",
+    "evidence://CT-REL-023-014.json",
+    "evidence://CT-REL-023-015.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "review review-openai-ct-rel-023 by reviewer://openai/gpt-6: Release id dc79bdf1 links to Report 6678d86f and Snapshot 3652d0ea; GateResult f63526f7 carries override approval de1d6b6e (P-APPROVER); Report metrics refer to two Result IDs found in 012; both link "
+  },
+  {
+   "case_id": "CT-REL-024",
+   "test_id": "CT-REL-024",
+   "capability": "ci_cd:<platform>",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability ci_cd:<platform> is not claimed"
+  },
+  {
+   "case_id": "CT-REL-025",
+   "test_id": "CT-REL-025",
+   "capability": "ci_cd:<platform> + human_review",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability ci_cd:<platform> + human_review is not claimed"
+  },
+  {
+   "case_id": "CT-REL-026",
+   "test_id": "CT-REL-026",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-026-001.json",
+    "evidence://CT-REL-026-002.json",
+    "evidence://CT-REL-026-003.json",
+    "evidence://CT-REL-026-004.json",
+    "evidence://CT-REL-026-005.json",
+    "evidence://CT-REL-026-006.json",
+    "evidence://CT-REL-026-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-027",
+   "test_id": "CT-REL-027",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-027-001.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "review review-openai-ct-rel-027 by reviewer://openai/gpt-6: Published declaration is 0.41.5 and claims human_review, multi_judge, seeded_controls; Team binding none. Review brief confirms run capabilities_claimed from this statement. Evidence for harness invoc"
+  },
+  {
+   "case_id": "CT-REL-028",
+   "test_id": "CT-REL-028",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-028-001.json",
+    "evidence://CT-REL-028-002.json",
+    "evidence://CT-REL-028-003.json",
+    "evidence://CT-REL-028-004.json",
+    "evidence://CT-REL-028-005.json",
+    "evidence://CT-REL-028-006.json",
+    "evidence://CT-REL-028-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-029",
+   "test_id": "CT-REL-029",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-029-001.json",
+    "evidence://CT-REL-029-002.json",
+    "evidence://CT-REL-029-003.json",
+    "evidence://CT-REL-029-004.json",
+    "evidence://CT-REL-029-005.json",
+    "evidence://CT-REL-029-006.json",
+    "evidence://CT-REL-029-007.json",
+    "evidence://CT-REL-029-008.json",
+    "evidence://CT-REL-029-009.json",
+    "evidence://CT-REL-029-010.json",
+    "evidence://CT-REL-029-011.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "(a) the Report generated after the override"
+  },
+  {
+   "case_id": "CT-REL-030",
+   "test_id": "CT-REL-030",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-030-001.json",
+    "evidence://CT-REL-030-002.json",
+    "evidence://CT-REL-030-003.json",
+    "evidence://CT-REL-030-004.json",
+    "evidence://CT-REL-030-005.json",
+    "evidence://CT-REL-030-006.json",
+    "evidence://CT-REL-030-007.json",
+    "evidence://CT-REL-030-008.json",
+    "evidence://CT-REL-030-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-REL-031",
+   "test_id": "CT-REL-031",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-031-001.json",
+    "evidence://CT-REL-031-002.json",
+    "evidence://CT-REL-031-003.json",
+    "evidence://CT-REL-031-004.json",
+    "evidence://CT-REL-031-005.json",
+    "evidence://CT-REL-031-006.json",
+    "evidence://CT-REL-031-007.json",
+    "evidence://CT-REL-031-008.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "the engine offers no modifying operation; PUT and PATCH tried"
+  },
+  {
+   "case_id": "CT-REL-032",
+   "test_id": "CT-REL-032",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-032-001.json",
+    "evidence://CT-REL-032-002.json",
+    "evidence://CT-REL-032-003.json",
+    "evidence://CT-REL-032-004.json",
+    "evidence://CT-REL-032-005.json",
+    "evidence://CT-REL-032-006.json",
+    "evidence://CT-REL-032-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "approved_by and approval_role are set by the engine, not sent"
+  },
+  {
+   "case_id": "CT-REL-033",
+   "test_id": "CT-REL-033",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-033-001.json",
+    "evidence://CT-REL-033-002.json",
+    "evidence://CT-REL-033-003.json",
+    "evidence://CT-REL-033-004.json",
+    "evidence://CT-REL-033-005.json",
+    "evidence://CT-REL-033-006.json",
+    "evidence://CT-REL-033-007.json",
+    "evidence://CT-REL-033-008.json",
+    "evidence://CT-REL-033-009.json",
+    "evidence://CT-REL-033-010.json",
+    "evidence://CT-REL-033-011.json",
+    "evidence://CT-REL-033-012.json",
+    "evidence://CT-REL-033-013.json",
+    "evidence://CT-REL-033-014.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "A.12 gives the decision no Principal-kind field; SA-CI is identified as a Service Account in the audit log and the decision carries release_policy. Personal name or e-mail: Inspection"
+  },
+  {
+   "case_id": "CT-REL-034",
+   "test_id": "CT-REL-034",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-034-001.json",
+    "evidence://CT-REL-034-002.json",
+    "evidence://CT-REL-034-003.json",
+    "evidence://CT-REL-034-004.json",
+    "evidence://CT-REL-034-005.json",
+    "evidence://CT-REL-034-006.json",
+    "evidence://CT-REL-034-007.json",
+    "evidence://CT-REL-034-008.json",
+    "evidence://CT-REL-034-009.json",
+    "evidence://CT-REL-034-010.json",
+    "evidence://CT-REL-034-011.json",
+    "evidence://CT-REL-034-012.json",
+    "evidence://CT-REL-034-013.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "no deletion operation succeeded; Contract version 1 recovered from the Baseline's frozen copy"
+  },
+  {
+   "case_id": "CT-REL-035",
+   "test_id": "CT-REL-035",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-035-001.json",
+    "evidence://CT-REL-035-002.json",
+    "evidence://CT-REL-035-003.json",
+    "evidence://CT-REL-035-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "low_confidence summed over its per-Scenario entries"
+  },
+  {
+   "case_id": "CT-REL-036",
+   "test_id": "CT-REL-036",
+   "capability": "core",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "OPTIONAL_FEATURE_ABSENT",
+   "evidence_refs": [
+    "evidence://CT-REL-036-001.json",
+    "evidence://CT-REL-036-002.json",
+    "evidence://CT-REL-036-003.json",
+    "evidence://CT-REL-036-004.json",
+    "evidence://CT-REL-036-005.json",
+    "evidence://CT-REL-036-006.json",
+    "evidence://CT-REL-036-007.json",
+    "evidence://CT-REL-036-008.json",
+    "evidence://CT-REL-036-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "review review-openai-ct-rel-036 by reviewer://openai/gpt-6: Engine explicitly offers Reports with Metrics but no KPI/dashboard frontend. Metric-to-Result IDs are observable, but there is no KPI artifact from which to start. Under the explicit Expected exceptio"
+  },
+  {
+   "case_id": "CT-REL-037",
+   "test_id": "CT-REL-037",
+   "capability": "ci_cd:<platform>",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability ci_cd:<platform> is not claimed"
+  },
+  {
+   "case_id": "CT-REL-038",
+   "test_id": "CT-REL-038",
+   "capability": "core",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-REL-038-001.json",
+    "evidence://CT-REL-038-002.json",
+    "evidence://CT-REL-038-003.json",
+    "evidence://CT-REL-038-004.json",
+    "evidence://CT-REL-038-005.json",
+    "evidence://CT-REL-038-006.json",
+    "evidence://CT-REL-038-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "6 entries; actions execute, release_decide"
+  },
+  {
+   "case_id": "CT-REL-039",
+   "test_id": "CT-REL-039",
+   "capability": "core",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "OPTIONAL_FEATURE_ABSENT",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "the Conformance Statement says the engine binds no Project or Suite to Teams (CTS 1.2)"
+  },
+  {
+   "case_id": "CT-RUI-001",
+   "test_id": "CT-RUI-001",
+   "capability": "reference_ui",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability reference_ui is not claimed"
+  },
+  {
+   "case_id": "CT-RUI-002",
+   "test_id": "CT-RUI-002",
+   "capability": "reference_ui",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability reference_ui is not claimed"
+  },
+  {
+   "case_id": "CT-RUI-003",
+   "test_id": "CT-RUI-003",
+   "capability": "reference_ui + multi_judge",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability reference_ui + multi_judge is not claimed"
+  },
+  {
+   "case_id": "CT-RUI-004",
+   "test_id": "CT-RUI-004",
+   "capability": "reference_ui",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability reference_ui is not claimed"
+  },
+  {
+   "case_id": "CT-SCT-001",
+   "test_id": "CT-SCT-001",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-001-001.json",
+    "evidence://CT-SCT-001-002.json",
+    "evidence://CT-SCT-001-003.json",
+    "evidence://CT-SCT-001-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SCT-002",
+   "test_id": "CT-SCT-002",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-002-001.json",
+    "evidence://CT-SCT-002-002.json",
+    "evidence://CT-SCT-002-003.json",
+    "evidence://CT-SCT-002-004.json",
+    "evidence://CT-SCT-002-005.json",
+    "evidence://CT-SCT-002-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SCT-003",
+   "test_id": "CT-SCT-003",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-003-001.json",
+    "evidence://CT-SCT-003-002.json",
+    "evidence://CT-SCT-003-003.json",
+    "evidence://CT-SCT-003-004.json",
+    "evidence://CT-SCT-003-005.json",
+    "evidence://CT-SCT-003-006.json",
+    "evidence://CT-SCT-003-007.json",
+    "evidence://CT-SCT-003-008.json",
+    "evidence://CT-SCT-003-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "both Scenarios send 'Hello'; the harness answers the first call (the control, which runs first) with SR-BYE"
+  },
+  {
+   "case_id": "CT-SCT-004",
+   "test_id": "CT-SCT-004",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-004-001.json",
+    "evidence://CT-SCT-004-002.json",
+    "evidence://CT-SCT-004-003.json",
+    "evidence://CT-SCT-004-004.json",
+    "evidence://CT-SCT-004-005.json",
+    "evidence://CT-SCT-004-006.json",
+    "evidence://CT-SCT-004-007.json",
+    "evidence://CT-SCT-004-008.json",
+    "evidence://CT-SCT-004-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SCT-005",
+   "test_id": "CT-SCT-005",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-005-001.json",
+    "evidence://CT-SCT-005-002.json",
+    "evidence://CT-SCT-005-003.json",
+    "evidence://CT-SCT-005-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SCT-006",
+   "test_id": "CT-SCT-006",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-006-001.json",
+    "evidence://CT-SCT-006-002.json",
+    "evidence://CT-SCT-006-003.json",
+    "evidence://CT-SCT-006-004.json",
+    "evidence://CT-SCT-006-005.json",
+    "evidence://CT-SCT-006-006.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SCT-007",
+   "test_id": "CT-SCT-007",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-007-001.json",
+    "evidence://CT-SCT-007-002.json",
+    "evidence://CT-SCT-007-003.json",
+    "evidence://CT-SCT-007-004.json",
+    "evidence://CT-SCT-007-005.json",
+    "evidence://CT-SCT-007-006.json",
+    "evidence://CT-SCT-007-007.json",
+    "evidence://CT-SCT-007-008.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SCT-008",
+   "test_id": "CT-SCT-008",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-008-001.json",
+    "evidence://CT-SCT-008-002.json",
+    "evidence://CT-SCT-008-003.json",
+    "evidence://CT-SCT-008-004.json",
+    "evidence://CT-SCT-008-005.json",
+    "evidence://CT-SCT-008-006.json",
+    "evidence://CT-SCT-008-007.json",
+    "evidence://CT-SCT-008-008.json",
+    "evidence://CT-SCT-008-009.json",
+    "evidence://CT-SCT-008-010.json",
+    "evidence://CT-SCT-008-011.json",
+    "evidence://CT-SCT-008-012.json",
+    "evidence://CT-SCT-008-013.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "fresh controls run in a separate Suite of the same Project, bound to @2"
+  },
+  {
+   "case_id": "CT-SCT-009",
+   "test_id": "CT-SCT-009",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-009-001.json",
+    "evidence://CT-SCT-009-002.json",
+    "evidence://CT-SCT-009-003.json",
+    "evidence://CT-SCT-009-004.json",
+    "evidence://CT-SCT-009-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SCT-010",
+   "test_id": "CT-SCT-010",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-010-001.json",
+    "evidence://CT-SCT-010-002.json",
+    "evidence://CT-SCT-010-003.json",
+    "evidence://CT-SCT-010-004.json",
+    "evidence://CT-SCT-010-005.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SCT-011",
+   "test_id": "CT-SCT-011",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-011-001.json",
+    "evidence://CT-SCT-011-002.json",
+    "evidence://CT-SCT-011-003.json",
+    "evidence://CT-SCT-011-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SCT-012",
+   "test_id": "CT-SCT-012",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-012-001.json",
+    "evidence://CT-SCT-012-002.json",
+    "evidence://CT-SCT-012-003.json",
+    "evidence://CT-SCT-012-004.json",
+    "evidence://CT-SCT-012-005.json",
+    "evidence://CT-SCT-012-006.json",
+    "evidence://CT-SCT-012-007.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "the control runs first; the harness answers the first subject call as the control"
+  },
+  {
+   "case_id": "CT-SCT-013",
+   "test_id": "CT-SCT-013",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-013-001.json",
+    "evidence://CT-SCT-013-002.json",
+    "evidence://CT-SCT-013-003.json",
+    "evidence://CT-SCT-013-004.json",
+    "evidence://CT-SCT-013-005.json",
+    "evidence://CT-SCT-013-006.json",
+    "evidence://CT-SCT-013-007.json",
+    "evidence://CT-SCT-013-008.json",
+    "evidence://CT-SCT-013-009.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SCT-014",
+   "test_id": "CT-SCT-014",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-014-001.json",
+    "evidence://CT-SCT-014-002.json",
+    "evidence://CT-SCT-014-003.json",
+    "evidence://CT-SCT-014-004.json",
+    "evidence://CT-SCT-014-005.json",
+    "evidence://CT-SCT-014-006.json",
+    "evidence://CT-SCT-014-007.json",
+    "evidence://CT-SCT-014-008.json",
+    "evidence://CT-SCT-014-009.json",
+    "evidence://CT-SCT-014-010.json",
+    "evidence://CT-SCT-014-011.json",
+    "evidence://CT-SCT-014-012.json",
+    "evidence://CT-SCT-014-013.json",
+    "evidence://CT-SCT-014-014.json",
+    "evidence://CT-SCT-014-015.json",
+    "evidence://CT-SCT-014-016.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete",
+   "reason": "fresh controls run in a separate Suite of the same Project, bound to @2"
+  },
+  {
+   "case_id": "CT-SCT-015",
+   "test_id": "CT-SCT-015",
+   "capability": "seeded_controls",
+   "outcome": "PASS",
+   "reason_code": "EXPECTED_MET",
+   "evidence_refs": [
+    "evidence://CT-SCT-015-001.json",
+    "evidence://CT-SCT-015-002.json",
+    "evidence://CT-SCT-015-003.json",
+    "evidence://CT-SCT-015-004.json"
+   ],
+   "evidence_grades": [
+    "observed"
+   ],
+   "setup_status": "ready",
+   "cleanup_status": "complete"
+  },
+  {
+   "case_id": "CT-SDK-001",
+   "test_id": "CT-SDK-001",
+   "capability": "cli",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability cli is not claimed"
+  },
+  {
+   "case_id": "CT-SDK-002",
+   "test_id": "CT-SDK-002",
+   "capability": "sdk:<language>",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability sdk:<language> is not claimed"
+  },
+  {
+   "case_id": "CT-TTP-001",
+   "test_id": "CT-TTP-001",
+   "capability": "test_type:regression",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability test_type:regression is not claimed"
+  },
+  {
+   "case_id": "CT-TTP-002",
+   "test_id": "CT-TTP-002",
+   "capability": "test_type:agent + action_boundary",
+   "outcome": "NOT_APPLICABLE",
+   "reason_code": "CAPABILITY_NOT_CLAIMED",
+   "evidence_refs": [],
+   "evidence_grades": [],
+   "setup_status": "not_needed",
+   "cleanup_status": "skipped",
+   "reason": "capability test_type:agent + action_boundary is not claimed"
+  }
+ ],
+ "tests": [
+  {
+   "test_id": "CT-ABD-001",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-ABD-001"
+   ]
+  },
+  {
+   "test_id": "CT-ABD-002",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-ABD-002"
+   ]
+  },
+  {
+   "test_id": "CT-ABD-003",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-ABD-003"
+   ]
+  },
+  {
+   "test_id": "CT-ABD-004",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-ABD-004"
+   ]
+  },
+  {
+   "test_id": "CT-ABD-005",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-ABD-005"
+   ]
+  },
+  {
+   "test_id": "CT-ABD-006",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-ABD-006"
+   ]
+  },
+  {
+   "test_id": "CT-ABD-007",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-ABD-007"
+   ]
+  },
+  {
+   "test_id": "CT-ADM-001",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ADM-001"
+   ]
+  },
+  {
+   "test_id": "CT-ADM-002",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ADM-002"
+   ]
+  },
+  {
+   "test_id": "CT-ADM-003",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ADM-003"
+   ]
+  },
+  {
+   "test_id": "CT-ADM-004",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ADM-004"
+   ]
+  },
+  {
+   "test_id": "CT-ADM-005",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ADM-005"
+   ]
+  },
+  {
+   "test_id": "CT-ADM-006",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ADM-006"
+   ]
+  },
+  {
+   "test_id": "CT-ADM-007",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ADM-007"
+   ]
+  },
+  {
+   "test_id": "CT-API-001",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-API-001"
+   ]
+  },
+  {
+   "test_id": "CT-API-002",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-API-002"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-001",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-001"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-002",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-002"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-003",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-003"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-004",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-004"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-005",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-005"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-006",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-007",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-007"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-008",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-008"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-009",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-009"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-010",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-010"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-011",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-011"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-012",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-012"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-013",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-013"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-014",
+   "outcome": "NOT_RUN",
+   "case_ids": [
+    "CT-ASM-014"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-015",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-015"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-016",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-016"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-017",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-017"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-018",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-ASM-018"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-019",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-019"
+   ]
+  },
+  {
+   "test_id": "CT-ASM-020",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-ASM-020"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-001",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-001"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-002",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-002"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-003",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-003"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-004",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-004"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-005",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-005"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-006",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-006"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-007",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-007"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-008",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-008"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-009",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-009"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-010",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-010"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-011",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-011"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-012",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-012"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-013",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-013"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-014",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-014"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-015",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-015"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-016",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-016"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-017",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-017"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-018",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-018"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-019",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-019"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-020",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-020"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-021",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-021"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-022",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-022"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-023",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-023"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-024",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-024"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-025",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-025.01",
+    "CT-CFG-025.02",
+    "CT-CFG-025.03",
+    "CT-CFG-025.04",
+    "CT-CFG-025.05",
+    "CT-CFG-025.06",
+    "CT-CFG-025.07",
+    "CT-CFG-025.08",
+    "CT-CFG-025.09",
+    "CT-CFG-025.10",
+    "CT-CFG-025.11",
+    "CT-CFG-025.12",
+    "CT-CFG-025.13",
+    "CT-CFG-025.14",
+    "CT-CFG-025.15",
+    "CT-CFG-025.16",
+    "CT-CFG-025.17",
+    "CT-CFG-025.18",
+    "CT-CFG-025.19",
+    "CT-CFG-025.20",
+    "CT-CFG-025.21",
+    "CT-CFG-025.22",
+    "CT-CFG-025.23",
+    "CT-CFG-025.24",
+    "CT-CFG-025.25"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-026",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-026"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-027",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-027"
+   ]
+  },
+  {
+   "test_id": "CT-CFG-028",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-CFG-028"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-001",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-001"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-002",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-002"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-003",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-003"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-004",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-004"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-005",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-005"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-006",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-006"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-007",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-007"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-008",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-008"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-009",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-009"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-010",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-010"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-011",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-011"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-012",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-012"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-013",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-013"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-014",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-014"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-015",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-015"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-016",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-016"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-017",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-017"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-018",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-018"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-019",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-019"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-020",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-020"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-021",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-021"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-022",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-022"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-023",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-023"
+   ]
+  },
+  {
+   "test_id": "CT-DEC-024",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-DEC-024"
+   ]
+  },
+  {
+   "test_id": "CT-DSR-001",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-DSR-001"
+   ]
+  },
+  {
+   "test_id": "CT-DSR-002",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-DSR-002"
+   ]
+  },
+  {
+   "test_id": "CT-DSR-003",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-DSR-003"
+   ]
+  },
+  {
+   "test_id": "CT-DSR-004",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-DSR-004"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-001",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-001"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-002",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-002"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-003",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-003"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-004",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-004"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-005",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-005"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-006",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-006"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-007",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-007"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-008",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-008"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-009",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-009"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-010",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-010"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-011",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-011"
+   ]
+  },
+  {
+   "test_id": "CT-EXE-012",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-EXE-012"
+   ]
+  },
+  {
+   "test_id": "CT-HRV-001",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-HRV-001"
+   ]
+  },
+  {
+   "test_id": "CT-HRV-002",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-HRV-002"
+   ]
+  },
+  {
+   "test_id": "CT-HRV-003",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-HRV-003"
+   ]
+  },
+  {
+   "test_id": "CT-HRV-004",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-HRV-004"
+   ]
+  },
+  {
+   "test_id": "CT-HRV-005",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-HRV-005"
+   ]
+  },
+  {
+   "test_id": "CT-HRV-006",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-HRV-006"
+   ]
+  },
+  {
+   "test_id": "CT-MJG-001",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-MJG-001"
+   ]
+  },
+  {
+   "test_id": "CT-MJG-002",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-MJG-002"
+   ]
+  },
+  {
+   "test_id": "CT-MJG-003",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-MJG-003"
+   ]
+  },
+  {
+   "test_id": "CT-MJG-004",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-MJG-004"
+   ]
+  },
+  {
+   "test_id": "CT-MJG-005",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-MJG-005"
+   ]
+  },
+  {
+   "test_id": "CT-MJG-006",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-MJG-006"
+   ]
+  },
+  {
+   "test_id": "CT-MJG-007",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-MJG-007"
+   ]
+  },
+  {
+   "test_id": "CT-MJG-008",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-MJG-008"
+   ]
+  },
+  {
+   "test_id": "CT-MJG-009",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-MJG-009"
+   ]
+  },
+  {
+   "test_id": "CT-PLG-001",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-PLG-001"
+   ]
+  },
+  {
+   "test_id": "CT-PLG-002",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-PLG-002"
+   ]
+  },
+  {
+   "test_id": "CT-PLG-003",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-PLG-003"
+   ]
+  },
+  {
+   "test_id": "CT-PLG-004",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-PLG-004"
+   ]
+  },
+  {
+   "test_id": "CT-PLG-005",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-PLG-005"
+   ]
+  },
+  {
+   "test_id": "CT-PLG-006",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-PLG-006"
+   ]
+  },
+  {
+   "test_id": "CT-PLG-007",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-PLG-007"
+   ]
+  },
+  {
+   "test_id": "CT-REL-001",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "test_id": "CT-REL-002",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-002"
+   ]
+  },
+  {
+   "test_id": "CT-REL-003",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-003"
+   ]
+  },
+  {
+   "test_id": "CT-REL-004",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-004"
+   ]
+  },
+  {
+   "test_id": "CT-REL-005",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-005"
+   ]
+  },
+  {
+   "test_id": "CT-REL-006",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-006"
+   ]
+  },
+  {
+   "test_id": "CT-REL-007",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-007"
+   ]
+  },
+  {
+   "test_id": "CT-REL-008",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-008"
+   ]
+  },
+  {
+   "test_id": "CT-REL-009",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-009"
+   ]
+  },
+  {
+   "test_id": "CT-REL-010",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-010"
+   ]
+  },
+  {
+   "test_id": "CT-REL-011",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-011"
+   ]
+  },
+  {
+   "test_id": "CT-REL-012",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-012"
+   ]
+  },
+  {
+   "test_id": "CT-REL-013",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-013"
+   ]
+  },
+  {
+   "test_id": "CT-REL-014",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-014"
+   ]
+  },
+  {
+   "test_id": "CT-REL-015",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-015"
+   ]
+  },
+  {
+   "test_id": "CT-REL-016",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-016"
+   ]
+  },
+  {
+   "test_id": "CT-REL-017",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-017"
+   ]
+  },
+  {
+   "test_id": "CT-REL-018",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-018"
+   ]
+  },
+  {
+   "test_id": "CT-REL-019",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-019"
+   ]
+  },
+  {
+   "test_id": "CT-REL-020",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-020"
+   ]
+  },
+  {
+   "test_id": "CT-REL-021",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-021"
+   ]
+  },
+  {
+   "test_id": "CT-REL-022",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-022"
+   ]
+  },
+  {
+   "test_id": "CT-REL-023",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-023"
+   ]
+  },
+  {
+   "test_id": "CT-REL-024",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-REL-024"
+   ]
+  },
+  {
+   "test_id": "CT-REL-025",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-REL-025"
+   ]
+  },
+  {
+   "test_id": "CT-REL-026",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-026"
+   ]
+  },
+  {
+   "test_id": "CT-REL-027",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-027"
+   ]
+  },
+  {
+   "test_id": "CT-REL-028",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-028"
+   ]
+  },
+  {
+   "test_id": "CT-REL-029",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-029"
+   ]
+  },
+  {
+   "test_id": "CT-REL-030",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-030"
+   ]
+  },
+  {
+   "test_id": "CT-REL-031",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "test_id": "CT-REL-032",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-032"
+   ]
+  },
+  {
+   "test_id": "CT-REL-033",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-033"
+   ]
+  },
+  {
+   "test_id": "CT-REL-034",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-034"
+   ]
+  },
+  {
+   "test_id": "CT-REL-035",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-035"
+   ]
+  },
+  {
+   "test_id": "CT-REL-036",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-REL-036"
+   ]
+  },
+  {
+   "test_id": "CT-REL-037",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-REL-037"
+   ]
+  },
+  {
+   "test_id": "CT-REL-038",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-REL-038"
+   ]
+  },
+  {
+   "test_id": "CT-REL-039",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-REL-039"
+   ]
+  },
+  {
+   "test_id": "CT-RUI-001",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-RUI-001"
+   ]
+  },
+  {
+   "test_id": "CT-RUI-002",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-RUI-002"
+   ]
+  },
+  {
+   "test_id": "CT-RUI-003",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-RUI-003"
+   ]
+  },
+  {
+   "test_id": "CT-RUI-004",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-RUI-004"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-001",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-001"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-002",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-002"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-003",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-003"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-004",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-004"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-005",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-005"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-006",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-006"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-007",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-007"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-008",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-008"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-009",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-009"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-010",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-010"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-011",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-011"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-012",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-012"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-013",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-013"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-014",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-014"
+   ]
+  },
+  {
+   "test_id": "CT-SCT-015",
+   "outcome": "PASS",
+   "case_ids": [
+    "CT-SCT-015"
+   ]
+  },
+  {
+   "test_id": "CT-SDK-001",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-SDK-001"
+   ]
+  },
+  {
+   "test_id": "CT-SDK-002",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-SDK-002"
+   ]
+  },
+  {
+   "test_id": "CT-TTP-001",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-TTP-001"
+   ]
+  },
+  {
+   "test_id": "CT-TTP-002",
+   "outcome": "NOT_APPLICABLE",
+   "case_ids": [
+    "CT-TTP-002"
+   ]
+  }
+ ],
+ "requirements": [
+  {
+   "requirement_id": "R-0002",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-005"
+   ],
+   "derived_from": "R-0092"
+  },
+  {
+   "requirement_id": "R-0003",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-003",
+    "CT-SCT-004"
+   ],
+   "derived_from": "R-0090"
+  },
+  {
+   "requirement_id": "R-0005",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-012"
+   ]
+  },
+  {
+   "requirement_id": "R-0006",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-003",
+    "CT-ASM-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0007",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0015",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-REL-024"
+   ]
+  },
+  {
+   "requirement_id": "R-0016",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-027"
+   ]
+  },
+  {
+   "requirement_id": "R-0017",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-026"
+   ]
+  },
+  {
+   "requirement_id": "R-0018",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-026"
+   ]
+  },
+  {
+   "requirement_id": "R-0021",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-001",
+    "CT-ASM-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0022",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0023",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-007",
+    "CT-EXE-008"
+   ]
+  },
+  {
+   "requirement_id": "R-0024",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0025",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0026",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0027",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0029",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0030",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0031",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0032",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-005",
+    "CT-HRV-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0034",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-020"
+   ]
+  },
+  {
+   "requirement_id": "R-0035",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-019"
+   ]
+  },
+  {
+   "requirement_id": "R-0036",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0037",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0038",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0039",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001",
+    "CT-REL-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0040",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-015",
+    "CT-DEC-017",
+    "CT-SCT-011",
+    "CT-SCT-015"
+   ]
+  },
+  {
+   "requirement_id": "R-0041",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0042",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001",
+    "CT-REL-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0043",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-002",
+    "CT-REL-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0044",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0045",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-006",
+    "CT-DEC-007",
+    "CT-DEC-011"
+   ]
+  },
+  {
+   "requirement_id": "R-0046",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-010"
+   ]
+  },
+  {
+   "requirement_id": "R-0047",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-TTP-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0048",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0049",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0050",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-001",
+    "CT-ABD-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0051",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0052",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0053",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0054",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0055",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0056",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-004",
+    "CT-EXE-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0057",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0058",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-011"
+   ]
+  },
+  {
+   "requirement_id": "R-0059",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-012"
+   ]
+  },
+  {
+   "requirement_id": "R-0060",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-003",
+    "CT-ABD-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0063",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-017",
+    "CT-EXE-010",
+    "CT-DSR-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0064",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0065",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-010"
+   ]
+  },
+  {
+   "requirement_id": "R-0066",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0067",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0068",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-016"
+   ]
+  },
+  {
+   "requirement_id": "R-0069",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-017"
+   ]
+  },
+  {
+   "requirement_id": "R-0070",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-016"
+   ]
+  },
+  {
+   "requirement_id": "R-0071",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ASM-018"
+   ]
+  },
+  {
+   "requirement_id": "R-0072",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0073",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-011"
+   ]
+  },
+  {
+   "requirement_id": "R-0074",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-019"
+   ]
+  },
+  {
+   "requirement_id": "R-0075",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0076",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-013",
+    "CT-MJG-005",
+    "CT-MJG-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0077",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0078",
+   "state": "verified",
+   "traced_to": [
+    "CT-HRV-003",
+    "CT-HRV-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0079",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-008",
+    "CT-ASM-015",
+    "CT-DEC-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0082",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-019"
+   ]
+  },
+  {
+   "requirement_id": "R-0083",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-011"
+   ]
+  },
+  {
+   "requirement_id": "R-0084",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0087",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0088",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-016",
+    "CT-SCT-010"
+   ]
+  },
+  {
+   "requirement_id": "R-0089",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0090",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-003",
+    "CT-SCT-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0091",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0092",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0094",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0095",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-TTP-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0096",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-017",
+    "CT-EXE-010",
+    "CT-DSR-003"
+   ],
+   "derived_from": "R-0063"
+  },
+  {
+   "requirement_id": "R-0097",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-035"
+   ]
+  },
+  {
+   "requirement_id": "R-0098",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-003",
+    "CT-REL-029"
+   ]
+  },
+  {
+   "requirement_id": "R-0099",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-029"
+   ]
+  },
+  {
+   "requirement_id": "R-0100",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-029"
+   ]
+  },
+  {
+   "requirement_id": "R-0101",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-REL-036"
+   ]
+  },
+  {
+   "requirement_id": "R-0102",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-032"
+   ]
+  },
+  {
+   "requirement_id": "R-0103",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-019"
+   ]
+  },
+  {
+   "requirement_id": "R-0104",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-033"
+   ]
+  },
+  {
+   "requirement_id": "R-0105",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-017"
+   ]
+  },
+  {
+   "requirement_id": "R-0106",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-020"
+   ]
+  },
+  {
+   "requirement_id": "R-0107",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-018"
+   ]
+  },
+  {
+   "requirement_id": "R-0108",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-022"
+   ]
+  },
+  {
+   "requirement_id": "R-0111",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0112",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-REL-037"
+   ]
+  },
+  {
+   "requirement_id": "R-0113",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-REL-024"
+   ]
+  },
+  {
+   "requirement_id": "R-0114",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-REL-025"
+   ]
+  },
+  {
+   "requirement_id": "R-0115",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-SDK-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0116",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-RUI-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0117",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-RUI-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0118",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-RUI-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0119",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-RUI-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0120",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-RUI-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0121",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-PLG-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0122",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-PLG-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0123",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-PLG-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0124",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-PLG-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0125",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-PLG-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0126",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-PLG-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0127",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-PLG-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0128",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0129",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.01"
+   ]
+  },
+  {
+   "requirement_id": "R-0130",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-020"
+   ]
+  },
+  {
+   "requirement_id": "R-0131",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-020"
+   ],
+   "derived_from": "R-0130"
+  },
+  {
+   "requirement_id": "R-0132",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.25"
+   ]
+  },
+  {
+   "requirement_id": "R-0133",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0134",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0135",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0136",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0137",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.02"
+   ]
+  },
+  {
+   "requirement_id": "R-0138",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.03"
+   ]
+  },
+  {
+   "requirement_id": "R-0139",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.04"
+   ]
+  },
+  {
+   "requirement_id": "R-0140",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.05"
+   ]
+  },
+  {
+   "requirement_id": "R-0141",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0142",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.06"
+   ]
+  },
+  {
+   "requirement_id": "R-0143",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0144",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0145",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0146",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0147",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0148",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0149",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0150",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0151",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.07"
+   ]
+  },
+  {
+   "requirement_id": "R-0152",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0153",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-021"
+   ],
+   "derived_from": "R-0152"
+  },
+  {
+   "requirement_id": "R-0154",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0155",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.08"
+   ]
+  },
+  {
+   "requirement_id": "R-0156",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0157",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0158",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-022",
+    "CT-DSR-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0160",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-011"
+   ]
+  },
+  {
+   "requirement_id": "R-0161",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-022"
+   ]
+  },
+  {
+   "requirement_id": "R-0162",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0163",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-008"
+   ]
+  },
+  {
+   "requirement_id": "R-0164",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0165",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0166",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-001",
+    "CT-SCT-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0167",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0168",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0169",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0170",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0172",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-023"
+   ]
+  },
+  {
+   "requirement_id": "R-0173",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0174",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-019"
+   ]
+  },
+  {
+   "requirement_id": "R-0175",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.09"
+   ]
+  },
+  {
+   "requirement_id": "R-0176",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.10"
+   ]
+  },
+  {
+   "requirement_id": "R-0177",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.11"
+   ]
+  },
+  {
+   "requirement_id": "R-0178",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0179",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0180",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0181",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0182",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0183",
+   "state": "verified",
+   "traced_to": [
+    "CT-HRV-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0184",
+   "state": "verified",
+   "traced_to": [
+    "CT-HRV-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0185",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.12"
+   ]
+  },
+  {
+   "requirement_id": "R-0186",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0187",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.13"
+   ]
+  },
+  {
+   "requirement_id": "R-0188",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0189",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0190",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0191",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-002",
+    "CT-MJG-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0192",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-002",
+    "CT-MJG-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0193",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0194",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0195",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.19"
+   ]
+  },
+  {
+   "requirement_id": "R-0196",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-017"
+   ]
+  },
+  {
+   "requirement_id": "R-0197",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-017",
+    "CT-EXE-010",
+    "CT-DSR-003"
+   ],
+   "derived_from": "R-0063"
+  },
+  {
+   "requirement_id": "R-0198",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.20"
+   ]
+  },
+  {
+   "requirement_id": "R-0199",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.21"
+   ]
+  },
+  {
+   "requirement_id": "R-0200",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-DSR-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0201",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-DSR-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0202",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.22"
+   ]
+  },
+  {
+   "requirement_id": "R-0203",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.23"
+   ]
+  },
+  {
+   "requirement_id": "R-0204",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-DSR-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0205",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-DSR-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0206",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-DSR-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0207",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-DSR-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0208",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-DSR-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0209",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-DSR-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0210",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-DSR-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0211",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-CFG-025.24"
+   ]
+  },
+  {
+   "requirement_id": "R-0212",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0213",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.18"
+   ]
+  },
+  {
+   "requirement_id": "R-0214",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-010"
+   ]
+  },
+  {
+   "requirement_id": "R-0215",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-010"
+   ]
+  },
+  {
+   "requirement_id": "R-0216",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.14"
+   ]
+  },
+  {
+   "requirement_id": "R-0217",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.15"
+   ]
+  },
+  {
+   "requirement_id": "R-0218",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.16"
+   ]
+  },
+  {
+   "requirement_id": "R-0219",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-025.17"
+   ]
+  },
+  {
+   "requirement_id": "R-0220",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-002",
+    "CT-REL-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0221",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-024"
+   ]
+  },
+  {
+   "requirement_id": "R-0222",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0223",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0224",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0225",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0226",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-017",
+    "CT-REL-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0227",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0228",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0229",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0230",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0231",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0232",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0233",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0234",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0235",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0236",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0237",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001",
+    "CT-REL-018"
+   ]
+  },
+  {
+   "requirement_id": "R-0238",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0239",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0240",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0241",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0242",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-010"
+   ]
+  },
+  {
+   "requirement_id": "R-0243",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0244",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0245",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0246",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-001",
+    "CT-DEC-017"
+   ]
+  },
+  {
+   "requirement_id": "R-0247",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-001",
+    "CT-REL-014"
+   ]
+  },
+  {
+   "requirement_id": "R-0248",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0249",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-001",
+    "CT-REL-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0250",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0251",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0252",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0253",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0254",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0255",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0256",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0257",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0262",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0263",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0264",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0265",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0266",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0267",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0268",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0269",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0270",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0271",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-010"
+   ]
+  },
+  {
+   "requirement_id": "R-0272",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-024"
+   ],
+   "derived_from": "R-0221"
+  },
+  {
+   "requirement_id": "R-0273",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-005",
+    "CT-DEC-008"
+   ]
+  },
+  {
+   "requirement_id": "R-0275",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0276",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0277",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-007",
+    "CT-CFG-012",
+    "CT-CFG-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0278",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0279",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-022",
+    "CT-DSR-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0280",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-008"
+   ]
+  },
+  {
+   "requirement_id": "R-0281",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-004",
+    "CT-CFG-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0282",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-018",
+    "CT-DSR-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0283",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-010",
+    "CT-EXE-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0284",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-034"
+   ]
+  },
+  {
+   "requirement_id": "R-0285",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-007",
+    "CT-CFG-027"
+   ]
+  },
+  {
+   "requirement_id": "R-0286",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006",
+    "CT-ASM-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0287",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0288",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0289",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-003",
+    "CT-SCT-004",
+    "CT-SCT-012",
+    "CT-SCT-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0290",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-015"
+   ]
+  },
+  {
+   "requirement_id": "R-0291",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-013",
+    "CT-MJG-008"
+   ]
+  },
+  {
+   "requirement_id": "R-0292",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-008",
+    "CT-MJG-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0293",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-002",
+    "CT-DEC-024"
+   ]
+  },
+  {
+   "requirement_id": "R-0294",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0295",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0296",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-003",
+    "CT-ABD-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0297",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-ABD-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0298",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-022"
+   ]
+  },
+  {
+   "requirement_id": "R-0299",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-012",
+    "CT-DEC-014",
+    "CT-DEC-018",
+    "CT-SCT-008",
+    "CT-SCT-014"
+   ]
+  },
+  {
+   "requirement_id": "R-0300",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-012"
+   ]
+  },
+  {
+   "requirement_id": "R-0301",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-010"
+   ]
+  },
+  {
+   "requirement_id": "R-0302",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-015",
+    "CT-SCT-011"
+   ]
+  },
+  {
+   "requirement_id": "R-0303",
+   "state": "unverified",
+   "traced_to": [
+    "CT-ASM-014"
+   ]
+  },
+  {
+   "requirement_id": "R-0304",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-005",
+    "CT-DEC-008",
+    "CT-ADM-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0305",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-006",
+    "CT-DEC-007",
+    "CT-SCT-011"
+   ]
+  },
+  {
+   "requirement_id": "R-0306",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-006",
+    "CT-REL-008"
+   ]
+  },
+  {
+   "requirement_id": "R-0307",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0308",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0309",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-010",
+    "CT-REL-011",
+    "CT-REL-012"
+   ]
+  },
+  {
+   "requirement_id": "R-0310",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0311",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001",
+    "CT-REL-016",
+    "CT-REL-021"
+   ]
+  },
+  {
+   "requirement_id": "R-0312",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-017"
+   ]
+  },
+  {
+   "requirement_id": "R-0313",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-020"
+   ]
+  },
+  {
+   "requirement_id": "R-0314",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-018"
+   ]
+  },
+  {
+   "requirement_id": "R-0315",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0316",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-SDK-001",
+    "CT-SDK-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0317",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0318",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-017"
+   ]
+  },
+  {
+   "requirement_id": "R-0319",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-015",
+    "CT-SCT-010",
+    "CT-SCT-011"
+   ]
+  },
+  {
+   "requirement_id": "R-0320",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-017",
+    "CT-SCT-015"
+   ]
+  },
+  {
+   "requirement_id": "R-0321",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0322",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0323",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-008"
+   ]
+  },
+  {
+   "requirement_id": "R-0324",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-001",
+    "CT-DEC-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0325",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0326",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-005",
+    "CT-REL-010"
+   ]
+  },
+  {
+   "requirement_id": "R-0327",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-028"
+   ]
+  },
+  {
+   "requirement_id": "R-0328",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-019",
+    "CT-REL-028"
+   ]
+  },
+  {
+   "requirement_id": "R-0329",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-008",
+    "CT-REL-009",
+    "CT-REL-015",
+    "CT-REL-016",
+    "CT-REL-030"
+   ]
+  },
+  {
+   "requirement_id": "R-0330",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-008",
+    "CT-REL-009",
+    "CT-REL-015",
+    "CT-REL-016",
+    "CT-REL-030"
+   ]
+  },
+  {
+   "requirement_id": "R-0331",
+   "state": "verified",
+   "traced_to": [
+    "CT-API-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0332",
+   "state": "verified",
+   "traced_to": [
+    "CT-API-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0333",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0334",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0335",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0336",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0337",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006",
+    "CT-ASM-012"
+   ]
+  },
+  {
+   "requirement_id": "R-0338",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0339",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0340",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0341",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0342",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0343",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-008",
+    "CT-DEC-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0344",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-006",
+    "CT-DEC-007",
+    "CT-DEC-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0345",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-PLG-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0346",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-022"
+   ]
+  },
+  {
+   "requirement_id": "R-0347",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-022"
+   ]
+  },
+  {
+   "requirement_id": "R-0348",
+   "state": "verified",
+   "traced_to": [
+    "CT-API-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0349",
+   "state": "verified",
+   "traced_to": [
+    "CT-API-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0350",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-002"
+   ],
+   "derived_from": "R-0036"
+  },
+  {
+   "requirement_id": "R-0351",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001",
+    "CT-REL-002"
+   ],
+   "derived_from": "R-0042"
+  },
+  {
+   "requirement_id": "R-0352",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-SDK-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0353",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-027"
+   ],
+   "derived_from": "R-0016"
+  },
+  {
+   "requirement_id": "R-0354",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-007"
+   ],
+   "derived_from": "R-0084"
+  },
+  {
+   "requirement_id": "R-0356",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-004"
+   ],
+   "derived_from": "R-0007"
+  },
+  {
+   "requirement_id": "R-0357",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-001"
+   ],
+   "derived_from": "R-0075"
+  },
+  {
+   "requirement_id": "R-0359",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-SDK-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0360",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-004"
+   ],
+   "derived_from": "R-0007"
+  },
+  {
+   "requirement_id": "R-0361",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-SDK-001",
+    "CT-SDK-002"
+   ],
+   "derived_from": "R-0316"
+  },
+  {
+   "requirement_id": "R-0362",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-003",
+    "CT-SCT-004"
+   ],
+   "derived_from": "R-0090"
+  },
+  {
+   "requirement_id": "R-0363",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-003",
+    "CT-ASM-009"
+   ],
+   "derived_from": "R-0006"
+  },
+  {
+   "requirement_id": "R-0364",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-007"
+   ],
+   "derived_from": "R-0084"
+  },
+  {
+   "requirement_id": "R-0365",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-001"
+   ],
+   "derived_from": "R-0189"
+  },
+  {
+   "requirement_id": "R-0366",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-001"
+   ],
+   "derived_from": "R-0189"
+  },
+  {
+   "requirement_id": "R-0367",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-006",
+    "CT-DEC-007",
+    "CT-DEC-011"
+   ],
+   "derived_from": "R-0045"
+  },
+  {
+   "requirement_id": "R-0369",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-011"
+   ],
+   "derived_from": "R-0083"
+  },
+  {
+   "requirement_id": "R-0370",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-007"
+   ],
+   "derived_from": "R-0084"
+  },
+  {
+   "requirement_id": "R-0371",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-006"
+   ],
+   "derived_from": "R-0022"
+  },
+  {
+   "requirement_id": "R-0372",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-001"
+   ],
+   "derived_from": "R-0075"
+  },
+  {
+   "requirement_id": "R-0373",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-017",
+    "CT-EXE-010",
+    "CT-DSR-003"
+   ],
+   "derived_from": "R-0063"
+  },
+  {
+   "requirement_id": "R-0376",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-007",
+    "CT-EXE-008"
+   ],
+   "derived_from": "R-0023"
+  },
+  {
+   "requirement_id": "R-0377",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-006"
+   ],
+   "derived_from": "R-0054"
+  },
+  {
+   "requirement_id": "R-0378",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-004",
+    "CT-EXE-005"
+   ],
+   "derived_from": "R-0056"
+  },
+  {
+   "requirement_id": "R-0379",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-TTP-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0382",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-REL-024"
+   ],
+   "derived_from": "R-0113"
+  },
+  {
+   "requirement_id": "R-0383",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-SDK-001",
+    "CT-SDK-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0384",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-PLG-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0385",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-018",
+    "CT-DSR-003"
+   ],
+   "derived_from": "R-0282"
+  },
+  {
+   "requirement_id": "R-0386",
+   "state": "verified",
+   "traced_to": [
+    "CT-EXE-004",
+    "CT-EXE-005"
+   ],
+   "derived_from": "R-0056"
+  },
+  {
+   "requirement_id": "R-0387",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-009"
+   ],
+   "derived_from": "R-0064"
+  },
+  {
+   "requirement_id": "R-0388",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-006"
+   ],
+   "derived_from": "R-0022"
+  },
+  {
+   "requirement_id": "R-0389",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-002",
+    "CT-REL-006"
+   ],
+   "derived_from": "R-0043"
+  },
+  {
+   "requirement_id": "R-0390",
+   "state": "verified",
+   "traced_to": [
+    "CT-MJG-001"
+   ],
+   "derived_from": "R-0189"
+  },
+  {
+   "requirement_id": "R-0391",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-006"
+   ],
+   "derived_from": "R-0022"
+  },
+  {
+   "requirement_id": "R-0392",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-014"
+   ]
+  },
+  {
+   "requirement_id": "R-0393",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-016"
+   ]
+  },
+  {
+   "requirement_id": "R-0394",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0395",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-018"
+   ]
+  },
+  {
+   "requirement_id": "R-0396",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0397",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0398",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0399",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0400",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0401",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0402",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0403",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0404",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0405",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0406",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0407",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-018"
+   ]
+  },
+  {
+   "requirement_id": "R-0408",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-015"
+   ]
+  },
+  {
+   "requirement_id": "R-0409",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-011",
+    "CT-CFG-014"
+   ]
+  },
+  {
+   "requirement_id": "R-0410",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-016"
+   ]
+  },
+  {
+   "requirement_id": "R-0411",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-022",
+    "CT-DEC-023"
+   ]
+  },
+  {
+   "requirement_id": "R-0412",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-018"
+   ]
+  },
+  {
+   "requirement_id": "R-0413",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-012",
+    "CT-DEC-013",
+    "CT-DEC-018"
+   ]
+  },
+  {
+   "requirement_id": "R-0414",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-012",
+    "CT-HRV-002",
+    "CT-HRV-005"
+   ]
+  },
+  {
+   "requirement_id": "R-0415",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-013",
+    "CT-DEC-018",
+    "CT-SCT-008",
+    "CT-SCT-014"
+   ]
+  },
+  {
+   "requirement_id": "R-0416",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0417",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-031"
+   ]
+  },
+  {
+   "requirement_id": "R-0418",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0419",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-022",
+    "CT-DEC-023",
+    "CT-REL-012"
+   ]
+  },
+  {
+   "requirement_id": "R-0420",
+   "state": "verified",
+   "traced_to": [
+    "CT-HRV-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0421",
+   "state": "verified",
+   "traced_to": [
+    "CT-HRV-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0422",
+   "state": "verified",
+   "traced_to": [
+    "CT-HRV-006"
+   ]
+  },
+  {
+   "requirement_id": "R-0423",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-004",
+    "CT-SCT-013"
+   ]
+  },
+  {
+   "requirement_id": "R-0424",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-008",
+    "CT-SCT-014"
+   ]
+  },
+  {
+   "requirement_id": "R-0425",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-019"
+   ]
+  },
+  {
+   "requirement_id": "R-0426",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-029"
+   ]
+  },
+  {
+   "requirement_id": "R-0427",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-029"
+   ]
+  },
+  {
+   "requirement_id": "R-0428",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-029"
+   ]
+  },
+  {
+   "requirement_id": "R-0429",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-029"
+   ]
+  },
+  {
+   "requirement_id": "R-0430",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-029"
+   ]
+  },
+  {
+   "requirement_id": "R-0431",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-029",
+    "CT-REL-035"
+   ]
+  },
+  {
+   "requirement_id": "R-0432",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0433",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0434",
+   "state": "verified",
+   "traced_to": [
+    "CT-SCT-009"
+   ]
+  },
+  {
+   "requirement_id": "R-0435",
+   "state": "verified",
+   "traced_to": [
+    "CT-ADM-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0436",
+   "state": "verified",
+   "traced_to": [
+    "CT-ADM-001",
+    "CT-ADM-002",
+    "CT-ADM-003",
+    "CT-ADM-004"
+   ]
+  },
+  {
+   "requirement_id": "R-0437",
+   "state": "verified",
+   "traced_to": [
+    "CT-ADM-001"
+   ]
+  },
+  {
+   "requirement_id": "R-0438",
+   "state": "verified",
+   "traced_to": [
+    "CT-ADM-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0439",
+   "state": "verified",
+   "traced_to": [
+    "CT-ADM-001",
+    "CT-ADM-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0440",
+   "state": "verified",
+   "traced_to": [
+    "CT-ADM-002",
+    "CT-ADM-003"
+   ]
+  },
+  {
+   "requirement_id": "R-0441",
+   "state": "verified",
+   "traced_to": [
+    "CT-ADM-004",
+    "CT-ADM-005",
+    "CT-ADM-006",
+    "CT-ADM-007"
+   ]
+  },
+  {
+   "requirement_id": "R-0442",
+   "state": "verified",
+   "traced_to": [
+    "CT-ASM-020"
+   ]
+  },
+  {
+   "requirement_id": "R-0443",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-028"
+   ]
+  },
+  {
+   "requirement_id": "R-0444",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-026"
+   ]
+  },
+  {
+   "requirement_id": "R-0445",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-026"
+   ]
+  },
+  {
+   "requirement_id": "R-0446",
+   "state": "verified",
+   "traced_to": [
+    "CT-CFG-026"
+   ],
+   "derived_from": "R-0445"
+  },
+  {
+   "requirement_id": "R-0447",
+   "state": "verified",
+   "traced_to": [
+    "CT-DEC-024"
+   ]
+  },
+  {
+   "requirement_id": "R-0448",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-027"
+   ]
+  },
+  {
+   "requirement_id": "R-0449",
+   "state": "not_applicable",
+   "traced_to": [
+    "CT-REL-039"
+   ]
+  },
+  {
+   "requirement_id": "R-0450",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-028",
+    "CT-REL-038",
+    "CT-API-002"
+   ]
+  },
+  {
+   "requirement_id": "R-0451",
+   "state": "verified",
+   "traced_to": [
+    "CT-REL-027"
+   ],
+   "derived_from": "R-0448"
+  }
+ ],
+ "manual_reviews": [],
+ "evidence_manifest_ref": "evidence://manifest.json",
+ "evidence_manifest_sha256": "40d9655c24ece9a0f93ada9c8b71b7f6bd47aa758d47434d2552dacaa547512d"
+}
