@@ -1,0 +1,328 @@
+[
+  {
+    "review_id": "review-openai-ct-asm-010",
+    "test_id": "CT-ASM-010",
+    "case_id": "CT-ASM-010",
+    "method": "declaration",
+    "reviewer": {
+      "id": "reviewer://openai/gpt-6",
+      "role": "independent-cts-reviewer",
+      "affiliation": "OpenAI; external AI review"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "For every built-in Validator, the statement names only target evidence and versioned configuration.",
+        "answer": "met",
+        "evidence_refs": [
+          "doc://engine-docs/API.md#Slice 3 assessment",
+          "doc://engine-docs/API.md#Built-in expected formats",
+          "src://engine/validators.py:32-57",
+          "src://engine/validators.py:60-99",
+          "src://engine/validators.py:102-154"
+        ]
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-10-24T21:34:38Z",
+    "declaration_ref": "doc://engine-docs/API.md#Slice 3 assessment",
+    "note": "Declaration verified against offered five built-ins. Runtime determinism across every deployed dependency is not measured by this review; the declaration is supported by documentation and inspected implementation of built-in checks.",
+    "signature_ref": "https://github.com/igorakymenko-create/aqef-cts-harness/commit/b99f9cb07d1d044d2f6372b45c999449acf53144"
+  },
+  {
+    "review_id": "review-openai-ct-asm-017",
+    "test_id": "CT-ASM-017",
+    "case_id": "CT-ASM-017",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://openai/gpt-6",
+      "role": "independent-cts-reviewer",
+      "affiliation": "OpenAI; external AI review"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "The implementation prevents it: registration is refused, the Validator's runtime gives it no way to reach a model, or the implementation's documentation requires such a check to be configured as a Judge and the attempt fails accordingly.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-ASM-017-002.json#response.status",
+          "evidence://CT-ASM-017-002.json#response.body.detail",
+          "evidence://CT-ASM-017-003.json#response.status",
+          "evidence://CT-ASM-017-003.json#response.body.detail",
+          "doc://engine-docs/API.md#Custom Validator registration",
+          "src://engine/validators.py:168-189"
+        ]
+      },
+      {
+        "item_id": "2",
+        "statement": "The reviewer states which.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-ASM-017-002.json#response.status",
+          "evidence://CT-ASM-017-003.json#response.status",
+          "src://engine/validators.py:173-181"
+        ]
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-10-24T21:34:38Z",
+    "note": "Prevention mode: both model-call registration attempts were rejected (HTTP 422); allowlisted declarative operations only. Not a claim that arbitrary executable plugin code was exercised.",
+    "signature_ref": "https://github.com/igorakymenko-create/aqef-cts-harness/commit/b99f9cb07d1d044d2f6372b45c999449acf53144"
+  },
+  {
+    "review_id": "review-openai-ct-dec-009",
+    "test_id": "CT-DEC-009",
+    "case_id": "CT-DEC-009",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://openai/gpt-6",
+      "role": "independent-cts-reviewer",
+      "affiliation": "OpenAI; external AI review"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "None of them causes a Gate to pass while its aggregate includes an effective Result that is not `actionable`.",
+        "answer": "met",
+        "evidence_refs": [
+          "doc://engine-docs/API.md#Slice 4 — Decision and Release",
+          "src://engine/decision.py:232-271",
+          "src://engine/decision.py:340-393"
+        ]
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-10-24T21:34:38Z",
+    "note": "Inspected documented Gate/Contract/Aggregation configuration and decision.py; non-actionable results add a failure reason and are not included among usable entries. This is static inspection, not an exhaustive dynamic proof for every possible input.",
+    "signature_ref": "https://github.com/igorakymenko-create/aqef-cts-harness/commit/b99f9cb07d1d044d2f6372b45c999449acf53144"
+  },
+  {
+    "review_id": "review-openai-ct-dec-021",
+    "test_id": "CT-DEC-021",
+    "case_id": "CT-DEC-021",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://openai/gpt-6",
+      "role": "independent-cts-reviewer",
+      "affiliation": "OpenAI; external AI review"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "Where an interval appears, it is not called Confidence.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-DEC-021-003.json#response.body.gates",
+          "evidence://CT-DEC-021-004.json#response.body.gates",
+          "evidence://CT-DEC-021-007.json#response.body.gates",
+          "evidence://CT-DEC-021-008.json#response.body.gates"
+        ]
+      },
+      {
+        "item_id": "2",
+        "statement": "The word Confidence is used only for an Oracle's certainty in one verdict.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-DEC-021-004.json#response.body.metrics",
+          "evidence://CT-DEC-021-008.json#response.body.metrics",
+          "doc://engine-docs/CONFORMANCE-STATEMENT.md#Implementation-defined choices and locations"
+        ]
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-10-24T21:34:38Z",
+    "note": "No statistical interval is exposed in checked GateResults/Reports; the negative prohibition is satisfied vacuously. Report descriptions refer to application of Oracle Confidence to assessment, not to an aggregate-level statistical confidence interval.",
+    "signature_ref": "https://github.com/igorakymenko-create/aqef-cts-harness/commit/b99f9cb07d1d044d2f6372b45c999449acf53144"
+  },
+  {
+    "review_id": "review-openai-ct-exe-009",
+    "test_id": "CT-EXE-009",
+    "case_id": "CT-EXE-009",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://openai/gpt-6",
+      "role": "independent-cts-reviewer",
+      "affiliation": "OpenAI; external AI review"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "The reviewer can state both [what triggered it and its position in the order] for every Execution, citing the records used.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-EXE-009-004.json#response.body.scheduling",
+          "evidence://CT-EXE-009-005.json#response.body.scheduling",
+          "evidence://CT-EXE-009-006.json#response.body.scheduling",
+          "evidence://CT-EXE-009-002.json#response.body.execution_batch_id",
+          "evidence://CT-EXE-009-007.json#response.body[0]",
+          "doc://engine-docs/API.md#Audit and retained history"
+        ]
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-10-24T21:34:38Z",
+    "note": "All three Executions were on-demand suite/environment triggered by P-RELEASE. Recorded sequential order is 0 for s-1, 1 for s-2, 2 for s-3, within batch 331560f5-2259-4c76-b134-94509f5fd148.",
+    "signature_ref": "https://github.com/igorakymenko-create/aqef-cts-harness/commit/b99f9cb07d1d044d2f6372b45c999449acf53144"
+  },
+  {
+    "review_id": "review-openai-ct-rel-023",
+    "test_id": "CT-REL-023",
+    "case_id": "CT-REL-023",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://openai/gpt-6",
+      "role": "independent-cts-reviewer",
+      "affiliation": "OpenAI; external AI review"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "The reviewer reaches every link, citing the record used at each step.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-REL-023-007.json#response.body",
+          "evidence://CT-REL-023-008.json#response.body",
+          "evidence://CT-REL-023-009.json#response.body",
+          "evidence://CT-REL-023-010.json#response.body",
+          "evidence://CT-REL-023-011.json#response.body",
+          "evidence://CT-REL-023-012.json#response.body",
+          "evidence://CT-REL-023-013.json#response.body",
+          "evidence://CT-REL-023-014.json#response.body",
+          "evidence://CT-REL-023-003.json#response.body.result_ids",
+          "evidence://CT-REL-023-004.json#response.body.approval_id"
+        ]
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-10-24T21:34:38Z",
+    "note": "Release id dc79bdf1 links to Report 6678d86f and Snapshot 3652d0ea; GateResult f63526f7 carries override approval de1d6b6e (P-APPROVER); Report metrics refer to two Result IDs found in 012; both link to Execution c01fc91e and its Conversation in 014. See 007–014 for full IDs.",
+    "signature_ref": "https://github.com/igorakymenko-create/aqef-cts-harness/commit/b99f9cb07d1d044d2f6372b45c999449acf53144"
+  },
+  {
+    "review_id": "review-openai-ct-rel-027",
+    "test_id": "CT-REL-027",
+    "case_id": "CT-REL-027",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://openai/gpt-6",
+      "role": "independent-cts-reviewer",
+      "affiliation": "OpenAI; external AI review"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "It states a specification version.",
+        "answer": "met",
+        "evidence_refs": [
+          "doc://engine-docs/CONFORMANCE-STATEMENT.md#AQEF Conformance Statement"
+        ]
+      },
+      {
+        "item_id": "2",
+        "statement": "[It] lists its claimed capabilities using §10's identifiers.",
+        "answer": "met",
+        "evidence_refs": [
+          "doc://engine-docs/CONFORMANCE-STATEMENT.md#AQEF Conformance Statement"
+        ]
+      },
+      {
+        "item_id": "3",
+        "statement": "[It] states how it binds Projects and Suites to Teams, or that it binds none.",
+        "answer": "met",
+        "evidence_refs": [
+          "doc://engine-docs/CONFORMANCE-STATEMENT.md#Team binding (XII Teams; §10)"
+        ]
+      },
+      {
+        "item_id": "4",
+        "statement": "It is the statement this test run uses to decide which tests are `NOT_APPLICABLE`.",
+        "answer": "met",
+        "evidence_refs": [
+          "doc://engine-docs/CONFORMANCE-STATEMENT.md#AQEF Conformance Statement",
+          "doc://REVIEW-BRIEF.md#CT-REL-027 — A Conformance Statement is published"
+        ]
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-10-24T21:34:38Z",
+    "note": "Published declaration is 0.41.5 and claims human_review, multi_judge, seeded_controls; Team binding none. Review brief confirms run capabilities_claimed from this statement. Evidence for harness invocation is reviewer brief, not a separate machine-readable run config in this archive.",
+    "signature_ref": "https://github.com/igorakymenko-create/aqef-cts-harness/commit/b99f9cb07d1d044d2f6372b45c999449acf53144"
+  },
+  {
+    "review_id": "review-openai-ct-rel-036",
+    "test_id": "CT-REL-036",
+    "case_id": "CT-REL-036",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://openai/gpt-6",
+      "role": "independent-cts-reviewer",
+      "affiliation": "OpenAI; external AI review"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "The reviewer reaches the Metric and the individual Results from the KPI (for a Metric shown in a Report, through its entry in `metrics`, Appendix C §C.10), citing the records used.",
+        "answer": "undecided",
+        "evidence_refs": [
+          "evidence://CT-REL-036-005.json#response.body.metrics",
+          "doc://engine-docs/CONFORMANCE-STATEMENT.md#Report format"
+        ]
+      },
+      {
+        "item_id": "2",
+        "statement": "If the implementation offers no KPIs, which the specification does not require, the outcome is `NOT_APPLICABLE` (1.2).",
+        "answer": "met",
+        "evidence_refs": [
+          "doc://engine-docs/CONFORMANCE-STATEMENT.md#Report format",
+          "evidence://CT-REL-036-005.json#response.body.metrics"
+        ]
+      }
+    ],
+    "decision": "NOT_APPLICABLE",
+    "reason_code": "CAPABILITY_NOT_OFFERED",
+    "signed_at": "2026-10-24T21:34:38Z",
+    "note": "Engine explicitly offers Reports with Metrics but no KPI/dashboard frontend. Metric-to-Result IDs are observable, but there is no KPI artifact from which to start. Under the explicit Expected exception, this test is NOT_APPLICABLE; first item is undecided rather than fabricated met. This exception takes precedence over generic undecided=>NOT_RUN for a test not offering KPIs.",
+    "signature_ref": "https://github.com/igorakymenko-create/aqef-cts-harness/commit/b99f9cb07d1d044d2f6372b45c999449acf53144"
+  },
+  {
+    "review_id": "review-openai-ct-api-003",
+    "test_id": "CT-API-003",
+    "case_id": "CT-API-003",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://openai/gpt-6",
+      "role": "independent-cts-reviewer",
+      "affiliation": "OpenAI; external AI review"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "The schema defines every top-level type B.1 lists, and enforces for each the property constraints B.2 gives.",
+        "answer": "undecided",
+        "evidence_refs": []
+      },
+      {
+        "item_id": "2",
+        "statement": "If the implementation publishes no such schema, the outcome is `NOT_APPLICABLE` (1.2).",
+        "answer": "met",
+        "evidence_refs": [
+          "https://github.com/igorakymenko-create/aqef-reference-engine/blob/slice-11/README.md",
+          "https://github.com/igorakymenko-create/aqef-reference-engine/blob/slice-11/docs/CONFORMANCE-STATEMENT.md",
+          "https://github.com/igorakymenko-create/aqef-reference-engine/blob/slice-11/docs/OPENAPI.json",
+          "https://github.com/igorakymenko-create/AQEF/blob/0.41.5/appendices/appendix-b-json-schema.md"
+        ]
+      }
+    ],
+    "decision": "NOT_APPLICABLE",
+    "reason_code": "NOT_OFFERED",
+    "signed_at": "2026-10-25T00:10:11Z",
+    "notes": "Inspection of published slice-11 README, Conformance Statement, and OPENAPI.json. README expressly states OpenAPI is published as API documentation, not an AQEF JSON Schema artifact. Conformance Statement repeats that distinction in its serialization/schema declaration; the OpenAPI info.description also says it is not an AQEF JSON Schema artifact. Appendix B 0.41.5 binds B.1/B.2 schema-artifact MUSTs only when such an artifact is published, while implementation configuration validation remains independently mandatory. Item 1 is not evaluated because no qualifying artifact is offered. No signed reviewer attestation is asserted by this unsigned draft; signature_ref must be added by authorized signer."
+  }
+]

@@ -17,7 +17,8 @@ ROLES = {
     "cts-release": ["read", "execute", "release_decide"],
     "cts-approver": ["read", "execute", "contract_define", "gate_override", "baseline_approve",
                      "environment_edit", "scenario_edit", "environment_delete",
-                     "project_create", "dataset_create", "project_edit"],
+                     "project_create", "dataset_create", "project_edit",
+                     "scenario_create", "scenario_delete"],   # CT-CFG-029
     "cts-noperm": ["read", "execute"],
     "cts-editor": ["read", "project_edit", "scenario_edit"],
     "cts-reviewer": ["read", "review"],

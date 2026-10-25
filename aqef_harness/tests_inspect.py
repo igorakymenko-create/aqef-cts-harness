@@ -20,7 +20,7 @@ def pending(ctx, what):
     ctx.refs.append(ctx.store.add(ctx.case_id, "other", {"manual_review": rec}))
     who = (rec.get("reviewer") or {}).get("id")
     return ctx.result(rec["decision"], CODES[rec["decision"]],
-                      f"review {rec.get('review_id')} by {who}: {rec.get('note', '')[:200]}")
+                      f"review {rec.get('review_id')} by {who}: {(rec.get('notes') or rec.get('note') or '')[:200]}")
 
 
 def get(ctx, path, note, actor="P-RELEASE"):

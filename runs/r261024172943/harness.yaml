@@ -1,0 +1,30 @@
+# The configuration of run r261024172943. Paths are relative to this file. The tokens are
+# the test tokens setup/bootstrap_reference_engine.py creates in a local engine.
+aqef_repo: ../../../AQEF   # a checkout of the AQEF repository (AQEF 0.41.5, CTS WD10: main at commit 3f081f1 or later)
+base_url: http://127.0.0.1:8000
+sut:
+  name: aqef-reference-engine
+  version: slice-11
+capabilities_claimed: [human_review, multi_judge, seeded_controls]
+tokens:
+  P-RELEASE: cts-p-release
+  P-APPROVER: cts-p-approver
+  P-NOPERM: cts-p-noperm
+  P-EDITOR: cts-p-editor
+  P-REVIEWER: cts-p-reviewer
+  P-ADMIN: cts-p-admin
+  SA-CI: cts-sa-ci
+  SA-REVIEW: cts-sa-review
+  P-REVIEWER-2: cts-p-reviewer-2
+  P-LEAD: cts-p-lead
+  P-INVALIDATE: cts-p-invalidate
+  P-ROLE-A: cts-p-role-a
+  P-ROLE-B: cts-p-role-b
+loader: P-APPROVER
+config_format: json
+wrap_project: false
+delete_query: retain_history=true
+engine_slices_done: 11
+conversation_form: turns
+team_binding: none
+manual_reviews: ../../reviews/wd10-all-reviews.json

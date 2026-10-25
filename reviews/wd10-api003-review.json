@@ -1,0 +1,34 @@
+{
+  "review_id": "review-openai-ct-api-003",
+  "test_id": "CT-API-003",
+  "case_id": "CT-API-003",
+  "method": "inspection",
+  "reviewer": {
+    "id": "reviewer://openai/gpt-6",
+    "role": "independent-cts-reviewer",
+    "affiliation": "OpenAI; external AI review"
+  },
+  "checklist": [
+    {
+      "item_id": "1",
+      "statement": "The schema defines every top-level type B.1 lists, and enforces for each the property constraints B.2 gives.",
+      "answer": "undecided",
+      "evidence_refs": []
+    },
+    {
+      "item_id": "2",
+      "statement": "If the implementation publishes no such schema, the outcome is `NOT_APPLICABLE` (1.2).",
+      "answer": "met",
+      "evidence_refs": [
+        "https://github.com/igorakymenko-create/aqef-reference-engine/blob/slice-11/README.md",
+        "https://github.com/igorakymenko-create/aqef-reference-engine/blob/slice-11/docs/CONFORMANCE-STATEMENT.md",
+        "https://github.com/igorakymenko-create/aqef-reference-engine/blob/slice-11/docs/OPENAPI.json",
+        "https://github.com/igorakymenko-create/AQEF/blob/0.41.5/appendices/appendix-b-json-schema.md"
+      ]
+    }
+  ],
+  "decision": "NOT_APPLICABLE",
+  "reason_code": "NOT_OFFERED",
+  "signed_at": "2026-10-25T00:10:11Z",
+  "notes": "Inspection of published slice-11 README, Conformance Statement, and OPENAPI.json. README expressly states OpenAPI is published as API documentation, not an AQEF JSON Schema artifact. Conformance Statement repeats that distinction in its serialization/schema declaration; the OpenAPI info.description also says it is not an AQEF JSON Schema artifact. Appendix B 0.41.5 binds B.1/B.2 schema-artifact MUSTs only when such an artifact is published, while implementation configuration validation remains independently mandatory. Item 1 is not evaluated because no qualifying artifact is offered. No signed reviewer attestation is asserted by this unsigned draft; signature_ref must be added by authorized signer."
+}

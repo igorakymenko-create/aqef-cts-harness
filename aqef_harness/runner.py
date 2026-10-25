@@ -22,7 +22,7 @@ import traceback
 from . import CONTRACT_VERSION, VERSION
 from . import config as C
 from . import fixtures as F
-from . import tests_adm, tests_asm, tests_cfg, tests_dec, tests_exe, tests_rel, tests_rel2, tests_scoped, tests_wd9, tests_inspect
+from . import tests_adm, tests_asm, tests_cfg, tests_dec, tests_exe, tests_rel, tests_rel2, tests_scoped, tests_wd9, tests_inspect, tests_wd10
 from .scripted import Scripted
 from .adapter_rest import ADAPTER_VERSION, RestAdapter
 from .core import CaseContext, CaseResult, Stop
@@ -31,7 +31,7 @@ from .evidence import EvidenceStore, now
 
 def implemented():
     tests, cases = tests_cfg.registry()
-    for mod in (tests_exe, tests_asm, tests_adm, tests_dec, tests_rel, tests_rel2, tests_scoped, tests_wd9, tests_inspect):
+    for mod in (tests_exe, tests_asm, tests_adm, tests_dec, tests_rel, tests_rel2, tests_scoped, tests_wd9, tests_inspect, tests_wd10):
         t, c = mod.registry()
         tests, cases = {**tests, **t}, {**cases, **c}
     return tests, cases

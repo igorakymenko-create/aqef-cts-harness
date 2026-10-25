@@ -5,15 +5,18 @@ Specification (CTS) against an AQEF engine through its REST API. It writes a run
 report and evidence in the form the CTS Harness Contract defines, and verifies the
 report with the AQEF repository's own `validate.py` before the run ends.
 
-Version 0.3.0, for AQEF 0.41.5, CTS Working Draft 9, Harness Contract 0.6. It drives
+Version 0.4.0, for AQEF 0.41.5, CTS Working Draft 10, Harness Contract 0.7. It drives
 every test of the CTS:
 - the automated ones, through the engine's API and the scripted subject and Judges;
 - the Inspection and Declaration ones, by collecting the evidence a reviewer needs and
   applying the reviewer's records (CTS 1.8).
 
 It was used to check [aqef-reference-engine](https://github.com/igorakymenko-create/aqef-reference-engine)
-slice by slice. The final run is in [`runs/r261024144559/`](runs/r261024144559/); its evidence is
-`evidence.zip` there, to be unpacked beside `report.json` before verifying it.
+slice by slice. The final run, CTS WD10 against `slice-11`, is in
+[`runs/r261024172943/`](runs/r261024172943/): 188 passed, none failed, 34 not
+applicable, none left unrun. Its evidence is `evidence.zip` there, to be unpacked beside
+`report.json` before verifying it. The earlier run of WD9, `runs/r261024144559/`, is
+kept.
 
 The harness knows an engine only through Appendix C and the settings in
 `harness.yaml`. Only `setup/` is specific to aqef-reference-engine.
@@ -56,7 +59,7 @@ Before trusting a run against an engine, run the self-test against the mock engi
 AQEF_REPO=../AQEF python -m pytest selftest -q
 ```
 
-The mock gives known answers to Section 10 (CT-CFG-001 to 025) in four modes:
+The mock gives known answers to Section 10 up to CT-CFG-025 (CTS WD8) in four modes:
 - accepting everything;
 - rejecting everything;
 - refusing every request for authorization;
@@ -92,12 +95,20 @@ never into FAIL:
   (`MANUAL_REVIEW_PENDING`) until `manual_reviews` names a record for them. The record
   is then stored as the case's evidence.
 
-## Reviews and the final run
+## Reviews
 
-`reviews/wd9-slice11-reviews.json` holds the CTS 1.8 review records for the eight
-Inspection and Declaration tests of run `r261024144559`. The reviewer is named in each
-record. The project owner's attestation is in `reviews/ATTESTATION.md`, and the commit
-that added both is the records' `signature_ref` (Harness Contract §13).
+The CTS 1.8 review records for the Inspection and Declaration tests are in `reviews/`.
+Each names its reviewer. A reviewer that cannot sign has its records signed by the
+project owner (Harness Contract 0.7, §13): an attestation in `reviews/`, added by an
+authenticated commit, which is the records' `signature_ref`.
+
+| Records | Tests | Attestation | Signed by commit |
+|---|---|---|---|
+| `wd9-slice11-reviews.json` (unchanged), `wd9-slice11-reviews.signed.json` (with `signature_ref`) | eight, CTS WD9 | `ATTESTATION.md` | `b99f9cb` |
+| `wd10-api003-review.json` | CT-API-003, CTS WD10 | `ATTESTATION-WD10.md` | the commit that adds them |
+
+`wd10-all-reviews.json` is the nine records together, as run `r261024172943` applied
+them.
 
 ## Layout
 
