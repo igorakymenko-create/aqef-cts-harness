@@ -36,7 +36,7 @@ class EvidenceStore:
         return e["raw_ref"]
 
     def manifest(self):
-        m = {"schema_version": "0.7", "run_id": self.run_id, "created_at": now(),
+        m = {"schema_version": "0.8", "run_id": self.run_id, "created_at": now(),
              "canonicalization": "RFC8785", "entries": self.entries}
         m["manifest_sha256"] = self.v.sha256_hex(self.v.jcs(m).encode("utf-8"))
         return m

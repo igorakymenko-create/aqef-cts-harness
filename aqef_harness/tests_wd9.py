@@ -64,18 +64,22 @@ MECH = ("data_mutation", "fuzzing", "edge_cases", "adversarial")
 
 
 def cfg028(ctx, b):
-    claims = ctx.a.cfg.capabilities_claimed
-    todo = [t for t in MECH if f"dataset_mechanism:{t}" not in claims]
-    if not todo:
-        return ctx.result("NOT_APPLICABLE", "CAPABILITY_CLAIMED", "every dataset_mechanism is claimed (CTS 1.2)")
+    """CTS 1.0-CR1: synthetic Datasets and every mechanism are reserved, and rejected."""
     ctx.control(F.f_ds(b), "F-DS")
-    for t in todo:
+    variants = []
+    for t in MECH:
         d = F.f_ds(b)
         d["datasets"][0]["mechanisms"] = [{"type": t}]
-        ex, _ = ctx.load(d, f"mechanism {t}", suffix=t.replace("_", "-"))
+        variants.append((t.replace("_", "-"), d))
+    d = F.f_ds(b)
+    d["datasets"][0]["source"] = "synthetic"
+    d["datasets"][0].pop("rows", None)
+    variants.append(("synthetic", d))
+    for label, d in variants:
+        ex, _ = ctx.load(d, f"variant {label}", suffix=label)
         if ex.outcome == "accepted":
-            return fail(ctx, f"{t} loaded, unclaimed")
-    return ok(ctx, f"unclaimed: {', '.join(todo)}")
+            return fail(ctx, f"{label} loaded")
+    return ok(ctx, "four mechanisms and source: synthetic, each rejected")
 
 
 def dec024(ctx, b):

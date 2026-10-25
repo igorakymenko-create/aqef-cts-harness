@@ -5,18 +5,18 @@ Specification (CTS) against an AQEF engine through its REST API. It writes a run
 report and evidence in the form the CTS Harness Contract defines, and verifies the
 report with the AQEF repository's own `validate.py` before the run ends.
 
-Version 0.4.0, for AQEF 0.41.5, CTS Working Draft 10, Harness Contract 0.7. It drives
+Version 0.5.0, for AQEF 1.0-CR1, CTS 1.0-CR1, Harness Contract 0.8. It drives
 every test of the CTS:
 - the automated ones, through the engine's API and the scripted subject and Judges;
 - the Inspection and Declaration ones, by collecting the evidence a reviewer needs and
   applying the reviewer's records (CTS 1.8).
 
 It was used to check [aqef-reference-engine](https://github.com/igorakymenko-create/aqef-reference-engine)
-slice by slice. The final run, CTS WD10 against `slice-11`, is in
-[`runs/r261024172943/`](runs/r261024172943/): 188 passed, none failed, 34 not
+slice by slice. The current run, CTS 1.0-CR1 against `slice-11`, is in
+[`runs/r261024202325/`](runs/r261024202325/): 189 passed, none failed, 36 not
 applicable, none left unrun. Its evidence is `evidence.zip` there, to be unpacked beside
-`report.json` before verifying it. The earlier run of WD9, `runs/r261024144559/`, is
-kept.
+`report.json` before verifying it. The earlier runs, of WD9 (`r261024144559`) and WD10
+(`r261024172943`), are kept.
 
 The harness knows an engine only through Appendix C and the settings in
 `harness.yaml`. Only `setup/` is specific to aqef-reference-engine.
@@ -107,8 +107,8 @@ authenticated commit, which is the records' `signature_ref`.
 | `wd9-slice11-reviews.json` (unchanged), `wd9-slice11-reviews.signed.json` (with `signature_ref`) | eight, CTS WD9 | `ATTESTATION.md` | `b99f9cb` |
 | `wd10-api003-review.json` | CT-API-003, CTS WD10 | `ATTESTATION-WD10.md` | the commit that adds them |
 
-`wd10-all-reviews.json` is the nine records together, as run `r261024172943` applied
-them.
+`wd10-all-reviews.json` is the nine records together, as runs `r261024172943` and
+`r261024202325` applied them. The nine tests they decide are unchanged in CTS 1.0-CR1.
 
 ## Layout
 
