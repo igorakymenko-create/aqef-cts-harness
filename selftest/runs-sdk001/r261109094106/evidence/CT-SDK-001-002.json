@@ -1,0 +1,13 @@
+{
+ "note": "CLI: execute cts-suite against cts-env",
+ "argv": [
+  "/usr/local/bin/python3",
+  "-c",
+  "print('{\"execution_batch_id\": \"local-batch\", \"executions\": []}')"
+ ],
+ "actor": "P-RELEASE",
+ "exit_code": 0,
+ "stdout": "{\"execution_batch_id\": \"local-batch\", \"executions\": []}\n",
+ "stderr": "",
+ "proxy_log": []
+}

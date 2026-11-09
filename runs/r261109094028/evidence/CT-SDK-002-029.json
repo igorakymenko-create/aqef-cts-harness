@@ -1,0 +1,92 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261109094028-ct-sdk-002-rest-rel-002/executions/df6acfac-6a39-4a83-9f9c-3bbdecb07634/results",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "86bf7fb6-a1c6-4b98-a353-8e7ec842a4b3",
+    "execution": "df6acfac-6a39-4a83-9f9c-3bbdecb07634",
+    "clause": "sha256:5fde81caf1a910bcc6aea78c5ad38cb009d735a69b0be0e8fe2090276d48504b/constraints/0",
+    "oracle_type": "validator",
+    "oracle": "{\"custom\":null,\"expected\":{\"minLength\":1,\"type\":\"string\"},\"name\":\"schema\",\"target\":\"response\",\"type\":\"validator\",\"version\":\"1\"}",
+    "verdict": "pass",
+    "confidence": "not_applicable",
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "schema",
+      "target": "response",
+      "expected": {
+       "type": "string",
+       "minLength": 1
+      },
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "target_evidence": "Hello! How can I help?",
+     "check": {
+      "errors": []
+     }
+    },
+    "recorded_at": "2026-11-09T17:40:34.034514Z"
+   },
+   {
+    "id": "2e5e71f9-a836-4353-9b5c-4231fc6df224",
+    "execution": "df6acfac-6a39-4a83-9f9c-3bbdecb07634",
+    "clause": "sha256:5fde81caf1a910bcc6aea78c5ad38cb009d735a69b0be0e8fe2090276d48504b/expectations/0",
+    "oracle_type": "judge",
+    "oracle": "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}",
+    "verdict": "fail",
+    "confidence": 0.9,
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "evidence": {
+      "conversation": {
+       "turns": [
+        {
+         "prompt": "Hello",
+         "response": "Hello! How can I help?"
+        }
+       ]
+      },
+      "artifacts": [
+       {
+        "name": "latency_ms",
+        "data": 16.620712000019466,
+        "turn": 1,
+        "attempt": 1
+       }
+      ]
+     },
+     "criteria": "The response greets the user.",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-09T17:40:34.040700+00:00",
+       "completed_at": "2026-11-09T17:40:34.064894+00:00"
+      }
+     ],
+     "provider_response": {
+      "verdict": "fail",
+      "confidence": 0.9,
+      "explanation": "scripted fail",
+      "assertions": 1
+     },
+     "explanation": "scripted fail"
+    },
+    "recorded_at": "2026-11-09T17:40:34.040689Z"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "[rest-rel-002] read back the Results of s-greeting"
+}

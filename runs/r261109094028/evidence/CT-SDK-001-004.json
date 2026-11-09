@@ -1,0 +1,309 @@
+{
+ "note": "for the reviewer: the CLI's documented commands, and the REST operations of Appendix C",
+ "cli_help": [
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "--help"
+   ],
+   "stdout": "usage: aqef [-h] [--version] [--url URL] [--token-file TOKEN_FILE]\n            [--timeout SECONDS] [--json]\n            {admission,approval,audit,baseline,contract,dataset,environment,execution,gate,gates,principal,project,release,release-policy,report,requalification,result,role,scenario,seeded-control,snapshot,suite,system,team,validator} ...\n\nAQEF reference REST client\n\npositional arguments:\n  {admission,approval,audit,baseline,contract,dataset,environment,execution,gate,gates,principal,project,release,release-policy,report,requalification,result,role,scenario,seeded-control,snapshot,suite,system,team,validator}\n\noptions:\n  -h, --help            show this help message and exit\n  --version             show program's version number and exit\n  --url URL             engine URL (or AQEF_URL)\n  --token-file TOKEN_FILE\n  --timeout SECONDS\n  --json\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "admission",
+    "--help"
+   ],
+   "stdout": "usage: aqef admission [-h] {list,record} ...\n\npositional arguments:\n  {list,record}\n    list         GET /projects/{project}/admissions\n    record       POST /projects/{project}/admissions\n\noptions:\n  -h, --help     show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "approval",
+    "--help"
+   ],
+   "stdout": "usage: aqef approval [-h] {list} ...\n\npositional arguments:\n  {list}\n    list      GET /projects/{project}/approvals\n\noptions:\n  -h, --help  show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "audit",
+    "--help"
+   ],
+   "stdout": "usage: aqef audit [-h] {list} ...\n\npositional arguments:\n  {list}\n    list      GET /projects/{project}/audit\n\noptions:\n  -h, --help  show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "baseline",
+    "--help"
+   ],
+   "stdout": "usage: aqef baseline [-h] {approve,get,list} ...\n\npositional arguments:\n  {approve,get,list}\n    approve           POST /projects/{project}/baselines\n    get               GET /projects/{project}/baselines/{key}\n    list              GET /projects/{project}/baselines\n\noptions:\n  -h, --help          show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "contract",
+    "--help"
+   ],
+   "stdout": "usage: aqef contract [-h] {create,get,list,update} ...\n\npositional arguments:\n  {create,get,list,update}\n    create              POST /projects/{project}/contracts\n    get                 GET /projects/{project}/contracts/{contract}\n    list                GET /projects/{project}/contracts\n    update              PUT /projects/{project}/contracts/{contract}\n\noptions:\n  -h, --help            show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "dataset",
+    "--help"
+   ],
+   "stdout": "usage: aqef dataset [-h] {create,get,list,rows,version} ...\n\npositional arguments:\n  {create,get,list,rows,version}\n    create              POST /projects/{project}/datasets\n    get                 GET /projects/{project}/datasets/{dataset}\n    list                GET /projects/{project}/datasets\n    rows                GET /projects/{project}/datasets/{dataset}/rows\n    version             POST /projects/{project}/datasets/{dataset}/versions\n\noptions:\n  -h, --help            show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "environment",
+    "--help"
+   ],
+   "stdout": "usage: aqef environment [-h] {create,delete,get,list,update} ...\n\npositional arguments:\n  {create,delete,get,list,update}\n    create              POST /projects/{project}/environments\n    delete              DELETE /projects/{project}/environments/{env}\n    get                 GET /projects/{project}/environments/{env}\n    list                GET /projects/{project}/environments\n    update              PUT /projects/{project}/environments/{env}\n\noptions:\n  -h, --help            show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "execution",
+    "--help"
+   ],
+   "stdout": "usage: aqef execution [-h] {artifacts,conversation,get,list,run} ...\n\npositional arguments:\n  {artifacts,conversation,get,list,run}\n    artifacts           GET\n                        /projects/{project}/executions/{execution}/artifacts\n    conversation        GET /projects/{project}/executions/{execution}/convers\n                        ation\n    get                 GET /projects/{project}/executions/{execution}\n    list                GET /projects/{project}/executions\n    run                 POST /projects/{project}/executions\n\noptions:\n  -h, --help            show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "gate",
+    "--help"
+   ],
+   "stdout": "usage: aqef gate [-h] {create,list,override,update} ...\n\npositional arguments:\n  {create,list,override,update}\n    create              POST /projects/{project}/gates\n    list                GET /projects/{project}/gates\n    override            POST /projects/{project}/gates/{gate}/override\n    update              PUT /projects/{project}/gates/{gate}\n\noptions:\n  -h, --help            show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "gates",
+    "--help"
+   ],
+   "stdout": "usage: aqef gates [-h] {check} ...\n\npositional arguments:\n  {check}\n    check     POST /projects/{project}/gates/check\n\noptions:\n  -h, --help  show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "principal",
+    "--help"
+   ],
+   "stdout": "usage: aqef principal [-h] {create} ...\n\npositional arguments:\n  {create}\n    create    POST /principals\n\noptions:\n  -h, --help  show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "project",
+    "--help"
+   ],
+   "stdout": "usage: aqef project [-h] {delete,get,list,load,update} ...\n\npositional arguments:\n  {delete,get,list,load,update}\n    delete              DELETE /projects/{project}\n    get                 GET /projects/{project}\n    list                GET /projects\n    load                POST /projects\n    update              PUT /projects/{project}\n\noptions:\n  -h, --help            show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "release",
+    "--help"
+   ],
+   "stdout": "usage: aqef release [-h] {get,list,record} ...\n\npositional arguments:\n  {get,list,record}\n    get              GET /projects/{project}/releases/{key}\n    list             GET /projects/{project}/releases\n    record           POST /projects/{project}/releases\n\noptions:\n  -h, --help         show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "release-policy",
+    "--help"
+   ],
+   "stdout": "usage: aqef release-policy [-h] {approve,get,list,revoke} ...\n\npositional arguments:\n  {approve,get,list,revoke}\n    approve             POST /projects/{project}/release-policies\n    get                 GET /projects/{project}/release-policies/{key}\n    list                GET /projects/{project}/release-policies\n    revoke              POST /projects/{project}/release-\n                        policies/{policy}/revoke\n\noptions:\n  -h, --help            show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "report",
+    "--help"
+   ],
+   "stdout": "usage: aqef report [-h] {generate,get,list} ...\n\npositional arguments:\n  {generate,get,list}\n    generate           POST /projects/{project}/reports\n    get                GET /projects/{project}/reports/{key}\n    list               GET /projects/{project}/reports\n\noptions:\n  -h, --help           show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "requalification",
+    "--help"
+   ],
+   "stdout": "usage: aqef requalification [-h] {list,record} ...\n\npositional arguments:\n  {list,record}\n    list         GET /projects/{project}/requalifications\n    record       POST /projects/{project}/requalifications\n\noptions:\n  -h, --help     show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "result",
+    "--help"
+   ],
+   "stdout": "usage: aqef result [-h] {list,reassess,review} ...\n\npositional arguments:\n  {list,reassess,review}\n    list                GET /projects/{project}/executions/{execution}/results\n    reassess            POST /projects/{project}/executions/{execution}/result\n                        s/{result}/reassess\n    review              POST /projects/{project}/executions/{execution}/result\n                        s/{result}/review\n\noptions:\n  -h, --help            show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "role",
+    "--help"
+   ],
+   "stdout": "usage: aqef role [-h] {create,list} ...\n\npositional arguments:\n  {create,list}\n    create       POST /roles\n    list         GET /roles\n\noptions:\n  -h, --help     show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "scenario",
+    "--help"
+   ],
+   "stdout": "usage: aqef scenario [-h] {create,delete,get,update} ...\n\npositional arguments:\n  {create,delete,get,update}\n    create              POST /projects/{project}/suites/{suite}/scenarios\n    delete              DELETE /projects/{project}/suites/{suite}/scenarios/{s\n                        cenario}\n    get                 GET /projects/{project}/suites/{suite}/scenarios/{scen\n                        ario}\n    update              PUT /projects/{project}/suites/{suite}/scenarios/{scen\n                        ario}\n\noptions:\n  -h, --help            show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "seeded-control",
+    "--help"
+   ],
+   "stdout": "usage: aqef seeded-control [-h] {confirm,invalidate} ...\n\npositional arguments:\n  {confirm,invalidate}\n    confirm             POST\n                        /projects/{project}/executions/{execution}/seeded-\n                        controls/{scenario}/confirm\n    invalidate          POST\n                        /projects/{project}/executions/{execution}/seeded-\n                        controls/{scenario}/invalidate\n\noptions:\n  -h, --help            show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "snapshot",
+    "--help"
+   ],
+   "stdout": "usage: aqef snapshot [-h] {capture,get,list} ...\n\npositional arguments:\n  {capture,get,list}\n    capture           POST /projects/{project}/snapshots\n    get               GET /projects/{project}/snapshots/{key}\n    list              GET /projects/{project}/snapshots\n\noptions:\n  -h, --help          show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "suite",
+    "--help"
+   ],
+   "stdout": "usage: aqef suite [-h] {create,get,list} ...\n\npositional arguments:\n  {create,get,list}\n    create           POST /projects/{project}/suites\n    get              GET /projects/{project}/suites/{suite}\n    list             GET /projects/{project}/suites\n\noptions:\n  -h, --help         show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "system",
+    "--help"
+   ],
+   "stdout": "usage: aqef system [-h] {health} ...\n\npositional arguments:\n  {health}\n    health    GET /healthz\n\noptions:\n  -h, --help  show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "team",
+    "--help"
+   ],
+   "stdout": "usage: aqef team [-h] {create,list} ...\n\npositional arguments:\n  {create,list}\n    create       POST /teams\n    list         GET /teams\n\noptions:\n  -h, --help     show this help message and exit\n",
+   "exit_code": 0
+  },
+  {
+   "argv": [
+    "/usr/local/bin/aqef",
+    "validator",
+    "--help"
+   ],
+   "stdout": "usage: aqef validator [-h] {list,register} ...\n\npositional arguments:\n  {list,register}\n    list           GET /projects/{project}/validators\n    register       POST /projects/{project}/validators\n\noptions:\n  -h, --help       show this help message and exit\n",
+   "exit_code": 0
+  }
+ ],
+ "cli_documentation": "# AQEF CLI\n\nInstall with `python -m pip install ./client`. Set `AQEF_URL` to the engine URL\nand `AQEF_TOKEN` to the caller's bearer token. Use `--url` to override the URL\nor `--token-file PATH` to read the token from a file. Global options work before\nthe resource or after the command. There is no token argument.\n\nEach operation calls the SDK method in the table once. Each FILE is a YAML or JSON\nrequest body. For example, `aqef project load project.yaml` sends the parsed file\ndirectly to POST /projects. YAML may parse `version: 1.0` as a number. Quote it as\n`version: \"1.0\"` when the API expects a string. The CLI preserves the parsed data.\nApproval headers are available as `--x-approved-by` and `--x-external-review-ref`\nwhere listed. Optional query arguments and headers are omitted unless supplied.\n\n`aqef execution run --project demo --suite smoke --environment test --wait`\nuses the engine's synchronous trigger. The initial POST waits for the finished\nbatch and returns its Executions, so this engine needs no polling or second request.\nUse `--timeout SECONDS` to set the finite HTTP timeout, 60 seconds by default.\nThis bounds waiting for the engine's response. A timeout does not cancel the batch.\n\nThe default display pretty-prints returned data for reading. `--json` writes\nsuccessful response bytes directly to stdout, including an empty body for HTTP 204.\nHTTP errors are written to stderr with the status and original body. The CLI\nsuppresses the configured bearer token if it appears in displayed output.\n\n| Exit code | Meaning |\n|---|---|\n| 0 | API success. |\n| 1 | A returned GateResult in a Gate check, Report, Release Decision or Execution's embedded gate evaluation has `blocking: true`, `status: fail` and no `override`. This also applies to their list responses where present. The CLI reads these fields as returned. |\n| 2 | HTTP API error. |\n| 3 | Transport error or timeout. |\n| 64 | Usage error, including an unreadable or unparseable body file. |\n\nAn overridden Gate keeps its returned status and override identifier in JSON.\nThe human-readable display additionally labels it overridden.\n\n<!-- operations -->\n\n| Command | SDK method | HTTP call | Appendix C |\n|---|---|---|---|\n| `aqef admission list --project PROJECT [--offset VALUE] [--limit VALUE] [--oracle VALUE]` | `list_admissions` | `GET /projects/{project}/admissions` | C.3 |\n| `aqef admission record --project PROJECT FILE` | `record_admission` | `POST /projects/{project}/admissions` | C.3 |\n| `aqef approval list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_approvals` | `GET /projects/{project}/approvals` | C.3 |\n| `aqef audit list --project PROJECT [--action VALUE] [--principal-id VALUE] [--offset VALUE] [--limit VALUE]` | `get_audit_log` | `GET /projects/{project}/audit` | C.3 |\n| `aqef baseline approve --project PROJECT FILE` | `approve_baseline` | `POST /projects/{project}/baselines` | C.3 |\n| `aqef baseline get --project PROJECT --key KEY` | `get_baseline` | `GET /projects/{project}/baselines/{key}` | C.3 |\n| `aqef baseline list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_baselines` | `GET /projects/{project}/baselines` | C.3 |\n| `aqef contract create --project PROJECT [--x-approved-by VALUE] [--x-external-review-ref VALUE] FILE` | `create_contract` | `POST /projects/{project}/contracts` | C.3 |\n| `aqef contract get --project PROJECT --contract CONTRACT` | `get_contract` | `GET /projects/{project}/contracts/{contract}` | C.3 |\n| `aqef contract list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_contracts` | `GET /projects/{project}/contracts` | C.3 |\n| `aqef contract update --project PROJECT --contract CONTRACT [--x-approved-by VALUE] [--x-external-review-ref VALUE] FILE` | `update_contract` | `PUT /projects/{project}/contracts/{contract}` | C.3 |\n| `aqef dataset create --project PROJECT FILE` | `create_dataset` | `POST /projects/{project}/datasets` | C.3 |\n| `aqef dataset get --project PROJECT --dataset DATASET [--version VALUE]` | `get_dataset` | `GET /projects/{project}/datasets/{dataset}` | C.3 |\n| `aqef dataset list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_datasets` | `GET /projects/{project}/datasets` | C.3 |\n| `aqef dataset rows --project PROJECT --dataset DATASET [--version VALUE] [--offset VALUE] [--limit VALUE]` | `get_dataset_rows` | `GET /projects/{project}/datasets/{dataset}/rows` | C.3 |\n| `aqef dataset version --project PROJECT --dataset DATASET FILE` | `create_dataset_version` | `POST /projects/{project}/datasets/{dataset}/versions` | C.3 |\n| `aqef environment create --project PROJECT FILE` | `create_environment` | `POST /projects/{project}/environments` | C.3 |\n| `aqef environment delete --project PROJECT --env ENV` | `delete_environment` | `DELETE /projects/{project}/environments/{env}` | C.3 |\n| `aqef environment get --project PROJECT --env ENV` | `get_environment` | `GET /projects/{project}/environments/{env}` | C.3 |\n| `aqef environment list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_environments` | `GET /projects/{project}/environments` | C.3 |\n| `aqef environment update --project PROJECT --env ENV FILE` | `update_environment` | `PUT /projects/{project}/environments/{env}` | C.3 |\n| `aqef execution artifacts --project PROJECT --execution EXECUTION [--offset VALUE] [--limit VALUE]` | `list_artifacts` | `GET /projects/{project}/executions/{execution}/artifacts` | C.3 |\n| `aqef execution conversation --project PROJECT --execution EXECUTION` | `get_conversation` | `GET /projects/{project}/executions/{execution}/conversation` | C.3 |\n| `aqef execution get --project PROJECT --execution EXECUTION` | `get_execution` | `GET /projects/{project}/executions/{execution}` | C.3 |\n| `aqef execution list --project PROJECT [--offset VALUE] [--limit VALUE] [--suite VALUE] [--environment VALUE] [--status VALUE] [--date-from VALUE] [--date-to VALUE]` | `list_executions` | `GET /projects/{project}/executions` | Not in Appendix C |\n| `aqef execution run --project PROJECT (FILE or --suite S --environment E) [--wait]` | `trigger_execution` | `POST /projects/{project}/executions` | C.3 |\n| `aqef gate create --project PROJECT [--x-approved-by VALUE] [--x-external-review-ref VALUE] FILE` | `create_quality_gate` | `POST /projects/{project}/gates` | C.3 |\n| `aqef gate list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_quality_gates` | `GET /projects/{project}/gates` | C.3 |\n| `aqef gate override --project PROJECT --gate GATE FILE` | `override_gate` | `POST /projects/{project}/gates/{gate}/override` | C.3 |\n| `aqef gate update --project PROJECT --gate GATE [--x-approved-by VALUE] [--x-external-review-ref VALUE] FILE` | `update_quality_gate` | `PUT /projects/{project}/gates/{gate}` | C.3 |\n| `aqef gates check --project PROJECT FILE` | `check_gates` | `POST /projects/{project}/gates/check` | C.3 |\n| `aqef principal create FILE` | `create_principal` | `POST /principals` | Not in Appendix C |\n| `aqef project delete --project PROJECT [--retain-history VALUE]` | `delete_project` | `DELETE /projects/{project}` | C.3, C.8 |\n| `aqef project get --project PROJECT` | `get_project` | `GET /projects/{project}` | C.3 |\n| `aqef project list [--offset VALUE] [--limit VALUE]` | `list_projects` | `GET /projects` | C.3 |\n| `aqef project load [--x-approved-by VALUE] [--x-external-review-ref VALUE] FILE` | `create_project` | `POST /projects` | C.3 |\n| `aqef project update --project PROJECT [--x-approved-by VALUE] [--x-external-review-ref VALUE] FILE` | `update_project` | `PUT /projects/{project}` | C.3 |\n| `aqef release get --project PROJECT --key KEY` | `get_release` | `GET /projects/{project}/releases/{key}` | Not in Appendix C |\n| `aqef release list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_releases` | `GET /projects/{project}/releases` | C.3 |\n| `aqef release record --project PROJECT FILE` | `record_release` | `POST /projects/{project}/releases` | C.3 |\n| `aqef release-policy approve --project PROJECT FILE` | `approve_release_policy` | `POST /projects/{project}/release-policies` | C.3 |\n| `aqef release-policy get --project PROJECT --key KEY` | `get_release_policy` | `GET /projects/{project}/release-policies/{key}` | C.3 |\n| `aqef release-policy list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_release_policies` | `GET /projects/{project}/release-policies` | C.3 |\n| `aqef release-policy revoke --project PROJECT --policy POLICY` | `revoke_release_policy` | `POST /projects/{project}/release-policies/{policy}/revoke` | C.3 |\n| `aqef report generate --project PROJECT FILE` | `generate_report` | `POST /projects/{project}/reports` | Not in Appendix C |\n| `aqef report get --project PROJECT --key KEY` | `get_report` | `GET /projects/{project}/reports/{key}` | C.3, C.10 |\n| `aqef report list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_reports` | `GET /projects/{project}/reports` | C.3, C.10 |\n| `aqef requalification list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_requalifications` | `GET /projects/{project}/requalifications` | C.3 |\n| `aqef requalification record --project PROJECT FILE` | `record_requalification` | `POST /projects/{project}/requalifications` | C.3 |\n| `aqef result list --project PROJECT --execution EXECUTION [--offset VALUE] [--limit VALUE] [--oracle-type VALUE] [--verdict VALUE]` | `list_results` | `GET /projects/{project}/executions/{execution}/results` | C.3 |\n| `aqef result reassess --project PROJECT --execution EXECUTION --result RESULT FILE` | `reassess_result` | `POST /projects/{project}/executions/{execution}/results/{result}/reassess` | C.3, C.7 |\n| `aqef result review --project PROJECT --execution EXECUTION --result RESULT FILE` | `review_result` | `POST /projects/{project}/executions/{execution}/results/{result}/review` | C.3, C.7 |\n| `aqef role create FILE` | `create_role` | `POST /roles` | C.3 |\n| `aqef role list [--offset VALUE] [--limit VALUE]` | `list_roles` | `GET /roles` | C.3 |\n| `aqef scenario create --project PROJECT --suite SUITE [--x-approved-by VALUE] [--x-external-review-ref VALUE] FILE` | `create_scenario` | `POST /projects/{project}/suites/{suite}/scenarios` | C.3 |\n| `aqef scenario delete --project PROJECT --suite SUITE --scenario SCENARIO [--x-approved-by VALUE] [--x-external-review-ref VALUE]` | `delete_scenario` | `DELETE /projects/{project}/suites/{suite}/scenarios/{scenario}` | C.3 |\n| `aqef scenario get --project PROJECT --suite SUITE --scenario SCENARIO` | `get_scenario` | `GET /projects/{project}/suites/{suite}/scenarios/{scenario}` | C.3 |\n| `aqef scenario update --project PROJECT --suite SUITE --scenario SCENARIO [--x-approved-by VALUE] [--x-external-review-ref VALUE] FILE` | `update_scenario` | `PUT /projects/{project}/suites/{suite}/scenarios/{scenario}` | C.3 |\n| `aqef seeded-control confirm --project PROJECT --execution EXECUTION --scenario SCENARIO FILE` | `confirm_seeded_control` | `POST /projects/{project}/executions/{execution}/seeded-controls/{scenario}/confirm` | C.3 |\n| `aqef seeded-control invalidate --project PROJECT --execution EXECUTION --scenario SCENARIO FILE` | `invalidate_seeded_control` | `POST /projects/{project}/executions/{execution}/seeded-controls/{scenario}/invalidate` | C.3 |\n| `aqef snapshot capture --project PROJECT FILE` | `capture_snapshot` | `POST /projects/{project}/snapshots` | C.3 |\n| `aqef snapshot get --project PROJECT --key KEY` | `get_snapshot` | `GET /projects/{project}/snapshots/{key}` | C.3 |\n| `aqef snapshot list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_snapshots` | `GET /projects/{project}/snapshots` | C.3 |\n| `aqef suite create --project PROJECT [--x-approved-by VALUE] [--x-external-review-ref VALUE] FILE` | `create_suite` | `POST /projects/{project}/suites` | C.3 |\n| `aqef suite get --project PROJECT --suite SUITE` | `get_suite` | `GET /projects/{project}/suites/{suite}` | C.3 |\n| `aqef suite list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_suites` | `GET /projects/{project}/suites` | C.3 |\n| `aqef system health` | `health_check` | `GET /healthz` | Not in Appendix C |\n| `aqef team create FILE` | `create_team` | `POST /teams` | C.3 |\n| `aqef team list [--offset VALUE] [--limit VALUE]` | `list_teams` | `GET /teams` | C.3 |\n| `aqef validator list --project PROJECT [--offset VALUE] [--limit VALUE]` | `list_validators` | `GET /projects/{project}/validators` | Not in Appendix C |\n| `aqef validator register --project PROJECT [--x-approved-by VALUE] [--x-external-review-ref VALUE] FILE` | `register_validator` | `POST /projects/{project}/validators` | Not in Appendix C |\n\n71 commands.\n\n## Not in Appendix C\n\n- `aqef execution list` wraps `GET /projects/{project}/executions`. Execution history and filters extend C.6.\n- `aqef principal create` wraps `POST /principals`. Principal provisioning is implementation-defined in C.4.\n- `aqef release get` wraps `GET /projects/{project}/releases/{key}`. Direct lookup of an immutable C.3 Release Decision.\n- `aqef report generate` wraps `POST /projects/{project}/reports`. Explicit freeze operation for the C.10 Report shape.\n- `aqef system health` wraps `GET /healthz`. Engine health and version metadata.\n- `aqef validator list` wraps `GET /projects/{project}/validators`. Local Custom Validator inventory for Volume V.\n- `aqef validator register` wraps `POST /projects/{project}/validators`. Local declarative Custom Validator registration for Volume V.\n",
+ "appendix_c_operations": [
+  "| GET | `/projects` | List all Projects the caller has access to. | `read` |",
+  "| POST | `/projects` | Create a new Project. | `project_create` |",
+  "| GET | `/projects/{project}` | Retrieve Project details with Environments and Suites. | `read` |",
+  "| PUT | `/projects/{project}` | Replace Project configuration. | `project_edit` |",
+  "| DELETE | `/projects/{project}` | Delete a Project and all its data. | `project_delete` |",
+  "| GET | `/projects/{project}/environments` | List Environments. | `read` |",
+  "| POST | `/projects/{project}/environments` | Create an Environment. | `environment_create` |",
+  "| GET | `/projects/{project}/environments/{env}` | Retrieve Environment details. | `read` |",
+  "| PUT | `/projects/{project}/environments/{env}` | Replace Environment configuration. | `environment_edit` |",
+  "| DELETE | `/projects/{project}/environments/{env}` | Delete an Environment. | `environment_delete` |",
+  "| GET | `/projects/{project}/suites` | List Suites. | `read` |",
+  "| POST | `/projects/{project}/suites` | Create a Suite. | `suite_create` |",
+  "| GET | `.../suites/{suite}` | Retrieve Suite with Scenarios. | `read` |",
+  "| GET | `.../suites/{suite}/scenarios/{scenario}` | Retrieve a Scenario. | `read` |",
+  "| POST | `.../suites/{suite}/scenarios` | Add a Scenario. | `scenario_create` |",
+  "| PUT | `.../suites/{suite}/scenarios/{scenario}` | Replace a Scenario. | `scenario_edit` |",
+  "| DELETE | `.../suites/{suite}/scenarios/{scenario}` | Remove a Scenario. | `scenario_delete` |",
+  "| GET | `/projects/{project}/contracts` | List Reusable Contracts. | `read` |",
+  "| POST | `/projects/{project}/contracts` | Create a Contract. Governed by Approval Workflow. | `contract_define` |",
+  "| GET | `/projects/{project}/contracts/{contract}` | Retrieve a Contract. | `read` |",
+  "| PUT | `/projects/{project}/contracts/{contract}` | Replace a Contract. Governed by Approval Workflow. | `contract_define` |",
+  "| GET | `/projects/{project}/datasets` | List Datasets. | `read` |",
+  "| POST | `/projects/{project}/datasets` | Create a Dataset (version MUST be specified). | `dataset_create` |",
+  "| GET | `/projects/{project}/datasets/{dataset}` | Retrieve Dataset metadata. | `read` |",
+  "| GET | `/projects/{project}/datasets/{dataset}/rows` | Retrieve Dataset rows (paginated). | `read` |",
+  "| POST | `/projects/{project}/datasets/{dataset}/versions` | Create a new version. | `dataset_create` |",
+  "| POST | `/projects/{project}/executions` | Trigger Execution(s) for a Suite × Environment. | `execute` |",
+  "| GET | `/projects/{project}/executions/{execution}` | Retrieve Execution status and metadata. | `read` |",
+  "| GET | `.../executions/{execution}/conversation` | Retrieve the Conversation transcript. | `read` |",
+  "| GET | `.../executions/{execution}/artifacts` | List Artifacts. | `read` |",
+  "| GET | `.../executions/{execution}/results` | List Results (Validator + Judge). | `read` |",
+  "| POST | `.../executions/{execution}/results/{result}/review` | Record a Human Reviewer's verdict on this Result: completes it if it is `awaiting_review`, otherwise records a new Human Reviewer Result that resolves it. | `review` |",
+  "| POST | `.../executions/{execution}/results/{result}/reassess` | Have an Oracle assess the stored Evidence again for this Result's clause, as a new Result that resolves it. The subject is not invoked. | `execute` |",
+  "| POST | `.../executions/{execution}/seeded-controls/{scenario}/invalidate` | Declare full-run invalidation for a Seeded Control missed in this Execution. Body MUST include a non-empty `reason`. | `seeded_control_invalidate` |",
+  "| POST | `.../executions/{execution}/seeded-controls/{scenario}/confirm` | Record a Human Reviewer's confirmation that the planted defect is present (or, for a clean control, that the defect class is absent) in the Evidence the Oracle received, for a control with `confirmed_by: human_reviewer` (Volume VIII). The Principal MUST be a Person. Until it is recorded, the control is `invalid` for the run. | `review` |",
+  "| POST | `/projects/{project}/requalifications` | Record that an Oracle configuration is requalified for a defect class (Volume VIII — Requalification). Body names the `oracle`, the `defect_class`, and the Seeded Control Results it rests on. MUST be rejected unless each named control is of that class, was `caught` (a defect control) or `passed` (a clean control) by that Oracle configuration, and is not a control any Oracle missed or raised a false alarm on in a run whose Results the requalification will be used to re-assess. | `execute` |",
+  "| GET | `/projects/{project}/requalifications` | List Requalification records. | `read` |",
+  "| POST | `/projects/{project}/admissions` | Record a Judge configuration's agreement with a Reference Set (Volume VI, Admission). The Principal MUST be a Person. MUST be rejected if `admitted` is `true` while `chance_corrected_agreement` is below `threshold`, or `false` while it meets it. | `review` |",
+  "| GET | `/projects/{project}/admissions` | List Admission records. | `read` |",
+  "| GET | `/projects/{project}/snapshots` | List Snapshots. | `read` |",
+  "| GET | `/projects/{project}/snapshots/{snapshot}` | Retrieve a Snapshot (Appendix A §A.13). | `read` |",
+  "| POST | `/projects/{project}/snapshots` | Capture a Snapshot explicitly, for Snapshot Comparison (Volume X). | `snapshot_create` |",
+  "| GET | `/projects/{project}/baselines` | List approved Baselines. | `read` |",
+  "| POST | `/projects/{project}/baselines` | Designate an Execution as Baseline. Governed by Approval Workflow. | `baseline_approve` |",
+  "| GET | `/projects/{project}/baselines/{baseline}` | Retrieve Baseline details. | `read` |",
+  "| GET | `/projects/{project}/gates` | List Gate definitions. | `read` |",
+  "| POST | `/projects/{project}/gates` | Define a Quality Gate. Governed by Approval Workflow. | `contract_define` |",
+  "| PUT | `/projects/{project}/gates/{gate}` | Change a Quality Gate (threshold, `min_basis`, `on_failure`). Governed by Approval Workflow. | `contract_define` |",
+  "| POST | `/projects/{project}/gates/check` | Evaluate Gates against a set of Results. Returns one GateResult (Appendix A §A.12) per Gate and the `snapshot_id` captured for the evaluation. | `execute` |",
+  "| POST | `/projects/{project}/gates/{gate}/override` | Override one failed blocking GateResult. Body MUST name the GateResult by its `id` (Appendix A §A.12), give its `execution_batch_id`, and include a non-empty justification. Applies to that GateResult only. Governed by Approval Workflow. | `gate_override` |",
+  "| GET | `/projects/{project}/reports` | List Reports. | `read` |",
+  "| GET | `/projects/{project}/reports/{report}` | Retrieve a frozen Report, in the shape of §C.10. | `read` |",
+  "| POST | `/projects/{project}/releases` | Record a Release Decision. MUST be rejected if a Contract, Quality Gate, or Environment in its scope differs from its `snapshot_id`, or if no Quality Gate applies to its scope (Volume I, Chapter 6). Governed by Approval Workflow. | `release_decide` |",
+  "| GET | `/projects/{project}/releases` | List Release Decisions. | `read` |",
+  "| GET | `/projects/{project}/release-policies` | List Release Policies, revoked ones included. | `read` |",
+  "| POST | `/projects/{project}/release-policies` | Approve a Release Policy (Appendix A §A.14). The Principal MUST be a Person. Governed by Approval Workflow. | `release_decide` |",
+  "| GET | `/projects/{project}/release-policies/{policy}` | Retrieve a Release Policy. | `read` |",
+  "| POST | `/projects/{project}/release-policies/{policy}/revoke` | Revoke a Release Policy. The Principal MUST be a Person. | `release_decide` |",
+  "| GET | `/teams` | List Teams. | `team_read` |",
+  "| POST | `/teams` | Create a Team. | `team_admin` |",
+  "| GET | `/roles` | List Roles and their Permissions. | `role_read` |",
+  "| POST | `/roles` | Create a Role. | `role_admin` |",
+  "| GET | `/projects/{project}/audit` | Query audit log (filtered by action type, date, actor). | `audit_read` |",
+  "| GET | `/projects/{project}/approvals` | List Approval Workflow records. | `audit_read` |",
+  "| GET | `/plugins` | List registered plugins. | `read` |",
+  "| POST | `/plugins` | Register a plugin. Triggers the repeatability check for Validator Plugins (Volume XVI). | `plugin_register` |",
+  "| GET | `/plugins/{plugin}` | Retrieve plugin details and version history. | `read` |",
+  "| POST | `/plugins/{plugin}/deprecate` | Deprecate a plugin version. Historical Results remain valid. | `plugin_admin` |"
+ ]
+}

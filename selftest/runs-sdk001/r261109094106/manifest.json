@@ -1,0 +1,48 @@
+{
+ "schema_version": "0.8",
+ "run_id": "r261109094106",
+ "created_at": "2026-11-09T17:41:08Z",
+ "canonicalization": "RFC8785",
+ "entries": [
+  {
+   "evidence_id": "run-001",
+   "kind": "statement",
+   "raw_ref": "evidence://run-001.json",
+   "raw_sha256": "50ef28d1523e612faddd3a8e1f381b2c54a4f547a4c536b66b0fd3ab437ba0bc",
+   "raw_size": 23877,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-09T17:41:06Z"
+  },
+  {
+   "evidence_id": "CT-SDK-001-001",
+   "kind": "harness_call",
+   "raw_ref": "evidence://CT-SDK-001-001.json",
+   "raw_sha256": "20d0978bc926ff94fb986b310d357a2ab5618a9124fc2b7604ed8191d78f31af",
+   "raw_size": 2668,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-09T17:41:07Z",
+   "case_id": "CT-SDK-001"
+  },
+  {
+   "evidence_id": "CT-SDK-001-002",
+   "kind": "harness_call",
+   "raw_ref": "evidence://CT-SDK-001-002.json",
+   "raw_sha256": "52f5bdefeea098bb693c1bb6b2664f78231bad03692094d2cbe92b3ace9cf984",
+   "raw_size": 330,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-09T17:41:07Z",
+   "case_id": "CT-SDK-001"
+  },
+  {
+   "evidence_id": "CT-SDK-001-003",
+   "kind": "harness_call",
+   "raw_ref": "evidence://CT-SDK-001-003.json",
+   "raw_sha256": "8e07f1f77c866952859619df4d09d2e463697ef433944d03244544885272bdc5",
+   "raw_size": 539,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-09T17:41:07Z",
+   "case_id": "CT-SDK-001"
+  }
+ ],
+ "manifest_sha256": "57842b5ea11a881f402e6ffa029f23c2e7977e0717b930173548fb0e53e01bd0"
+}

@@ -42,3 +42,10 @@ engine_slices_done: 11             # parts of a test beyond this are NOT_RUN (fo
 #   url: http://127.0.0.1:3000
 #   driver: setup/ui_reference_ui.py       # the module that operates that UI
 # effective_contract_path: configuration.contract   # where an Execution record holds its frozen effective Contract
+
+# CTS Section 26, CT-SDK-001 and CT-SDK-002, for a claimed `cli` or `sdk:<language>`:
+# cli:
+#   driver: setup/cli_aqef_client.py       # how to run each command (`aqef`; AQEF_CLI overrides)
+#   docs: ../aqef-reference-engine/docs/CLI.md   # where the CLI documents its commands
+# sdk:
+#   python: setup/sdk_aqef_client.py       # one driver per claimed language

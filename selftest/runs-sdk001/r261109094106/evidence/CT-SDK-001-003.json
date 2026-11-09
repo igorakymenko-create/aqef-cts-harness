@@ -1,0 +1,27 @@
+{
+ "note": "CLI: evaluate the Gates",
+ "argv": [
+  "/usr/local/bin/aqef",
+  "--json",
+  "gates",
+  "check",
+  "--project",
+  "cts-r261109094106-ct-sdk-001",
+  "/tmp/cts-sdk001-2f7boyrt/gates.json"
+ ],
+ "actor": "P-RELEASE",
+ "exit_code": 2,
+ "stdout": "",
+ "stderr": "HTTP 404\n{\"detail\":\"Execution batch not found\"}",
+ "proxy_log": [
+  {
+   "method": "POST",
+   "path": "/projects/cts-r261109094106-ct-sdk-001/gates/check",
+   "query": null,
+   "status": 404,
+   "request_body": {
+    "execution_batch_id": "local-batch"
+   }
+  }
+ ]
+}

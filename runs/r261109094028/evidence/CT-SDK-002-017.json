@@ -1,0 +1,65 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261109094028-ct-sdk-002-rest-rel-002/gates/check",
+  "actor": "P-RELEASE",
+  "content_type": "application/json",
+  "body": {
+   "execution_batch_id": "9de0aaaa-cc4c-4ce2-bb0d-c845ea6a9fc5"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": {
+   "id": "20e36a86-d761-4200-8d8d-b23a1e4c618b",
+   "snapshot_id": "20e36a86-d761-4200-8d8d-b23a1e4c618b",
+   "execution_batch_id": "9de0aaaa-cc4c-4ce2-bb0d-c845ea6a9fc5",
+   "gates": {
+    "functional-gate": {
+     "id": "db71ee92-8f5f-4177-a011-4f66faabfb46",
+     "status": "pass",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 1.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     }
+    },
+    "semantic-gate": {
+     "id": "328093ab-c91b-407c-95d6-d7497f213e8b",
+     "status": "fail",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 0.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     },
+     "reasons": [
+      "threshold"
+     ]
+    }
+   },
+   "result_ids": [
+    "86bf7fb6-a1c6-4b98-a353-8e7ec842a4b3",
+    "2e5e71f9-a836-4353-9b5c-4231fc6df224"
+   ],
+   "evaluated_at": "2026-11-09T17:40:34.082010+00:00",
+   "result_state": "sha256:760621ef476f136d25dde541e44b8fb55707d3a7e68e2bfefe077d663197930b",
+   "admissions": {
+    "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}": false
+   },
+   "control_state": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  }
+ },
+ "outcome": "accepted",
+ "note": "[rest-rel-002] evaluate the Gates"
+}

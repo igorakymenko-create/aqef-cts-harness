@@ -151,6 +151,50 @@ aqef-reference-ui `60c354e` (with its vendored engine, slice-12), on AQEF 1.0-CR
 and the report verifies with `validate.py`. CT-RUI-002 to 004 are Inspection tests. Their
 review records are kept with the UI.
 
+## CLI and SDKs (CT-SDK-001, CT-SDK-002)
+
+Both tests are generic. They know the CLI or SDK only through a driver module named in
+`harness.yaml`: `cli.driver`, and `sdk.<language>` for each claimed `sdk:<language>`.
+A driver that cannot run makes the case NOT_RUN (`ADAPTER_GAP`), never FAIL.
+
+**CT-SDK-001.** The CLI's traffic goes through a recording proxy (`aqef_harness/proxy.py`).
+It records the method, path, query, status and body of each request, and no headers, so no
+token is logged.
+1. The CLI loads F-BASE, executes `cts-suite`, and evaluates the Gates.
+2. The harness checks that each command appears in the proxy log as the matching
+   Appendix C operation. A command without it is a FAIL.
+3. It then collects, for the reviewer: the CLI's help for every command group, its
+   documentation (`cli.docs`), and the operations of Appendix C.
+
+The case stays NOT_RUN (`MANUAL_REVIEW_PENDING`) until a named reviewer decides whether
+every documented command maps to a REST operation (CTS 1.8). The token reaches the CLI
+only through `AQEF_TOKEN`.
+
+**CT-SDK-002.** CT-CFG-002, CT-DEC-006 and CT-REL-002 run twice, each in Projects of
+their own: once through the REST adapter, and once through an adapter that carries out
+every request through the SDK's *named* operation for that route, never through its
+low-level request method. Compared:
+- each test's outcome;
+- the status of every request, in order;
+- the Results of every Execution, read back through REST, and every GateResult returned.
+
+Identifiers, references to the Execution, and times are not compared. "Times" includes
+measured durations, such as a latency Artifact: those differ between any two runs. Every
+path treated as a duration is listed in the evidence.
+
+**Drivers** for aqef-reference-engine's `aqef-client` (slice 13):
+- `setup/cli_aqef_client.py`: the `aqef` command; `AQEF_CLI` overrides its path;
+- `setup/sdk_aqef_client.py`: the `aqef_client` package; operations are matched by the
+  route each method's docstring states.
+
+**Self-tests.** Each must make its test FAIL:
+- `selftest/sdk001_local_driver.py`: `execution run` answers locally, without a REST call.
+  Run: `selftest/runs-sdk001/`.
+- `selftest/sdk002_lying_driver.py`: an SDK that reports a rejected configuration as
+  accepted. Run: `selftest/runs-sdk002/`.
+
+**Run.** `harness.reference-cli-sdk.yaml`; see `runs/` for the published run.
+
 ## Layout
 
 | Path | Content |
@@ -160,6 +204,8 @@ review records are kept with the UI.
 | `aqef_harness/adapter_rest.py` | Appendix C mapping; every exchange recorded |
 | `aqef_harness/evidence.py` | Evidence store and manifest (RFC 8785) |
 | `aqef_harness/tests_rui.py` | CT-RUI-001, through a UI driver |
+| `aqef_harness/tests_sdk.py`, `aqef_harness/proxy.py` | CT-SDK-001 and CT-SDK-002; the recording proxy |
+| `setup/cli_aqef_client.py`, `setup/sdk_aqef_client.py` | CLI and SDK drivers for aqef-reference-engine's `aqef-client` |
 | `setup/ui_reference_ui.py`, `setup/start_reference_ui.sh` | Driver and start script for aqef-reference-ui |
 | `aqef_harness/scripted.py` | Scripted subject and Judges |
 | `aqef_harness/fixtures.py` | CTS fixtures as data |

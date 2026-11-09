@@ -29,6 +29,9 @@ class Config:
     ui_url: str | None = None            # a Reference UI under test (CTS Section 26), if any
     ui_driver: pathlib.Path | None = None   # the module that drives that UI (setup/)
     effective_contract_path: str = "configuration.contract"   # where an Execution record holds its frozen effective Contract
+    cli_driver: pathlib.Path | None = None    # the module that drives a CLI under test (CT-SDK-001)
+    cli_docs: pathlib.Path | None = None      # where that CLI documents its commands
+    sdk_drivers: dict = field(default_factory=dict)   # language -> module that drives its SDK (CT-SDK-002)
     manual_reviews: pathlib.Path | None = None   # CTS 1.8 review records (Harness Contract §13)        # from the Conformance Statement: none, or how it binds (CT-REL-039)
 
     @property
@@ -72,5 +75,8 @@ def load(path):
         manual_reviews=rel(d.get("manual_reviews")),
         ui_url=(d.get("ui") or {}).get("url"),
         ui_driver=rel((d.get("ui") or {}).get("driver")),
+        cli_driver=rel((d.get("cli") or {}).get("driver")),
+        cli_docs=rel((d.get("cli") or {}).get("docs")),
+        sdk_drivers={k: rel(v) for k, v in (d.get("sdk") or {}).items()},
         effective_contract_path=d.get("effective_contract_path", "configuration.contract"),
     )

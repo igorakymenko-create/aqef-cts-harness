@@ -1,0 +1,80 @@
+{
+ "note": "CLI: load F-BASE",
+ "argv": [
+  "/usr/local/bin/aqef",
+  "--json",
+  "project",
+  "load",
+  "/tmp/cts-sdk001-4j578od4/f-base.json"
+ ],
+ "actor": "P-APPROVER",
+ "exit_code": 0,
+ "stdout": "{\"name\":\"cts-r261109094028-ct-sdk-001\",\"environments\":[{\"name\":\"cts-env\",\"model_version\":\"cts-scripted-subject@1\",\"prompt_version\":\"cts-prompt@1\",\"tool_configuration\":null,\"infra_target\":\"cts-harness\"}],\"suites\":[{\"name\":\"cts-suite\",\"scenarios\":[{\"name\":\"s-greeting\",\"contract\":{\"constraints\":[{\"validator\":\"schema\",\"target\":\"response\",\"expected\":{\"type\":\"string\",\"minLength\":1},\"veto\":false,\"dimension\":\"functional\"}],\"expectations\":[{\"criteria\":\"The response greets the user.\",\"judge\":{\"model\":\"cts-scripted-judge@1\",\"confidence_source\":\"self_rating\"},\"confidence_threshold\":0.8,\"on_timeout\":\"block\",\"dimension\":\"semantic\"}],\"extends\":[]},\"prompt\":{\"template\":\"{{query}}\"},\"variables\":{\"query\":\"Hello\"}}],\"contracts\":[],\"quality_gates\":[]}],\"datasets\":[],\"defect_classes\":[],\"contracts\":[],\"quality_gates\":[{\"name\":\"functional-gate\",\"aggregate\":\"functional\",\"threshold\":1.0,\"on_failure\":\"block_release\",\"require_admitted_judges\":false}]}",
+ "stderr": "",
+ "proxy_log": [
+  {
+   "method": "POST",
+   "path": "/projects",
+   "query": null,
+   "status": 201,
+   "request_body": {
+    "name": "cts-r261109094028-ct-sdk-001",
+    "environments": [
+     {
+      "name": "cts-env",
+      "model_version": "cts-scripted-subject@1",
+      "prompt_version": "cts-prompt@1",
+      "tool_configuration": null,
+      "infra_target": "cts-harness"
+     }
+    ],
+    "quality_gates": [
+     {
+      "name": "functional-gate",
+      "aggregate": "functional",
+      "threshold": 1.0,
+      "on_failure": "block_release"
+     }
+    ],
+    "suites": [
+     {
+      "name": "cts-suite",
+      "scenarios": [
+       {
+        "name": "s-greeting",
+        "variables": {
+         "query": "Hello"
+        },
+        "prompt": {
+         "template": "{{query}}"
+        },
+        "contract": {
+         "constraints": [
+          {
+           "validator": "schema",
+           "target": "response",
+           "expected": {
+            "type": "string",
+            "minLength": 1
+           }
+          }
+         ],
+         "expectations": [
+          {
+           "criteria": "The response greets the user.",
+           "judge": {
+            "model": "cts-scripted-judge@1",
+            "confidence_source": "self_rating"
+           },
+           "confidence_threshold": 0.8
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}
