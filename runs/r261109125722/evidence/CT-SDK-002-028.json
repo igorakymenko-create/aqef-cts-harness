@@ -1,0 +1,68 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261109125722-ct-sdk-002-python-rel-002/releases",
+  "actor": "P-RELEASE",
+  "via": "sdk:python",
+  "body": {
+   "execution_batch_id": "2c9b8db8-d16b-45e8-8e7b-eeaabd11f94a",
+   "report_id": "f879e6c4-95b7-4a1c-b683-49899c1a0d07",
+   "snapshot_id": "46ad7b01-f713-4eb2-ad5c-d4230f1dd2cc",
+   "decision": "rejected"
+  },
+  "headers": null,
+  "sdk_operation": "record_release"
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "id": "f12a73c9-e9df-46b9-bd21-0ea98c6f7c20",
+   "project": "cts-r261109125722-ct-sdk-002-python-rel-002",
+   "suite": "cts-suite",
+   "environment": "cts-env",
+   "execution_batch_id": "2c9b8db8-d16b-45e8-8e7b-eeaabd11f94a",
+   "report_id": "f879e6c4-95b7-4a1c-b683-49899c1a0d07",
+   "snapshot_id": "46ad7b01-f713-4eb2-ad5c-d4230f1dd2cc",
+   "decision": "rejected",
+   "gates": {
+    "functional-gate": {
+     "id": "75834719-513e-4070-82b0-4a3ecb1280b1",
+     "status": "pass",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 1.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     }
+    },
+    "semantic-gate": {
+     "id": "dd4c194c-c767-45e2-9e74-2796b62dfdd4",
+     "status": "fail",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 0.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     },
+     "reasons": [
+      "threshold"
+     ]
+    }
+   },
+   "approved_by": "P-RELEASE",
+   "approved_at": "2026-11-09T20:57:29.014537+00:00",
+   "approval_role": "cts-release",
+   "approval_id": "3f8584b9-bab0-499f-afdf-2063a89c5c6d"
+  }
+ },
+ "outcome": "accepted",
+ "note": "[python-rel-002] (b) rejected"
+}

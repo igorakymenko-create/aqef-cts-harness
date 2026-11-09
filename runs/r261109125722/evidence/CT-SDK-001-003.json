@@ -1,0 +1,27 @@
+{
+ "note": "CLI: evaluate the Gates",
+ "argv": [
+  "/usr/local/bin/aqef",
+  "--json",
+  "gates",
+  "check",
+  "--project",
+  "cts-r261109125722-ct-sdk-001",
+  "/tmp/cts-sdk001-rw8jq8b1/gates.json"
+ ],
+ "actor": "P-RELEASE",
+ "exit_code": 0,
+ "stdout": "{\"id\":\"414e14c5-0bd7-4269-b166-f23c5b2a91c7\",\"snapshot_id\":\"414e14c5-0bd7-4269-b166-f23c5b2a91c7\",\"execution_batch_id\":\"6244e5a8-92d6-4220-99f9-1de8ad515526\",\"gates\":{\"functional-gate\":{\"id\":\"f7c94377-219e-4e9a-9ff1-592f483ee429\",\"status\":\"pass\",\"blocking\":true,\"threshold\":1.0,\"value\":1.0,\"basis\":{\"results\":1,\"not_actionable\":0,\"scenarios\":1,\"executions\":1,\"min_basis_met\":\"not_declared\"}}},\"result_ids\":[\"cbbd9314-5b74-491b-bcf7-112621db6775\",\"ff18e58b-7fde-48b3-924a-59ea3c6db4f4\"],\"evaluated_at\":\"2026-11-09T20:57:23.649868+00:00\",\"result_state\":\"sha256:bd259f72e2160d00bd19987484361ba9ec487cd76f96917deecbb42c425c3bb1\",\"admissions\":{\"{\\\"confidence_source\\\":\\\"self_rating\\\",\\\"criteria\\\":\\\"The response greets the user.\\\",\\\"model\\\":\\\"cts-scripted-judge@1\\\",\\\"type\\\":\\\"judge\\\",\\\"version\\\":\\\"http-judge-v1\\\"}\":false},\"control_state\":\"sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\"}",
+ "stderr": "",
+ "proxy_log": [
+  {
+   "method": "POST",
+   "path": "/projects/cts-r261109125722-ct-sdk-001/gates/check",
+   "query": null,
+   "status": 200,
+   "request_body": {
+    "execution_batch_id": "6244e5a8-92d6-4220-99f9-1de8ad515526"
+   }
+  }
+ ]
+}

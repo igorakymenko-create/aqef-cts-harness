@@ -1,0 +1,92 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261109120325-ct-sdk-002-rest-dec-006/executions/03e2ed38-5e8a-4e23-9e86-30d7bd7f3089/results",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "cbc9294a-4e75-4931-b60d-44e479251a8d",
+    "execution": "03e2ed38-5e8a-4e23-9e86-30d7bd7f3089",
+    "clause": "sha256:5fde81caf1a910bcc6aea78c5ad38cb009d735a69b0be0e8fe2090276d48504b/constraints/0",
+    "oracle_type": "validator",
+    "oracle": "{\"custom\":null,\"expected\":{\"minLength\":1,\"type\":\"string\"},\"name\":\"schema\",\"target\":\"response\",\"type\":\"validator\",\"version\":\"1\"}",
+    "verdict": "pass",
+    "confidence": "not_applicable",
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "schema",
+      "target": "response",
+      "expected": {
+       "type": "string",
+       "minLength": 1
+      },
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "target_evidence": "Hello! How can I help?",
+     "check": {
+      "errors": []
+     }
+    },
+    "recorded_at": "2026-11-09T20:03:30.192073Z"
+   },
+   {
+    "id": "e6098bce-ec88-47a2-8531-0d75d24e9791",
+    "execution": "03e2ed38-5e8a-4e23-9e86-30d7bd7f3089",
+    "clause": "sha256:5fde81caf1a910bcc6aea78c5ad38cb009d735a69b0be0e8fe2090276d48504b/expectations/0",
+    "oracle_type": "judge",
+    "oracle": "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}",
+    "verdict": "pass",
+    "confidence": 0.6,
+    "disposition": "inconclusive",
+    "supporting_evidence": {
+     "evidence": {
+      "conversation": {
+       "turns": [
+        {
+         "prompt": "Hello",
+         "response": "Hello! How can I help?"
+        }
+       ]
+      },
+      "artifacts": [
+       {
+        "name": "latency_ms",
+        "data": 14.896173000011004,
+        "turn": 1,
+        "attempt": 1
+       }
+      ]
+     },
+     "criteria": "The response greets the user.",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-09T20:03:30.194572+00:00",
+       "completed_at": "2026-11-09T20:03:30.209076+00:00"
+      }
+     ],
+     "provider_response": {
+      "verdict": "pass",
+      "confidence": 0.6,
+      "explanation": "scripted pass",
+      "assertions": 1
+     },
+     "explanation": "scripted pass"
+    },
+    "recorded_at": "2026-11-09T20:03:30.194561Z"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "[rest-dec-006] read back the Results of s-greeting"
+}

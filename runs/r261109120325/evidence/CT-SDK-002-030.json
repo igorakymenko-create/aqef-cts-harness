@@ -1,0 +1,92 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261109120325-ct-sdk-002-python-rel-002/executions/4cad2390-2fe2-4015-ab96-19d50590b8aa/results",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "d6965336-a183-45ef-8e0d-83508a718736",
+    "execution": "4cad2390-2fe2-4015-ab96-19d50590b8aa",
+    "clause": "sha256:5fde81caf1a910bcc6aea78c5ad38cb009d735a69b0be0e8fe2090276d48504b/constraints/0",
+    "oracle_type": "validator",
+    "oracle": "{\"custom\":null,\"expected\":{\"minLength\":1,\"type\":\"string\"},\"name\":\"schema\",\"target\":\"response\",\"type\":\"validator\",\"version\":\"1\"}",
+    "verdict": "pass",
+    "confidence": "not_applicable",
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "schema",
+      "target": "response",
+      "expected": {
+       "type": "string",
+       "minLength": 1
+      },
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "target_evidence": "Hello! How can I help?",
+     "check": {
+      "errors": []
+     }
+    },
+    "recorded_at": "2026-11-09T20:03:30.612634Z"
+   },
+   {
+    "id": "f8ec6f3e-64ac-41e0-ab2d-ef58d9b14f73",
+    "execution": "4cad2390-2fe2-4015-ab96-19d50590b8aa",
+    "clause": "sha256:5fde81caf1a910bcc6aea78c5ad38cb009d735a69b0be0e8fe2090276d48504b/expectations/0",
+    "oracle_type": "judge",
+    "oracle": "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}",
+    "verdict": "fail",
+    "confidence": 0.9,
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "evidence": {
+      "conversation": {
+       "turns": [
+        {
+         "prompt": "Hello",
+         "response": "Hello! How can I help?"
+        }
+       ]
+      },
+      "artifacts": [
+       {
+        "name": "latency_ms",
+        "data": 20.08656600000336,
+        "turn": 1,
+        "attempt": 1
+       }
+      ]
+     },
+     "criteria": "The response greets the user.",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-09T20:03:30.615280+00:00",
+       "completed_at": "2026-11-09T20:03:30.630612+00:00"
+      }
+     ],
+     "provider_response": {
+      "verdict": "fail",
+      "confidence": 0.9,
+      "explanation": "scripted fail",
+      "assertions": 1
+     },
+     "explanation": "scripted fail"
+    },
+    "recorded_at": "2026-11-09T20:03:30.615270Z"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "[python-rel-002] read back the Results of s-greeting"
+}

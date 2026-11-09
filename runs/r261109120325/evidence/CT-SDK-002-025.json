@@ -1,0 +1,121 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261109120325-ct-sdk-002-python-rel-002/reports",
+  "actor": "P-RELEASE",
+  "via": "sdk:python",
+  "body": {
+   "execution_batch_id": "0b1d7017-a28b-42f5-9601-7da16ce2e86e"
+  },
+  "headers": null,
+  "sdk_operation": "generate_report"
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "id": "1631f314-79f7-405f-b1c3-7b5afdfabb31",
+   "generated_at": "2026-11-09T20:03:30.709995+00:00",
+   "scope": {
+    "project": "cts-r261109120325-ct-sdk-002-python-rel-002",
+    "suites": [
+     "cts-suite"
+    ],
+    "environments": [
+     "cts-env"
+    ],
+    "execution_batch_ids": [
+     "0b1d7017-a28b-42f5-9601-7da16ce2e86e"
+    ]
+   },
+   "snapshot_id": "0906eba7-b648-45bf-b2e6-aab8bcf7dcb8",
+   "gates": {
+    "functional-gate": {
+     "id": "ffbf0614-0085-444e-8cc0-0a519d70af03",
+     "status": "pass",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 1.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     }
+    },
+    "semantic-gate": {
+     "id": "27e4af6a-3e61-4fd6-9b9a-2d236331d914",
+     "status": "fail",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 0.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     },
+     "reasons": [
+      "threshold"
+     ]
+    }
+   },
+   "metrics": [
+    {
+     "name": "functional.pass_rate",
+     "definition": "Contract-weighted actionable pass rate; Confidence applied before aggregation",
+     "value": 1.0,
+     "result_ids": [
+      "d6965336-a183-45ef-8e0d-83508a718736"
+     ]
+    },
+    {
+     "name": "semantic.pass_rate",
+     "definition": "Contract-weighted actionable pass rate; Confidence applied before aggregation",
+     "value": 0.0,
+     "result_ids": [
+      "f8ec6f3e-64ac-41e0-ab2d-ef58d9b14f73"
+     ]
+    },
+    {
+     "name": "safety.pass_rate",
+     "definition": "Contract-weighted actionable pass rate; Confidence applied before aggregation",
+     "value": "not_computed",
+     "result_ids": []
+    },
+    {
+     "name": "operational.pass_rate",
+     "definition": "Contract-weighted actionable pass rate; Confidence applied before aggregation",
+     "value": "not_computed",
+     "result_ids": []
+    }
+   ],
+   "signals": {
+    "retries": [],
+    "low_confidence": [
+     {
+      "scenario": "cts-suite/s-greeting",
+      "oracle": "{\"custom\":null,\"expected\":{\"minLength\":1,\"type\":\"string\"},\"name\":\"schema\",\"target\":\"response\",\"type\":\"validator\",\"version\":\"1\"}",
+      "inconclusive": 0,
+      "results": 1
+     },
+     {
+      "scenario": "cts-suite/s-greeting",
+      "oracle": "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}",
+      "inconclusive": 0,
+      "results": 1
+     }
+    ],
+    "multi_judge": [],
+    "unenforced_boundaries": [],
+    "boundary_attempts": [],
+    "unadmitted_judges": [
+     "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}"
+    ]
+   }
+  }
+ },
+ "outcome": "accepted",
+ "note": "[python-rel-002] the Report for the Release Decision"
+}

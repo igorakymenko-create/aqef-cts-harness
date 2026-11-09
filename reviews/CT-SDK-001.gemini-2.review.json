@@ -1,0 +1,43 @@
+{
+  "review_id": "sdk-001-gemini-2",
+  "test_id": "CT-SDK-001",
+  "case_id": "CT-SDK-001",
+  "method": "inspection",
+  "reviewer": {
+    "id": "reviewer://google/gemini-3.8-flash",
+    "role": "independent-inspector",
+    "affiliation": "AI system, commissioned by Igor Akymenko"
+  },
+  "checklist": [
+    {
+      "item_id": "1",
+      "statement": "Each of the three commands appears in the proxy log as the matching Appendix C operation.",
+      "answer": "met",
+      "evidence_refs": [
+        "evidence://CT-SDK-001-001.json#lines 14-79",
+        "evidence://CT-SDK-001-002.json#lines 20-31",
+        "evidence://CT-SDK-001-003.json#lines 16-26",
+        "evidence://appendix-c-operations.txt#lines 2, 27, 49"
+      ],
+      "note": "Verified from recorded proxy traffic for the three executed commands: 1) Command 'aqef --json project load /tmp/cts-sdk001-usmzz5sz/f-base.json' issued 'POST /projects' (HTTP 201), matching Appendix C §C.3 'POST /projects' (line 2: 'Create a new Project'); 2) Command 'aqef --json execution run --project cts-r261109120325-ct-sdk-001 --suite cts-suite --environment cts-env --wait' issued 'POST /projects/cts-r261109120325-ct-sdk-001/executions' (HTTP 201), matching Appendix C §C.3 'POST /projects/{project}/executions' (line 27: 'Trigger Execution(s) for a Suite × Environment'); 3) Command 'aqef --json gates check --project cts-r261109120325-ct-sdk-001 /tmp/cts-sdk001-usmzz5sz/gates.json' issued 'POST /projects/cts-r261109120325-ct-sdk-001/gates/check' (HTTP 200), matching Appendix C §C.3 'POST /projects/{project}/gates/check' (line 49: 'Evaluate Gates against a set of Results')."
+    },
+    {
+      "item_id": "2",
+      "statement": "Every documented CLI command maps to a REST operation of the implementation: one in Appendix C, or one the implementation documents beyond it.",
+      "answer": "met",
+      "evidence_refs": [
+        "evidence://CLI.md#lines 39-123",
+        "evidence://cli-help.txt#lines 1-325",
+        "evidence://appendix-c-operations.txt#lines 1-68",
+        "evidence://engine-openapi-operations.txt#lines 1-71",
+        "evidence://engine-API.md#lines 519, 687, 749, 752, 908, 1037, 1051, 1052, 1058, 1060"
+      ],
+      "note": "Verified that all 71 commands documented in evidence://CLI.md map directly to underlying REST API operations published by the implementation. 64 commands map to REST operations in Appendix C (§C.3, C.7, C.8, C.10). The remaining 7 commands ('aqef execution list', 'aqef principal create', 'aqef release get', 'aqef report generate', 'aqef system health', 'aqef validator list', 'aqef validator register') map to REST operations that the implementation documents beyond Appendix C, as listed in evidence://CLI.md lines 115-123, published in evidence://engine-openapi-operations.txt (lines 38, 5, 65, 50, 71, 46, 45), and specified in evidence://engine-API.md (lines 687, 908, 596/888/1052, 519/1037, 1058/1060, 752, 749). Cross-checking against evidence://cli-help.txt confirms an exact 1:1 match across all 25 command groups: all 71 documented commands are offered by the CLI, and no undocumented commands are offered."
+    }
+  ],
+  "decision": "PASS",
+  "reason_code": "VERIFIED",
+  "signed_at": "2026-11-09T13:55:00-07:00",
+  "signature_ref": "pending://owner-attestation",
+  "notes": "Ambiguity and specification alignment: CT-SDK-001 in CTS 1.0-CR1.2 clarifies the scope of REST operations evaluated in checklist item 2. The Expected clause explicitly requires that every documented command map to a REST operation 'of the implementation: one in Appendix C, or one the implementation documents beyond it', and Note confirms: 'This test checks that the CLI adds no logic of its own. It does not check whether an implementation may offer REST operations beyond Appendix C; a command that wraps such an operation meets this test.' In accordance with this specification text, the 7 commands wrapping operations outside Appendix C fully meet Expected because each maps to a documented implementation REST endpoint without implementing client-side logic. Documentation vs CLI help cross-check: All 71 commands documented in CLI.md across 25 command groups exactly match the 71 commands offered in cli-help.txt (0 undocumented commands offered, 0 documented commands omitted)."
+}

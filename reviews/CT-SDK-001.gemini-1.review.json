@@ -1,0 +1,42 @@
+{
+  "review_id": "sdk-001-gemini-1",
+  "test_id": "CT-SDK-001",
+  "case_id": "CT-SDK-001",
+  "method": "inspection",
+  "reviewer": {
+    "id": "reviewer://google/gemini-3.8-flash",
+    "role": "independent-inspector",
+    "affiliation": "AI system, commissioned by Igor Akymenko"
+  },
+  "checklist": [
+    {
+      "item_id": "1",
+      "statement": "Each of the three commands appears in the proxy log as the matching Appendix C operation.",
+      "answer": "met",
+      "evidence_refs": [
+        "evidence://CT-SDK-001-001.json#proxy_log[0]",
+        "evidence://CT-SDK-001-002.json#proxy_log[0]",
+        "evidence://CT-SDK-001-003.json#proxy_log[0]",
+        "evidence://appendix-c-operations.txt#lines 2, 27, 49"
+      ],
+      "note": "Verified from recorded proxy traffic for the three executed commands: 1) Command 'aqef project load /tmp/cts-sdk001-4j578od4/f-base.json' issued 'POST /projects' (HTTP 201), matching Appendix C §C.3 'POST /projects' (line 2: 'Create a new Project'); 2) Command 'aqef execution run --project cts-r261109094028-ct-sdk-001 --suite cts-suite --environment cts-env --wait' issued 'POST /projects/cts-r261109094028-ct-sdk-001/executions' (HTTP 201), matching Appendix C §C.3 'POST /projects/{project}/executions' (line 27: 'Trigger Execution(s) for a Suite × Environment'); 3) Command 'aqef gates check --project cts-r261109094028-ct-sdk-001 /tmp/cts-sdk001-4j578od4/gates.json' issued 'POST /projects/cts-r261109094028-ct-sdk-001/gates/check' (HTTP 200), matching Appendix C §C.3 'POST /projects/{project}/gates/check' (line 49: 'Evaluate Gates against a set of Results')."
+    },
+    {
+      "item_id": "2",
+      "statement": "Every documented CLI command maps to a REST operation.",
+      "answer": "undecided",
+      "evidence_refs": [
+        "evidence://CLI.md#lines 39-123",
+        "evidence://cli-help.txt#lines 1-325",
+        "evidence://CT-SDK-001-004.json#.cli_help, .cli_documentation, .appendix_c_operations",
+        "evidence://appendix-c-operations.txt#lines 1-68"
+      ],
+      "note": "The CLI documentation in evidence://CLI.md documents 71 commands across 25 command groups. Cross-checking against evidence://cli-help.txt confirms an exact 1:1 match: all 71 documented commands are offered by the CLI, and no undocumented commands are offered. Every one of the 71 commands explicitly documents and issues a corresponding HTTP REST call (e.g. GET /projects, POST /projects/{project}/executions, GET /healthz), fulfilling the architectural requirement of Volume XIV that a command MUST correspond to a REST call and not implement logic client-side. However, 7 of the 71 commands ('aqef execution list', 'aqef principal create', 'aqef release get', 'aqef report generate', 'aqef system health', 'aqef validator list', 'aqef validator register') wrap endpoints explicitly marked in CLI.md as 'Not in Appendix C' (lines 115-123). Whether this item is met depends on an unresolved interpretation of Expected: under a literal reading ('maps to a REST operation' / 'a command has no REST counterpart'), the item is met because every command maps to an underlying REST endpoint; under a restrictive reading tied to the Action ('and the REST operations of Appendix C') and Volume XIV's single canonical surface rule, the item is not met because 7 commands map to REST operations outside Appendix C. Because the files in the pack do not permit deciding between these two readings without guessing the specification author's intent, this item is undecided."
+    }
+  ],
+  "decision": "NOT_RUN",
+  "reason_code": "UNRESOLVED_INTERPRETATION",
+  "signed_at": "2026-11-09T12:34:00-07:00",
+  "signature_ref": "pending://owner-attestation",
+  "notes": "Ambiguity in CT-SDK-001 Expected clause 2: The Action states: 'With the CLI, load F-BASE, execute cts-suite, and evaluate the Gates. Then list the CLI's documented commands and the REST operations of Appendix C.' The Expected states: 'Each of the three commands appears in the proxy log as the matching Appendix C operation, and every documented CLI command maps to a REST operation.' The Fails if states: 'A command acts without the matching REST call, or a command has no REST counterpart.' Two readings are possible: 1) Literal / Anti-Drift Reading: In Expected clause 1, the author explicitly wrote 'matching Appendix C operation', but in clause 2 specifically wrote 'maps to a REST operation', reinforced by Fails if ('a command has no REST counterpart'). Under this reading, the requirement under test is Volume XIV CLI ('A CLI command MUST correspond to a REST API call it makes on the caller's behalf, not a separate implementation of the operation it names'). Because all 71 documented CLI commands map to an HTTP REST endpoint and none acts locally or lacks a REST counterpart, the test would PASS (VERIFIED). 2) Strict Appendix C Reading: The Action directs the tester to list 'the REST operations of Appendix C', and Volume XIV specifies that 'With Volume XIV, every surface Volumes XIII and XV rely on... now has a specified, single source of truth behind it: the REST API (Appendix C)'. Under this reading, 'a REST operation' in Expected is read as elliptical for 'an Appendix C REST operation'. Because CLI.md explicitly annotates 7 commands as 'Not in Appendix C' (lines 115-123: execution list, principal create, release get, report generate, system health, validator list, validator register), the test would FAIL (EXPECTED_VIOLATED). Reading applied: In accordance with CTS 1.8 ('An item without evidence, or one the reviewer cannot decide, makes the test NOT_RUN, never PASS') and the instruction to decide only from the files in the pack and say so rather than guess, the reviewer cannot resolve the author's intent between these two readings from the pack alone. Consequently, checklist item 2 is marked 'undecided', yielding a test decision of NOT_RUN with reason_code UNRESOLVED_INTERPRETATION."
+}

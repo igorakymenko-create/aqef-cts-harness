@@ -1,0 +1,54 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects",
+  "actor": "P-APPROVER",
+  "via": "sdk:python",
+  "body": {
+   "name": "cts-r261109125722-ct-sdk-002-python-cfg-002",
+   "environments": [
+    {
+     "name": "cts-env",
+     "model_version": "cts-scripted-subject@1",
+     "prompt_version": "cts-prompt@1",
+     "tool_configuration": null,
+     "infra_target": "cts-harness"
+    }
+   ],
+   "quality_gates": [
+    {
+     "name": "functional-gate",
+     "aggregate": "functional",
+     "threshold": 1.0,
+     "on_failure": "block_release"
+    }
+   ],
+   "suites": [
+    {
+     "name": "cts-suite",
+     "scenarios": [
+      {
+       "name": "s-greeting",
+       "variables": {
+        "query": "Hello"
+       },
+       "prompt": {
+        "template": "{{query}}"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "headers": null,
+  "sdk_operation": "create_project"
+ },
+ "response": {
+  "status": 422,
+  "body": {
+   "detail": "Invalid contract composition for Scenario 's-greeting' in Suite 'cts-suite': No contracts supplied at Project, Suite, or Scenario level. An effective Contract with no clauses is invalid."
+  }
+ },
+ "outcome": "rejected",
+ "note": "[python-cfg-002] the modified configuration"
+}

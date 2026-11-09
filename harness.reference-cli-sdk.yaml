@@ -41,5 +41,9 @@ engine_slices_done: 13             # parts of a test beyond this are NOT_RUN (fo
 cli:
   driver: setup/cli_aqef_client.py
   docs: ../aqef-reference-engine/docs/CLI.md
+  api_docs: [../aqef-reference-engine/docs/API.md, ../aqef-reference-engine/docs/OPENAPI.json]
 sdk:
   python: setup/sdk_aqef_client.py
+
+# CTS 1.8 review records applied (Harness Contract §13)
+manual_reviews: reviews/cli-sdk-reviews.json

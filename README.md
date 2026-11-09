@@ -164,7 +164,9 @@ token is logged.
 2. The harness checks that each command appears in the proxy log as the matching
    Appendix C operation. A command without it is a FAIL.
 3. It then collects, for the reviewer: the CLI's help for every command group, its
-   documentation (`cli.docs`), and the operations of Appendix C.
+   documentation (`cli.docs`), the operations of Appendix C, and the implementation's own
+   documentation of its REST API (`cli.api_docs`), for operations beyond Appendix C
+   (CTS 1.0-CR1.2).
 
 The case stays NOT_RUN (`MANUAL_REVIEW_PENDING`) until a named reviewer decides whether
 every documented command maps to a REST operation (CTS 1.8). The token reaches the CLI
@@ -193,7 +195,18 @@ path treated as a duration is listed in the evidence.
 - `selftest/sdk002_lying_driver.py`: an SDK that reports a rejected configuration as
   accepted. Run: `selftest/runs-sdk002/`.
 
-**Run.** `harness.reference-cli-sdk.yaml`; see `runs/` for the published run.
+**Runs** (`harness.reference-cli-sdk.yaml`), against aqef-reference-engine slice-13
+(`7e03ce3`):
+- `runs/r261109094028/`: CTS 1.0-CR1, harness 0.7.0. CT-SDK-002 PASS; CT-SDK-001 awaited
+  review. The review found two readings of the test; CTS 1.0-CR1.2 clarified it.
+- `runs/r261109120325/`: CTS 1.0-CR1.2, harness 0.7.1. The evidence the second review
+  decided from.
+- `runs/r261109125722/`: the same, with the review applied. **CT-SDK-001 PASS, CT-SDK-002
+  PASS.** Review records and attestation: `reviews/CT-SDK-001.*`,
+  `reviews/ATTESTATION-CLI-SDK.md`.
+
+An engine the harness cannot reach makes CT-SDK-001 NOT_RUN (`TRANSPORT_FAILED`), never
+FAIL: a command that made no call proves nothing while the engine is down.
 
 ## Layout
 

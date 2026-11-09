@@ -47,5 +47,6 @@ engine_slices_done: 11             # parts of a test beyond this are NOT_RUN (fo
 # cli:
 #   driver: setup/cli_aqef_client.py       # how to run each command (`aqef`; AQEF_CLI overrides)
 #   docs: ../aqef-reference-engine/docs/CLI.md   # where the CLI documents its commands
+#   api_docs: [../aqef-reference-engine/docs/API.md]   # where the implementation documents its REST API
 # sdk:
 #   python: setup/sdk_aqef_client.py       # one driver per claimed language

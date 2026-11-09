@@ -1,0 +1,20 @@
+{
+ "note": "CT-CFG-002: outcomes and recorded Results and GateResults, REST vs python SDK, with identifiers, Execution references and times replaced",
+ "replaced_as_durations": [],
+ "rest": {
+  "outcome": "PASS",
+  "reason_code": "EXPECTED_MET",
+  "records": {
+   "gate_results": [],
+   "results": []
+  }
+ },
+ "sdk": {
+  "outcome": "PASS",
+  "reason_code": "EXPECTED_MET",
+  "records": {
+   "gate_results": [],
+   "results": []
+  }
+ }
+}

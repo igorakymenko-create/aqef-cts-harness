@@ -77,7 +77,21 @@ def _cli(ctx, cfg, proxy, argv, actor, note):
     return p, calls, out
 
 
+def reachable(ctx):
+    """Whether the engine answers the harness directly, without the CLI. A command that made
+    no call while the engine was unreachable says nothing about the CLI."""
+    return ctx.a.get("/projects", "P-RELEASE").outcome != "transport_failed"
+
+
+def no_call(ctx, what):
+    if not reachable(ctx):
+        ctx.stop("NOT_RUN", "TRANSPORT_FAILED", f"{what}: the engine did not answer the harness either")
+    return ctx.result("FAIL", "EXPECTED_VIOLATED", f"{what} made no REST call")
+
+
 def _sdk001(ctx, b, cfg, d, proxy):
+    if not reachable(ctx):
+        ctx.stop("NOT_RUN", "TRANSPORT_FAILED", "the engine did not answer the harness")
     doc = ctx.named(b)
     name = doc["name"]
     body = {"project": doc} if cfg.wrap_project else ctx.a.to_engine_form(doc)
@@ -94,7 +108,7 @@ def _sdk001(ctx, b, cfg, d, proxy):
     else:
         ctx.setup_status = "failed"
         if not calls:
-            return ctx.result("FAIL", "EXPECTED_VIOLATED", "load F-BASE made no REST call")
+            return no_call(ctx, "load F-BASE")
         ctx.stop("NOT_RUN", "SETUP_FAILED", f"F-BASE was not loaded through the CLI (exit {p.returncode})")
     ctx.setup_status = "ready"
 
@@ -105,7 +119,7 @@ def _sdk001(ctx, b, cfg, d, proxy):
     batch = (out or {}).get("execution_batch_id") if isinstance(out, dict) else None
     if not batch:
         if not calls:
-            return ctx.result("FAIL", "EXPECTED_VIOLATED", "execute made no REST call")
+            return no_call(ctx, "execute")
         ctx.stop("NOT_RUN", "SETUP_FAILED", f"the execution returned no batch (exit {p.returncode})")
 
     gfile = os.path.join(tmp, "gates.json")
@@ -114,6 +128,8 @@ def _sdk001(ctx, b, cfg, d, proxy):
     p, calls, _ = _cli(ctx, cfg, proxy, d.check_gates(name, gfile), "P-RELEASE", "CLI: evaluate the Gates")
     seen.append(calls)
 
+    if not seen[2] and not reachable(ctx):
+        ctx.stop("NOT_RUN", "TRANSPORT_FAILED", "evaluate the Gates: the engine did not answer the harness either")
     problems = []
     for (what, method, rx), calls in zip(EXPECTED, seen):
         if not any(c["method"] == method and re.match(rx, c["path"]) for c in calls):
@@ -134,9 +150,12 @@ def _sdk001(ctx, b, cfg, d, proxy):
     appc = (cfg.aqef_repo / "appendices" / "appendix-c-rest-api-specification.md")
     ops = [l for l in appc.read_text(encoding="utf-8").splitlines()
            if re.match(r"^\| (GET|POST|PUT|DELETE|PATCH) \|", l)] if appc.is_file() else None
+    api = {str(p.name): p.read_text(encoding="utf-8") for p in cfg.api_docs if p.is_file()}
     ctx.refs.append(ctx.store.add(ctx.case_id, "other", {
-        "note": "for the reviewer: the CLI's documented commands, and the REST operations of Appendix C",
-        "cli_help": helps, "cli_documentation": docs, "appendix_c_operations": ops}))
+        "note": "for the reviewer: the CLI's documented commands, the REST operations of Appendix C, "
+                "and the implementation's own documentation of its REST API",
+        "cli_help": helps, "cli_documentation": docs, "appendix_c_operations": ops,
+        "implementation_api_documentation": api or None}))
     return pending(ctx, "the three commands made the matching Appendix C calls (Harness); "
                         "the mapping of every documented command is for Inspection")
 

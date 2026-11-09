@@ -1,0 +1,67 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261109125722-ct-sdk-002-rest-rel-002/releases",
+  "actor": "P-RELEASE",
+  "content_type": "application/json",
+  "body": {
+   "execution_batch_id": "3b7d6f28-3777-45ac-a37d-dcf586ef767b",
+   "report_id": "6104500e-fa2d-4bb8-851f-942194e13dca",
+   "snapshot_id": "a4cc0447-4361-4bc3-ba90-a7b450aef698",
+   "decision": "rejected"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "id": "a2f402f8-bdf3-4532-ac93-dfb735a31976",
+   "project": "cts-r261109125722-ct-sdk-002-rest-rel-002",
+   "suite": "cts-suite",
+   "environment": "cts-env",
+   "execution_batch_id": "3b7d6f28-3777-45ac-a37d-dcf586ef767b",
+   "report_id": "6104500e-fa2d-4bb8-851f-942194e13dca",
+   "snapshot_id": "a4cc0447-4361-4bc3-ba90-a7b450aef698",
+   "decision": "rejected",
+   "gates": {
+    "functional-gate": {
+     "id": "da736304-a605-48bc-9d72-69c559a367f6",
+     "status": "pass",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 1.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     }
+    },
+    "semantic-gate": {
+     "id": "545dcff8-41b6-44a1-8020-bed5514e87de",
+     "status": "fail",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 0.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     },
+     "reasons": [
+      "threshold"
+     ]
+    }
+   },
+   "approved_by": "P-RELEASE",
+   "approved_at": "2026-11-09T20:57:28.687830+00:00",
+   "approval_role": "cts-release",
+   "approval_id": "d11e891f-7913-4afd-9d45-b5fed8fc5f2d"
+  }
+ },
+ "outcome": "accepted",
+ "note": "[rest-rel-002] (b) rejected"
+}

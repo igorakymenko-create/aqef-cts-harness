@@ -1,0 +1,23 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261109125722-ct-sdk-002-rest-rel-002/releases",
+  "actor": "P-RELEASE",
+  "content_type": "application/json",
+  "body": {
+   "execution_batch_id": "3b7d6f28-3777-45ac-a37d-dcf586ef767b",
+   "report_id": "f1949183-e0af-4973-86e6-4ebddb4669f3",
+   "snapshot_id": "a4cc0447-4361-4bc3-ba90-a7b450aef698",
+   "decision": "approved"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 409,
+  "body": {
+   "detail": "Approved Release requires every blocking Gate to pass"
+  }
+ },
+ "outcome": "rejected",
+ "note": "[rest-rel-002] (a) approved"
+}
