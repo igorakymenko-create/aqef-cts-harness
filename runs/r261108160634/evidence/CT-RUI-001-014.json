@@ -1,0 +1,9 @@
+{
+ "note": "comparison (CT-RUI-001, Expected)",
+ "excluded_as_implementation_set": [
+  "effective_contract.constraints[0].id",
+  "effective_contract.expectations[0].id"
+ ],
+ "authored_field_differences": [],
+ "effective_contract_differences": []
+}

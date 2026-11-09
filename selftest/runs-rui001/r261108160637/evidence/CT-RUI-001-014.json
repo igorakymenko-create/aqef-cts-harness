@@ -1,0 +1,13 @@
+{
+ "note": "comparison (CT-RUI-001, Expected)",
+ "excluded_as_implementation_set": [
+  "effective_contract.constraints[0].id",
+  "effective_contract.expectations[0].id"
+ ],
+ "authored_field_differences": [
+  "scenario.contract.expectations[0].confidence_threshold: 0.8 vs 0.85"
+ ],
+ "effective_contract_differences": [
+  "effective_contract.expectations[0].confidence_threshold: 0.8 vs 0.85"
+ ]
+}

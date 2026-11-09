@@ -36,3 +36,9 @@ conversation_form: turns           # the engine's Conversation form for fixed Ev
 scripted_port: 9100                # where the scripted subject and Judges listen
 engine_slices_done: 11             # parts of a test beyond this are NOT_RUN (for engines built in slices)
 # manual_reviews: reviews/<file>.json   # CTS 1.8 review records to apply (Harness Contract §13)
+
+# CTS Section 26, CT-RUI-001, for a Reference UI under test (leave out for an engine):
+# ui:
+#   url: http://127.0.0.1:3000
+#   driver: setup/ui_reference_ui.py       # the module that operates that UI
+# effective_contract_path: configuration.contract   # where an Execution record holds its frozen effective Contract

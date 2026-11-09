@@ -1,0 +1,218 @@
+URL: http://127.0.0.1:3000/#designer
+Captured (UTC): 2026-11-09T00:06:35Z
+
+a
+AQEF
+REFERENCE UI
+LOCAL WORKSPACE
+
+WORKSPACE
+
+✓
+Admission
+◈
+Seeded Controls
+≡
+Workspace
+◇
+Visual Test Designer
+✓
+Validator Designer
+◇
+Judge Configuration
+▦
+Test Explorer
+▷
+Runs and Evidence
+◇
+Gates
+▤
+Reports
+⌁
+Dashboard
+✓
+Release Decisions
+⌁
+Connections
+STAGE 1 · UI-6
+
+Definitions first.
+Evidence always.
+
+Local · single user
+Simulated providers
+AQEF 1.0-CR1
+Reference implementation
+Workspace / Visual Test Designer
+Local only
+A
+
+AUTHORING / YAML SOURCE OF TRUTH
+
+Visual Test Designer
+
+Propose YAML. Review the diff. Let the engine decide.
+
+Reload files
+Export engine configuration
+./workspace
+project.yaml
++ New YAML file
+project.yaml
+YAML editor
+Visual forms
+Suite
+Choose explicitly…
+cts-suite
+Existing Scenario
+New Scenario
+s-greeting
+Scenario name
+Prompt template
+Variables / Dataset binding
+Choose explicitly…
+none
+variables
+dataset
+Variables (YAML mapping)
+Contract source
+Choose explicitly…
+inherit
+reference
+inline
+Contract clauses
+Constraint · position 1
+Clause id
+Clause 1 dimension
+Choose explicitly…
+functional
+semantic
+operational
+safety
+Clause 1 Validator
+Choose explicitly…
+schema
+structural
+latency
+cost
+forbidden-content
+tool-call
+boundary
+Target
+Expected (YAML)
+Remove clause 1
+Expectation · position 2
+Clause id
+Clause 2 dimension
+Choose explicitly…
+functional
+semantic
+operational
+safety
+Criteria
+Judge model
+Clause 2 Confidence source
+Choose explicitly…
+self_rating
+token_probability
+agreement
+Confidence threshold
+Remove clause 2
+Add Constraint
+Add Expectation
+
+This form only proposes YAML. Review & Apply is the same path used by the YAML editor. Unselected author fields stay empty; no hidden defaults are saved.
+
+Authoring schema checks passed
+
+AQEF 1.0-CR1 A.1–A.10 / B.2 authoring subset. Cross-resource rules and all acceptance remain engine-authoritative.
+
+Documented engine defaults (comparison only; never inserted into authored YAML)
+YAML diff · before saving
+===================================================================
+--- before.yaml
++++ after.yaml
+@@ -1,34 +1,52 @@
+ project:
+   name: cts-r261108160634-ct-rui-001
+   environments:
+-  - name: cts-env
+-    model_version: cts-scripted-subject@1
+-    prompt_version: cts-prompt@1
+-    tool_configuration: null
+-    infra_target: cts-harness
++    - name: cts-env
++      model_version: cts-scripted-subject@1
++      prompt_version: cts-prompt@1
++      tool_configuration: null
++      infra_target: cts-harness
+   quality_gates:
+-  - name: functional-gate
+-    aggregate: functional
+-    threshold: 1.0
+-    on_failure: block_release
++    - name: functional-gate
++      aggregate: functional
++      threshold: 1.0
++      on_failure: block_release
+   suites:
+-  - name: cts-suite
+-    scenarios:
+-    - name: s-greeting
+-      variables:
+-        query: Hello
+-      prompt:
+-        template: '{{query}}'
+-      contract:
+-        constraints:
+-        - validator: schema
+-          target: response
+-          expected:
+-            type: string
+-            minLength: 1
+-        expectations:
+-        - criteria: The response greets the user.
+-          judge:
+-            model: cts-scripted-judge@1
+-            confidence_source: self_rating
+-          confidence_threshold: 0.8
++    - name: cts-suite
++      scenarios:
++        - name: s-greeting
++          variables:
++            query: Hello
++          prompt:
++            template: "{{query}}"
++          contract:
++            constraints:
++              - validator: schema
++                target: response
++                expected:
++                  type: string
++                  minLength: 1
++            expectations:
++              - criteria: The response greets the user.
++                judge:
++                  model: cts-scripted-judge@1
++                  confidence_source: self_rating
++                confidence_threshold: 0.8
++        - name: s-visual
++          prompt:
++            template: "{{query}}"
++          variables:
++            query: Hello
++          contract:
++            constraints:
++              - validator: schema
++                target: response
++                expected:
++                  type: string
++                  minLength: 1
++            expectations:
++              - criteria: The response greets the user.
++                judge:
++                  model: cts-scripted-judge@1
++                  confidence_source: self_rating
++                confidence_threshold: 0.8
+
+Review & Apply

@@ -35,6 +35,21 @@ class EvidenceStore:
         self.entries.append(e)
         return e["raw_ref"]
 
+    def add_bytes(self, case_id, kind, data, ext):
+        """Store raw bytes (a screenshot, a page's text) as a file; return its reference."""
+        n = self._n.get(case_id, 0) + 1
+        self._n[case_id] = n
+        eid = f"{case_id or 'run'}-{n:03d}"
+        name = f"{eid}.{ext}"
+        (self.root / name).write_bytes(data)
+        e = {"evidence_id": eid, "kind": kind, "raw_ref": f"evidence://{name}",
+             "raw_sha256": hashlib.sha256(data).hexdigest(), "raw_size": len(data),
+             "redaction_policy": "no-secrets-recorded", "collected_at": now()}
+        if case_id:
+            e["case_id"] = case_id
+        self.entries.append(e)
+        return e["raw_ref"]
+
     def manifest(self):
         m = {"schema_version": "0.8", "run_id": self.run_id, "created_at": now(),
              "canonicalization": "RFC8785", "entries": self.entries}

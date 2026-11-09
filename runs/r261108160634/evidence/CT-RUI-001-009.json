@@ -1,0 +1,51 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261108160634-ct-rui-001/suites/cts-suite/scenarios/s-greeting",
+  "actor": "P-APPROVER",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": {
+   "name": "s-greeting",
+   "contract": {
+    "constraints": [
+     {
+      "validator": "schema",
+      "target": "response",
+      "expected": {
+       "type": "string",
+       "minLength": 1
+      },
+      "veto": false,
+      "dimension": "functional"
+     }
+    ],
+    "expectations": [
+     {
+      "criteria": "The response greets the user.",
+      "judge": {
+       "model": "cts-scripted-judge@1",
+       "confidence_source": "self_rating"
+      },
+      "confidence_threshold": 0.8,
+      "on_timeout": "block",
+      "dimension": "semantic"
+     }
+    ],
+    "extends": []
+   },
+   "prompt": {
+    "template": "{{query}}"
+   },
+   "variables": {
+    "query": "Hello"
+   }
+  }
+ },
+ "outcome": "accepted",
+ "note": "retrieve s-greeting"
+}

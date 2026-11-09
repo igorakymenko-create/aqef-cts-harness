@@ -5,7 +5,7 @@ Specification (CTS) against an AQEF engine through its REST API. It writes a run
 report and evidence in the form the CTS Harness Contract defines, and verifies the
 report with the AQEF repository's own `validate.py` before the run ends.
 
-Version 0.5.0, for AQEF 1.0-CR1, CTS 1.0-CR1, Harness Contract 0.8. It drives
+Version 0.6.0, for AQEF 1.0-CR1, CTS 1.0-CR1, Harness Contract 0.8. It drives
 every test of the CTS:
 - the automated ones, through the engine's API and the scripted subject and Judges;
 - the Inspection and Declaration ones, by collecting the evidence a reviewer needs and
@@ -110,6 +110,47 @@ authenticated commit, which is the records' `signature_ref`.
 `wd10-all-reviews.json` is the nine records together, as runs `r261024172943` and
 `r261024202325` applied them. The nine tests they decide are unchanged in CTS 1.0-CR1.
 
+## Reference UI (CT-RUI-001)
+
+CT-RUI-001 checks that a Scenario authored in a Reference UI's Visual Test Designer is,
+once saved, the same as one written in YAML. The test (`aqef_harness/tests_rui.py`) is
+generic:
+1. It loads F-BASE through the REST API, so that `s-greeting` is the Scenario written in YAML.
+2. It has a driver author `s-visual`, with the same content, through the UI's own forms
+   and its own save path.
+3. It retrieves both Scenarios through the REST API, and compares every field apart from
+   the name.
+4. It runs the Suite, and compares the effective Contract each Execution froze.
+
+**What is not compared.** Only keys an implementation sets itself (identifiers,
+timestamps, version, provenance) are left out of the comparison, and only where both
+Scenarios have them. A key present on one side only is always a difference, so a value
+the UI invents for the visual Scenario alone is never hidden. The comparison and every
+excluded path are stored as evidence.
+
+**The driver.** Everything specific to one UI is in a driver module named in
+`harness.yaml` (`ui.driver`). It returns what it observed: screenshots with the URL and
+capture time in a strip outside the page, each page's visible text, the YAML diff and
+Apply preview the UI showed, and the UI's outcome. A driver that cannot operate the UI
+makes the case NOT_RUN (`ADAPTER_GAP`), never FAIL.
+- `setup/ui_reference_ui.py` drives
+  [aqef-reference-ui](https://github.com/igorakymenko-create/aqef-reference-ui).
+- `setup/start_reference_ui.sh`, run from that UI's checkout, starts it as the run needs
+  it:
+  - the engine it vendors, with the CTS model identifiers mapped to this harness;
+  - the CTS Principals and the UI's own Person;
+  - an empty workspace;
+  - the UI on :3000.
+
+**Self-test.** `selftest/rui001_mutating_driver.py` authors one value differently. Pointed
+to by `ui.driver`, it must make CT-RUI-001 FAIL. Its run is in `selftest/runs-rui001/`:
+FAIL on `confidence_threshold`, as intended.
+
+**Run.** [`runs/r261108160634/`](runs/r261108160634/): CT-RUI-001 against
+aqef-reference-ui `60c354e` (with its vendored engine, slice-12), on AQEF 1.0-CR1. PASS,
+and the report verifies with `validate.py`. CT-RUI-002 to 004 are Inspection tests. Their
+review records are kept with the UI.
+
 ## Layout
 
 | Path | Content |
@@ -118,6 +159,8 @@ authenticated commit, which is the records' `signature_ref`.
 | `aqef_harness/core.py` | Case context and the outcome rules above |
 | `aqef_harness/adapter_rest.py` | Appendix C mapping; every exchange recorded |
 | `aqef_harness/evidence.py` | Evidence store and manifest (RFC 8785) |
+| `aqef_harness/tests_rui.py` | CT-RUI-001, through a UI driver |
+| `setup/ui_reference_ui.py`, `setup/start_reference_ui.sh` | Driver and start script for aqef-reference-ui |
 | `aqef_harness/scripted.py` | Scripted subject and Judges |
 | `aqef_harness/fixtures.py` | CTS fixtures as data |
 | `aqef_harness/tests_*.py` | The tests, by CTS section |

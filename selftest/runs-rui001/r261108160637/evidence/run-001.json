@@ -1,0 +1,7 @@
+{
+ "conformance_statement": null,
+ "note": "not supplied to the harness; capabilities_claimed come from its configuration",
+ "capabilities_claimed": [
+  "reference_ui"
+ ]
+}

@@ -1,0 +1,98 @@
+URL: http://127.0.0.1:3000/#designer
+Captured (UTC): 2026-11-09T00:06:36Z
+
+a
+AQEF
+REFERENCE UI
+LOCAL WORKSPACE
+
+WORKSPACE
+
+✓
+Admission
+◈
+Seeded Controls
+≡
+Workspace
+◇
+Visual Test Designer
+✓
+Validator Designer
+◇
+Judge Configuration
+▦
+Test Explorer
+▷
+Runs and Evidence
+◇
+Gates
+▤
+Reports
+⌁
+Dashboard
+✓
+Release Decisions
+⌁
+Connections
+STAGE 1 · UI-6
+
+Definitions first.
+Evidence always.
+
+Local · single user
+Simulated providers
+AQEF 1.0-CR1
+Reference implementation
+Workspace / Visual Test Designer
+Local only
+A
+
+AUTHORING / YAML SOURCE OF TRUTH
+
+Visual Test Designer
+
+Propose YAML. Review the diff. Let the engine decide.
+
+Reload files
+Export engine configuration
+./workspace
+project.yaml
++ New YAML file
+project.yaml
+YAML editor
+Visual forms
+Suite
+Choose explicitly…
+cts-suite
+Existing Scenario
+New Scenario
+Scenario name
+Prompt template
+Variables / Dataset binding
+Choose explicitly…
+none
+variables
+dataset
+Contract source
+Choose explicitly…
+inherit
+reference
+inline
+
+This form only proposes YAML. Review & Apply is the same path used by the YAML editor. Unselected author fields stay empty; no hidden defaults are saved.
+
+Authoring schema checks passed
+
+AQEF 1.0-CR1 A.1–A.10 / B.2 authoring subset. Cross-resource rules and all acceptance remain engine-authoritative.
+
+Form incomplete — choose: Suite, Scenario name, Prompt template, Variables / Dataset binding, Contract source. No YAML is proposed yet.
+
+Documented engine defaults (comparison only; never inserted into authored YAML)
+YAML diff · before saving
+Form incomplete — choose: Suite, Scenario name, Prompt template, Variables / Dataset binding, Contract source. No YAML is proposed yet.
+Review & Apply
+Apply complete
+saved · YAML project.yaml
+Source saved; engine acceptance is reported separately.
+success · PUT /api/projects/cts-r261108160634-ct-rui-001
+Accepted by the engine.

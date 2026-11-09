@@ -26,6 +26,9 @@ class Config:
     engine_slices_done: int = 6          # parts of a test beyond this stage are NOT_RUN
     conversation_form: str = "messages"  # fixed Evidence form the engine stores: messages or turns
     team_binding: str = "unknown"
+    ui_url: str | None = None            # a Reference UI under test (CTS Section 26), if any
+    ui_driver: pathlib.Path | None = None   # the module that drives that UI (setup/)
+    effective_contract_path: str = "configuration.contract"   # where an Execution record holds its frozen effective Contract
     manual_reviews: pathlib.Path | None = None   # CTS 1.8 review records (Harness Contract §13)        # from the Conformance Statement: none, or how it binds (CT-REL-039)
 
     @property
@@ -67,4 +70,7 @@ def load(path):
         conversation_form=d.get("conversation_form", "messages"),
         team_binding=d.get("team_binding", "unknown"),
         manual_reviews=rel(d.get("manual_reviews")),
+        ui_url=(d.get("ui") or {}).get("url"),
+        ui_driver=rel((d.get("ui") or {}).get("driver")),
+        effective_contract_path=d.get("effective_contract_path", "configuration.contract"),
     )
