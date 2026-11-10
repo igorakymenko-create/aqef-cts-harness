@@ -1,0 +1,150 @@
+{
+ "note": "CT-REL-002 through the python SDK: versions, the SDK operations called, and the recording proxy's log of its REST traffic (headers and tokens not recorded)",
+ "sdk": {
+  "language": "python",
+  "sdk_version": "0.1.0",
+  "language_version": "3.13.17"
+ },
+ "operations": [
+  "create_project",
+  "trigger_execution",
+  "check_gates",
+  "generate_report",
+  "record_release",
+  "generate_report",
+  "record_release"
+ ],
+ "proxy_log": [
+  {
+   "method": "POST",
+   "path": "/projects",
+   "query": null,
+   "status": 201,
+   "request_body": {
+    "name": "cts-r261110122627-ct-sdk-002-python-rel-002",
+    "environments": [
+     {
+      "name": "cts-env",
+      "model_version": "cts-scripted-subject@1",
+      "prompt_version": "cts-prompt@1",
+      "tool_configuration": null,
+      "infra_target": "cts-harness"
+     }
+    ],
+    "quality_gates": [
+     {
+      "name": "functional-gate",
+      "aggregate": "functional",
+      "threshold": 1.0,
+      "on_failure": "block_release"
+     },
+     {
+      "name": "semantic-gate",
+      "aggregate": "semantic",
+      "threshold": 1.0,
+      "on_failure": "block_release"
+     }
+    ],
+    "suites": [
+     {
+      "name": "cts-suite",
+      "scenarios": [
+       {
+        "name": "s-greeting",
+        "variables": {
+         "query": "Hello"
+        },
+        "prompt": {
+         "template": "{{query}}"
+        },
+        "contract": {
+         "constraints": [
+          {
+           "validator": "schema",
+           "target": "response",
+           "expected": {
+            "type": "string",
+            "minLength": 1
+           }
+          }
+         ],
+         "expectations": [
+          {
+           "criteria": "The response greets the user.",
+           "judge": {
+            "model": "cts-scripted-judge@1",
+            "confidence_source": "self_rating"
+           },
+           "confidence_threshold": 0.8
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/projects/cts-r261110122627-ct-sdk-002-python-rel-002/executions",
+   "query": null,
+   "status": 201,
+   "request_body": {
+    "suite": "cts-suite",
+    "environment": "cts-env"
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/projects/cts-r261110122627-ct-sdk-002-python-rel-002/gates/check",
+   "query": null,
+   "status": 200,
+   "request_body": {
+    "execution_batch_id": "b6a5ff0e-7e8d-4d6a-b807-be71fdd0e1ed"
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/projects/cts-r261110122627-ct-sdk-002-python-rel-002/reports",
+   "query": null,
+   "status": 201,
+   "request_body": {
+    "execution_batch_id": "b6a5ff0e-7e8d-4d6a-b807-be71fdd0e1ed"
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/projects/cts-r261110122627-ct-sdk-002-python-rel-002/releases",
+   "query": null,
+   "status": 409,
+   "request_body": {
+    "execution_batch_id": "b6a5ff0e-7e8d-4d6a-b807-be71fdd0e1ed",
+    "report_id": "ca110fd4-9c19-4b3a-a7c9-ffa14245b626",
+    "snapshot_id": "89fda0d8-3bae-4475-83f7-2fa01f7cf0cd",
+    "decision": "approved"
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/projects/cts-r261110122627-ct-sdk-002-python-rel-002/reports",
+   "query": null,
+   "status": 201,
+   "request_body": {
+    "execution_batch_id": "b6a5ff0e-7e8d-4d6a-b807-be71fdd0e1ed"
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/projects/cts-r261110122627-ct-sdk-002-python-rel-002/releases",
+   "query": null,
+   "status": 201,
+   "request_body": {
+    "execution_batch_id": "b6a5ff0e-7e8d-4d6a-b807-be71fdd0e1ed",
+    "report_id": "24266bf6-d1e0-4142-8989-f1998f97433d",
+    "snapshot_id": "89fda0d8-3bae-4475-83f7-2fa01f7cf0cd",
+    "decision": "rejected"
+   }
+  }
+ ]
+}

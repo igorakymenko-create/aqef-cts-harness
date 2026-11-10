@@ -1,0 +1,41 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261110122627-ct-dsr-003/datasets/ds-gen/versions",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "name": "ds-gen",
+   "version": "1.0.1",
+   "source": "generated",
+   "generator": {
+    "model": "cts-scripted-generator@1",
+    "instruction": "Generate one greeting query per row, as `query`."
+   }
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "name": "ds-gen",
+   "version": "1.0.1",
+   "source": "generated",
+   "rows": [
+    {
+     "id": "gen-2",
+     "variables": {
+      "query": "Gen-2"
+     }
+    }
+   ],
+   "generator": {
+    "model": "cts-scripted-generator@1",
+    "instruction": "Generate one greeting query per row, as `query`."
+   },
+   "generated_at": "2026-11-10T20:26:27.903247Z"
+  }
+ },
+ "outcome": "accepted",
+ "note": "generate_dataset: generate ds-gen again (POST .../datasets/ds-gen/versions)"
+}

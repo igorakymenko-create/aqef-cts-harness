@@ -1,0 +1,68 @@
+{
+ "schema_version": "0.8",
+ "run_id": "r261110122538",
+ "created_at": "2026-11-10T20:25:39Z",
+ "canonicalization": "RFC8785",
+ "entries": [
+  {
+   "evidence_id": "run-001",
+   "kind": "statement",
+   "raw_ref": "evidence://run-001.json",
+   "raw_sha256": "e09c4e63c028caaedbb55e64645d0371470eaab6ef842b704a8c3f40691547fd",
+   "raw_size": 24880,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-10T20:25:38Z"
+  },
+  {
+   "evidence_id": "CT-DSR-001-001",
+   "kind": "sut_response",
+   "raw_ref": "evidence://CT-DSR-001-001.json",
+   "raw_sha256": "44b8038ea35bdc118e2d360b7c3a8133b122fae812b61261bfe04bca9584e9b5",
+   "raw_size": 2248,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-10T20:25:39Z",
+   "case_id": "CT-DSR-001"
+  },
+  {
+   "evidence_id": "CT-DSR-002-001",
+   "kind": "sut_response",
+   "raw_ref": "evidence://CT-DSR-002-001.json",
+   "raw_sha256": "9e692f0d9cfe0878d150be08d587d34fad7bd3507c125e085fe35d717ccde973",
+   "raw_size": 2411,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-10T20:25:39Z",
+   "case_id": "CT-DSR-002"
+  },
+  {
+   "evidence_id": "CT-DSR-003-001",
+   "kind": "sut_response",
+   "raw_ref": "evidence://CT-DSR-003-001.json",
+   "raw_sha256": "be9b39d39abe05bc6ead6bc6e925de7c7e21c4bae4c749c2b1cd28a3c58a7c79",
+   "raw_size": 2250,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-10T20:25:39Z",
+   "case_id": "CT-DSR-003"
+  },
+  {
+   "evidence_id": "CT-DSR-004-001",
+   "kind": "sut_response",
+   "raw_ref": "evidence://CT-DSR-004-001.json",
+   "raw_sha256": "e223f4cf08565b30006b225058b70beca121fe938b2d6041d146d42ca98a66f5",
+   "raw_size": 2347,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-10T20:25:39Z",
+   "case_id": "CT-DSR-004"
+  },
+  {
+   "evidence_id": "CT-DSR-005-001",
+   "kind": "sut_response",
+   "raw_ref": "evidence://CT-DSR-005-001.json",
+   "raw_sha256": "2f98c7363f86dabaa14257e121857a7fd1966496e478ed2859d015f92f1e623a",
+   "raw_size": 2250,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-10T20:25:39Z",
+   "case_id": "CT-DSR-005"
+  }
+ ],
+ "manifest_sha256": "f0b0be998a6a273e9e8b72012eb9577f3aab67a2938d1273fb3aead4c4354749"
+}

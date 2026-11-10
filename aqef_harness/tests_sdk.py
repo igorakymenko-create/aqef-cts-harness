@@ -165,17 +165,19 @@ TESTS = ("CT-CFG-002", "CT-DEC-006", "CT-REL-002")
 
 
 class SdkAdapter(RestAdapter):
-    """The harness's REST adapter, with every request carried out through an SDK."""
+    """The harness's REST adapter, with every request carried out through an SDK, whose
+    traffic goes through a recording proxy (Harness Contract §16, `run_sdk`)."""
 
-    def __init__(self, cfg, drv):
+    def __init__(self, cfg, drv, url):
         super().__init__(cfg)
         self.drv = drv
+        self.url = url
 
     def call(self, method, path, actor, body=None, content_type="application/json", headers=None):
         req = {"method": method, "path": path, "actor": actor, "via": f"sdk:{self.drv.LANGUAGE}",
                "body": body, "headers": dict(headers or {}) or None}
         try:
-            status, raw, op = self.drv.call(self.cfg.base_url, self.cfg.tokens.get(actor), method, path,
+            status, raw, op = self.drv.call(self.url, self.cfg.tokens.get(actor), method, path,
                                             body=body, headers=headers, timeout=self.cfg.timeout_s)
         except self.drv.Unmapped as e:
             raise Stop(None) from e   # handled by the caller as an adapter gap
@@ -360,12 +362,22 @@ def sdk002(ctx, b):
             fn = impl_cases.get(tid) or impl_tests.get(tid)
             short = tid.lower().replace("ct-", "")
             rest_sub, rest_res = surface(ctx, RestAdapter(cfg), f"rest-{short}", fn, b)
+            proxy = RecordingProxy(cfg.base_url).start()
             try:
-                sdk_sub, sdk_res = surface(ctx, SdkAdapter(cfg, drv), f"{lang}-{short}", fn, b)
+                sdk_sub, sdk_res = surface(ctx, SdkAdapter(cfg, drv, proxy.url), f"{lang}-{short}", fn, b)
             except Stop as s:
                 cleanup += [rest_sub]
                 ctx.stop("NOT_RUN", "ADAPTER_GAP", f"{tid}: the {lang} SDK has no named operation "
                                                    f"for a request the test makes: {s.__cause__}")
+            finally:
+                proxy.stop()
+            ctx.refs.append(ctx.store.add(ctx.case_id, "harness_call", {
+                "note": f"{tid} through the {lang} SDK: versions, the SDK operations called, and the "
+                        "recording proxy's log of its REST traffic (headers and tokens not recorded)",
+                "sdk": {"language": lang, "sdk_version": getattr(drv, "VERSION", None),
+                        "language_version": getattr(drv, "LANGUAGE_VERSION", None)},
+                "operations": [ex["request"].get("sdk_operation") for ex in sdk_sub.a.log],
+                "proxy_log": proxy.entries()}))
             cleanup += [rest_sub, sdk_sub]
             if (rest_res.outcome, rest_res.reason_code) != (sdk_res.outcome, sdk_res.reason_code):
                 problems.append(f"{tid}: REST {rest_res.outcome}/{rest_res.reason_code}, "

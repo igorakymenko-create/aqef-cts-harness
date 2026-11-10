@@ -1,0 +1,24 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261110122627-ct-sdk-002-python-rel-002/releases",
+  "actor": "P-RELEASE",
+  "via": "sdk:python",
+  "body": {
+   "execution_batch_id": "b6a5ff0e-7e8d-4d6a-b807-be71fdd0e1ed",
+   "report_id": "ca110fd4-9c19-4b3a-a7c9-ffa14245b626",
+   "snapshot_id": "89fda0d8-3bae-4475-83f7-2fa01f7cf0cd",
+   "decision": "approved"
+  },
+  "headers": null,
+  "sdk_operation": "record_release"
+ },
+ "response": {
+  "status": 409,
+  "body": {
+   "detail": "Approved Release requires every blocking Gate to pass"
+  }
+ },
+ "outcome": "rejected",
+ "note": "[python-rel-002] (a) approved"
+}

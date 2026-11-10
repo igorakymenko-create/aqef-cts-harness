@@ -46,6 +46,32 @@ JUDGE = {
 }
 
 
+def _rows(*qs):
+    return lambda n: (200, {"rows": [{"id": f"gen-{q[-1]}", "variables": {"query": q}} for q in qs]})
+
+
+# Scripted generators (Harness Contract 8.2, 9). The CTS fixes the rows; the envelope
+# {"rows": [...]} is the reference engine's documented generation protocol (its
+# docs/DATASETS.md), which this service speaks for it.
+GENERATOR = {
+    # H-GEN-DSR-003: the first call returns one row, query "Gen-1"; every later call "Gen-2"
+    "H-GEN-DSR-003": lambda n: _rows("Gen-1")(n) if n == 1 else _rows("Gen-2")(n),
+    # generator.malformed (CT-DSR-005): one valid row, and one row without `id`
+    "generator.malformed": lambda n: (200, {"rows": [{"id": "g1", "variables": {"query": "Gen-1"}},
+                                                     {"variables": {"query": "Gen-2"}}]}),
+}
+
+# The captured production Conversation of CT-DSR-004: one user turn, "Hello". The
+# envelope is the reference engine's documented capture protocol (docs/DATASETS.md); the
+# record attests anonymization because the fixture's capture asks for it.
+CAPTURE = {
+    "C-HELLO": lambda req, n: (200, {"conversations": [
+        {"id": "cts-capture-1", "anonymized": bool(req.get("anonymization")),
+         "conversation": {"turns": [{"prompt": "Hello", "response": "Hi! How can I help?"}]}}
+    ][: max(0, int(req.get("sample_size") or 1))]}),
+}
+
+
 def last_response(req):
     """The Response being assessed, from the Evidence the engine sent."""
     ev = req.get("evidence") or {}
@@ -65,7 +91,7 @@ class Scripted:
         self.srv = None
 
     def reset(self, subject="SR-OK", subject_by_prompt=None, judge="J-PASS-90",
-              judge_by_model=None, judge_map=None):
+              judge_by_model=None, judge_map=None, generator="H-GEN-DSR-003", capture="C-HELLO"):
         """`judge_map` is J-MAP(a, b, c) (CTS 13.1): a behavior per Response."""
         with self.lock:
             self.subject = subject
@@ -73,6 +99,8 @@ class Scripted:
             self.judge = judge
             self.judge_by_model = judge_by_model or {}
             self.judge_map = judge_map or {}
+            self.generator = generator
+            self.capture = capture
             self.calls = []
             self.n = {}
 
@@ -95,6 +123,20 @@ class Scripted:
             out = JUDGE[code](resp, n)
             status, body = (None, None) if out == DOWN else out
             role = "judge"
+        elif path.rstrip("/").endswith("/generator"):
+            code = self.generator
+            with self.lock:
+                self.n[("gen", code)] = self.n.get(("gen", code), 0) + 1
+                n = self.n[("gen", code)]
+            status, body = GENERATOR[code](n)
+            role = "generator"
+        elif path.rstrip("/").endswith("/capture"):
+            code = self.capture
+            with self.lock:
+                self.n[("cap", code)] = self.n.get(("cap", code), 0) + 1
+                n = self.n[("cap", code)]
+            status, body = CAPTURE[code](req, n)
+            role = "capture"
         else:
             status, body, code, role = 404, {"error": f"no scripted service at {path}"}, None, "?"
         t1 = time.time()
@@ -108,6 +150,10 @@ class Scripted:
     def judge_calls(self):
         with self.lock:
             return [c for c in self.calls if c["role"] == "judge"]
+
+    def calls_of(self, role):
+        with self.lock:
+            return [c for c in self.calls if c["role"] == role]
 
     def subject_calls(self):
         with self.lock:

@@ -12,8 +12,15 @@ import urllib.parse
 import aqef_client
 from aqef_client import APIError, Client, TransportError
 
+import sys
+
 LANGUAGE = "python"
-VERSION = getattr(aqef_client, "__version__", "unknown")
+LANGUAGE_VERSION = sys.version.split()[0]
+try:
+    from importlib.metadata import version as _v
+    VERSION = _v("aqef-client")
+except Exception:
+    VERSION = getattr(aqef_client, "__version__", "unknown")
 
 _ROUTE = re.compile(r"^(GET|POST|PUT|DELETE|PATCH) (/\S*?)\.?$")
 _HEADER = {"X-Approved-By": "x_approved_by", "X-External-Review-Ref": "x_external_review_ref"}
@@ -73,4 +80,4 @@ def call(base_url, token, method, path, body=None, headers=None, timeout=30.0):
     raise Unmapped(f"no named SDK operation for {method} {split.path}")
 
 
-__all__ = ["LANGUAGE", "VERSION", "call", "Unmapped", "TransportError"]
+__all__ = ["LANGUAGE", "LANGUAGE_VERSION", "VERSION", "call", "Unmapped", "TransportError"]

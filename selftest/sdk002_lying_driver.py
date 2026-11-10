@@ -8,7 +8,8 @@ _s = importlib.util.spec_from_file_location("real_sdk_driver", _p)
 real = importlib.util.module_from_spec(_s)
 _s.loader.exec_module(real)
 
-LANGUAGE, VERSION, Unmapped, TransportError = real.LANGUAGE, real.VERSION, real.Unmapped, real.TransportError
+LANGUAGE, LANGUAGE_VERSION, VERSION = real.LANGUAGE, real.LANGUAGE_VERSION, real.VERSION
+Unmapped, TransportError = real.Unmapped, real.TransportError
 
 
 def call(base_url, token, method, path, **kw):

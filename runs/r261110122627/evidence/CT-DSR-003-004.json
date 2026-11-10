@@ -1,0 +1,189 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261110122627-ct-dsr-003/executions",
+  "actor": "P-RELEASE",
+  "content_type": "application/json",
+  "body": {
+   "suite": "cts-suite",
+   "environment": "cts-env"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "execution_batch_id": "c212e3a7-53fe-46c3-b847-983a489d6d01",
+   "executions": [
+    {
+     "id": "f3b1a652-dddc-4cd0-ab5d-7ef2ef425e2b",
+     "execution_batch_id": "c212e3a7-53fe-46c3-b847-983a489d6d01",
+     "project": "cts-r261110122627-ct-dsr-003",
+     "suite": "cts-suite",
+     "scenario": "s-greeting",
+     "principal_id": "P-RELEASE",
+     "principal_kind": "person",
+     "environment": "cts-env",
+     "dataset": "ds-gen@1.0.0",
+     "row_id": "gen-1",
+     "variables": {
+      "query": "Gen-1"
+     },
+     "configuration": {
+      "environment": {
+       "name": "cts-env",
+       "model_version": "cts-scripted-subject@1",
+       "prompt_version": "cts-prompt@1",
+       "tool_configuration": null,
+       "action_boundary": null,
+       "infra_target": "cts-harness"
+      },
+      "scenario": {
+       "name": "s-greeting",
+       "contract": {
+        "name": null,
+        "constraints": [
+         {
+          "validator": "schema",
+          "target": "response",
+          "expected": {
+           "type": "string",
+           "minLength": 1
+          },
+          "veto": false,
+          "id": null,
+          "dimension": "functional",
+          "defect_classes": null
+         }
+        ],
+        "expectations": [
+         {
+          "criteria": "The response greets the user.",
+          "judge": {
+           "model": "cts-scripted-judge@1",
+           "confidence_source": "self_rating"
+          },
+          "multi_judge": null,
+          "human_reviewer": null,
+          "confidence_threshold": 0.8,
+          "review_timeout": null,
+          "on_timeout": "block",
+          "escalate_to": null,
+          "id": null,
+          "dimension": "semantic",
+          "defect_classes": null
+         }
+        ],
+        "policies": null,
+        "extends": []
+       },
+       "prompt": {
+        "template": "{{query}}"
+       },
+       "dataset": "ds-gen@1.0.0",
+       "variables": null,
+       "seeded_control": null,
+       "evidence": null
+      },
+      "contract": {
+       "name": "effective_contract",
+       "constraints": [
+        {
+         "validator": "schema",
+         "target": "response",
+         "expected": {
+          "type": "string",
+          "minLength": 1
+         },
+         "veto": false,
+         "id": null,
+         "dimension": "functional",
+         "defect_classes": null
+        }
+       ],
+       "expectations": [
+        {
+         "criteria": "The response greets the user.",
+         "judge": {
+          "model": "cts-scripted-judge@1",
+          "confidence_source": "self_rating"
+         },
+         "multi_judge": null,
+         "human_reviewer": null,
+         "confidence_threshold": 0.8,
+         "review_timeout": null,
+         "on_timeout": "block",
+         "escalate_to": null,
+         "id": null,
+         "dimension": "semantic",
+         "defect_classes": null
+        }
+       ],
+       "policies": null,
+       "extends": [],
+       "clause_weights": {
+        "constraints": [
+         1.0
+        ],
+        "expectations": [
+         1.0
+        ]
+       }
+      },
+      "validators": {},
+      "defect_classes": [],
+      "execution": {
+       "timeout": "30s",
+       "scheduling": "sequential",
+       "parallelization": 1,
+       "retry": null
+      }
+     },
+     "scheduling": {
+      "strategy": "sequential",
+      "order": 0,
+      "reason": "on_demand Suite × Environment; declaration order",
+      "requested_by": "P-RELEASE",
+      "requested_at": "2026-11-10T20:26:27.839688+00:00"
+     },
+     "status": "completed",
+     "created_at": "2026-11-10T20:26:27.839702+00:00",
+     "started_at": "2026-11-10T20:26:27.842745+00:00",
+     "completed_at": "2026-11-10T20:26:27.858884+00:00",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-10T20:26:27.844143+00:00",
+       "error": null,
+       "completed_at": "2026-11-10T20:26:27.858872+00:00"
+      }
+     ],
+     "retry_count": 0,
+     "conversation": {
+      "turns": [
+       {
+        "prompt": "Gen-1",
+        "response": "Gen-1"
+       }
+      ]
+     },
+     "partial_turns": [],
+     "artifacts": [
+      {
+       "name": "latency_ms",
+       "data": 14.665917999991507,
+       "turn": 1,
+       "attempt": 1
+      }
+     ],
+     "error": null,
+     "opening_prompt": "Gen-1",
+     "duration_ms": 14.760963000014726
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "outcome": "accepted",
+ "note": "execution 1"
+}

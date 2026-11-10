@@ -13,17 +13,21 @@ import urllib.request
 # CTS 14.1. The loader (P-APPROVER) also gets project_create, dataset_create and
 # project_edit, which CTS 14.1 gives to no Principal although loading and replacing a
 # configuration need them.
+# production_replay_read is the reference engine's own Permission for Production Replay
+# data (its docs/DATASETS.md); the CTS Principals that load, execute and clean up need it
+# for Section 24.
 ROLES = {
-    "cts-release": ["read", "execute", "release_decide"],
+    "cts-release": ["read", "execute", "release_decide", "production_replay_read"],
     "cts-approver": ["read", "execute", "contract_define", "gate_override", "baseline_approve",
                      "environment_edit", "scenario_edit", "environment_delete",
                      "project_create", "dataset_create", "project_edit",
-                     "scenario_create", "scenario_delete"],   # CT-CFG-029
+                     "scenario_create", "scenario_delete",    # CT-CFG-029
+                     "production_replay_read"],
     "cts-noperm": ["read", "execute"],
     "cts-editor": ["read", "project_edit", "scenario_edit"],
     "cts-reviewer": ["read", "review"],
     "reviewer": [],
-    "cts-admin": ["read", "project_delete", "audit_read", "role_admin"],   # role_admin: CT-REL-019, 033
+    "cts-admin": ["read", "project_delete", "audit_read", "role_admin", "production_replay_read"],   # role_admin: CT-REL-019, 033
     "release_manager": ["read", "execute"],                              # CTS CT-REL-032
     "observer": ["read", "execute", "release_decide"],                   # CTS CT-REL-032
     "qa": [],

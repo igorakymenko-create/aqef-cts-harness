@@ -1,0 +1,171 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "name": "cts-r261110122627-ct-dsr-001-ctl",
+   "environments": [
+    {
+     "name": "cts-env",
+     "model_version": "cts-scripted-subject@1",
+     "prompt_version": "cts-prompt@1",
+     "tool_configuration": null,
+     "infra_target": "cts-harness"
+    }
+   ],
+   "quality_gates": [
+    {
+     "name": "functional-gate",
+     "aggregate": "functional",
+     "threshold": 1.0,
+     "on_failure": "block_release"
+    }
+   ],
+   "suites": [
+    {
+     "name": "cts-suite",
+     "scenarios": [
+      {
+       "name": "s-greeting",
+       "variables": {
+        "query": "Hello"
+       },
+       "prompt": {
+        "template": "{{query}}"
+       },
+       "contract": {
+        "constraints": [
+         {
+          "validator": "schema",
+          "target": "response",
+          "expected": {
+           "type": "string",
+           "minLength": 1
+          }
+         }
+        ],
+        "expectations": [
+         {
+          "criteria": "The response greets the user.",
+          "judge": {
+           "model": "cts-scripted-judge@1",
+           "confidence_source": "self_rating"
+          },
+          "confidence_threshold": 0.8
+         }
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "datasets": [
+    {
+     "name": "ds-gen",
+     "version": "1.0.0",
+     "source": "generated",
+     "generator": {
+      "model": "cts-scripted-generator@1",
+      "instruction": "Generate one greeting query per row, as `query`."
+     }
+    }
+   ]
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "name": "cts-r261110122627-ct-dsr-001-ctl",
+   "environments": [
+    {
+     "name": "cts-env",
+     "model_version": "cts-scripted-subject@1",
+     "prompt_version": "cts-prompt@1",
+     "tool_configuration": null,
+     "infra_target": "cts-harness"
+    }
+   ],
+   "suites": [
+    {
+     "name": "cts-suite",
+     "scenarios": [
+      {
+       "name": "s-greeting",
+       "contract": {
+        "constraints": [
+         {
+          "validator": "schema",
+          "target": "response",
+          "expected": {
+           "type": "string",
+           "minLength": 1
+          },
+          "veto": false,
+          "dimension": "functional"
+         }
+        ],
+        "expectations": [
+         {
+          "criteria": "The response greets the user.",
+          "judge": {
+           "model": "cts-scripted-judge@1",
+           "confidence_source": "self_rating"
+          },
+          "confidence_threshold": 0.8,
+          "on_timeout": "block",
+          "dimension": "semantic"
+         }
+        ],
+        "extends": []
+       },
+       "prompt": {
+        "template": "{{query}}"
+       },
+       "variables": {
+        "query": "Hello"
+       }
+      }
+     ],
+     "contracts": [],
+     "quality_gates": []
+    }
+   ],
+   "datasets": [
+    {
+     "name": "ds-gen",
+     "version": "1.0.0",
+     "source": "generated",
+     "rows": [
+      {
+       "id": "gen-1",
+       "variables": {
+        "query": "Gen-1"
+       }
+      }
+     ],
+     "generator": {
+      "model": "cts-scripted-generator@1",
+      "instruction": "Generate one greeting query per row, as `query`."
+     },
+     "generated_at": "2026-11-10T20:26:27.647738Z"
+    }
+   ],
+   "defect_classes": [],
+   "contracts": [],
+   "quality_gates": [
+    {
+     "name": "functional-gate",
+     "aggregate": "functional",
+     "threshold": 1.0,
+     "on_failure": "block_release",
+     "require_admitted_judges": false
+    }
+   ]
+  }
+ },
+ "outcome": "accepted",
+ "note": "setup check: the F-BASE with a complete ds-gen loads"
+}

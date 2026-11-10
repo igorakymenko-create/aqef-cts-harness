@@ -1,0 +1,23 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261110122627-ct-dsr-003/datasets/ds-gen/rows?version=1.0.1",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "gen-2",
+    "variables": {
+     "query": "Gen-2"
+    }
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "rows of the version the request produced"
+}

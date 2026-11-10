@@ -1,0 +1,120 @@
+{
+ "note": "CT-CFG-002 through the python SDK: versions, the SDK operations called, and the recording proxy's log of its REST traffic (headers and tokens not recorded)",
+ "sdk": {
+  "language": "python",
+  "sdk_version": "0.1.0",
+  "language_version": "3.13.17"
+ },
+ "operations": [
+  "create_project",
+  "create_project"
+ ],
+ "proxy_log": [
+  {
+   "method": "POST",
+   "path": "/projects",
+   "query": null,
+   "status": 201,
+   "request_body": {
+    "name": "cts-r261110122627-ct-sdk-002-python-cfg-002-ctl",
+    "environments": [
+     {
+      "name": "cts-env",
+      "model_version": "cts-scripted-subject@1",
+      "prompt_version": "cts-prompt@1",
+      "tool_configuration": null,
+      "infra_target": "cts-harness"
+     }
+    ],
+    "quality_gates": [
+     {
+      "name": "functional-gate",
+      "aggregate": "functional",
+      "threshold": 1.0,
+      "on_failure": "block_release"
+     }
+    ],
+    "suites": [
+     {
+      "name": "cts-suite",
+      "scenarios": [
+       {
+        "name": "s-greeting",
+        "variables": {
+         "query": "Hello"
+        },
+        "prompt": {
+         "template": "{{query}}"
+        },
+        "contract": {
+         "constraints": [
+          {
+           "validator": "schema",
+           "target": "response",
+           "expected": {
+            "type": "string",
+            "minLength": 1
+           }
+          }
+         ],
+         "expectations": [
+          {
+           "criteria": "The response greets the user.",
+           "judge": {
+            "model": "cts-scripted-judge@1",
+            "confidence_source": "self_rating"
+           },
+           "confidence_threshold": 0.8
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/projects",
+   "query": null,
+   "status": 422,
+   "request_body": {
+    "name": "cts-r261110122627-ct-sdk-002-python-cfg-002",
+    "environments": [
+     {
+      "name": "cts-env",
+      "model_version": "cts-scripted-subject@1",
+      "prompt_version": "cts-prompt@1",
+      "tool_configuration": null,
+      "infra_target": "cts-harness"
+     }
+    ],
+    "quality_gates": [
+     {
+      "name": "functional-gate",
+      "aggregate": "functional",
+      "threshold": 1.0,
+      "on_failure": "block_release"
+     }
+    ],
+    "suites": [
+     {
+      "name": "cts-suite",
+      "scenarios": [
+       {
+        "name": "s-greeting",
+        "variables": {
+         "query": "Hello"
+        },
+        "prompt": {
+         "template": "{{query}}"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

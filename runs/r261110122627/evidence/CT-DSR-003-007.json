@@ -1,0 +1,53 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261110122627-ct-dsr-003/datasets",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "name": "ds-gen",
+    "version": "1.0.0",
+    "source": "generated",
+    "rows": [
+     {
+      "id": "gen-1",
+      "variables": {
+       "query": "Gen-1"
+      }
+     }
+    ],
+    "generator": {
+     "model": "cts-scripted-generator@1",
+     "instruction": "Generate one greeting query per row, as `query`."
+    },
+    "generated_at": "2026-11-10T20:26:27.761941Z"
+   },
+   {
+    "name": "ds-gen",
+    "version": "1.0.1",
+    "source": "generated",
+    "rows": [
+     {
+      "id": "gen-2",
+      "variables": {
+       "query": "Gen-2"
+      }
+     }
+    ],
+    "generator": {
+     "model": "cts-scripted-generator@1",
+     "instruction": "Generate one greeting query per row, as `query`."
+    },
+    "generated_at": "2026-11-10T20:26:27.903247Z"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "ds-gen versions, after"
+}

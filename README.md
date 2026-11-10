@@ -208,6 +208,42 @@ path treated as a duration is listed in the evidence.
 An engine the harness cannot reach makes CT-SDK-001 NOT_RUN (`TRANSPORT_FAILED`), never
 FAIL: a command that made no call proves nothing while the engine is down.
 
+## Dataset Sources (CT-DSR-001 to 005)
+
+**Scripted services** (`aqef_harness/scripted.py`):
+- **generator** (`/generator`):
+  - `H-GEN-DSR-003`: the first call returns one row, `query: "Gen-1"`; every later call
+    `"Gen-2"`;
+  - `generator.malformed`: a valid row and a row without `id` (Harness Contract §9).
+- **capture source** (`/capture`): one captured Conversation whose user turn is `Hello`.
+
+The rows are the CTS's. The envelopes, `{"rows": [...]}` and `{"conversations": [...]}`,
+are the reference engine's documented protocols (its `docs/DATASETS.md`). For another
+engine they are part of its adapter.
+
+`setup/start_reference_engine.sh` maps the model identifier `cts-scripted-generator@1`
+and the capture source `cts-capture` to these services. `setup/bootstrap_reference_engine.py`
+grants the engine's own Permission for Production Replay data, `production_replay_read`,
+to the CTS Principals that load, execute and clean up.
+
+**Generating again** (CT-DSR-003, CT-DSR-005) uses Appendix C,
+`POST .../datasets/ds-gen/versions`. The request, the response, and the versions read
+before and after are the evidence (Harness Contract §16, `generate_dataset`).
+
+**Rejection tests** (CT-DSR-001, CT-DSR-002) first load the complete Dataset as a setup
+check (CTS 1, "Rejection tests"). An engine that rejects every generated or replay
+Dataset is NOT_RUN there, not PASS.
+
+**Self-test.** `selftest/runs-dsr-slice14/` is the run against engine slice 14, before
+slice 14.1 accepted non-static Datasets in a Project's configuration:
+- CT-DSR-001, 002, 003 and 005 are NOT_RUN at their setup checks;
+- CT-DSR-004 FAILs: the configuration was rejected.
+
+**Run.** `runs/r261110122627/`, `harness.reference-engine-14.yaml`, engine slice 14.1
+(`eeccb83`), CTS 1.0-CR1.2: CT-DSR-001 to 005 PASS, and CT-SDK-002 PASS again, now with
+the SDK's traffic through a recording proxy and its versions recorded (Harness Contract
+§16, `run_sdk`).
+
 ## Layout
 
 | Path | Content |
@@ -218,6 +254,7 @@ FAIL: a command that made no call proves nothing while the engine is down.
 | `aqef_harness/evidence.py` | Evidence store and manifest (RFC 8785) |
 | `aqef_harness/tests_rui.py` | CT-RUI-001, through a UI driver |
 | `aqef_harness/tests_sdk.py`, `aqef_harness/proxy.py` | CT-SDK-001 and CT-SDK-002; the recording proxy |
+| `aqef_harness/tests_dsr.py` | CT-DSR-001 to 005 |
 | `setup/cli_aqef_client.py`, `setup/sdk_aqef_client.py` | CLI and SDK drivers for aqef-reference-engine's `aqef-client` |
 | `setup/ui_reference_ui.py`, `setup/start_reference_ui.sh` | Driver and start script for aqef-reference-ui |
 | `aqef_harness/scripted.py` | Scripted subject and Judges |
