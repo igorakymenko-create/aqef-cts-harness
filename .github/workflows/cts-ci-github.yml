@@ -1,1 +1,109 @@
+# CTS 1.0-CR1.2, CT-REL-024, CT-REL-025 and CT-REL-037, for `ci_cd:github_actions`
+# (Harness Contract §16, run_pipeline). Started by hand only: Actions → this workflow →
+# Run workflow. See README, "CI/CD on GitHub Actions".
+#
+# Each "pipeline" job is one pipeline run of a test, on its own GitHub-hosted runner:
+#   1. start the engine (setup/start_reference_engine.sh) and the harness's controller,
+#      which loads the fixture, triggers the Execution, and plays the tester's part
+#      while the pipeline runs (an override, or nothing);
+#   2. the integration under test, aqef-reference-engine's Action, on that batch;
+#   3. always: record the Action step's result and summary, and keep it as an artifact.
+# The pipeline job's own result (success or failure) is the platform-native status the
+# tests read back. The "report" job reads it from the platform (gh api .../jobs) and
+# runs the harness, which decides the tests and writes a verified run report.
+name: CTS ci_cd:github_actions
 
+on:
+  workflow_dispatch:
+    inputs:
+      aqef-ref:
+        description: AQEF ref (the CTS)
+        default: main
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  pipeline:
+    name: pipeline (${{ matrix.run }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        run: [rel024-a, rel024-b, rel025]
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: aqef-cts-harness, persist-credentials: false }
+      - uses: actions/checkout@v4
+        with: { repository: igorakymenko-create/aqef-reference-engine, ref: slice-16,
+                path: aqef-reference-engine, persist-credentials: false }
+      - uses: actions/checkout@v4
+        with: { repository: igorakymenko-create/AQEF, ref: "${{ inputs.aqef-ref }}",
+                path: AQEF, persist-credentials: false }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Start the engine and the harness controller
+        id: prep
+        working-directory: aqef-cts-harness
+        run: |
+          python -m pip install -q -r ../aqef-reference-engine/requirements.txt -r requirements.txt
+          (cd ../aqef-reference-engine && sh ../aqef-cts-harness/setup/start_reference_engine.sh)
+          python -m aqef_harness.ci_github prepare --config harness.ci-github.yaml \
+            --run "${{ matrix.run }}" --out "$RUNNER_TEMP/cts"
+      # The integration under test. Its name is what the report job looks up.
+      - name: AQEF Quality Gates
+        id: aqef
+        uses: igorakymenko-create/aqef-reference-engine@slice-16
+        with:
+          engine-url: http://127.0.0.1:8000
+          token: ${{ steps.prep.outputs.token }}
+          project: ${{ steps.prep.outputs.project }}
+          suite: ${{ steps.prep.outputs.suite }}
+          environment: ${{ steps.prep.outputs.environment }}
+          execution-batch: ${{ steps.prep.outputs.batch }}
+          wait-timeout: ${{ steps.prep.outputs.wait }}
+          poll-interval: '2'
+      - name: Collect
+        if: always()
+        working-directory: aqef-cts-harness
+        run: |
+          python -m aqef_harness.ci_github collect --run "${{ matrix.run }}" --out "$RUNNER_TEMP/cts" \
+            --step-outcome "${{ steps.aqef.outcome }}" --outcome "${{ steps.aqef.outputs.outcome }}" \
+            --batch "${{ steps.aqef.outputs.execution-batch }}"
+          cp /tmp/aqef-engine.log "$RUNNER_TEMP/cts/engine.log" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: "${{ matrix.run }}", path: "${{ runner.temp }}/cts", if-no-files-found: error }
+
+  report:
+    needs: pipeline
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: aqef-cts-harness, persist-credentials: false }
+      - uses: actions/checkout@v4
+        with: { repository: igorakymenko-create/aqef-reference-engine, ref: slice-16,
+                path: aqef-reference-engine, persist-credentials: false }
+      - uses: actions/checkout@v4
+        with: { repository: igorakymenko-create/AQEF, ref: "${{ inputs.aqef-ref }}",
+                path: AQEF, persist-credentials: false }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/download-artifact@v4
+        with: { path: aqef-cts-harness/ci-artifacts }
+      - name: The platform's record of this run
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" > aqef-cts-harness/ci-artifacts/jobs.json
+      - name: Decide CT-REL-024, 025, 037
+        working-directory: aqef-cts-harness
+        run: |
+          python -m pip install -q -r requirements.txt
+          python -m aqef_harness.runner --config harness.ci-github.yaml \
+            --tests CT-REL-024 CT-REL-025 CT-REL-037 --out runs-ci
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: cts-report, path: "aqef-cts-harness/runs-ci", if-no-files-found: error }
