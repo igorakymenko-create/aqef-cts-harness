@@ -1,0 +1,192 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261110132118-ct-ttp-001/baselines",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "execution_id": "2ae39dff-2e76-4904-a679-eaecf54f9795",
+   "result_id": "3ace5744-5a1e-408d-bb9e-7e35479d083a",
+   "name": "cts-baseline-0"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "id": "1c1b18c9-4960-4a8a-89eb-026df3745a19",
+   "suite": "cts-suite",
+   "scenario": "s-greeting",
+   "environment": "cts-env",
+   "execution_id": "2ae39dff-2e76-4904-a679-eaecf54f9795",
+   "result_id": "3ace5744-5a1e-408d-bb9e-7e35479d083a",
+   "result": {
+    "id": "3ace5744-5a1e-408d-bb9e-7e35479d083a",
+    "execution": "2ae39dff-2e76-4904-a679-eaecf54f9795",
+    "clause": "sha256:5fde81caf1a910bcc6aea78c5ad38cb009d735a69b0be0e8fe2090276d48504b/constraints/0",
+    "oracle_type": "validator",
+    "oracle": "{\"custom\":null,\"expected\":{\"minLength\":1,\"type\":\"string\"},\"name\":\"schema\",\"target\":\"response\",\"type\":\"validator\",\"version\":\"1\"}",
+    "verdict": "pass",
+    "confidence": "not_applicable",
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "schema",
+      "target": "response",
+      "expected": {
+       "type": "string",
+       "minLength": 1
+      },
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "target_evidence": "Hello! How can I help?",
+     "check": {
+      "errors": []
+     }
+    },
+    "recorded_at": "2026-11-10T21:21:19.523978Z"
+   },
+   "configuration": {
+    "environment": {
+     "name": "cts-env",
+     "model_version": "cts-scripted-subject@1",
+     "prompt_version": "cts-prompt@1",
+     "tool_configuration": null,
+     "action_boundary": null,
+     "infra_target": "cts-harness"
+    },
+    "scenario": {
+     "name": "s-greeting",
+     "contract": {
+      "name": null,
+      "constraints": [
+       {
+        "validator": "schema",
+        "target": "response",
+        "expected": {
+         "type": "string",
+         "minLength": 1
+        },
+        "veto": false,
+        "id": null,
+        "dimension": "functional",
+        "defect_classes": null
+       }
+      ],
+      "expectations": [
+       {
+        "criteria": "The response greets the user.",
+        "judge": {
+         "model": "cts-scripted-judge@1",
+         "confidence_source": "self_rating"
+        },
+        "multi_judge": null,
+        "human_reviewer": null,
+        "confidence_threshold": 0.8,
+        "review_timeout": null,
+        "on_timeout": "block",
+        "escalate_to": null,
+        "id": null,
+        "dimension": "semantic",
+        "defect_classes": null
+       }
+      ],
+      "policies": null,
+      "extends": []
+     },
+     "prompt": {
+      "template": "{{query}}"
+     },
+     "dataset": null,
+     "variables": {
+      "query": "Hello"
+     },
+     "seeded_control": null,
+     "evidence": null
+    },
+    "contract": {
+     "name": "effective_contract",
+     "constraints": [
+      {
+       "validator": "schema",
+       "target": "response",
+       "expected": {
+        "type": "string",
+        "minLength": 1
+       },
+       "veto": false,
+       "id": null,
+       "dimension": "functional",
+       "defect_classes": null
+      }
+     ],
+     "expectations": [
+      {
+       "criteria": "The response greets the user.",
+       "judge": {
+        "model": "cts-scripted-judge@1",
+        "confidence_source": "self_rating"
+       },
+       "multi_judge": null,
+       "human_reviewer": null,
+       "confidence_threshold": 0.8,
+       "review_timeout": null,
+       "on_timeout": "block",
+       "escalate_to": null,
+       "id": null,
+       "dimension": "semantic",
+       "defect_classes": null
+      }
+     ],
+     "policies": null,
+     "extends": [],
+     "clause_weights": {
+      "constraints": [
+       1.0
+      ],
+      "expectations": [
+       1.0
+      ]
+     }
+    },
+    "validators": {},
+    "defect_classes": [],
+    "execution": {
+     "timeout": "30s",
+     "scheduling": "sequential",
+     "parallelization": 1,
+     "retry": null
+    }
+   },
+   "dataset": null,
+   "evidence": {
+    "conversation": {
+     "turns": [
+      {
+       "prompt": "Hello",
+       "response": "Hello! How can I help?"
+      }
+     ]
+    },
+    "artifacts": [
+     {
+      "name": "latency_ms",
+      "data": 16.504714999996395,
+      "turn": 1,
+      "attempt": 1
+     }
+    ]
+   },
+   "approval_id": "85f540d2-9352-4360-9cfc-cc8ada62133b",
+   "approved_by": "P-APPROVER",
+   "approved_at": "2026-11-10T21:21:19.552286+00:00",
+   "approval_role": "cts-approver",
+   "name": "cts-baseline-0"
+  }
+ },
+ "outcome": "accepted",
+ "note": "designate the Execution as a Baseline (Result 1: validator)"
+}

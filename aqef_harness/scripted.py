@@ -23,6 +23,34 @@ SUBJECT = {
 }
 
 
+def calls_made(req):
+    """How many tool calls the subject has already made in this Conversation, from the
+    Context the engine sent (reference engine: `context.turns[*].tool_calls`)."""
+    turns = ((req.get("context") or {}).get("turns")) or []
+    return sum(len(t.get("tool_calls") or []) for t in turns if isinstance(t, dict))
+
+
+def tool_trajectory(urls):
+    """CTS 23, SR-CALL(url), and the trajectories of CT-TTP-002: request the tool call
+    http_get for each url in turn; after the last tool response or refusal, "Done.". The
+    envelope {"tool_calls": [...]} is the reference engine's documented protocol."""
+    def behave(req, n):
+        k = calls_made(req)
+        if k < len(urls):
+            return 200, {"tool_calls": [{"id": f"cts-call-{k + 1}", "name": "http_get",
+                                         "arguments": {"url": urls[k]}}]}
+        return 200, {"response": "Done."}
+    return behave
+
+
+def subject_behavior(code):
+    if code.startswith("SR-CALL(") and code.endswith(")"):
+        return tool_trajectory([code[len("SR-CALL("):-1]])
+    if code.startswith("SR-TRAJ(") and code.endswith(")"):
+        return tool_trajectory(code[len("SR-TRAJ("):-1].split(","))
+    return SUBJECT[code]
+
+
 def _j(verdict, conf, assertions=1):
     return lambda resp, n: (200, {"verdict": verdict, "confidence": conf,
                                   "explanation": f"scripted {verdict}", "assertions": assertions})
@@ -111,7 +139,7 @@ class Scripted:
             with self.lock:
                 self.n[code] = self.n.get(code, 0) + 1
                 n = self.n[code]
-            status, body = SUBJECT[code](req, n)
+            status, body = subject_behavior(code)(req, n)
             role = "subject"
         elif path.rstrip("/").endswith("/judge"):
             resp = last_response(req)
@@ -130,6 +158,13 @@ class Scripted:
                 n = self.n[("gen", code)]
             status, body = GENERATOR[code](n)
             role = "generator"
+        elif path.rstrip("/").endswith("/executor"):
+            # CTS 23: the harness's tool targets. Every call that reaches here is logged;
+            # one whose targets include cts-outside.example is the "log of
+            # cts-outside.example" the tests read.
+            code = "executor"
+            status, body = 200, {"result": {"status": "ok", "from": "cts-harness-executor"}}
+            role = "executor"
         elif path.rstrip("/").endswith("/capture"):
             code = self.capture
             with self.lock:

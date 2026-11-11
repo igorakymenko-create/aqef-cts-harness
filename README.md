@@ -244,6 +244,55 @@ slice 14.1 accepted non-static Datasets in a Project's configuration:
 the SDK's traffic through a recording proxy and its versions recorded (Harness Contract
 §16, `run_sdk`).
 
+## Action Boundary (CT-ABD-001 to 008, CT-TTP-002)
+
+**Scripted subject** (`aqef_harness/scripted.py`):
+- `SR-CALL(url)`: requests `http_get` with `url`, then answers `"Done."` after the tool's
+  response or refusal;
+- `SR-TRAJ(url1,url2)`: the two trajectories of CT-TTP-002.
+
+The `{"tool_calls": [...]}` envelope is the reference engine's documented protocol (its
+`docs/ACTION-BOUNDARY.md`). For another engine it is part of the adapter.
+
+**Tool targets.** `cts-stub.example`, `cts-trip.example` and `cts-outside.example` are
+hosted by the harness (Harness Contract §17). An engine that carries out a `sandbox` or
+`real` call sends it to the harness's tool executor (`/executor`). That log is the
+record of what reached each target, including "the log of `cts-outside.example`".
+Nothing is sent to a real system.
+
+`setup/start_reference_engine.sh` configures the executor, and names
+`cts-scripted-subject@1` as a subject whose access the harness controls
+(`AQEF_CONTROLLED_SUBJECTS`). Without that, the engine rejects `enforced: true`.
+
+**F-ACT's patterns** are already in the reference engine's syntax: a terminal `/*` matches
+the literal prefix.
+
+**Inspection and Declaration parts.** These stay NOT_RUN (`MANUAL_REVIEW_PENDING`) until a
+reviewer decides them (CTS 1.8):
+- CT-ABD-007: the Conformance Statement;
+- CT-ABD-008: the pattern documentation, with the two outcomes;
+- CT-TTP-002: how the comparison was made.
+
+**Designating an Execution as a Baseline** (CT-TTP-001, CT-TTP-002). Appendix A §A.11
+designates an Execution. The reference engine records a Baseline per Result and compares
+clause by clause. The harness therefore designates every Result of the Execution
+(`designate_execution` in `tests_dec.py`).
+
+Harness 0.8.0 and earlier designated only the Judge's Result. The Regression Gate then
+had nothing to compare the other clauses with, and failed as `insufficient_basis`
+(`value: not_computed`). CT-TTP-001's Expected ("`regression-gate` fails") was met, but
+not by a detected regression. From 0.9.0 the Gate fails on the comparison itself:
+`value 0.5`, `reasons: [threshold]`.
+
+**Self-test.** `selftest/runs-abd-slice14/` is the run against engine slice 14.1, before
+slice 15. Every case is NOT_RUN, because the engine rejected F-ACT, and none is PASS.
+
+**Run.** `runs/r261110132118/`, `harness.reference-engine-15.yaml`, engine slice 15
+(`39201b3`), CTS 1.0-CR1.2:
+- CT-ABD-001 to 006 PASS;
+- CT-TTP-001 PASS, on a detected regression;
+- CT-ABD-007, CT-ABD-008 and CT-TTP-002 await review.
+
 ## Layout
 
 | Path | Content |
@@ -255,6 +304,7 @@ the SDK's traffic through a recording proxy and its versions recorded (Harness C
 | `aqef_harness/tests_rui.py` | CT-RUI-001, through a UI driver |
 | `aqef_harness/tests_sdk.py`, `aqef_harness/proxy.py` | CT-SDK-001 and CT-SDK-002; the recording proxy |
 | `aqef_harness/tests_dsr.py` | CT-DSR-001 to 005 |
+| `aqef_harness/tests_abd.py` | CT-ABD-001 to 008, CT-TTP-002 |
 | `setup/cli_aqef_client.py`, `setup/sdk_aqef_client.py` | CLI and SDK drivers for aqef-reference-engine's `aqef-client` |
 | `setup/ui_reference_ui.py`, `setup/start_reference_ui.sh` | Driver and start script for aqef-reference-ui |
 | `aqef_harness/scripted.py` | Scripted subject and Judges |

@@ -1,0 +1,48 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261110132118-ct-abd-008/executions/c7f15353-520f-425b-b4be-cb2d6eb34c9c/artifacts",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "name": "latency_ms",
+    "data": 13.150691000021197,
+    "turn": 1,
+    "attempt": 1
+   },
+   {
+    "name": "tool_call",
+    "data": {
+     "name": "http_get",
+     "arguments": {
+      "url": "https://cts-stub.example/a"
+     },
+     "id": "cts-call-1",
+     "targets": [
+      "https://cts-stub.example/a"
+     ],
+     "kind": "stub",
+     "status": "stub",
+     "result": {
+      "status": "stubbed"
+     }
+    },
+    "turn": 1
+   },
+   {
+    "name": "latency_ms",
+    "data": 11.800455000013699,
+    "turn": 2,
+    "attempt": 1
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "retrieve the Artifacts"
+}

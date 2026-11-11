@@ -158,6 +158,21 @@ def judge_result(ctx, name, eid):
     return j[0]
 
 
+def designate_execution(ctx, name, eid, note="designate the Execution as a Baseline", actor="P-APPROVER"):
+    """Designate an Execution as a Baseline (Appendix A §A.11: `execution_id`). The
+    reference engine records a Baseline per Result (`execution_id` + `result_id`) and
+    compares clause by clause, so designating the Execution means designating each of its
+    Results. With only one designated, a Regression Gate over the Execution's other
+    clauses has nothing to compare with and fails as insufficient_basis, which would show
+    nothing about regression. Returns the exchanges."""
+    out = []
+    for i, r in enumerate(ctx.results(name, eid)):
+        out.append(ctx.record(ctx.a.post(f"/projects/{name}/baselines",
+                                         {"execution_id": eid, "result_id": r["id"], "name": f"cts-baseline-{i}"},
+                                         actor), f"{note} (Result {i + 1}: {r.get('oracle_type')})"))
+    return out
+
+
 def reassess(ctx, name, eid, r):
     ex = ctx.record(ctx.a.post(f"/projects/{name}/executions/{eid}/results/{r['id']}/reassess",
                                {"oracle": r["oracle"]}, "P-RELEASE"), "request a re-assessment")

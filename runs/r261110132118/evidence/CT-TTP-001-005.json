@@ -1,0 +1,209 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261110132118-ct-ttp-001/baselines",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "execution_id": "2ae39dff-2e76-4904-a679-eaecf54f9795",
+   "result_id": "11e4c15c-84c5-4637-8d28-fc46249d88b2",
+   "name": "cts-baseline-1"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "id": "ffeb0a26-4a3f-4c79-9d82-e7c78fdb311f",
+   "suite": "cts-suite",
+   "scenario": "s-greeting",
+   "environment": "cts-env",
+   "execution_id": "2ae39dff-2e76-4904-a679-eaecf54f9795",
+   "result_id": "11e4c15c-84c5-4637-8d28-fc46249d88b2",
+   "result": {
+    "id": "11e4c15c-84c5-4637-8d28-fc46249d88b2",
+    "execution": "2ae39dff-2e76-4904-a679-eaecf54f9795",
+    "clause": "sha256:5fde81caf1a910bcc6aea78c5ad38cb009d735a69b0be0e8fe2090276d48504b/expectations/0",
+    "oracle_type": "judge",
+    "oracle": "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}",
+    "verdict": "pass",
+    "confidence": 0.9,
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "evidence": {
+      "conversation": {
+       "turns": [
+        {
+         "prompt": "Hello",
+         "response": "Hello! How can I help?"
+        }
+       ]
+      },
+      "artifacts": [
+       {
+        "name": "latency_ms",
+        "data": 16.504714999996395,
+        "turn": 1,
+        "attempt": 1
+       }
+      ]
+     },
+     "criteria": "The response greets the user.",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-10T21:21:19.526456+00:00",
+       "completed_at": "2026-11-10T21:21:19.536990+00:00"
+      }
+     ],
+     "provider_response": {
+      "verdict": "pass",
+      "confidence": 0.9,
+      "explanation": "scripted pass",
+      "assertions": 1
+     },
+     "explanation": "scripted pass"
+    },
+    "recorded_at": "2026-11-10T21:21:19.526448Z"
+   },
+   "configuration": {
+    "environment": {
+     "name": "cts-env",
+     "model_version": "cts-scripted-subject@1",
+     "prompt_version": "cts-prompt@1",
+     "tool_configuration": null,
+     "action_boundary": null,
+     "infra_target": "cts-harness"
+    },
+    "scenario": {
+     "name": "s-greeting",
+     "contract": {
+      "name": null,
+      "constraints": [
+       {
+        "validator": "schema",
+        "target": "response",
+        "expected": {
+         "type": "string",
+         "minLength": 1
+        },
+        "veto": false,
+        "id": null,
+        "dimension": "functional",
+        "defect_classes": null
+       }
+      ],
+      "expectations": [
+       {
+        "criteria": "The response greets the user.",
+        "judge": {
+         "model": "cts-scripted-judge@1",
+         "confidence_source": "self_rating"
+        },
+        "multi_judge": null,
+        "human_reviewer": null,
+        "confidence_threshold": 0.8,
+        "review_timeout": null,
+        "on_timeout": "block",
+        "escalate_to": null,
+        "id": null,
+        "dimension": "semantic",
+        "defect_classes": null
+       }
+      ],
+      "policies": null,
+      "extends": []
+     },
+     "prompt": {
+      "template": "{{query}}"
+     },
+     "dataset": null,
+     "variables": {
+      "query": "Hello"
+     },
+     "seeded_control": null,
+     "evidence": null
+    },
+    "contract": {
+     "name": "effective_contract",
+     "constraints": [
+      {
+       "validator": "schema",
+       "target": "response",
+       "expected": {
+        "type": "string",
+        "minLength": 1
+       },
+       "veto": false,
+       "id": null,
+       "dimension": "functional",
+       "defect_classes": null
+      }
+     ],
+     "expectations": [
+      {
+       "criteria": "The response greets the user.",
+       "judge": {
+        "model": "cts-scripted-judge@1",
+        "confidence_source": "self_rating"
+       },
+       "multi_judge": null,
+       "human_reviewer": null,
+       "confidence_threshold": 0.8,
+       "review_timeout": null,
+       "on_timeout": "block",
+       "escalate_to": null,
+       "id": null,
+       "dimension": "semantic",
+       "defect_classes": null
+      }
+     ],
+     "policies": null,
+     "extends": [],
+     "clause_weights": {
+      "constraints": [
+       1.0
+      ],
+      "expectations": [
+       1.0
+      ]
+     }
+    },
+    "validators": {},
+    "defect_classes": [],
+    "execution": {
+     "timeout": "30s",
+     "scheduling": "sequential",
+     "parallelization": 1,
+     "retry": null
+    }
+   },
+   "dataset": null,
+   "evidence": {
+    "conversation": {
+     "turns": [
+      {
+       "prompt": "Hello",
+       "response": "Hello! How can I help?"
+      }
+     ]
+    },
+    "artifacts": [
+     {
+      "name": "latency_ms",
+      "data": 16.504714999996395,
+      "turn": 1,
+      "attempt": 1
+     }
+    ]
+   },
+   "approval_id": "8876c90e-528b-419c-a362-cee61c9de842",
+   "approved_by": "P-APPROVER",
+   "approved_at": "2026-11-10T21:21:19.568704+00:00",
+   "approval_role": "cts-approver",
+   "name": "cts-baseline-1"
+  }
+ },
+ "outcome": "accepted",
+ "note": "designate the Execution as a Baseline (Result 2: judge)"
+}

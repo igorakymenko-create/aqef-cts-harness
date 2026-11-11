@@ -1,0 +1,77 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261110132118-ct-ttp-002/gates/check",
+  "actor": "P-RELEASE",
+  "content_type": "application/json",
+  "body": {
+   "execution_batch_id": "976624ae-7574-477b-aa8d-8c0916ba7462"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": {
+   "id": "e520a334-1126-45a4-af3b-e5c66cce2eb4",
+   "snapshot_id": "e520a334-1126-45a4-af3b-e5c66cce2eb4",
+   "execution_batch_id": "976624ae-7574-477b-aa8d-8c0916ba7462",
+   "gates": {
+    "functional-gate": {
+     "id": "8d1a0857-a22f-43f2-bcb5-ef13339ff35d",
+     "status": "pass",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 1.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     }
+    },
+    "semantic-gate": {
+     "id": "f14af5da-4b3b-463d-9644-eda7998de428",
+     "status": "pass",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 1.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     }
+    },
+    "regression-gate": {
+     "id": "cb82e4bc-07d8-48ea-98a8-761da297defd",
+     "status": "pass",
+     "blocking": true,
+     "threshold": 0.0,
+     "value": 0.0,
+     "basis": {
+      "results": 3,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     }
+    }
+   },
+   "result_ids": [
+    "feef9628-9bbd-48ba-af05-ed3eab0029a3",
+    "23377322-8b99-48c6-883e-4493f7d1e05d",
+    "c9359e77-916f-47ff-8517-d06e0eae0747"
+   ],
+   "evaluated_at": "2026-11-10T21:21:19.908326+00:00",
+   "result_state": "sha256:9c9d0d2bcef5ad16e685a9f347b61cc35e044033222b079c2bb23f15ef575127",
+   "admissions": {
+    "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}": false
+   },
+   "control_state": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  }
+ },
+ "outcome": "accepted",
+ "note": "evaluate the Gates"
+}
