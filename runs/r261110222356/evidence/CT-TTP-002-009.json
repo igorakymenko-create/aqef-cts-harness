@@ -1,0 +1,17 @@
+{
+ "note": "for the reviewer: how the comparison was made (the regression-gate GateResult; the engine's documentation of what an agent Baseline comparison judges is in abd.docs)",
+ "regression_gate": {
+  "id": "84e6f6c1-d826-484d-881a-2a7c79d84689",
+  "status": "pass",
+  "blocking": true,
+  "threshold": 0.0,
+  "value": 0.0,
+  "basis": {
+   "results": 3,
+   "not_actionable": 0,
+   "scenarios": 1,
+   "executions": 1,
+   "min_basis_met": "not_declared"
+  }
+ }
+}

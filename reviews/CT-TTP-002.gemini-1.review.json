@@ -1,0 +1,42 @@
+{
+  "review_id": "ttp-002-gemini-1",
+  "test_id": "CT-TTP-002",
+  "case_id": "CT-TTP-002",
+  "method": "inspection",
+  "reviewer": {
+    "id": "reviewer://google/gemini-3.8-flash",
+    "role": "independent-inspector",
+    "affiliation": "AI system, commissioned by Igor Akymenko"
+  },
+  "checklist": [
+    {
+      "item_id": "1",
+      "statement": "The comparison does not report a regression because the order of steps differs.",
+      "answer": "met",
+      "evidence_refs": [
+        "evidence://CT-TTP-002-008.json#.response.body.gates.regression-gate",
+        "evidence://CT-TTP-002-009.json#.regression_gate",
+        "evidence://engine-ACTION-BOUNDARY.md#lines 142-147"
+      ],
+      "note": "CT-TTP-002-007.json records trajectory (b): the subject called `https://cts-stub2.example/x` first, then `https://cts-stub.example/x`, then returned `\"Done.\"` — the reverse order of trajectory (a). CT-TTP-002-008.json records the Gate evaluation: `regression-gate` has `\"status\": \"pass\"` and `\"value\": 0.0` against a threshold of `0.0`. CT-TTP-002-009.json confirms the same GateResult. No regression was reported. The documentation (`engine-ACTION-BOUNDARY.md` lines 142–147) explains the comparison mechanism: 'An agent Baseline compares verdicts for the same clause and Oracle, using the previously approved Result. A Judge can evaluate the outcome and reasoning quality from the full Conversation and its Artifacts, including each tool step. Different tool paths that both pass the applicable criterion do not constitute regression.' Because trajectory (b)'s judge verdict was `pass` (consistent with the Baseline's `pass` verdicts for the same clauses), no regression was produced by the difference in step order alone."
+    },
+    {
+      "item_id": "2",
+      "statement": "The reviewer records what the comparison judged.",
+      "answer": "met",
+      "evidence_refs": [
+        "evidence://CT-TTP-002-009.json#.regression_gate",
+        "evidence://CT-TTP-002-008.json#.response.body.gates.regression-gate",
+        "evidence://CT-TTP-002-004.json#.response.body.result (Baseline Result 1: boundary validator, clause constraints/1)",
+        "evidence://CT-TTP-002-005.json#.response.body.result (Baseline Result 2: schema validator, clause constraints/0)",
+        "evidence://CT-TTP-002-006.json#.response.body.result (Baseline Result 3: judge, clause expectations/0)"
+      ],
+      "note": "What the comparison judged: Three Baselines were designated from trajectory (a)'s execution (fb284664), one per Result clause: (1) the boundary Validator (clause constraints/1, verdict `pass`), (2) the schema Validator (clause constraints/0, verdict `pass`), (3) the Judge for the expectation criterion 'The response greets the user.' (clause expectations/0, verdict `pass`, confidence 0.9). The regression Gate compared trajectory (b)'s Results for each clause and Oracle against these Baseline Results. The Gate's basis shows 3 results evaluated, 0 not_actionable, with value 0.0 (zero regression score). All three clauses passed in trajectory (b) as well, so no regression was detected for any clause. The step-order difference — cts-stub2 called first instead of cts-stub, then cts-stub called second — did not cause any clause verdict to change, and therefore did not constitute regression under this implementation's comparison method."
+    }
+  ],
+  "decision": "PASS",
+  "reason_code": "VERIFIED",
+  "signed_at": "2026-11-10T23:23:00-07:00",
+  "signature_ref": "pending://owner-attestation",
+  "notes": "One structural observation worth recording for a second reviewer: the test fixture designated three separate Baselines from the same execution (one per Result), not a single batch-level Baseline. The regression-gate's basis reports 3 results, consistent with all three clause-level Baselines being active. This is consistent with the engine's documented comparison method (verdict comparison per clause and Oracle). No ambiguity was found in the test text or specification with respect to this test's scope: the question asked is specifically whether step-order difference causes a regression report, and the evidence (regression-gate status 'pass') answers it unambiguously."
+}

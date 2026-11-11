@@ -49,3 +49,6 @@ sdk:
 # CTS Section 23: where the engine documents its Action Boundary
 abd:
   docs: ../aqef-reference-engine/docs/ACTION-BOUNDARY.md
+
+# CTS 1.8 review records applied (Harness Contract §13)
+manual_reviews: reviews/abd-reviews.json

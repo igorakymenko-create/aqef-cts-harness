@@ -1,0 +1,50 @@
+{
+  "review_id": "abd-008-gemini-1",
+  "test_id": "CT-ABD-008",
+  "case_id": "CT-ABD-008",
+  "method": "inspection",
+  "reviewer": {
+    "id": "reviewer://google/gemini-3.8-flash",
+    "role": "independent-inspector",
+    "affiliation": "AI system, commissioned by Igor Akymenko"
+  },
+  "checklist": [
+    {
+      "item_id": "1",
+      "statement": "The documentation states the syntax and how a `target` matches.",
+      "answer": "met",
+      "evidence_refs": [
+        "evidence://engine-ACTION-BOUNDARY.md#lines 1-55",
+        "evidence://CT-ABD-008-006.json#.pattern_documentation (section 'Target selection and matching')"
+      ],
+      "note": "The documentation in `engine-ACTION-BOUNDARY.md` section 'Target selection and matching' (lines 13–55) fully states the pattern syntax and matching rules. It defines three target forms: (1) an identifier (ASCII letters/digits/underscores/dots/hyphens) matching a tool name exactly and case-sensitively; (2) an absolute HTTP/HTTPS URL comparing scheme, lowercase ASCII host, effective port and literal case-sensitive path; (3) a terminal `/*` after the path that matches the literal prefix through that slash — with no other wildcards. It documents exclusions (escapes, backslashes, IPv6, dot path segments, query strings, fragments, user information). A reference table (lines 35–48) gives 12 concrete match/no-match examples. The requirement that 'Pattern syntax is implementation-defined and MUST be documented by the implementation; matching is deterministic' (spec/appendix-a-A2-environment.md line 49) is satisfied."
+    },
+    {
+      "item_id": "2",
+      "statement": "The first call (`https://cts-stub.example/a`) is allowed, as the documentation predicts for the pattern `https://cts-stub.example/*`.",
+      "answer": "met",
+      "evidence_refs": [
+        "evidence://CT-ABD-008-002.json#.response.body.executions[0].conversation.turns[0].tool_calls[0]",
+        "evidence://CT-ABD-008-004.json#.response.body[1]",
+        "evidence://CT-ABD-008-006.json#.outcomes['https://cts-stub.example/a']"
+      ],
+      "note": "CT-ABD-008-002.json records the execution with `url = https://cts-stub.example/a`. The turn's tool_call shows `\"status\": \"stub\"` and `\"result\": {\"status\": \"stubbed\"}` — the call was allowed and handled as a stub. CT-ABD-008-004.json (artifact retrieval for that execution) confirms no `boundary_attempt` artifact, and `executor_calls: 0` with an empty `boundary_attempts` list in the outcomes summary (CT-ABD-008-006.json). This is exactly what the documentation predicts: `https://cts-stub.example/*` matches `https://cts-stub.example/a` because `a` follows the literal prefix `https://cts-stub.example/` through the slash."
+    },
+    {
+      "item_id": "3",
+      "statement": "The second call (`https://cts-stub.example.evil/a`) is denied as outside the boundary, as the documentation predicts.",
+      "answer": "met",
+      "evidence_refs": [
+        "evidence://CT-ABD-008-003.json#.response.body.executions[0].conversation.turns[0].tool_calls[0]",
+        "evidence://CT-ABD-008-005.json#.response.body[1]",
+        "evidence://CT-ABD-008-006.json#.outcomes['https://cts-stub.example.evil/a']"
+      ],
+      "note": "CT-ABD-008-003.json records the execution with `url = https://cts-stub.example.evil/a`. The turn's tool_call shows `\"status\": \"refused\"` and `\"result\": {\"error\": \"boundary_denied\"}` — the call was denied. CT-ABD-008-005.json (artifact retrieval) confirms a `boundary_attempt` artifact with `\"blocked\": true, \"tripwire\": false`. The outcomes summary (CT-ABD-008-006.json) shows one blocked boundary_attempt for this URL. This is exactly what the documentation predicts: the target `https://cts-stub.example/*` requires the host to match exactly (lowercase ASCII comparison), so `cts-stub.example.evil` does not match `cts-stub.example` — the documentation's example table (line 46) shows `https://catalog.test.evil.test/items/7` does not match `https://catalog.test/items/*`, the same principle."
+    }
+  ],
+  "decision": "PASS",
+  "reason_code": "VERIFIED",
+  "signed_at": "2026-11-10T23:23:00-07:00",
+  "signature_ref": "pending://owner-attestation",
+  "notes": "No ambiguities were found. The documentation clearly defines the pattern syntax, and both executed outcomes are consistent with the documented rules. The F-ACT fixture used the pattern `https://cts-stub.example/*` as the target (CT-ABD-008-001.json line 38). Documentation cross-check: the reference table in engine-ACTION-BOUNDARY.md explicitly shows (line 46) that a URL with an extended host (catalog.test.evil.test) does not match the pattern for catalog.test, confirming by analogy that cts-stub.example.evil does not match cts-stub.example/*. Both outcomes are exact and unambiguous."
+}

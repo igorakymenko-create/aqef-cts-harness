@@ -1,0 +1,82 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261110222356-ct-ttp-001/gates/check",
+  "actor": "P-RELEASE",
+  "content_type": "application/json",
+  "body": {
+   "execution_batch_id": "6b3aeb68-ff2e-49c5-ae83-bcb09b16a86e"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": {
+   "id": "9e222d90-34aa-4cdf-ac9f-b52f37ea8b42",
+   "snapshot_id": "9e222d90-34aa-4cdf-ac9f-b52f37ea8b42",
+   "execution_batch_id": "6b3aeb68-ff2e-49c5-ae83-bcb09b16a86e",
+   "gates": {
+    "functional-gate": {
+     "id": "58ccd91c-dc9e-4286-a68b-fd1bbbb23da3",
+     "status": "pass",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 1.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     }
+    },
+    "semantic-gate": {
+     "id": "e241167a-e7f7-4147-837d-f53efbb3206e",
+     "status": "fail",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 0.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     },
+     "reasons": [
+      "threshold"
+     ]
+    },
+    "regression-gate": {
+     "id": "7d676f77-88b5-4aba-9488-d8dfa626fd69",
+     "status": "fail",
+     "blocking": true,
+     "threshold": 0.0,
+     "value": 0.5,
+     "basis": {
+      "results": 2,
+      "not_actionable": 0,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     },
+     "reasons": [
+      "threshold"
+     ]
+    }
+   },
+   "result_ids": [
+    "e024c936-c055-49ba-810d-9e90a97257b8",
+    "1fb8d1b6-76b2-4571-96f1-34af20a99ae7"
+   ],
+   "evaluated_at": "2026-11-11T06:23:57.694416+00:00",
+   "result_state": "sha256:f0a9a4d87fff33d760d6e6111a349ce1bd9a924d3ce6f9d9e4b51ddd272fe6d5",
+   "admissions": {
+    "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}": false
+   },
+   "control_state": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  }
+ },
+ "outcome": "accepted",
+ "note": "evaluate the Gates"
+}

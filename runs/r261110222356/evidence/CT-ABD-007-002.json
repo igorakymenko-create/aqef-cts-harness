@@ -1,0 +1,41 @@
+{
+ "manual_review": {
+  "review_id": "abd-007-gemini-1",
+  "test_id": "CT-ABD-007",
+  "case_id": "CT-ABD-007",
+  "method": "declaration",
+  "reviewer": {
+   "id": "reviewer://google/gemini-3.8-flash",
+   "role": "independent-inspector",
+   "affiliation": "AI system, commissioned by Igor Akymenko"
+  },
+  "checklist": [
+   {
+    "item_id": "1",
+    "statement": "Where the implementation does not control the subject's access, it rejects or flags `enforced: true`.",
+    "answer": "met",
+    "evidence_refs": [
+     "evidence://engine-CONFORMANCE-STATEMENT.md#lines 225-234",
+     "evidence://CT-ABD-007-001.json#.conformance_statement (Subject access control section)"
+    ],
+    "note": "The Conformance Statement's 'Subject access control' table (lines 225–234) declares three subject kinds. For 'HTTP text-only subject' and 'HTTP tool-capable subject without a deployment assertion', the harness does not control independent routes, and the Statement declares 'The Environment declares `enforced: false`.' For subjects listed in `AQEF_CONTROLLED_SUBJECTS`, `enforced: true` is accepted. The Statement then explicitly says: 'The engine rejects `enforced: true` for any other model identifier.' This directly states that the engine rejects, not merely flags, `enforced: true` where the deployment assertion is absent. The Conformance Statement thus declares both rejection and that the boundary is not presented as enforced when access is uncontrolled."
+   },
+   {
+    "item_id": "2",
+    "statement": "The implementation never presents an uncontrolled boundary as enforced.",
+    "answer": "met",
+    "evidence_refs": [
+     "evidence://engine-CONFORMANCE-STATEMENT.md#lines 225-234",
+     "evidence://engine-ACTION-BOUNDARY.md#lines 112-120"
+    ],
+    "note": "The Conformance Statement declares that for subjects without a deployment assertion 'The Environment declares `enforced: false`', and that `enforced: true` is accepted only for listed subjects. The engine rejects conflicting configurations; for unenforced boundaries, `engine-ACTION-BOUNDARY.md` lines 117–120 state: 'Other subjects must declare `enforced: false` if they have a boundary. The engine rejects a conflicting configuration and still denies mediated calls outside an unenforced boundary. Reports surface the unenforced scope and recorded observations.' This satisfies the requirement that an uncontrolled boundary is never presented as enforced."
+   }
+  ],
+  "decision": "PASS",
+  "reason_code": "VERIFIED",
+  "declaration_ref": "evidence://CT-ABD-007-001.json",
+  "signed_at": "2026-11-10T23:23:00-07:00",
+  "signature_ref": "pending://owner-attestation",
+  "notes": "The Conformance Statement uses a three-row table to describe subject access control. The first two rows (HTTP text-only, HTTP tool-capable without deployment assertion) declare `enforced: false` and do not state rejection of `enforced: true` in the table itself; the rejection is stated in the paragraph immediately following the table ('The engine rejects `enforced: true` for any other model identifier'). This reviewer read 'any other model identifier' as applying to any identifier not in `AQEF_CONTROLLED_SUBJECTS`, covering both text-only and tool-capable-without-assertion subjects. No other reading is plausible given the structure of the table. This reading was applied and no ambiguity remains unresolved."
+ }
+}

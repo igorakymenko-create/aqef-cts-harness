@@ -1,0 +1,133 @@
+[
+  {
+    "review_id": "abd-007-gemini-1",
+    "test_id": "CT-ABD-007",
+    "case_id": "CT-ABD-007",
+    "method": "declaration",
+    "reviewer": {
+      "id": "reviewer://google/gemini-3.8-flash",
+      "role": "independent-inspector",
+      "affiliation": "AI system, commissioned by Igor Akymenko"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "Where the implementation does not control the subject's access, it rejects or flags `enforced: true`.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://engine-CONFORMANCE-STATEMENT.md#lines 225-234",
+          "evidence://CT-ABD-007-001.json#.conformance_statement (Subject access control section)"
+        ],
+        "note": "The Conformance Statement's 'Subject access control' table (lines 225–234) declares three subject kinds. For 'HTTP text-only subject' and 'HTTP tool-capable subject without a deployment assertion', the harness does not control independent routes, and the Statement declares 'The Environment declares `enforced: false`.' For subjects listed in `AQEF_CONTROLLED_SUBJECTS`, `enforced: true` is accepted. The Statement then explicitly says: 'The engine rejects `enforced: true` for any other model identifier.' This directly states that the engine rejects, not merely flags, `enforced: true` where the deployment assertion is absent. The Conformance Statement thus declares both rejection and that the boundary is not presented as enforced when access is uncontrolled."
+      },
+      {
+        "item_id": "2",
+        "statement": "The implementation never presents an uncontrolled boundary as enforced.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://engine-CONFORMANCE-STATEMENT.md#lines 225-234",
+          "evidence://engine-ACTION-BOUNDARY.md#lines 112-120"
+        ],
+        "note": "The Conformance Statement declares that for subjects without a deployment assertion 'The Environment declares `enforced: false`', and that `enforced: true` is accepted only for listed subjects. The engine rejects conflicting configurations; for unenforced boundaries, `engine-ACTION-BOUNDARY.md` lines 117–120 state: 'Other subjects must declare `enforced: false` if they have a boundary. The engine rejects a conflicting configuration and still denies mediated calls outside an unenforced boundary. Reports surface the unenforced scope and recorded observations.' This satisfies the requirement that an uncontrolled boundary is never presented as enforced."
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "declaration_ref": "evidence://CT-ABD-007-001.json",
+    "signed_at": "2026-11-10T23:23:00-07:00",
+    "signature_ref": "pending://owner-attestation",
+    "notes": "The Conformance Statement uses a three-row table to describe subject access control. The first two rows (HTTP text-only, HTTP tool-capable without deployment assertion) declare `enforced: false` and do not state rejection of `enforced: true` in the table itself; the rejection is stated in the paragraph immediately following the table ('The engine rejects `enforced: true` for any other model identifier'). This reviewer read 'any other model identifier' as applying to any identifier not in `AQEF_CONTROLLED_SUBJECTS`, covering both text-only and tool-capable-without-assertion subjects. No other reading is plausible given the structure of the table. This reading was applied and no ambiguity remains unresolved."
+  },
+  {
+    "review_id": "abd-008-gemini-1",
+    "test_id": "CT-ABD-008",
+    "case_id": "CT-ABD-008",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://google/gemini-3.8-flash",
+      "role": "independent-inspector",
+      "affiliation": "AI system, commissioned by Igor Akymenko"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "The documentation states the syntax and how a `target` matches.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://engine-ACTION-BOUNDARY.md#lines 1-55",
+          "evidence://CT-ABD-008-006.json#.pattern_documentation (section 'Target selection and matching')"
+        ],
+        "note": "The documentation in `engine-ACTION-BOUNDARY.md` section 'Target selection and matching' (lines 13–55) fully states the pattern syntax and matching rules. It defines three target forms: (1) an identifier (ASCII letters/digits/underscores/dots/hyphens) matching a tool name exactly and case-sensitively; (2) an absolute HTTP/HTTPS URL comparing scheme, lowercase ASCII host, effective port and literal case-sensitive path; (3) a terminal `/*` after the path that matches the literal prefix through that slash — with no other wildcards. It documents exclusions (escapes, backslashes, IPv6, dot path segments, query strings, fragments, user information). A reference table (lines 35–48) gives 12 concrete match/no-match examples. The requirement that 'Pattern syntax is implementation-defined and MUST be documented by the implementation; matching is deterministic' (spec/appendix-a-A2-environment.md line 49) is satisfied."
+      },
+      {
+        "item_id": "2",
+        "statement": "The first call (`https://cts-stub.example/a`) is allowed, as the documentation predicts for the pattern `https://cts-stub.example/*`.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-ABD-008-002.json#.response.body.executions[0].conversation.turns[0].tool_calls[0]",
+          "evidence://CT-ABD-008-004.json#.response.body[1]",
+          "evidence://CT-ABD-008-006.json#.outcomes['https://cts-stub.example/a']"
+        ],
+        "note": "CT-ABD-008-002.json records the execution with `url = https://cts-stub.example/a`. The turn's tool_call shows `\"status\": \"stub\"` and `\"result\": {\"status\": \"stubbed\"}` — the call was allowed and handled as a stub. CT-ABD-008-004.json (artifact retrieval for that execution) confirms no `boundary_attempt` artifact, and `executor_calls: 0` with an empty `boundary_attempts` list in the outcomes summary (CT-ABD-008-006.json). This is exactly what the documentation predicts: `https://cts-stub.example/*` matches `https://cts-stub.example/a` because `a` follows the literal prefix `https://cts-stub.example/` through the slash."
+      },
+      {
+        "item_id": "3",
+        "statement": "The second call (`https://cts-stub.example.evil/a`) is denied as outside the boundary, as the documentation predicts.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-ABD-008-003.json#.response.body.executions[0].conversation.turns[0].tool_calls[0]",
+          "evidence://CT-ABD-008-005.json#.response.body[1]",
+          "evidence://CT-ABD-008-006.json#.outcomes['https://cts-stub.example.evil/a']"
+        ],
+        "note": "CT-ABD-008-003.json records the execution with `url = https://cts-stub.example.evil/a`. The turn's tool_call shows `\"status\": \"refused\"` and `\"result\": {\"error\": \"boundary_denied\"}` — the call was denied. CT-ABD-008-005.json (artifact retrieval) confirms a `boundary_attempt` artifact with `\"blocked\": true, \"tripwire\": false`. The outcomes summary (CT-ABD-008-006.json) shows one blocked boundary_attempt for this URL. This is exactly what the documentation predicts: the target `https://cts-stub.example/*` requires the host to match exactly (lowercase ASCII comparison), so `cts-stub.example.evil` does not match `cts-stub.example` — the documentation's example table (line 46) shows `https://catalog.test.evil.test/items/7` does not match `https://catalog.test/items/*`, the same principle."
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-11-10T23:23:00-07:00",
+    "signature_ref": "pending://owner-attestation",
+    "notes": "No ambiguities were found. The documentation clearly defines the pattern syntax, and both executed outcomes are consistent with the documented rules. The F-ACT fixture used the pattern `https://cts-stub.example/*` as the target (CT-ABD-008-001.json line 38). Documentation cross-check: the reference table in engine-ACTION-BOUNDARY.md explicitly shows (line 46) that a URL with an extended host (catalog.test.evil.test) does not match the pattern for catalog.test, confirming by analogy that cts-stub.example.evil does not match cts-stub.example/*. Both outcomes are exact and unambiguous."
+  },
+  {
+    "review_id": "ttp-002-gemini-1",
+    "test_id": "CT-TTP-002",
+    "case_id": "CT-TTP-002",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://google/gemini-3.8-flash",
+      "role": "independent-inspector",
+      "affiliation": "AI system, commissioned by Igor Akymenko"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "The comparison does not report a regression because the order of steps differs.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-TTP-002-008.json#.response.body.gates.regression-gate",
+          "evidence://CT-TTP-002-009.json#.regression_gate",
+          "evidence://engine-ACTION-BOUNDARY.md#lines 142-147"
+        ],
+        "note": "CT-TTP-002-007.json records trajectory (b): the subject called `https://cts-stub2.example/x` first, then `https://cts-stub.example/x`, then returned `\"Done.\"` — the reverse order of trajectory (a). CT-TTP-002-008.json records the Gate evaluation: `regression-gate` has `\"status\": \"pass\"` and `\"value\": 0.0` against a threshold of `0.0`. CT-TTP-002-009.json confirms the same GateResult. No regression was reported. The documentation (`engine-ACTION-BOUNDARY.md` lines 142–147) explains the comparison mechanism: 'An agent Baseline compares verdicts for the same clause and Oracle, using the previously approved Result. A Judge can evaluate the outcome and reasoning quality from the full Conversation and its Artifacts, including each tool step. Different tool paths that both pass the applicable criterion do not constitute regression.' Because trajectory (b)'s judge verdict was `pass` (consistent with the Baseline's `pass` verdicts for the same clauses), no regression was produced by the difference in step order alone."
+      },
+      {
+        "item_id": "2",
+        "statement": "The reviewer records what the comparison judged.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-TTP-002-009.json#.regression_gate",
+          "evidence://CT-TTP-002-008.json#.response.body.gates.regression-gate",
+          "evidence://CT-TTP-002-004.json#.response.body.result (Baseline Result 1: boundary validator, clause constraints/1)",
+          "evidence://CT-TTP-002-005.json#.response.body.result (Baseline Result 2: schema validator, clause constraints/0)",
+          "evidence://CT-TTP-002-006.json#.response.body.result (Baseline Result 3: judge, clause expectations/0)"
+        ],
+        "note": "What the comparison judged: Three Baselines were designated from trajectory (a)'s execution (fb284664), one per Result clause: (1) the boundary Validator (clause constraints/1, verdict `pass`), (2) the schema Validator (clause constraints/0, verdict `pass`), (3) the Judge for the expectation criterion 'The response greets the user.' (clause expectations/0, verdict `pass`, confidence 0.9). The regression Gate compared trajectory (b)'s Results for each clause and Oracle against these Baseline Results. The Gate's basis shows 3 results evaluated, 0 not_actionable, with value 0.0 (zero regression score). All three clauses passed in trajectory (b) as well, so no regression was detected for any clause. The step-order difference — cts-stub2 called first instead of cts-stub, then cts-stub called second — did not cause any clause verdict to change, and therefore did not constitute regression under this implementation's comparison method."
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-11-10T23:23:00-07:00",
+    "signature_ref": "pending://owner-attestation",
+    "notes": "One structural observation worth recording for a second reviewer: the test fixture designated three separate Baselines from the same execution (one per Result), not a single batch-level Baseline. The regression-gate's basis reports 3 results, consistent with all three clause-level Baselines being active. This is consistent with the engine's documented comparison method (verdict comparison per clause and Oracle). No ambiguity was found in the test text or specification with respect to this test's scope: the question asked is specifically whether step-order difference causes a regression report, and the evidence (regression-gate status 'pass') answers it unambiguously."
+  }
+]

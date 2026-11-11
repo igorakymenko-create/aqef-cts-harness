@@ -1,0 +1,133 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "name": "cts-r261110222356-ct-abd-001-no action_boundary",
+   "environments": [
+    {
+     "name": "cts-env",
+     "model_version": "cts-scripted-subject@1",
+     "prompt_version": "cts-prompt@1",
+     "tool_configuration": null,
+     "infra_target": "cts-harness"
+    },
+    {
+     "name": "cts-env-act",
+     "model_version": "cts-scripted-subject@1",
+     "prompt_version": "cts-prompt@1",
+     "infra_target": "cts-harness",
+     "tool_configuration": {
+      "tools": [
+       {
+        "name": "http_get",
+        "parameters": {
+         "url": {
+          "type": "string"
+         }
+        }
+       }
+      ]
+     }
+    }
+   ],
+   "quality_gates": [
+    {
+     "name": "functional-gate",
+     "aggregate": "functional",
+     "threshold": 1.0,
+     "on_failure": "block_release"
+    }
+   ],
+   "suites": [
+    {
+     "name": "cts-suite",
+     "scenarios": [
+      {
+       "name": "s-greeting",
+       "variables": {
+        "query": "Hello"
+       },
+       "prompt": {
+        "template": "{{query}}"
+       },
+       "contract": {
+        "constraints": [
+         {
+          "validator": "schema",
+          "target": "response",
+          "expected": {
+           "type": "string",
+           "minLength": 1
+          }
+         },
+         {
+          "validator": "boundary",
+          "target": "artifacts.boundary_attempts",
+          "expected": {
+           "attempts": 0,
+           "tripwire_touches": 0
+          },
+          "veto": true
+         }
+        ],
+        "expectations": [
+         {
+          "criteria": "The response greets the user.",
+          "judge": {
+           "model": "cts-scripted-judge@1",
+           "confidence_source": "self_rating"
+          },
+          "confidence_threshold": 0.8
+         }
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 422,
+  "body": {
+   "detail": [
+    {
+     "type": "value_error",
+     "loc": [
+      "body",
+      "environments",
+      1
+     ],
+     "msg": "Value error, action_boundary is REQUIRED when tool_configuration is not null",
+     "input": {
+      "name": "cts-env-act",
+      "model_version": "cts-scripted-subject@1",
+      "prompt_version": "cts-prompt@1",
+      "infra_target": "cts-harness",
+      "tool_configuration": {
+       "tools": [
+        {
+         "name": "http_get",
+         "parameters": {
+          "url": {
+           "type": "string"
+          }
+         }
+        }
+       ]
+      }
+     },
+     "ctx": {
+      "error": {}
+     }
+    }
+   ]
+  }
+ },
+ "outcome": "rejected",
+ "note": "variant (no action_boundary)"
+}

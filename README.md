@@ -287,11 +287,12 @@ not by a detected regression. From 0.9.0 the Gate fails on the comparison itself
 **Self-test.** `selftest/runs-abd-slice14/` is the run against engine slice 14.1, before
 slice 15. Every case is NOT_RUN, because the engine rejected F-ACT, and none is PASS.
 
-**Run.** `runs/r261110132118/`, `harness.reference-engine-15.yaml`, engine slice 15
-(`39201b3`), CTS 1.0-CR1.2:
-- CT-ABD-001 to 006 PASS;
-- CT-TTP-001 PASS, on a detected regression;
-- CT-ABD-007, CT-ABD-008 and CT-TTP-002 await review.
+**Runs** (`harness.reference-engine-15.yaml`), engine slice 15 (`39201b3`), CTS 1.0-CR1.2:
+- `runs/r261110132118/`: CT-ABD-001 to 006 and CT-TTP-001 PASS. CT-ABD-007, CT-ABD-008
+  and CT-TTP-002 awaited review. This is the evidence the reviewer decided from.
+- `runs/r261110222356/`: the same, with the three review records applied. **All ten PASS.** Records
+  and attestation: `reviews/CT-ABD-007.*`, `reviews/CT-ABD-008.*`,
+  `reviews/CT-TTP-002.*`, `reviews/ATTESTATION-ABD.md`.
 
 ## Layout
 
