@@ -294,6 +294,47 @@ slice 15. Every case is NOT_RUN, because the engine rejected F-ACT, and none is 
   and attestation: `reviews/CT-ABD-007.*`, `reviews/CT-ABD-008.*`,
   `reviews/CT-TTP-002.*`, `reviews/ATTESTATION-ABD.md`.
 
+## CI/CD on GitHub Actions (CT-REL-024, CT-REL-025, CT-REL-037)
+
+These tests need a pipeline on the platform itself (Harness Contract §16, `run_pipeline`).
+The pipeline is a fixture the tester supplies: `.github/workflows/cts-ci-github.yml` in
+this repository. It runs only when started by hand: Actions → "CTS ci_cd:github_actions"
+→ Run workflow.
+
+**Pipeline jobs.** Each `pipeline (<run>)` job is one pipeline run, on its own
+GitHub-hosted runner:
+
+| Run | Test | What the harness's controller does while the pipeline runs |
+|---|---|---|
+| `rel024-a` | CT-REL-024 | Fixture: CT-REL-006's configuration (`J-FAIL-90`). Waits for the pipeline's own Gate evaluation, then overrides `semantic-gate` on that GateResult, as `P-APPROVER` |
+| `rel024-b` | CT-REL-024 | The same with `SR-EMPTY`, so `functional-gate` fails as well. Overrides `semantic-gate` only |
+| `rel025` | CT-REL-025 | Fixture: CT-DEC-011's, with no `review_timeout`. Does not answer the review. Pipeline timeout 45 s, grace 30 s |
+
+Each pipeline job:
+1. starts the engine and the controller (`python -m aqef_harness.ci_github prepare`);
+2. runs the integration under test, `igorakymenko-create/aqef-reference-engine@slice-16`,
+   on that batch;
+3. always records the Action step's result, its outputs, its job summary, and the time
+   it took on the runner's monotonic clock (`collect`).
+
+The job's own success or failure is the platform-native status. The token reaches the
+Action only through its input, and is masked in the log.
+
+**Report job.** It reads the platform's record of the run
+(`gh api repos/.../actions/runs/{id}/jobs`), downloads the pipeline jobs' artifacts, and
+runs the harness (`harness.ci-github.yaml`). There, `aqef_harness/tests_ci.py` decides
+CT-REL-024 and 025. CT-REL-037 is an Inspection and awaits a reviewer: the harness
+collects the workflow, the Action's `action.yml`, and the platform's records. The
+verified run report is the `cts-report` artifact.
+
+**Checked before the first run on GitHub.** The three pipeline runs were simulated on one
+machine, with the same `prepare`, entry point, and `collect`:
+- `rel024-a`: `pass_with_override` after the override;
+- `rel024-b`: `fail`;
+- `rel025`: `fail` after 45.2 s.
+
+A simulated platform record is not evidence for the tests, so that run is not published.
+
 ## Layout
 
 | Path | Content |
@@ -306,6 +347,7 @@ slice 15. Every case is NOT_RUN, because the engine rejected F-ACT, and none is 
 | `aqef_harness/tests_sdk.py`, `aqef_harness/proxy.py` | CT-SDK-001 and CT-SDK-002; the recording proxy |
 | `aqef_harness/tests_dsr.py` | CT-DSR-001 to 005 |
 | `aqef_harness/tests_abd.py` | CT-ABD-001 to 008, CT-TTP-002 |
+| `aqef_harness/ci_github.py`, `aqef_harness/tests_ci.py`, `.github/workflows/cts-ci-github.yml` | CT-REL-024, 025, 037 on GitHub Actions |
 | `setup/cli_aqef_client.py`, `setup/sdk_aqef_client.py` | CLI and SDK drivers for aqef-reference-engine's `aqef-client` |
 | `setup/ui_reference_ui.py`, `setup/start_reference_ui.sh` | Driver and start script for aqef-reference-ui |
 | `aqef_harness/scripted.py` | Scripted subject and Judges |

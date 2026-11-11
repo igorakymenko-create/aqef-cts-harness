@@ -32,6 +32,10 @@ class Config:
     cli_driver: pathlib.Path | None = None    # the module that drives a CLI under test (CT-SDK-001)
     cli_docs: pathlib.Path | None = None      # where that CLI documents its commands
     api_docs: list = field(default_factory=list)   # where the implementation documents its REST API
+    ci_artifacts: pathlib.Path | None = None  # CT-REL-024/025/037: the pipeline jobs' artifacts
+    ci_jobs: pathlib.Path | None = None       # the platform's record of the run (gh api .../jobs)
+    ci_workflow: pathlib.Path | None = None   # the pipeline definition
+    ci_action: pathlib.Path | None = None     # the integration's own configuration
     abd_docs: pathlib.Path | None = None      # where it documents its Action Boundary (CT-ABD-008, CT-TTP-002)
     sdk_drivers: dict = field(default_factory=dict)   # language -> module that drives its SDK (CT-SDK-002)
     manual_reviews: pathlib.Path | None = None   # CTS 1.8 review records (Harness Contract §13)        # from the Conformance Statement: none, or how it binds (CT-REL-039)
@@ -81,6 +85,10 @@ def load(path):
         cli_docs=rel((d.get("cli") or {}).get("docs")),
         api_docs=[rel(x) for x in ((d.get("cli") or {}).get("api_docs") or [])],
         abd_docs=rel((d.get("abd") or {}).get("docs")),
+        ci_artifacts=rel((d.get("ci") or {}).get("artifacts")),
+        ci_jobs=rel((d.get("ci") or {}).get("jobs")),
+        ci_workflow=rel((d.get("ci") or {}).get("workflow")),
+        ci_action=rel((d.get("ci") or {}).get("action")),
         sdk_drivers={k: rel(v) for k, v in (d.get("sdk") or {}).items()},
         effective_contract_path=d.get("effective_contract_path", "configuration.contract"),
     )
