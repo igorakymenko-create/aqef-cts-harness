@@ -208,7 +208,7 @@ path treated as a duration is listed in the evidence.
 An engine the harness cannot reach makes CT-SDK-001 NOT_RUN (`TRANSPORT_FAILED`), never
 FAIL: a command that made no call proves nothing while the engine is down.
 
-## Dataset Sources (CT-DSR-001 to 005)
+## Dataset Sources (CT-DSR-001 to 006)
 
 **Scripted services** (`aqef_harness/scripted.py`):
 - **generator** (`/generator`):
@@ -243,6 +243,20 @@ slice 14.1 accepted non-static Datasets in a Project's configuration:
 (`eeccb83`), CTS 1.0-CR1.2: CT-DSR-001 to 005 PASS, and CT-SDK-002 PASS again, now with
 the SDK's traffic through a recording proxy and its versions recorded (Harness Contract
 §16, `run_sdk`).
+
+**CT-DSR-006** (CTS 1.0-CR1.3, revised in 1.0-CR1.4). CT-DSR-004's configuration is
+loaded first as the setup check. The variant then gives `s-greeting`
+`prompt: { template: "Hello" }`, and the test expects it to be rejected. The summary
+keeps the engine's own reason.
+
+**Self-test.** `selftest/runs-dsr006/` is the run against a copy of engine slice 16.1
+with its "must omit prompt" check switched off. There, CT-DSR-006 FAILs: the variant
+is loaded. Under 1.0-CR1.3 the variant carried F-BASE's `{{query}}` template. That
+copy rejected it anyway, for the Row's missing `query`, and the test passed. That run
+is why CTS 1.0-CR1.4 revised the test; it is not published.
+
+**Run.** `runs/r261112134909/`, `harness.reference-engine-16.yaml`, engine slice 16.1
+(`01fdb7f`), CTS 1.0-CR1.4: CT-DSR-001 to 006 PASS.
 
 ## Action Boundary (CT-ABD-001 to 008, CT-TTP-002)
 
@@ -345,7 +359,7 @@ A simulated platform record is not evidence for the tests, so that run is not pu
 | `aqef_harness/evidence.py` | Evidence store and manifest (RFC 8785) |
 | `aqef_harness/tests_rui.py` | CT-RUI-001, through a UI driver |
 | `aqef_harness/tests_sdk.py`, `aqef_harness/proxy.py` | CT-SDK-001 and CT-SDK-002; the recording proxy |
-| `aqef_harness/tests_dsr.py` | CT-DSR-001 to 005 |
+| `aqef_harness/tests_dsr.py` | CT-DSR-001 to 006 |
 | `aqef_harness/tests_abd.py` | CT-ABD-001 to 008, CT-TTP-002 |
 | `aqef_harness/ci_github.py`, `aqef_harness/tests_ci.py`, `.github/workflows/cts-ci-github.yml` | CT-REL-024, 025, 037 on GitHub Actions |
 | `setup/cli_aqef_client.py`, `setup/sdk_aqef_client.py` | CLI and SDK drivers for aqef-reference-engine's `aqef-client` |

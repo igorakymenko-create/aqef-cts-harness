@@ -1,0 +1,38 @@
+{
+ "schema_version": "0.8",
+ "run_id": "r261112095116",
+ "created_at": "2026-11-12T17:51:17Z",
+ "canonicalization": "RFC8785",
+ "entries": [
+  {
+   "evidence_id": "run-001",
+   "kind": "statement",
+   "raw_ref": "evidence://run-001.json",
+   "raw_sha256": "07f532af9317c5c8f1e7aa9f8d2949eeb6eff2e3551468910ac4f70195e3f04f",
+   "raw_size": 27146,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-12T17:51:16Z"
+  },
+  {
+   "evidence_id": "CT-DSR-006-001",
+   "kind": "sut_response",
+   "raw_ref": "evidence://CT-DSR-006-001.json",
+   "raw_sha256": "0be7a1bacfcd81d1b6a9844bb1f09622a4528cd91a0c0af515bc05938ab3e2ac",
+   "raw_size": 3830,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-12T17:51:16Z",
+   "case_id": "CT-DSR-006"
+  },
+  {
+   "evidence_id": "CT-DSR-006-002",
+   "kind": "sut_response",
+   "raw_ref": "evidence://CT-DSR-006-002.json",
+   "raw_sha256": "901978f219863a5588018e665ca4616522627da7d02a283a11ae80376315d8c3",
+   "raw_size": 3921,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-12T17:51:16Z",
+   "case_id": "CT-DSR-006"
+  }
+ ],
+ "manifest_sha256": "5f58e226a54a7fec1556c28aed7cc6dae20f0be35a25c6b1cee9437777871b17"
+}

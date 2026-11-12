@@ -1,0 +1,23 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261112134909-ct-dsr-003/datasets/ds-gen/rows?version=1.0.0",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "gen-1",
+    "variables": {
+     "query": "Gen-1"
+    }
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "rows of ds-gen@1.0.0, before"
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261112134909-ct-dsr-005/datasets/ds-gen/versions",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "name": "ds-gen",
+   "version": "2.0.0",
+   "source": "generated",
+   "generator": {
+    "model": "cts-scripted-generator@1",
+    "instruction": "Generate one greeting query per row, as `query`."
+   }
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 502,
+  "body": {
+   "detail": "Dataset generation returned invalid or duplicate Rows"
+  }
+ },
+ "outcome": "sut_error",
+ "note": "generate_dataset: generate ds-gen@2.0.0 from a malformed generation (POST .../datasets/ds-gen/versions)"
+}

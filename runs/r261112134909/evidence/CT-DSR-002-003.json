@@ -1,0 +1,112 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "name": "cts-r261112134909-ct-dsr-002-b",
+   "environments": [
+    {
+     "name": "cts-env",
+     "model_version": "cts-scripted-subject@1",
+     "prompt_version": "cts-prompt@1",
+     "tool_configuration": null,
+     "infra_target": "cts-harness"
+    }
+   ],
+   "quality_gates": [
+    {
+     "name": "functional-gate",
+     "aggregate": "functional",
+     "threshold": 1.0,
+     "on_failure": "block_release"
+    }
+   ],
+   "suites": [
+    {
+     "name": "cts-suite",
+     "scenarios": [
+      {
+       "name": "s-greeting",
+       "variables": {
+        "query": "Hello"
+       },
+       "prompt": {
+        "template": "{{query}}"
+       },
+       "contract": {
+        "constraints": [
+         {
+          "validator": "schema",
+          "target": "response",
+          "expected": {
+           "type": "string",
+           "minLength": 1
+          }
+         }
+        ],
+        "expectations": [
+         {
+          "criteria": "The response greets the user.",
+          "judge": {
+           "model": "cts-scripted-judge@1",
+           "confidence_source": "self_rating"
+          },
+          "confidence_threshold": 0.8
+         }
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "datasets": [
+    {
+     "name": "ds-replay",
+     "version": "1.0.0",
+     "source": "production_replay",
+     "capture": {
+      "date_range": [
+       "2026-10-01",
+       "2026-10-31"
+      ],
+      "sampling": "random",
+      "sample_size": 1,
+      "anonymization": true
+     }
+    }
+   ]
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 422,
+  "body": {
+   "detail": [
+    {
+     "type": "missing",
+     "loc": [
+      "body",
+      "datasets",
+      0,
+      "capture",
+      "source"
+     ],
+     "msg": "Field required",
+     "input": {
+      "date_range": [
+       "2026-10-01",
+       "2026-10-31"
+      ],
+      "sampling": "random",
+      "sample_size": 1,
+      "anonymization": true
+     }
+    }
+   ]
+  }
+ },
+ "outcome": "rejected",
+ "note": "variant (b)"
+}

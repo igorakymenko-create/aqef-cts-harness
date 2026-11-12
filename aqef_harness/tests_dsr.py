@@ -1,4 +1,4 @@
-"""CTS Section 24: Dataset Sources (CT-DSR-001 to 005).
+"""CTS Section 24: Dataset Sources (CT-DSR-001 to 006).
 
 The scripted generator and capture source are in scripted.py. How an engine reaches
 them (model identifier `cts-scripted-generator@1`, capture source `cts-capture`) is
@@ -182,6 +182,24 @@ def dsr004(ctx, b):
     return ok(ctx, "loaded without prompt; the subject received the captured Prompt, Hello")
 
 
+# ------------------------------------------------------------------ CT-DSR-006
+def dsr006(ctx, b):
+    """CTS 1.0-CR1.4. CT-DSR-004's configuration is the starting configuration; the
+    variant is the same with `prompt: { template: "Hello" }` on s-greeting. The template
+    uses no Variables, so a Row that lacks them cannot be the ground for rejecting it."""
+    ctx.behave("SR-ECHO", capture="C-HELLO")
+    start = with_ds(b, ds_replay(), bind=True, replay=True)
+    variant = with_ds(b, ds_replay(), bind=True, replay=True)
+    variant["suites"][0]["scenarios"][0]["prompt"] = {"template": "Hello"}
+    ctx.control(start, "CT-DSR-004's configuration (ds-replay bound to s-greeting, no prompt)")
+    ex, _ = ctx.load(variant, 'variant: s-greeting also carries prompt { template: "Hello" }',
+                     suffix="prompt")
+    if ex.outcome == "accepted":
+        return fail(ctx, "the variant was loaded")
+    return ok(ctx, f"the variant was rejected ({ex.status}: {ex.text()[:200]}); "
+                   "CT-DSR-004's configuration loads")
+
+
 # ------------------------------------------------------------------ CT-DSR-005
 def dsr005(ctx, b):
     name = setup_gen(ctx, b, "H-GEN-DSR-003")
@@ -205,4 +223,5 @@ def dsr005(ctx, b):
 
 def registry():
     return {"CT-DSR-001": dsr001, "CT-DSR-002": dsr002, "CT-DSR-003": dsr003,
-            "CT-DSR-004": dsr004, "CT-DSR-005": dsr005}, {}
+            "CT-DSR-004": dsr004, "CT-DSR-005": dsr005,
+            "CT-DSR-006": dsr006}, {}

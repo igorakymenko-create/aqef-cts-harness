@@ -1,0 +1,18 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261112134909-ct-dsr-005/datasets/ds-gen/rows?version=2.0.0",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 404,
+  "body": {
+   "detail": "Dataset 'ds-gen' not found"
+  }
+ },
+ "outcome": "rejected",
+ "note": "rows of ds-gen@2.0.0"
+}
