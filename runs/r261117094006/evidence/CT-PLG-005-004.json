@@ -1,0 +1,14 @@
+{
+ "automated": {
+  "registered": false,
+  "registration_reply": "{\"detail\": \"Validator Plugin repeatability probe did not return a valid Result\"}",
+  "reached_during_registration": [
+   {
+    "clock": true,
+    "random": true,
+    "network": true
+   }
+  ],
+  "note": "ten equal verdicts would be a sampled consistency check, not a proof of determinism"
+ }
+}

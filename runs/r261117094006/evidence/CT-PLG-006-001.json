@@ -1,0 +1,37 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/plugins",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "type": "dataset",
+   "name": "cts-dataset",
+   "version": "ct-plg-006-b7e20a",
+   "endpoint": "http://127.0.0.1:9200/cts-dataset",
+   "configuration": {
+    "oracle": "cts-dataset@ct-plg-006-b7e20a",
+    "nonce": "fb1f170ca254410c8aad908145edf3cd"
+   }
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "type": "dataset",
+   "name": "cts-dataset",
+   "version": "ct-plg-006-b7e20a",
+   "endpoint": "http://127.0.0.1:9200/cts-dataset",
+   "configuration": {
+    "oracle": "cts-dataset@ct-plg-006-b7e20a",
+    "nonce": "fb1f170ca254410c8aad908145edf3cd"
+   },
+   "id": "cts-dataset@ct-plg-006-b7e20a",
+   "registered_at": "2026-11-17T17:40:07.045916+00:00",
+   "deprecated_at": null
+  }
+ },
+ "outcome": "accepted",
+ "note": "register dataset plugin cts-dataset@ct-plg-006-b7e20a"
+}

@@ -1,0 +1,42 @@
+{
+ "note": "(b) what cts-probe received",
+ "calls": [
+  {
+   "role": "plugin",
+   "path": "/plugin",
+   "behavior": "cts-probe",
+   "request": {
+    "plugin": "cts-probe",
+    "request": {
+     "evidence": "Hello! How can I help?",
+     "expected": {
+      "marker": 2
+     },
+     "execution": "f3bcc7b6-e843-4f28-82ea-f1c59b9ffec8",
+     "clause": "sha256:d27867149d0c0a84038d23c51824ec9585b47a9fba8e7e535d332df75fe377f2/constraints/0",
+     "configuration": {
+      "oracle": "cts-probe@ct-plg-003-0e5200",
+      "nonce": "3f1f13b5c684495eadfb8bc3cd170ca3",
+      "malformed": true
+     }
+    },
+    "headers": {
+     "Host": "127.0.0.1:9200",
+     "Accept": "*/*",
+     "Accept-Encoding": "gzip, deflate",
+     "Connection": "keep-alive",
+     "User-Agent": "python-httpx/0.28.1",
+     "Content-Length": "326",
+     "Content-Type": "application/json"
+    }
+   },
+   "status": 200,
+   "response": {
+    "logged": true
+   },
+   "received_at": 1794937206.8245494,
+   "answered_at": 1794937206.8245516,
+   "harness_ms": 0.0
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "note": "what cts-reach reached (its reports to the harness)",
+ "calls": [
+  {
+   "role": "plugin",
+   "path": "/plugin",
+   "behavior": "cts-reach",
+   "request": {
+    "plugin": "cts-reach",
+    "network_probe": true
+   },
+   "status": 200,
+   "response": {
+    "logged": true
+   },
+   "received_at": 1794937207.03912,
+   "answered_at": 1794937207.0391226,
+   "harness_ms": 0.0
+  },
+  {
+   "role": "plugin",
+   "path": "/plugin",
+   "behavior": "cts-reach",
+   "request": {
+    "plugin": "cts-reach",
+    "request": {
+     "evidence": {
+      "turns": []
+     },
+     "expected": null,
+     "configuration": {
+      "oracle": "cts-reach@ct-plg-005-53053b",
+      "nonce": "4cfc7b8f2aae40ac8cbc83505a04ea15"
+     },
+     "execution": "repeatability-probe",
+     "clause": "repeatability-probe"
+    },
+    "headers": {
+     "Host": "127.0.0.1:9200",
+     "Accept": "*/*",
+     "Accept-Encoding": "gzip, deflate",
+     "Connection": "keep-alive",
+     "User-Agent": "python-httpx/0.28.1",
+     "Content-Length": "206",
+     "Content-Type": "application/json"
+    },
+    "reached": {
+     "clock": true,
+     "random": true,
+     "network": true
+    }
+   },
+   "status": 200,
+   "response": {
+    "logged": true
+   },
+   "received_at": 1794937207.039954,
+   "answered_at": 1794937207.0399559,
+   "harness_ms": 0.0
+  }
+ ]
+}

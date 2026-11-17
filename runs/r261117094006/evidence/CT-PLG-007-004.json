@@ -1,0 +1,69 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261117094006-ct-plg-007/gates/check",
+  "actor": "P-RELEASE",
+  "content_type": "application/json",
+  "body": {
+   "execution_batch_id": "52cf9e99-fd7f-418f-9a86-cd18a43914cf"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": {
+   "id": "b6cc6964-5e17-4d91-83d5-121232576653",
+   "snapshot_id": "b6cc6964-5e17-4d91-83d5-121232576653",
+   "execution_batch_id": "52cf9e99-fd7f-418f-9a86-cd18a43914cf",
+   "gates": {
+    "functional-gate": {
+     "id": "9717793c-86db-469e-b778-7cf6d5329a9d",
+     "status": "pass",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 1.0,
+     "basis": {
+      "results": 3,
+      "not_actionable": 0,
+      "scenarios": 3,
+      "executions": 3,
+      "min_basis_met": "not_declared"
+     }
+    },
+    "semantic-gate": {
+     "id": "9db36006-40ff-4ded-9292-fd7aae3932a4",
+     "status": "fail",
+     "blocking": true,
+     "threshold": 1.0,
+     "value": 1.0,
+     "basis": {
+      "results": 1,
+      "not_actionable": 2,
+      "scenarios": 1,
+      "executions": 1,
+      "min_basis_met": "not_declared"
+     },
+     "reasons": [
+      "non_actionable_results"
+     ]
+    }
+   },
+   "result_ids": [
+    "603a6379-9956-4655-82e1-b11835bccd43",
+    "0490ca8f-f4a1-4766-9d30-bb8f4578a271",
+    "5780f0cc-50a4-4735-aad6-3d0c76bea0ac",
+    "d32c299a-b7fd-4608-a652-9d25f17fd1b2",
+    "5927c0c7-22c5-40c1-a466-935eb3e3f01f",
+    "2e471c63-150c-4134-affe-2765ac663757"
+   ],
+   "evaluated_at": "2026-11-17T17:40:07.243901+00:00",
+   "result_state": "sha256:09b1a7d56708df196102bfa1a8289e2c5fe50cabbe7e35fdb475ea47dbb048cd",
+   "admissions": {
+    "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}": false
+   },
+   "control_state": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  }
+ },
+ "outcome": "accepted",
+ "note": "F-SIGNALS: evaluate the Gates"
+}

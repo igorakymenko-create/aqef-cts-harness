@@ -1,0 +1,68 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/plugins/cts-len@ct-plg-002-1c31ec",
+  "actor": "P-APPROVER",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": {
+   "type": "validator",
+   "name": "cts-len",
+   "version": "ct-plg-002-1c31ec",
+   "endpoint": "http://127.0.0.1:9200/cts-len",
+   "configuration": {
+    "oracle": "cts-len@ct-plg-002-1c31ec",
+    "nonce": "865374991e3e44e1800e84b3c19df479"
+   },
+   "id": "cts-len@ct-plg-002-1c31ec",
+   "registered_at": "2026-11-17T17:40:06.512205+00:00",
+   "repeatability_check": {
+    "runs": 2,
+    "output_matched": true
+   },
+   "deprecated_at": null,
+   "versions": [
+    {
+     "type": "validator",
+     "name": "cts-len",
+     "version": "ct-plg-001-1de76e",
+     "endpoint": "http://127.0.0.1:9200/cts-len",
+     "configuration": {
+      "oracle": "cts-len@ct-plg-001-1de76e",
+      "nonce": "6cfe4319d599471e9e8fb6d22aacd6b3"
+     },
+     "id": "cts-len@ct-plg-001-1de76e",
+     "registered_at": "2026-11-17T17:40:06.480847+00:00",
+     "repeatability_check": {
+      "runs": 2,
+      "output_matched": true
+     },
+     "deprecated_at": null
+    },
+    {
+     "type": "validator",
+     "name": "cts-len",
+     "version": "ct-plg-002-1c31ec",
+     "endpoint": "http://127.0.0.1:9200/cts-len",
+     "configuration": {
+      "oracle": "cts-len@ct-plg-002-1c31ec",
+      "nonce": "865374991e3e44e1800e84b3c19df479"
+     },
+     "id": "cts-len@ct-plg-002-1c31ec",
+     "registered_at": "2026-11-17T17:40:06.512205+00:00",
+     "repeatability_check": {
+      "runs": 2,
+      "output_matched": true
+     },
+     "deprecated_at": null
+    }
+   ]
+  }
+ },
+ "outcome": "accepted",
+ "note": "the registration record"
+}

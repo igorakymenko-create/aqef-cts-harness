@@ -1,0 +1,64 @@
+{
+ "manual_review": {
+  "review_id": "plg-005-gemini-1",
+  "test_id": "CT-PLG-005",
+  "case_id": "CT-PLG-005",
+  "method": "declaration",
+  "reviewer": {
+   "id": "reviewer://google/gemini-3.8-flash",
+   "role": "independent-inspector",
+   "affiliation": "AI system, commissioned by Igor Akymenko"
+  },
+  "declaration_ref": "evidence://CT-PLG-005-001.json",
+  "checklist": [
+   {
+    "item_id": "1",
+    "statement": "The statement describes enforcement by the SDK or the Plugin Architecture, not only documentation or a convention for plugin authors.",
+    "answer": "met",
+    "evidence_refs": [
+     "evidence://engine-PLUGINS.md#lines 23-28, 43-44, 48-49",
+     "evidence://engine-CONFORMANCE-STATEMENT.md#lines 115-117",
+     "evidence://CT-PLG-005-001.json#CONFORMANCE-STATEMENT.md, PLUGINS.md"
+    ],
+    "note": "The implementation's documentation and Conformance Statement specify mechanical enforcement by the Plugin Architecture: at registration, a candidate Validator Plugin is probed twice with identical input and rejected if replies do not match or validate (engine-PLUGINS.md lines 23-28). At runtime, validators must return 'confidence: not_applicable' and 'disposition: actionable' (lines 43-44), and invalid Results, schema violations, or malformed payloads cause the engine to record 'oracle_unavailable' rather than accepting a confidence score or unvalidated output (lines 48-49). This is structural enforcement by the engine/architecture, not merely author convention."
+   },
+   {
+    "item_id": "2",
+    "statement": "Either registration is refused, or every cts-reach Result carries no Confidence value (confidence: 'not_applicable', or the Result is oracle_unavailable because the returned Confidence made it malformed), and the ten Results have the same verdict or are all oracle_unavailable.",
+    "answer": "met",
+    "evidence_refs": [
+     "evidence://CT-PLG-005-002.json#lines 19-24",
+     "evidence://CT-PLG-005-004.json#lines 3-4"
+    ],
+    "note": "Registration was refused: when registering 'cts-reach' (which returns confidence: 0.5), the engine rejected registration with HTTP 422: 'detail': 'Validator Plugin repeatability probe did not return a valid Result' (CT-PLG-005-002.json). CT-PLG-005-004.json confirms 'registered': false."
+   },
+   {
+    "item_id": "3",
+    "statement": "Ten equal verdicts are a sampled consistency check, not a proof of determinism: the report labels them so, and rests any claim of enforcement on the statement.",
+    "answer": "met",
+    "evidence_refs": [
+     "evidence://CT-PLG-005-004.json#line 11",
+     "evidence://engine-PLUGINS.md#lines 26-28"
+    ],
+    "note": "Because registration was refused, no execution runs took place. The harness record (CT-PLG-005-004.json line 11) confirms the principle that sampled consistency checks are not proofs of determinism ('ten equal verdicts would be a sampled consistency check, not a proof of determinism'), and claims of enforcement rest on the architectural statements."
+   },
+   {
+    "item_id": "4",
+    "statement": "Reported, not judged: which of the clock, randomness, and network cts-reach reached, from its evidence and the harness log; any of them reached is a deviation from Volume V's SHOULD, which the report names.",
+    "answer": "met",
+    "evidence_refs": [
+     "evidence://CT-PLG-005-003.json#lines 31-34",
+     "evidence://CT-PLG-005-004.json#lines 5-9",
+     "evidence://engine-CONFORMANCE-STATEMENT.md#lines 115-117",
+     "spec://volume-v-extract.md#lines 32-34"
+    ],
+    "note": "Reported observation: During the repeatability probe at registration, cts-reach successfully accessed the clock ('clock': true) and the random number generator ('random': true), but did not reach the network. Reaching the clock and random source constitutes a deviation from Volume V's recommendation (Validator SDK SHOULD NOT give it a clock, a random source, or network access). This deviation is acknowledged in the implementation's Conformance Statement under Deliberate SHOULD deviations ('V Validator SDK, XVI remote hosting: Invocation supplies only declared logical inputs. Arbitrary remote code can access its own clock, randomness and network. Registration checks two equal inputs, and operator deployment controls are required for isolation')."
+   }
+  ],
+  "decision": "PASS",
+  "reason_code": "VERIFIED",
+  "signed_at": "2026-11-17T10:39:00-07:00",
+  "signature_ref": "pending://owner-attestation",
+  "notes": "No ambiguity. Registration of cts-reach was refused with HTTP 422 because the plugin attempted to supply a confidence value (0.5), violating the validator protocol. During registration probe, cts-reach reached clock and random source, which is recorded as a deviation from Volume V's recommendation (SHOULD), per test instructions."
+ }
+}

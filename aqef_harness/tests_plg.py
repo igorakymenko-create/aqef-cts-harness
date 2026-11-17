@@ -194,7 +194,8 @@ def plg005(ctx, b):
     ctx.behave("SR-OK")
     ex, rid = register(ctx, "validator", "cts-reach", setup_step=False)
     reach = plugin_log(ctx, "cts-reach", "what cts-reach reached (its reports to the harness)")
-    reached = [c["request"].get("reached") for c in reach]
+    # cts-reach's network probe is logged as its own call; its report carries all three outcomes.
+    reached = [c["request"].get("reached") for c in reach if c["request"].get("reached") is not None]
     auto = {"registered": ex.outcome == "accepted", "registration_reply": ex.text()[:300],
             "reached_during_registration": reached,
             "note": "ten equal verdicts would be a sampled consistency check, not a proof of determinism"}
@@ -214,8 +215,7 @@ def plg005(ctx, b):
             ctx.refs.append(ctx.store.add(ctx.case_id, "other", {"automated": auto}))
             return bad(ctx, "the ten cts-reach Results differ in verdict")
     ctx.refs.append(ctx.store.add(ctx.case_id, "other", {"automated": auto}))
-    # A report that reached the harness is itself the network attempt succeeding.
-    deviation = [k for c in reached for k, v in (c or {}).items() if v] + (["network"] if reach else [])
+    deviation = [k for c in reached for k, v in (c or {}).items() if v]
     return pending(ctx, "Declaration: automated part met "
                         f"({'registration refused' if not auto['registered'] else 'ten Results without Confidence, equal verdicts'}); "
                         f"reported, not judged: cts-reach reached {sorted(set(deviation)) or 'nothing'} "

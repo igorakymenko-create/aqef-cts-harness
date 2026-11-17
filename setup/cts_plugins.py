@@ -95,7 +95,16 @@ def cts_reach(req, headers):
         reached["random"] = True
     except Exception:
         rnd, reached["random"] = None, False
-    reached["network"] = report("cts-reach", req, headers, {"reached": reached})
+    # The network attempt is its own connection, made before the report, so that its
+    # outcome is in the report and in the Result. (Harness 0.12.0 recorded the report's
+    # own delivery as the only network attempt, and so left `network` out of the record.)
+    try:
+        urllib.request.urlopen(urllib.request.Request(HARNESS, b'{"plugin": "cts-reach", "network_probe": true}',
+                                                      {"Content-Type": "application/json"}), timeout=5).read()
+        reached["network"] = True
+    except OSError:
+        reached["network"] = False
+    report("cts-reach", req, headers, {"reached": reached})
     basis = rnd if rnd is not None else clock_ms
     verdict = "pass" if basis is None or basis % 2 == 0 else "fail"
     return 200, result(req, verdict, confidence=0.5, evidence={"reached": reached})

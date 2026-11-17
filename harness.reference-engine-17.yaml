@@ -51,4 +51,4 @@ abd:
   docs: ../aqef-reference-engine/docs/ACTION-BOUNDARY.md
 
 # CTS 1.8 review records applied (Harness Contract §13)
-manual_reviews: reviews/abd-reviews.json
+manual_reviews: reviews/plg-reviews.json   # CT-PLG-002, 005, 007 (reviews/ATTESTATION-PLG.md)

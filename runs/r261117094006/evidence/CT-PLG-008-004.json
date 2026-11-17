@@ -1,0 +1,84 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261117094006-ct-plg-008-a/executions/c0da8f20-0e79-404c-a1b7-496d7ab6665a/results",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "07c089ad-54da-4a7f-842e-e5920673b301",
+    "execution": "c0da8f20-0e79-404c-a1b7-496d7ab6665a",
+    "clause": "sha256:c0722393d521f4a8570780e9c9c79b4d0e1c629f613bf0043d5d24b4b61e7201/constraints/0",
+    "oracle_type": "validator",
+    "oracle": "{\"custom\":null,\"expected\":{\"minLength\":1,\"type\":\"string\"},\"name\":\"schema\",\"target\":\"response\",\"type\":\"validator\",\"version\":\"1\"}",
+    "verdict": "pass",
+    "confidence": "not_applicable",
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "schema",
+      "target": "response",
+      "expected": {
+       "type": "string",
+       "minLength": 1
+      },
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "target_evidence": "Hello! How can I help?",
+     "check": {
+      "errors": []
+     }
+    },
+    "recorded_at": "2026-11-17T17:40:07.360342Z"
+   },
+   {
+    "id": "cfe9b75e-3b5e-4aa1-b3a8-a71393a47476",
+    "execution": "c0da8f20-0e79-404c-a1b7-496d7ab6665a",
+    "clause": "sha256:c0722393d521f4a8570780e9c9c79b4d0e1c629f613bf0043d5d24b4b61e7201/expectations/0",
+    "oracle_type": "judge",
+    "oracle": "cts-judge-probe@ct-plg-008-bd6269",
+    "verdict": "pass",
+    "confidence": 0.9,
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "configuration": {
+      "criteria": "The response greets the user.",
+      "judge": {
+       "model": "cts-scripted-judge@1",
+       "confidence_source": "self_rating",
+       "plugin": "cts-judge-probe@ct-plg-008-bd6269"
+      },
+      "multi_judge": null,
+      "human_reviewer": null,
+      "confidence_threshold": 0.8,
+      "review_timeout": null,
+      "on_timeout": "block",
+      "escalate_to": null,
+      "id": null,
+      "dimension": "semantic",
+      "defect_classes": null
+     },
+     "provider_response": {
+      "verdict": "pass"
+     },
+     "assessment": {
+      "criteria": "The response greets the user.",
+      "reason": "cts-judge-probe always passes"
+     },
+     "ignored_reply_fields": []
+    },
+    "recorded_at": "2026-11-17T17:40:07.362272Z"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "(a) F-BASE with cts-judge-probe: retrieve the Results"
+}

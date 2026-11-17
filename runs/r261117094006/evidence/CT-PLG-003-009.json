@@ -1,0 +1,189 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261117094006-ct-plg-003-b/executions",
+  "actor": "P-RELEASE",
+  "content_type": "application/json",
+  "body": {
+   "suite": "cts-suite",
+   "environment": "cts-env"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "execution_batch_id": "3878e8e0-984c-4b05-993e-f40a42b1c408",
+   "executions": [
+    {
+     "id": "f3bcc7b6-e843-4f28-82ea-f1c59b9ffec8",
+     "execution_batch_id": "3878e8e0-984c-4b05-993e-f40a42b1c408",
+     "project": "cts-r261117094006-ct-plg-003-b",
+     "suite": "cts-suite",
+     "scenario": "s-greeting",
+     "principal_id": "P-RELEASE",
+     "principal_kind": "person",
+     "environment": "cts-env",
+     "dataset": null,
+     "row_id": null,
+     "variables": {
+      "query": "Hello"
+     },
+     "configuration": {
+      "environment": {
+       "name": "cts-env",
+       "model_version": "cts-scripted-subject@1",
+       "prompt_version": "cts-prompt@1",
+       "tool_configuration": null,
+       "action_boundary": null,
+       "infra_target": "cts-harness"
+      },
+      "scenario": {
+       "name": "s-greeting",
+       "contract": {
+        "name": null,
+        "constraints": [
+         {
+          "validator": "plugin:cts-probe@ct-plg-003-0e5200",
+          "target": "response",
+          "expected": {
+           "marker": 2
+          },
+          "veto": false,
+          "id": null,
+          "dimension": "functional",
+          "defect_classes": null
+         }
+        ],
+        "expectations": [
+         {
+          "criteria": "The response greets the user.",
+          "judge": {
+           "model": "cts-scripted-judge@1",
+           "confidence_source": "self_rating"
+          },
+          "multi_judge": null,
+          "human_reviewer": null,
+          "confidence_threshold": 0.8,
+          "review_timeout": null,
+          "on_timeout": "block",
+          "escalate_to": null,
+          "id": null,
+          "dimension": "semantic",
+          "defect_classes": null
+         }
+        ],
+        "policies": null,
+        "extends": []
+       },
+       "prompt": {
+        "template": "{{query}}"
+       },
+       "dataset": null,
+       "variables": {
+        "query": "Hello"
+       },
+       "seeded_control": null,
+       "evidence": null
+      },
+      "contract": {
+       "name": "effective_contract",
+       "constraints": [
+        {
+         "validator": "plugin:cts-probe@ct-plg-003-0e5200",
+         "target": "response",
+         "expected": {
+          "marker": 2
+         },
+         "veto": false,
+         "id": null,
+         "dimension": "functional",
+         "defect_classes": null
+        }
+       ],
+       "expectations": [
+        {
+         "criteria": "The response greets the user.",
+         "judge": {
+          "model": "cts-scripted-judge@1",
+          "confidence_source": "self_rating"
+         },
+         "multi_judge": null,
+         "human_reviewer": null,
+         "confidence_threshold": 0.8,
+         "review_timeout": null,
+         "on_timeout": "block",
+         "escalate_to": null,
+         "id": null,
+         "dimension": "semantic",
+         "defect_classes": null
+        }
+       ],
+       "policies": null,
+       "extends": [],
+       "clause_weights": {
+        "constraints": [
+         1.0
+        ],
+        "expectations": [
+         1.0
+        ]
+       }
+      },
+      "validators": {},
+      "defect_classes": [],
+      "execution": {
+       "timeout": "30s",
+       "scheduling": "sequential",
+       "parallelization": 1,
+       "retry": null
+      }
+     },
+     "scheduling": {
+      "strategy": "sequential",
+      "order": 0,
+      "reason": "on_demand Suite × Environment; declaration order",
+      "requested_by": "P-RELEASE",
+      "requested_at": "2026-11-17T17:40:06.783852+00:00"
+     },
+     "status": "completed",
+     "created_at": "2026-11-17T17:40:06.783861+00:00",
+     "started_at": "2026-11-17T17:40:06.785480+00:00",
+     "completed_at": "2026-11-17T17:40:06.811142+00:00",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-17T17:40:06.799069+00:00",
+       "error": null,
+       "completed_at": "2026-11-17T17:40:06.811134+00:00"
+      }
+     ],
+     "retry_count": 0,
+     "conversation": {
+      "turns": [
+       {
+        "prompt": "Hello",
+        "response": "Hello! How can I help?"
+       }
+      ]
+     },
+     "partial_turns": [],
+     "artifacts": [
+      {
+       "name": "latency_ms",
+       "data": 12.018771000001038,
+       "turn": 1,
+       "attempt": 1
+      }
+     ],
+     "error": null,
+     "opening_prompt": "Hello",
+     "duration_ms": 12.093755999998734
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "outcome": "accepted",
+ "note": "(b) F-BASE with cts-probe: execute cts-suite"
+}

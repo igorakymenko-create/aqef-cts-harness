@@ -395,8 +395,17 @@ evidence, and leaves them `MANUAL_REVIEW_PENDING`:
   reviewer.
 - **CT-PLG-007:** the Metric, its `result_ids`, and the Results it links.
 
-**Run.** `runs/r261116204857/`: CT-PLG-001, 003, 004, 006, 008 PASS; 002, 005, 007
-pending review. `runs/r261116204806/`: CT-ASM-014 NOT_RUN as above.
+**Runs:**
+- `runs/r261116204857/` (harness 0.12.0): CT-PLG-001, 003, 004, 006, and 008 PASS; 002,
+  005, and 007 pending review. It is the run the reviewer saw.
+- `runs/r261117094006/` (harness 0.12.1): with the signed reviews of CT-PLG-002, 005,
+  and 007 applied (`reviews/plg-reviews.json`, `reviews/ATTESTATION-PLG.md`), CT-PLG-001
+  to 008 PASS.
+- `runs/r261116204806/`: CT-ASM-014 NOT_RUN, as above.
+
+**0.12.1.** `cts-reach` makes its network attempt as a separate connection and records
+the outcome. Harness 0.12.0 left `network` out of its record (see
+`reviews/ATTESTATION-PLG.md`).
 
 ## Layout
 

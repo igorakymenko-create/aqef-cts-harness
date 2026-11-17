@@ -1,0 +1,34 @@
+{
+ "manual_review": {
+  "review_id": "plg-007-gemini-1",
+  "test_id": "CT-PLG-007",
+  "case_id": "CT-PLG-007",
+  "method": "inspection",
+  "reviewer": {
+   "id": "reviewer://google/gemini-3.8-flash",
+   "role": "independent-inspector",
+   "affiliation": "AI system, commissioned by Igor Akymenko"
+  },
+  "checklist": [
+   {
+    "item_id": "1",
+    "statement": "The reviewer reaches the individual Results from the Metric.",
+    "answer": "met",
+    "evidence_refs": [
+     "evidence://CT-PLG-007-005.json#lines 18-25",
+     "evidence://CT-PLG-007-006.json#lines 15-22",
+     "evidence://CT-PLG-007-007.json#lines 14, 43",
+     "evidence://CT-PLG-007-008.json#lines 14, 43",
+     "evidence://CT-PLG-007-009.json#lines 14, 43",
+     "evidence://engine-PLUGINS.md#lines 69-74"
+    ],
+    "note": "The Metric 'cts-low-confidence-share' for batch 47016c03-fbde-41dd-84a8-29dd6c40bfbb (CT-PLG-007-005.json and CT-PLG-007-006.json) explicitly contains the list of underlying result_ids: ['f705b6ca-8835-44b3-b55e-d48aba6d32ff', '2408c78d-bec7-4567-b3d9-4237b43461c8', '6647bc99-1c94-4580-a07d-7eee81619b3d', '20efff77-1b11-44dd-9c56-6c67c4b848ea', 'c734e0ce-eb84-4b22-8eab-7b08e90ef620', '4e1aff58-4ab1-4825-b1e8-0b58d7588d66']. Every single one of these 6 Result IDs is directly resolved to an individual stored Result retrieved across the batch's three executions: execution 72e671d5 (CT-PLG-007-007.json, holding f705b6ca and 2408c78d), execution c8435cef (CT-PLG-007-008.json, holding 6647bc99 and 20efff77), and execution 7c223259 (CT-PLG-007-009.json, holding c734e0ce and 4e1aff58). The metric value of 0.3333333333333333 accurately reflects 2 low-confidence (<0.7) results out of 6."
+   }
+  ],
+  "decision": "PASS",
+  "reason_code": "VERIFIED",
+  "signed_at": "2026-11-17T10:39:00-07:00",
+  "signature_ref": "pending://owner-attestation",
+  "notes": "Action difference analysis: The test's Action specifies 'Build F-SIGNALS (2.7); generate a Report for its batch with the plugin; follow the Metric to the Results behind it.' In this implementation, Report Plugins that introduce Metrics are invoked via POST /projects/{project}/reports/metrics rather than through a static report bundle. The harness called POST /reports/metrics to produce the Metric, then retrieved the Metric and the underlying Results. This difference in harness invocation method does not impair decision-making: the Metric entity stores and returns explicit result_ids, which trace directly to every individual Result in the batch, fulfilling the normative requirement of Volume XVI ('a Metric a Report Plugin introduces MUST be traceable back to the Results it was computed from')."
+ }
+}

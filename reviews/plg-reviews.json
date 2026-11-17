@@ -1,0 +1,125 @@
+[
+  {
+    "review_id": "plg-002-gemini-1",
+    "test_id": "CT-PLG-002",
+    "case_id": "CT-PLG-002",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://google/gemini-3.8-flash",
+      "role": "independent-inspector",
+      "affiliation": "AI system, commissioned by Igor Akymenko"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "The implementation reports a repeatability check that passed, not that the plugin was shown to be deterministic.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-PLG-002-001.json#lines 32-35",
+          "evidence://CT-PLG-002-002.json#lines 23-26",
+          "evidence://engine-PLUGINS.md#lines 23-28"
+        ],
+        "note": "In response to registration of 'cts-len' (CT-PLG-002-001.json), the engine reports 'repeatability_check': {'runs': 2, 'output_matched': true}. The retrieved registration record (CT-PLG-002-002.json) records the identical repeatability_check object. In documentation (engine-PLUGINS.md lines 23-28), the engine states: 'Validator registration calls the service twice with identical input... The registry reports only the number of runs and the match on that probe. A Validator is responsible for returning the same Result on equal input throughout use.' Neither the API response, the stored registration record, nor the documentation presents registration or the repeatability check as proof of determinism."
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-11-17T10:39:00-07:00",
+    "signature_ref": "pending://owner-attestation",
+    "notes": "No ambiguity. The implementation precisely reports 'repeatability_check' with runs count and output_matched Boolean, and docs/PLUGINS.md explicitly disclaims determinism proof, stating the registry reports only the probe run count and match."
+  },
+  {
+    "review_id": "plg-005-gemini-1",
+    "test_id": "CT-PLG-005",
+    "case_id": "CT-PLG-005",
+    "method": "declaration",
+    "reviewer": {
+      "id": "reviewer://google/gemini-3.8-flash",
+      "role": "independent-inspector",
+      "affiliation": "AI system, commissioned by Igor Akymenko"
+    },
+    "declaration_ref": "evidence://CT-PLG-005-001.json",
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "The statement describes enforcement by the SDK or the Plugin Architecture, not only documentation or a convention for plugin authors.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://engine-PLUGINS.md#lines 23-28, 43-44, 48-49",
+          "evidence://engine-CONFORMANCE-STATEMENT.md#lines 115-117",
+          "evidence://CT-PLG-005-001.json#CONFORMANCE-STATEMENT.md, PLUGINS.md"
+        ],
+        "note": "The implementation's documentation and Conformance Statement specify mechanical enforcement by the Plugin Architecture: at registration, a candidate Validator Plugin is probed twice with identical input and rejected if replies do not match or validate (engine-PLUGINS.md lines 23-28). At runtime, validators must return 'confidence: not_applicable' and 'disposition: actionable' (lines 43-44), and invalid Results, schema violations, or malformed payloads cause the engine to record 'oracle_unavailable' rather than accepting a confidence score or unvalidated output (lines 48-49). This is structural enforcement by the engine/architecture, not merely author convention."
+      },
+      {
+        "item_id": "2",
+        "statement": "Either registration is refused, or every cts-reach Result carries no Confidence value (confidence: 'not_applicable', or the Result is oracle_unavailable because the returned Confidence made it malformed), and the ten Results have the same verdict or are all oracle_unavailable.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-PLG-005-002.json#lines 19-24",
+          "evidence://CT-PLG-005-004.json#lines 3-4"
+        ],
+        "note": "Registration was refused: when registering 'cts-reach' (which returns confidence: 0.5), the engine rejected registration with HTTP 422: 'detail': 'Validator Plugin repeatability probe did not return a valid Result' (CT-PLG-005-002.json). CT-PLG-005-004.json confirms 'registered': false."
+      },
+      {
+        "item_id": "3",
+        "statement": "Ten equal verdicts are a sampled consistency check, not a proof of determinism: the report labels them so, and rests any claim of enforcement on the statement.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-PLG-005-004.json#line 11",
+          "evidence://engine-PLUGINS.md#lines 26-28"
+        ],
+        "note": "Because registration was refused, no execution runs took place. The harness record (CT-PLG-005-004.json line 11) confirms the principle that sampled consistency checks are not proofs of determinism ('ten equal verdicts would be a sampled consistency check, not a proof of determinism'), and claims of enforcement rest on the architectural statements."
+      },
+      {
+        "item_id": "4",
+        "statement": "Reported, not judged: which of the clock, randomness, and network cts-reach reached, from its evidence and the harness log; any of them reached is a deviation from Volume V's SHOULD, which the report names.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-PLG-005-003.json#lines 31-34",
+          "evidence://CT-PLG-005-004.json#lines 5-9",
+          "evidence://engine-CONFORMANCE-STATEMENT.md#lines 115-117",
+          "spec://volume-v-extract.md#lines 32-34"
+        ],
+        "note": "Reported observation: During the repeatability probe at registration, cts-reach successfully accessed the clock ('clock': true) and the random number generator ('random': true), but did not reach the network. Reaching the clock and random source constitutes a deviation from Volume V's recommendation (Validator SDK SHOULD NOT give it a clock, a random source, or network access). This deviation is acknowledged in the implementation's Conformance Statement under Deliberate SHOULD deviations ('V Validator SDK, XVI remote hosting: Invocation supplies only declared logical inputs. Arbitrary remote code can access its own clock, randomness and network. Registration checks two equal inputs, and operator deployment controls are required for isolation')."
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-11-17T10:39:00-07:00",
+    "signature_ref": "pending://owner-attestation",
+    "notes": "No ambiguity. Registration of cts-reach was refused with HTTP 422 because the plugin attempted to supply a confidence value (0.5), violating the validator protocol. During registration probe, cts-reach reached clock and random source, which is recorded as a deviation from Volume V's recommendation (SHOULD), per test instructions."
+  },
+  {
+    "review_id": "plg-007-gemini-1",
+    "test_id": "CT-PLG-007",
+    "case_id": "CT-PLG-007",
+    "method": "inspection",
+    "reviewer": {
+      "id": "reviewer://google/gemini-3.8-flash",
+      "role": "independent-inspector",
+      "affiliation": "AI system, commissioned by Igor Akymenko"
+    },
+    "checklist": [
+      {
+        "item_id": "1",
+        "statement": "The reviewer reaches the individual Results from the Metric.",
+        "answer": "met",
+        "evidence_refs": [
+          "evidence://CT-PLG-007-005.json#lines 18-25",
+          "evidence://CT-PLG-007-006.json#lines 15-22",
+          "evidence://CT-PLG-007-007.json#lines 14, 43",
+          "evidence://CT-PLG-007-008.json#lines 14, 43",
+          "evidence://CT-PLG-007-009.json#lines 14, 43",
+          "evidence://engine-PLUGINS.md#lines 69-74"
+        ],
+        "note": "The Metric 'cts-low-confidence-share' for batch 47016c03-fbde-41dd-84a8-29dd6c40bfbb (CT-PLG-007-005.json and CT-PLG-007-006.json) explicitly contains the list of underlying result_ids: ['f705b6ca-8835-44b3-b55e-d48aba6d32ff', '2408c78d-bec7-4567-b3d9-4237b43461c8', '6647bc99-1c94-4580-a07d-7eee81619b3d', '20efff77-1b11-44dd-9c56-6c67c4b848ea', 'c734e0ce-eb84-4b22-8eab-7b08e90ef620', '4e1aff58-4ab1-4825-b1e8-0b58d7588d66']. Every single one of these 6 Result IDs is directly resolved to an individual stored Result retrieved across the batch's three executions: execution 72e671d5 (CT-PLG-007-007.json, holding f705b6ca and 2408c78d), execution c8435cef (CT-PLG-007-008.json, holding 6647bc99 and 20efff77), and execution 7c223259 (CT-PLG-007-009.json, holding c734e0ce and 4e1aff58). The metric value of 0.3333333333333333 accurately reflects 2 low-confidence (<0.7) results out of 6."
+      }
+    ],
+    "decision": "PASS",
+    "reason_code": "VERIFIED",
+    "signed_at": "2026-11-17T10:39:00-07:00",
+    "signature_ref": "pending://owner-attestation",
+    "notes": "Action difference analysis: The test's Action specifies 'Build F-SIGNALS (2.7); generate a Report for its batch with the plugin; follow the Metric to the Results behind it.' In this implementation, Report Plugins that introduce Metrics are invoked via POST /projects/{project}/reports/metrics rather than through a static report bundle. The harness called POST /reports/metrics to produce the Metric, then retrieved the Metric and the underlying Results. This difference in harness invocation method does not impair decision-making: the Metric entity stores and returns explicit result_ids, which trace directly to every individual Result in the batch, fulfilling the normative requirement of Volume XVI ('a Metric a Report Plugin introduces MUST be traceable back to the Results it was computed from')."
+  }
+]
