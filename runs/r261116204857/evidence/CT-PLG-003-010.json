@@ -1,0 +1,42 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261116204857-ct-plg-003-b/executions/1e2e8069-7e21-434e-9356-26c5c87c1554/results",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "9cd44860-9284-4d86-94ae-6a8fb2d973b4",
+    "execution": "1e2e8069-7e21-434e-9356-26c5c87c1554",
+    "clause": "sha256:e3e57d1a7611153c4f7e737cb842e8a56a9678ba9d8f22ea6d649a693fd491fe/constraints/0",
+    "oracle_type": "validator",
+    "oracle": "cts-probe@ct-plg-003-474779",
+    "verdict": null,
+    "confidence": "not_applicable",
+    "disposition": "oracle_unavailable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "plugin:cts-probe@ct-plg-003-474779",
+      "target": "response",
+      "expected": {
+       "marker": 2
+      },
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "error": "Plugin invocation failed (ValueError)"
+    },
+    "recorded_at": "2026-11-17T04:48:57.818296Z"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "(b) F-BASE with cts-probe: retrieve the Results"
+}

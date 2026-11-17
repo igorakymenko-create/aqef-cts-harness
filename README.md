@@ -349,6 +349,55 @@ machine, with the same `prepare`, entry point, and `collect`:
 
 A simulated platform record is not evidence for the tests, so that run is not published.
 
+## Plugins (CT-PLG-001 to 008)
+
+Section 25 runs with `harness.reference-engine-17.yaml`, against engine slice 17
+(`c3b9263`), which claims all four `plugins:<type>`.
+
+**The test plugins.** `setup/cts_plugins.py` builds `cts-len`, `cts-flaky`, `cts-crash`,
+`cts-probe`, `cts-reach`, `cts-judge-probe`, a Dataset plugin and a Report plugin for the
+engine's plugin mechanism: external HTTP services that the engine calls (its
+docs/PLUGINS.md). `start_reference_engine.sh` starts them on port 9200 and allowlists
+them in `AQEF_PLUGIN_URLS`. They run beside the engine, not in the harness (Harness
+Contract 8.5). `cts-probe`, `cts-reach` and `cts-flaky` report what they receive to the
+harness session endpoint of kind `plugin` (`/plugin` on the scripted service).
+
+**Registration.** Each case registers its own versions (`name@<case>-<random>`) through
+`POST /plugins`, so registrations never collide in a run. `P-APPROVER` registers and
+deprecates them as setup. The bootstrap grants its Role `plugin_register` and
+`plugin_admin` for that (CTS 14.1: "the tester grants it to `P-APPROVER` and states it
+in the test report").
+
+**Adapting the plugins to the engine.** Three points are disclosed here:
+- **Deterministic `id` and `recorded_at`.** Every test plugin returns these, derived from
+  its input. The engine assigns its own on recording. Without this, every Validator
+  would fail the engine's two-call registration probe on fields that are not its
+  verdict.
+- **`cts-probe` with `malformed: true`** returns a Result without `verdict` only when it
+  assesses a real Execution. It returns a valid Result to the engine's registration probe
+  (identifiers `repeatability-probe`), because the engine rejects a registration whose
+  probe replies do not validate. CTS 25 defines the malformed reply, and does not say
+  "on every call". CT-PLG-003 (b) is about invocation, not registration.
+- **`cts-crash`** raises on every call, as CTS 2.5 defines it. So it fails the probe and
+  cannot be registered. **CT-ASM-014 stays NOT_RUN (`FIXTURE_UNAVAILABLE`).** See the
+  owner's notes on this: a plugins:validator SUT must probe a Validator at
+  registration (Volume XVI), so the fixture as defined cannot be registered on any SUT
+  that validates the probe's replies.
+
+**Inspection and Declaration.** CT-PLG-002 and CT-PLG-007 are Inspection, and CT-PLG-005
+is partly Declaration. The harness carries out their Fixture and Action, records the
+evidence, and leaves them `MANUAL_REVIEW_PENDING`:
+- **CT-PLG-002:** the registration response, the registry record, and the engine's
+  docs/PLUGINS.md.
+- **CT-PLG-005:** its automated part (registration refused: the probe reply carries a
+  Confidence and does not validate). It reports, without judging, what `cts-reach`
+  reached: the clock, randomness, and the network. Plus the statement files for the
+  reviewer.
+- **CT-PLG-007:** the Metric, its `result_ids`, and the Results it links.
+
+**Run.** `runs/r261116204857/`: CT-PLG-001, 003, 004, 006, 008 PASS; 002, 005, 007
+pending review. `runs/r261116204806/`: CT-ASM-014 NOT_RUN as above.
+
 ## Layout
 
 | Path | Content |

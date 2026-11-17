@@ -11,7 +11,13 @@ C="{\"cts-capture\":\"http://127.0.0.1:9100/capture\"}"
 # the harness controls (the engine's docs/ACTION-BOUNDARY.md)
 X="{\"sandbox\":\"http://127.0.0.1:9100/executor\",\"real\":\"http://127.0.0.1:9100/executor\"}"
 S="[\"cts-scripted-subject@1\"]"
+# Section 25 and CTS 2.5: the test plugins, external HTTP services (the engine's
+# docs/PLUGINS.md; Harness Contract 8.5)
+PLUG_PORT=9200
+P=$(python3 "$HERE/cts_plugins.py" $PLUG_PORT --urls)
+pkill -f "cts_plugins.py $PLUG_PORT\$" 2>/dev/null
+nohup python3 "$HERE/cts_plugins.py" $PLUG_PORT > /tmp/aqef-cts-plugins.log 2>&1 &
 rm -f /tmp/aqef-cts.db
-AQEF_PROVIDER_URLS="$M" AQEF_CAPTURE_URLS="$C" AQEF_TOOL_EXECUTOR_URLS="$X" AQEF_CONTROLLED_SUBJECTS="$S" AQEF_DB_PATH=/tmp/aqef-cts.db python3 -m uvicorn engine.main:app --host 127.0.0.1 --port 8000 > /tmp/aqef-engine.log 2>&1 &
+AQEF_PROVIDER_URLS="$M" AQEF_CAPTURE_URLS="$C" AQEF_TOOL_EXECUTOR_URLS="$X" AQEF_CONTROLLED_SUBJECTS="$S" AQEF_PLUGIN_URLS="$P" AQEF_DB_PATH=/tmp/aqef-cts.db python3 -m uvicorn engine.main:app --host 127.0.0.1 --port 8000 > /tmp/aqef-engine.log 2>&1 &
 for i in $(seq 1 20); do curl -s -o /dev/null http://127.0.0.1:8000/healthz && break; sleep 1; done
 python3 "$HERE/bootstrap_reference_engine.py" http://127.0.0.1:8000 admin-token

@@ -165,6 +165,10 @@ class Scripted:
             code = "executor"
             status, body = 200, {"result": {"status": "ok", "from": "cts-harness-executor"}}
             role = "executor"
+        elif path.rstrip("/").endswith("/plugin"):
+            # Harness Contract 8.5: the session endpoint of kind `plugin`, which cts-probe
+            # and cts-reach call to report what they received.
+            code, status, body, role = req.get("plugin"), 200, {"logged": True}, "plugin"
         elif path.rstrip("/").endswith("/capture"):
             code = self.capture
             with self.lock:

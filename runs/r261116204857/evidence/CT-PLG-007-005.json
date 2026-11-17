@@ -1,0 +1,34 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261116204857-ct-plg-007/reports/metrics",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "execution_batch_id": "47016c03-fbde-41dd-84a8-29dd6c40bfbb",
+   "plugin": "cts-report@ct-plg-007-c85946"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "name": "cts-low-confidence-share",
+   "value": 0.3333333333333333,
+   "result_ids": [
+    "f705b6ca-8835-44b3-b55e-d48aba6d32ff",
+    "2408c78d-bec7-4567-b3d9-4237b43461c8",
+    "6647bc99-1c94-4580-a07d-7eee81619b3d",
+    "20efff77-1b11-44dd-9c56-6c67c4b848ea",
+    "c734e0ce-eb84-4b22-8eab-7b08e90ef620",
+    "4e1aff58-4ab1-4825-b1e8-0b58d7588d66"
+   ],
+   "id": "24e555b3-2c8a-4a39-8cdd-673a301f4544",
+   "plugin": "cts-report@ct-plg-007-c85946",
+   "execution_batch_id": "47016c03-fbde-41dd-84a8-29dd6c40bfbb",
+   "recorded_at": "2026-11-17T04:48:58.366245+00:00"
+  }
+ },
+ "outcome": "accepted",
+ "note": "generate the Report Plugin's Metric for the batch"
+}

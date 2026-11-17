@@ -1,0 +1,27 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/plugins",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "type": "validator",
+   "name": "cts-reach",
+   "version": "ct-plg-005-88f9ca",
+   "endpoint": "http://127.0.0.1:9200/cts-reach",
+   "configuration": {
+    "oracle": "cts-reach@ct-plg-005-88f9ca",
+    "nonce": "0909b8c981a34fd4b0a3a13f00394694"
+   }
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 422,
+  "body": {
+   "detail": "Validator Plugin repeatability probe did not return a valid Result"
+  }
+ },
+ "outcome": "rejected",
+ "note": "register validator plugin cts-reach@ct-plg-005-88f9ca"
+}

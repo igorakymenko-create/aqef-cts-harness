@@ -1,0 +1,32 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/plugins/cts-len@ct-plg-004-c48dd8/deprecate",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {},
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": {
+   "type": "validator",
+   "name": "cts-len",
+   "version": "ct-plg-004-c48dd8",
+   "endpoint": "http://127.0.0.1:9200/cts-len",
+   "configuration": {
+    "oracle": "cts-len@ct-plg-004-c48dd8",
+    "nonce": "7dada5a398704721b0dcf91bdcfcd40a"
+   },
+   "id": "cts-len@ct-plg-004-c48dd8",
+   "registered_at": "2026-11-17T04:48:57.872864+00:00",
+   "repeatability_check": {
+    "runs": 2,
+    "output_matched": true
+   },
+   "deprecated_at": "2026-11-17T04:48:58.069659+00:00"
+  }
+ },
+ "outcome": "accepted",
+ "note": "deprecate cts-len@ct-plg-004-c48dd8"
+}

@@ -22,7 +22,8 @@ ROLES = {
                      "environment_edit", "scenario_edit", "environment_delete",
                      "project_create", "dataset_create", "project_edit",
                      "scenario_create", "scenario_delete",    # CT-CFG-029
-                     "production_replay_read"],
+                     "production_replay_read",
+                     "plugin_register", "plugin_admin"],      # Section 25 setup (CTS 14.1)
     "cts-noperm": ["read", "execute"],
     "cts-editor": ["read", "project_edit", "scenario_edit"],
     "cts-reviewer": ["read", "review"],

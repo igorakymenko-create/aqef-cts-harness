@@ -1,0 +1,37 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/plugins",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "type": "report",
+   "name": "cts-report",
+   "version": "ct-plg-007-c85946",
+   "endpoint": "http://127.0.0.1:9200/cts-report",
+   "configuration": {
+    "oracle": "cts-report@ct-plg-007-c85946",
+    "nonce": "976b46f133084569b11cef8005f07114"
+   }
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "type": "report",
+   "name": "cts-report",
+   "version": "ct-plg-007-c85946",
+   "endpoint": "http://127.0.0.1:9200/cts-report",
+   "configuration": {
+    "oracle": "cts-report@ct-plg-007-c85946",
+    "nonce": "976b46f133084569b11cef8005f07114"
+   },
+   "id": "cts-report@ct-plg-007-c85946",
+   "registered_at": "2026-11-17T04:48:58.176600+00:00",
+   "deprecated_at": null
+  }
+ },
+ "outcome": "accepted",
+ "note": "register report plugin cts-report@ct-plg-007-c85946"
+}

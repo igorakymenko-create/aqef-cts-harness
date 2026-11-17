@@ -1,0 +1,28 @@
+{
+ "schema_version": "0.8",
+ "run_id": "r261116204806",
+ "created_at": "2026-11-17T04:48:06Z",
+ "canonicalization": "RFC8785",
+ "entries": [
+  {
+   "evidence_id": "run-001",
+   "kind": "statement",
+   "raw_ref": "evidence://run-001.json",
+   "raw_sha256": "f64b68722ce7df5402323d3975f57e9baef80e420dd62feb270939bc6a89cb66",
+   "raw_size": 27791,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-17T04:48:06Z"
+  },
+  {
+   "evidence_id": "CT-ASM-014-001",
+   "kind": "sut_response",
+   "raw_ref": "evidence://CT-ASM-014-001.json",
+   "raw_sha256": "4f5d9f9bd472abcaff4fb736b53305ec5193eeb5e38775db976e6b6077a30622",
+   "raw_size": 637,
+   "redaction_policy": "no-secrets-recorded",
+   "collected_at": "2026-11-17T04:48:06Z",
+   "case_id": "CT-ASM-014"
+  }
+ ],
+ "manifest_sha256": "a48527508ab4db0ea481dddaaab51451155a4a06d08cc3c28bea19a88448dc34"
+}

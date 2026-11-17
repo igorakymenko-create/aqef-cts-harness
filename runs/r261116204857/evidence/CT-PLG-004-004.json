@@ -1,0 +1,89 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261116204857-ct-plg-004/executions/0edea7a0-7ab6-49b3-ae9e-03804bef380a/results",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "3cec9870-419e-40d1-a574-b0c48e9e4acb",
+    "execution": "0edea7a0-7ab6-49b3-ae9e-03804bef380a",
+    "clause": "sha256:dad76679150660798a58a7388717ccaa721b4cbea8007c283488d8f6e1b19a27/constraints/0",
+    "oracle_type": "validator",
+    "oracle": "cts-len@ct-plg-004-c48dd8",
+    "verdict": "pass",
+    "confidence": "not_applicable",
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "plugin:cts-len@ct-plg-004-c48dd8",
+      "target": "response",
+      "expected": {},
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "assessment": {
+      "length": 22
+     },
+     "ignored_reply_fields": []
+    },
+    "recorded_at": "2026-11-17T04:48:57.980309Z"
+   },
+   {
+    "id": "0be43c36-0e2f-4409-8e5d-9c016aaa04bf",
+    "execution": "0edea7a0-7ab6-49b3-ae9e-03804bef380a",
+    "clause": "sha256:dad76679150660798a58a7388717ccaa721b4cbea8007c283488d8f6e1b19a27/expectations/0",
+    "oracle_type": "judge",
+    "oracle": "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}",
+    "verdict": "pass",
+    "confidence": 0.9,
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "evidence": {
+      "conversation": {
+       "turns": [
+        {
+         "prompt": "Hello",
+         "response": "Hello! How can I help?"
+        }
+       ]
+      },
+      "artifacts": [
+       {
+        "name": "latency_ms",
+        "data": 18.73823099992933,
+        "turn": 1,
+        "attempt": 1
+       }
+      ]
+     },
+     "criteria": "The response greets the user.",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-17T04:48:57.999540+00:00",
+       "completed_at": "2026-11-17T04:48:58.015057+00:00"
+      }
+     ],
+     "provider_response": {
+      "verdict": "pass",
+      "confidence": 0.9,
+      "explanation": "scripted pass",
+      "assertions": 1
+     },
+     "explanation": "scripted pass"
+    },
+    "recorded_at": "2026-11-17T04:48:57.999530Z"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "F-BASE with cts-len: retrieve the Results"
+}

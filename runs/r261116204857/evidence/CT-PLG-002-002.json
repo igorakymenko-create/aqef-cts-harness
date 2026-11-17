@@ -1,0 +1,170 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/plugins/cts-len@ct-plg-002-f1d56e",
+  "actor": "P-APPROVER",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": {
+   "type": "validator",
+   "name": "cts-len",
+   "version": "ct-plg-002-f1d56e",
+   "endpoint": "http://127.0.0.1:9200/cts-len",
+   "configuration": {
+    "oracle": "cts-len@ct-plg-002-f1d56e",
+    "nonce": "3634535f81e84fd6aaed5d6700fa999d"
+   },
+   "id": "cts-len@ct-plg-002-f1d56e",
+   "registered_at": "2026-11-17T04:48:57.562263+00:00",
+   "repeatability_check": {
+    "runs": 2,
+    "output_matched": true
+   },
+   "deprecated_at": null,
+   "versions": [
+    {
+     "type": "validator",
+     "name": "cts-len",
+     "version": "ct-plg-001-f8c697",
+     "endpoint": "http://127.0.0.1:9200/cts-len",
+     "configuration": {
+      "oracle": "cts-len@ct-plg-001-f8c697",
+      "nonce": "4a13c20754aa45bcb211e10717b92cf8"
+     },
+     "id": "cts-len@ct-plg-001-f8c697",
+     "registered_at": "2026-11-17T04:47:47.055929+00:00",
+     "repeatability_check": {
+      "runs": 2,
+      "output_matched": true
+     },
+     "deprecated_at": null
+    },
+    {
+     "type": "validator",
+     "name": "cts-len",
+     "version": "ct-plg-002-70b267",
+     "endpoint": "http://127.0.0.1:9200/cts-len",
+     "configuration": {
+      "oracle": "cts-len@ct-plg-002-70b267",
+      "nonce": "4de41391b48041d5a6bf8f098d4c29ae"
+     },
+     "id": "cts-len@ct-plg-002-70b267",
+     "registered_at": "2026-11-17T04:47:47.102063+00:00",
+     "repeatability_check": {
+      "runs": 2,
+      "output_matched": true
+     },
+     "deprecated_at": null
+    },
+    {
+     "type": "validator",
+     "name": "cts-len",
+     "version": "ct-plg-004-8142f7",
+     "endpoint": "http://127.0.0.1:9200/cts-len",
+     "configuration": {
+      "oracle": "cts-len@ct-plg-004-8142f7",
+      "nonce": "21712d56bde74281a1d0dc3cab03d2ab"
+     },
+     "id": "cts-len@ct-plg-004-8142f7",
+     "registered_at": "2026-11-17T04:47:47.499873+00:00",
+     "repeatability_check": {
+      "runs": 2,
+      "output_matched": true
+     },
+     "deprecated_at": "2026-11-17T04:47:47.725295+00:00"
+    },
+    {
+     "type": "validator",
+     "name": "cts-len",
+     "version": "ct-plg-001-c5587b",
+     "endpoint": "http://127.0.0.1:9200/cts-len",
+     "configuration": {
+      "oracle": "cts-len@ct-plg-001-c5587b",
+      "nonce": "074cb06005184187a5a98db032b9a094"
+     },
+     "id": "cts-len@ct-plg-001-c5587b",
+     "registered_at": "2026-11-17T04:47:56.253392+00:00",
+     "repeatability_check": {
+      "runs": 2,
+      "output_matched": true
+     },
+     "deprecated_at": null
+    },
+    {
+     "type": "validator",
+     "name": "cts-len",
+     "version": "ct-plg-002-f2df2a",
+     "endpoint": "http://127.0.0.1:9200/cts-len",
+     "configuration": {
+      "oracle": "cts-len@ct-plg-002-f2df2a",
+      "nonce": "6871895c4acf4564a2f9c5bc5f409109"
+     },
+     "id": "cts-len@ct-plg-002-f2df2a",
+     "registered_at": "2026-11-17T04:47:56.283632+00:00",
+     "repeatability_check": {
+      "runs": 2,
+      "output_matched": true
+     },
+     "deprecated_at": null
+    },
+    {
+     "type": "validator",
+     "name": "cts-len",
+     "version": "ct-plg-004-00fa6a",
+     "endpoint": "http://127.0.0.1:9200/cts-len",
+     "configuration": {
+      "oracle": "cts-len@ct-plg-004-00fa6a",
+      "nonce": "3ca3cf87f4524bc78fe01eed92c27923"
+     },
+     "id": "cts-len@ct-plg-004-00fa6a",
+     "registered_at": "2026-11-17T04:47:56.620956+00:00",
+     "repeatability_check": {
+      "runs": 2,
+      "output_matched": true
+     },
+     "deprecated_at": "2026-11-17T04:47:56.768516+00:00"
+    },
+    {
+     "type": "validator",
+     "name": "cts-len",
+     "version": "ct-plg-001-f91362",
+     "endpoint": "http://127.0.0.1:9200/cts-len",
+     "configuration": {
+      "oracle": "cts-len@ct-plg-001-f91362",
+      "nonce": "d5752d03726f4062a271f9306493c443"
+     },
+     "id": "cts-len@ct-plg-001-f91362",
+     "registered_at": "2026-11-17T04:48:57.529847+00:00",
+     "repeatability_check": {
+      "runs": 2,
+      "output_matched": true
+     },
+     "deprecated_at": null
+    },
+    {
+     "type": "validator",
+     "name": "cts-len",
+     "version": "ct-plg-002-f1d56e",
+     "endpoint": "http://127.0.0.1:9200/cts-len",
+     "configuration": {
+      "oracle": "cts-len@ct-plg-002-f1d56e",
+      "nonce": "3634535f81e84fd6aaed5d6700fa999d"
+     },
+     "id": "cts-len@ct-plg-002-f1d56e",
+     "registered_at": "2026-11-17T04:48:57.562263+00:00",
+     "repeatability_check": {
+      "runs": 2,
+      "output_matched": true
+     },
+     "deprecated_at": null
+    }
+   ]
+  }
+ },
+ "outcome": "accepted",
+ "note": "the registration record"
+}
