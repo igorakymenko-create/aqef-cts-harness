@@ -1,0 +1,48 @@
+{
+  "review_id": "rel-037-gemini-1",
+  "test_id": "CT-REL-037",
+  "case_id": "CT-REL-037",
+  "method": "inspection",
+  "reviewer": {
+    "id": "reviewer://google/gemini-3.8-flash",
+    "role": "independent-inspector",
+    "affiliation": "AI system, commissioned by Igor Akymenko"
+  },
+  "checklist": [
+    {
+      "item_id": "1",
+      "statement": "The Gates are defined and evaluated in the implementation; the platform's native primitive only carries their outcome.",
+      "answer": "met",
+      "evidence_refs": [
+        "evidence://CT-REL-037-001.json#lines 20-33, 137-151",
+        "evidence://CT-REL-037-003.json#lines 18-50",
+        "evidence://CT-REL-037-005.json#lines 18-55",
+        "evidence://CT-REL-037-007.json#lines 5-15",
+        "evidence://CT-REL-037-014.json#lines 5-15",
+        "evidence://CT-REL-037-015.json#lines 7-12",
+        "evidence://CT-REL-037-016.json#lines 7-12",
+        "evidence://integration-action.yml#lines 49-62",
+        "evidence://pipeline-workflow.yml#lines 56-67"
+      ],
+      "note": "Gates ('functional-gate' and 'semantic-gate') are defined in the engine configuration via POST /projects (CT-REL-037-001.json lines 20-33). Gate evaluation is performed entirely by the engine (GET /gates/evaluations/... in CT-REL-037-003.json and CT-REL-037-005.json). The GitHub Actions integration step 'AQEF Quality Gates' (integration-action.yml lines 49-62) executes 'python -m aqef_client.ci.github', which polls the engine's gate evaluation and maps the resulting outcome ('pass_with_override' in rel024-a, 'fail' in rel024-b) to the GitHub step conclusion (success/failure) and job summary. The platform's native primitive (GitHub Actions job and step conclusion in CT-REL-037-015.json and CT-REL-037-016.json) only reflects the outcome carried from the engine, satisfying the requirement that 'AQEF's Quality Gate is defined once, platform-agnostically' and that platform checks are 'the platform-native primitive AQEF's Gate result gets translated into, not a second, competing gate' (Volume XIII)."
+    },
+    {
+      "item_id": "2",
+      "statement": "Changing the platform's primitive does not change any Gate definition, and the reverse.",
+      "answer": "met",
+      "evidence_refs": [
+        "evidence://pipeline-workflow.yml#lines 56-67",
+        "evidence://integration-action.yml#lines 1-62",
+        "evidence://CT-REL-037-001.json#lines 20-33",
+        "evidence://CT-REL-037-008.json#lines 20-33",
+        "evidence://CT-REL-037-010.json#lines 18-45"
+      ],
+      "note": "The GitHub Actions workflow and action definitions contain only runner invocation parameters (engine-url, token, project, suite, environment, execution-batch, timeouts). Neither pipeline-workflow.yml nor integration-action.yml contains threshold, aggregation, or gate logic. Altering GitHub Actions configuration or step parameters does not affect the engine's stored Gate entities. Conversely, changing test execution behavior or Gate evaluations in the engine (such as run rel024-b where functional-gate failed under subject SR-EMPTY in CT-REL-037-010.json) changes only the engine's evaluation without modifying any platform workflow or action definitions."
+    }
+  ],
+  "decision": "PASS",
+  "reason_code": "VERIFIED",
+  "signed_at": "2026-11-17T11:53:00-07:00",
+  "signature_ref": "pending://owner-attestation",
+  "notes": "No ambiguities were found in the specification or test fixture text. The implementation strictly adheres to Volume XIII by maintaining an architectural separation where Quality Gates are authored, stored, and evaluated within the reference engine, while the GitHub Actions integration translates and surfaces those results as platform-native step and job conclusions without conflating platform gating with AQEF Quality Gates."
+}

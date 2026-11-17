@@ -349,6 +349,15 @@ machine, with the same `prepare`, entry point, and `collect`:
 
 A simulated platform record is not evidence for the tests, so that run is not published.
 
+**Runs:**
+- `runs/r261111153723/`: the report of GitHub Actions run 43049912906 (engine slice-16,
+  CTS 1.0-CR1.2, harness 0.10.0). CT-REL-024 and CT-REL-025 PASS; CT-REL-037 pending
+  review. It is the report the reviewer saw.
+- **The review.** `reviews/CT-REL-037.gemini-1.review.json` (PASS, `VERIFIED`), with
+  `reviews/ATTESTATION-CI.md`. `harness.ci-github.yaml` applies it through
+  `manual_reviews: reviews/ci-reviews.json`. The next run of the workflow applies it.
+  That run's report is added here with its run number.
+
 ## Plugins (CT-PLG-001 to 008)
 
 Section 25 runs with `harness.reference-engine-17.yaml`, against engine slice 17

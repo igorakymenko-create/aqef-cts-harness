@@ -1,0 +1,71 @@
+{
+ "note": "pipeline run rel024-a: CT-REL-024-005.json, as its controller stored it",
+ "recorded": {
+  "request": {
+   "method": "GET",
+   "path": "/projects/cts-gh049912906-a-ct-rel-024/gates/evaluations/4633388f-ddf5-4251-9170-e162b660f30d",
+   "actor": "P-RELEASE",
+   "content_type": null,
+   "body": null,
+   "headers": null
+  },
+  "response": {
+   "status": 200,
+   "body": {
+    "id": "4633388f-ddf5-4251-9170-e162b660f30d",
+    "snapshot_id": "4633388f-ddf5-4251-9170-e162b660f30d",
+    "execution_batch_id": "cacd859d-6a7a-4f2b-9464-c368cef76bba",
+    "gates": {
+     "functional-gate": {
+      "id": "714c1290-8dd4-4910-af02-ecc805cede21",
+      "status": "pass",
+      "blocking": true,
+      "threshold": 1.0,
+      "value": 1.0,
+      "basis": {
+       "results": 1,
+       "not_actionable": 0,
+       "scenarios": 1,
+       "executions": 1,
+       "min_basis_met": "not_declared"
+      }
+     },
+     "semantic-gate": {
+      "id": "90253fb8-a4af-4836-9b68-58dd7d7d4118",
+      "status": "fail",
+      "blocking": true,
+      "threshold": 1.0,
+      "value": 0.0,
+      "basis": {
+       "results": 1,
+       "not_actionable": 0,
+       "scenarios": 1,
+       "executions": 1,
+       "min_basis_met": "not_declared"
+      },
+      "reasons": [
+       "threshold"
+      ],
+      "override": "9f955b28-2c13-4340-8833-690d9656a0a6"
+     }
+    },
+    "result_ids": [
+     "f8bff363-4be0-4bc5-aefa-a1ea5b3d97c5",
+     "348f1d45-cf0f-45e1-84e4-d55a9571d899"
+    ],
+    "evaluated_at": "2026-11-11T15:36:01.436420+00:00",
+    "result_state": "sha256:bb088261326a2053b51d95185522913542e4f00ca2467dce86da0d675893ae75",
+    "admissions": {
+     "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}": false
+    },
+    "control_state": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "suite": "cts-suite",
+    "environment": "cts-env",
+    "scope_current": true,
+    "refresh_required": false
+   }
+  },
+  "outcome": "accepted",
+  "note": "the pipeline's Gate evaluation after the pipeline finished"
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "note": "pipeline run rel024-b: the Action step's result, outputs and job summary",
+ "action": {
+  "run": "rel024-b",
+  "step_outcome": "failure",
+  "outcome_output": "fail",
+  "batch_output": "ee0ef440-99f3-44bb-9664-f482e022b93a",
+  "t_action_start": 34.097606224,
+  "t_action_end": 96.080033824,
+  "elapsed_s": 61.982,
+  "step_summary": [
+   "## AQEF outcome `fail`\n\nWait timeout expired.\n\n| Gate | Type | Status | Override |\n|---|---|---|---|\n| functional-gate | blocking | fail | — |\n| semantic-gate | blocking | fail | overridden (1df09234-340b-4c0e-b1d9-0df0ab0fb55c) |\n",
+   "## AQEF outcome `fail`\n\nWait timeout expired.\n\n| Gate | Type | Status | Override |\n|---|---|---|---|\n| functional-gate | blocking | fail | — |\n| semantic-gate | blocking | fail | overridden (1df09234-340b-4c0e-b1d9-0df0ab0fb55c) |\n"
+  ],
+  "github": {
+   "GITHUB_RUN_ID": "43049912906",
+   "GITHUB_RUN_ATTEMPT": "1",
+   "GITHUB_JOB": "pipeline",
+   "GITHUB_REPOSITORY": "igorakymenko-create/aqef-cts-harness"
+  }
+ }
+}

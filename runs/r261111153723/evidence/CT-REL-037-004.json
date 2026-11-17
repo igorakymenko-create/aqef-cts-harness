@@ -1,0 +1,32 @@
+{
+ "note": "pipeline run rel024-a: CT-REL-024-004.json, as its controller stored it",
+ "recorded": {
+  "request": {
+   "method": "POST",
+   "path": "/projects/cts-gh049912906-a-ct-rel-024/gates/semantic-gate/override",
+   "actor": "P-APPROVER",
+   "content_type": "application/json",
+   "body": {
+    "execution_batch_id": "cacd859d-6a7a-4f2b-9464-c368cef76bba",
+    "justification": "CTS override",
+    "gate_result_id": "90253fb8-a4af-4836-9b68-58dd7d7d4118"
+   },
+   "headers": null
+  },
+  "response": {
+   "status": 201,
+   "body": {
+    "id": "90253fb8-a4af-4836-9b68-58dd7d7d4118",
+    "gate": "semantic-gate",
+    "execution_batch_id": "cacd859d-6a7a-4f2b-9464-c368cef76bba",
+    "justification": "CTS override",
+    "approval_id": "9f955b28-2c13-4340-8833-690d9656a0a6",
+    "approved_by": "P-APPROVER",
+    "approved_at": "2026-11-11T15:36:01.523359+00:00",
+    "approval_role": "cts-approver"
+   }
+  },
+  "outcome": "accepted",
+  "note": "override semantic-gate on the pipeline's own GateResult, as P-APPROVER"
+ }
+}

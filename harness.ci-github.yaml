@@ -35,7 +35,7 @@ delete_query: retain_history=true  # how the engine is asked to keep history (Ap
 conversation_form: turns           # the engine's Conversation form for fixed Evidence
 scripted_port: 9100                # where the scripted subject and Judges listen
 engine_slices_done: 16             # parts of a test beyond this are NOT_RUN (for engines built in slices)
-# manual_reviews: reviews/<file>.json   # CTS 1.8 review records to apply (Harness Contract §13)
+manual_reviews: reviews/ci-reviews.json   # CT-REL-037 (reviews/ATTESTATION-CI.md)
 
 # CTS Section 26: the CLI and the Python SDK of aqef-client (aqef-reference-engine, client/)
 cli:

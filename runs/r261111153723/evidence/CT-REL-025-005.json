@@ -1,0 +1,39 @@
+{
+ "note": "pipeline run rel025: controller timeline (monotonic clock of that runner)",
+ "timeline": {
+  "run": "rel025",
+  "what": "CT-DEC-011's fixture with no review_timeout; the review is not answered",
+  "wait_timeout_s": 45,
+  "grace_s": 30,
+  "events": [
+   {
+    "what": "ready",
+    "t_monotonic": 28.815751517,
+    "project": "cts-gh049912906-rel025-ct-rel-025",
+    "batch": "b60ef458-cc01-4afe-b903-af46a0318129"
+   },
+   {
+    "what": "pipeline_evaluation_seen",
+    "t_monotonic": 31.396322566,
+    "evaluation": "3054e861-e244-4f59-b81b-1eed9b1e2c9d",
+    "gates": {
+     "functional-gate": {
+      "status": "pass",
+      "blocking": true,
+      "override": null
+     },
+     "semantic-gate": {
+      "status": "fail",
+      "blocking": true,
+      "override": null
+     }
+    }
+   },
+   {
+    "what": "stopped",
+    "t_monotonic": 76.926647399
+   }
+  ],
+  "status": "ok"
+ }
+}

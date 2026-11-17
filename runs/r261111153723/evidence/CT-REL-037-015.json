@@ -1,0 +1,14 @@
+{
+ "note": "the platform's record of pipeline (rel024-a)",
+ "github_job": {
+  "job": "pipeline (rel024-a)",
+  "job_conclusion": "success",
+  "html_url": "https://github.com/igorakymenko-create/aqef-cts-harness/actions/runs/43049912906/job/130623887496",
+  "step": {
+   "name": "AQEF Quality Gates",
+   "conclusion": "success",
+   "started_at": "2026-11-11T15:35:59Z",
+   "completed_at": "2026-11-11T15:36:03Z"
+  }
+ }
+}
