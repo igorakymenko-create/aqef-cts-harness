@@ -355,8 +355,10 @@ A simulated platform record is not evidence for the tests, so that run is not pu
   review. It is the report the reviewer saw.
 - **The review.** `reviews/CT-REL-037.gemini-1.review.json` (PASS, `VERIFIED`), with
   `reviews/ATTESTATION-CI.md`. `harness.ci-github.yaml` applies it through
-  `manual_reviews: reviews/ci-reviews.json`. The next run of the workflow applies it.
-  That run's report is added here with its run number.
+  `manual_reviews: reviews/ci-reviews.json`.
+- `runs/r261117194515/`: the report of GitHub Actions run 44161680525 (engine slice-16,
+  CTS 1.0-CR1.4, harness 0.12.1), with the review applied. **CT-REL-024, CT-REL-025 and
+  CT-REL-037 PASS.**
 
 ## Plugins (CT-PLG-001 to 008)
 

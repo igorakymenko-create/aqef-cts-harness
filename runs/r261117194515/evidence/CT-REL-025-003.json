@@ -1,0 +1,69 @@
+{
+ "note": "pipeline run rel025: CT-REL-025-003.json, as its controller stored it",
+ "recorded": {
+  "request": {
+   "method": "GET",
+   "path": "/projects/cts-gh161680525-rel025-ct-rel-025/gates/evaluations/0643dbad-3875-43fc-b404-fef19b6c77e9",
+   "actor": "P-RELEASE",
+   "content_type": null,
+   "body": null,
+   "headers": null
+  },
+  "response": {
+   "status": 200,
+   "body": {
+    "id": "0643dbad-3875-43fc-b404-fef19b6c77e9",
+    "snapshot_id": "0643dbad-3875-43fc-b404-fef19b6c77e9",
+    "execution_batch_id": "98d4ed97-8bb0-4569-ba92-42d8772ed05a",
+    "gates": {
+     "functional-gate": {
+      "id": "13023341-94c1-4204-b788-3fe3e205d8a0",
+      "status": "pass",
+      "blocking": true,
+      "threshold": 1.0,
+      "value": 1.0,
+      "basis": {
+       "results": 1,
+       "not_actionable": 0,
+       "scenarios": 1,
+       "executions": 1,
+       "min_basis_met": "not_declared"
+      }
+     },
+     "semantic-gate": {
+      "id": "eedbc1b4-73f9-4446-8421-79e34518a8ce",
+      "status": "fail",
+      "blocking": true,
+      "threshold": 1.0,
+      "value": "not_computed",
+      "basis": {
+       "results": 0,
+       "not_actionable": 1,
+       "scenarios": 0,
+       "executions": 0,
+       "min_basis_met": "not_declared"
+      },
+      "reasons": [
+       "insufficient_basis",
+       "non_actionable_results"
+      ]
+     }
+    },
+    "result_ids": [
+     "1639d503-9606-405f-8be2-45b4a0729505",
+     "438cff68-1a5b-4d9b-91f0-cd1a13eb52d3"
+    ],
+    "evaluated_at": "2026-11-17T19:44:00.467135+00:00",
+    "result_state": "sha256:f3af01550b6abdbe791562c4134c1a28dc952440bfc7fa4af35740aec236408e",
+    "admissions": {},
+    "control_state": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "suite": "cts-suite",
+    "environment": "cts-env",
+    "scope_current": true,
+    "refresh_required": false
+   }
+  },
+  "outcome": "accepted",
+  "note": "the pipeline's own Gate evaluation, as soon as it exists"
+ }
+}

@@ -1,0 +1,154 @@
+{
+ "note": "pipeline run rel025: CT-REL-025-001.json, as its controller stored it",
+ "recorded": {
+  "request": {
+   "method": "POST",
+   "path": "/projects",
+   "actor": "P-APPROVER",
+   "content_type": "application/json",
+   "body": {
+    "name": "cts-gh161680525-rel025-ct-rel-025",
+    "environments": [
+     {
+      "name": "cts-env",
+      "model_version": "cts-scripted-subject@1",
+      "prompt_version": "cts-prompt@1",
+      "tool_configuration": null,
+      "infra_target": "cts-harness"
+     }
+    ],
+    "quality_gates": [
+     {
+      "name": "functional-gate",
+      "aggregate": "functional",
+      "threshold": 1.0,
+      "on_failure": "block_release"
+     },
+     {
+      "name": "semantic-gate",
+      "aggregate": "semantic",
+      "threshold": 1.0,
+      "on_failure": "block_release"
+     }
+    ],
+    "suites": [
+     {
+      "name": "cts-suite",
+      "scenarios": [
+       {
+        "name": "s-greeting",
+        "variables": {
+         "query": "Hello"
+        },
+        "prompt": {
+         "template": "{{query}}"
+        },
+        "contract": {
+         "constraints": [
+          {
+           "validator": "schema",
+           "target": "response",
+           "expected": {
+            "type": "string",
+            "minLength": 1
+           }
+          }
+         ],
+         "expectations": [
+          {
+           "criteria": "The response greets the user.",
+           "human_reviewer": {
+            "role": "reviewer"
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "headers": null
+  },
+  "response": {
+   "status": 201,
+   "body": {
+    "name": "cts-gh161680525-rel025-ct-rel-025",
+    "environments": [
+     {
+      "name": "cts-env",
+      "model_version": "cts-scripted-subject@1",
+      "prompt_version": "cts-prompt@1",
+      "tool_configuration": null,
+      "infra_target": "cts-harness"
+     }
+    ],
+    "suites": [
+     {
+      "name": "cts-suite",
+      "scenarios": [
+       {
+        "name": "s-greeting",
+        "contract": {
+         "constraints": [
+          {
+           "validator": "schema",
+           "target": "response",
+           "expected": {
+            "type": "string",
+            "minLength": 1
+           },
+           "veto": false,
+           "dimension": "functional"
+          }
+         ],
+         "expectations": [
+          {
+           "criteria": "The response greets the user.",
+           "human_reviewer": {
+            "role": "reviewer",
+            "captures_confidence": false
+           },
+           "on_timeout": "block",
+           "dimension": "semantic"
+          }
+         ],
+         "extends": []
+        },
+        "prompt": {
+         "template": "{{query}}"
+        },
+        "variables": {
+         "query": "Hello"
+        }
+       }
+      ],
+      "contracts": [],
+      "quality_gates": []
+     }
+    ],
+    "datasets": [],
+    "defect_classes": [],
+    "contracts": [],
+    "quality_gates": [
+     {
+      "name": "functional-gate",
+      "aggregate": "functional",
+      "threshold": 1.0,
+      "on_failure": "block_release",
+      "require_admitted_judges": false
+     },
+     {
+      "name": "semantic-gate",
+      "aggregate": "semantic",
+      "threshold": 1.0,
+      "on_failure": "block_release",
+      "require_admitted_judges": false
+     }
+    ]
+   }
+  },
+  "outcome": "accepted",
+  "note": "load CT-DEC-011's fixture with no review_timeout; the review is not answered"
+ }
+}

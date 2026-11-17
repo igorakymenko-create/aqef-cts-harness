@@ -1,0 +1,47 @@
+{
+ "note": "pipeline run rel024-b: controller timeline (monotonic clock of that runner)",
+ "timeline": {
+  "run": "rel024-b",
+  "what": "the same with functional-gate failing as well (SR-EMPTY); override semantic-gate only",
+  "wait_timeout_s": 60,
+  "grace_s": 30,
+  "events": [
+   {
+    "what": "ready",
+    "t_monotonic": 93.256768152,
+    "project": "cts-gh161680525-b-ct-rel-024",
+    "batch": "a957a7d1-6a8d-4989-a42e-96d035800370"
+   },
+   {
+    "what": "pipeline_evaluation_seen",
+    "t_monotonic": 95.816775968,
+    "evaluation": "9a91f365-a644-4a8c-87e3-0bbb0965e119",
+    "gates": {
+     "functional-gate": {
+      "status": "fail",
+      "blocking": true,
+      "override": null
+     },
+     "semantic-gate": {
+      "status": "fail",
+      "blocking": true,
+      "override": null
+     }
+    }
+   },
+   {
+    "what": "override",
+    "t_monotonic": 95.82415818,
+    "gate": "semantic-gate",
+    "gate_result_id": "4736f309-558d-405d-9c2c-d8e6aa316185",
+    "status": 201,
+    "outcome": "accepted"
+   },
+   {
+    "what": "stopped",
+    "t_monotonic": 155.856689144
+   }
+  ],
+  "status": "ok"
+ }
+}

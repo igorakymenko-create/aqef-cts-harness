@@ -57,10 +57,12 @@ Two details are inexact, and neither bears on the decision:
 
 ## Where the record is applied
 
-7. The record is applied in the next run of `.github/workflows/cts-ci-github.yml` started
-   after this commit, with `harness.ci-github.yaml` (`manual_reviews:
-   reviews/ci-reviews.json`). That run uses the same engine, slice-16. It uses the CTS at
-   the `aqef-ref` it is started with. CT-REL-024 and CT-REL-037 are word for word the same
-   in 1.0-CR1.2 and 1.0-CR1.4. Its report is added to `runs/` with its run number.
+7. The record is applied in report `r261117194515`, from GitHub Actions run 44161680525,
+   with `harness.ci-github.yaml` (`manual_reviews: reviews/ci-reviews.json`). The run uses
+   the same engine, slice-16 (`9f58330`), with CTS 1.0-CR1.4 and harness 0.12.1.
+   CT-REL-024 and CT-REL-037 are word for word the same in 1.0-CR1.2 and 1.0-CR1.4. Its
+   result is CT-REL-024, CT-REL-025 and CT-REL-037 PASS. The run regenerates the evidence,
+   so its identifiers differ from the reviewed report `r261111153723`, which is kept
+   alongside it.
 
 Signed through that commit, 2026-11-17.

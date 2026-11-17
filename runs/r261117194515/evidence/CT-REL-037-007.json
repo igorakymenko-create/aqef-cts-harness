@@ -1,0 +1,22 @@
+{
+ "note": "pipeline run rel024-a: the Action step's result, outputs and job summary",
+ "action": {
+  "run": "rel024-a",
+  "step_outcome": "success",
+  "outcome_output": "pass_with_override",
+  "batch_output": "2dfb6a28-ccbc-4444-bdcd-f3094dfb6533",
+  "t_action_start": 41.329233182,
+  "t_action_end": 45.90331971,
+  "elapsed_s": 4.574,
+  "step_summary": [
+   "## AQEF outcome `pass_with_override`\n\n\n\n| Gate | Type | Status | Override |\n|---|---|---|---|\n| functional-gate | blocking | pass | — |\n| semantic-gate | blocking | fail | overridden (074611e8-9f29-4f6b-a860-079439d2650d) |\n",
+   "## AQEF outcome `pass_with_override`\n\n\n\n| Gate | Type | Status | Override |\n|---|---|---|---|\n| functional-gate | blocking | pass | — |\n| semantic-gate | blocking | fail | overridden (074611e8-9f29-4f6b-a860-079439d2650d) |\n"
+  ],
+  "github": {
+   "GITHUB_RUN_ID": "44161680525",
+   "GITHUB_RUN_ATTEMPT": "1",
+   "GITHUB_JOB": "pipeline",
+   "GITHUB_REPOSITORY": "igorakymenko-create/aqef-cts-harness"
+  }
+ }
+}
