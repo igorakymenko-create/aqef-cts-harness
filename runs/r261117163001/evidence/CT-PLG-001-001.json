@@ -1,0 +1,27 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/plugins",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "type": "validator",
+   "name": "cts-flaky",
+   "version": "ct-plg-001-ddbf4d",
+   "endpoint": "http://127.0.0.1:9200/cts-flaky",
+   "configuration": {
+    "oracle": "cts-flaky@ct-plg-001-ddbf4d",
+    "nonce": "1b191627cb184190a3220d0359ddc244"
+   }
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 422,
+  "body": {
+   "detail": "Validator Plugin output varied on the fixed repeatability probe"
+  }
+ },
+ "outcome": "rejected",
+ "note": "register validator plugin cts-flaky@ct-plg-001-ddbf4d"
+}

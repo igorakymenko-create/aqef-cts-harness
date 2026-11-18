@@ -390,10 +390,11 @@ in the test report").
   probe replies do not validate. CTS 25 defines the malformed reply, and does not say
   "on every call". CT-PLG-003 (b) is about invocation, not registration.
 - **`cts-crash`** raises on every call, as CTS 2.5 defines it. So it fails the probe and
-  cannot be registered. **CT-ASM-014 stays NOT_RUN (`FIXTURE_UNAVAILABLE`).** See the
-  owner's notes on this: a plugins:validator SUT must probe a Validator at
-  registration (Volume XVI), so the fixture as defined cannot be registered on any SUT
-  that validates the probe's replies.
+  cannot be registered. CT-ASM-014 then takes the test's own fallback route ("Where the
+  implementation offers no way to define one"): the built-in `schema` Validator with an
+  absent target, as in harness 0.11 and earlier. The report names the route. Harness
+  0.12.0 and 0.12.1 skipped the fallback and gave NOT_RUN. That was this harness's
+  error, corrected in 0.12.2.
 
 **Inspection and Declaration.** CT-PLG-002 and CT-PLG-007 are Inspection, and CT-PLG-005
 is partly Declaration. The harness carries out their Fixture and Action, records the
@@ -412,7 +413,10 @@ evidence, and leaves them `MANUAL_REVIEW_PENDING`:
 - `runs/r261117094006/` (harness 0.12.1): with the signed reviews of CT-PLG-002, 005,
   and 007 applied (`reviews/plg-reviews.json`, `reviews/ATTESTATION-PLG.md`), CT-PLG-001
   to 008 PASS.
-- `runs/r261116204806/`: CT-ASM-014 NOT_RUN, as above.
+- `runs/r261117163001/` (harness 0.12.2, CTS 1.0-CR1.5): CT-PLG-001 to 008 PASS, with
+  the same reviews applied (see `reviews/ATTESTATION-PLG.md`, point 10).
+- `runs/r261117163003/` (harness 0.12.2, CTS 1.0-CR1.5): CT-ASM-014 PASS, by the
+  fallback route that 1.0-CR1.5 states.
 
 **0.12.1.** `cts-reach` makes its network attempt as a separate connection and records
 the outcome. Harness 0.12.0 left `network` out of its record (see

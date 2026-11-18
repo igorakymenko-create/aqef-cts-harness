@@ -1,0 +1,89 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261117163001-ct-plg-004/executions/277ad6fd-d3f1-4cbd-b406-0db9bffd28d6/results",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "053e0dd1-9353-43ec-8bc9-778289b7731b",
+    "execution": "277ad6fd-d3f1-4cbd-b406-0db9bffd28d6",
+    "clause": "sha256:9775831c3c01ae2322f46ca5c9d7a75dba4a444a5043cc91ed2a4eddd2186cb5/constraints/0",
+    "oracle_type": "validator",
+    "oracle": "cts-len@ct-plg-004-915449",
+    "verdict": "pass",
+    "confidence": "not_applicable",
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "plugin:cts-len@ct-plg-004-915449",
+      "target": "response",
+      "expected": {},
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "assessment": {
+      "length": 22
+     },
+     "ignored_reply_fields": []
+    },
+    "recorded_at": "2026-11-18T00:30:02.252006Z"
+   },
+   {
+    "id": "9ac0eb06-30a4-40bf-9a2c-366707d0d830",
+    "execution": "277ad6fd-d3f1-4cbd-b406-0db9bffd28d6",
+    "clause": "sha256:9775831c3c01ae2322f46ca5c9d7a75dba4a444a5043cc91ed2a4eddd2186cb5/expectations/0",
+    "oracle_type": "judge",
+    "oracle": "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}",
+    "verdict": "pass",
+    "confidence": 0.9,
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "evidence": {
+      "conversation": {
+       "turns": [
+        {
+         "prompt": "Hello",
+         "response": "Hello! How can I help?"
+        }
+       ]
+      },
+      "artifacts": [
+       {
+        "name": "latency_ms",
+        "data": 15.819188000001816,
+        "turn": 1,
+        "attempt": 1
+       }
+      ]
+     },
+     "criteria": "The response greets the user.",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-18T00:30:02.272343+00:00",
+       "completed_at": "2026-11-18T00:30:02.288178+00:00"
+      }
+     ],
+     "provider_response": {
+      "verdict": "pass",
+      "confidence": 0.9,
+      "explanation": "scripted pass",
+      "assertions": 1
+     },
+     "explanation": "scripted pass"
+    },
+    "recorded_at": "2026-11-18T00:30:02.272330Z"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "retrieve the Results"
+}

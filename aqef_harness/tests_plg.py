@@ -301,15 +301,20 @@ def plg008(ctx, b):
 
 # ------------------------------------------------------------------ CT-ASM-014
 def asm014(ctx, b):
-    """CT-ASM-014 needs a Validator that raises: the test plugin cts-crash (CTS 2.5, "Raises
-    an error on every call"; fault profile validator.crash, mechanism test_plugin)."""
+    """CT-ASM-014. The engine's one way to define a Validator that raises is a Validator
+    Plugin, cts-crash (CTS 2.5). A plugin that raises on every call fails Volume XVI's
+    registration check, so it cannot be registered. Then the test's own fallback applies
+    ("Where the implementation offers no way to define one"): the built-in Validator with
+    an absent target, as in harness 0.11 and earlier (tests_wd10). The report names the
+    route taken."""
+    from . import tests_wd10
     ex, rid = register(ctx, "validator", "cts-crash", setup_step=False)
-    if ex.outcome != "accepted":
-        return ctx.result("NOT_RUN", "FIXTURE_UNAVAILABLE",
-                          "cts-crash raises on every call (CTS 2.5), so it fails the engine's registration "
-                          f"probe (Volume XVI) and cannot be registered ({ex.status}: {ex.text()[:160]}); the "
-                          "engine documents no fault hook")
-    return ctx.result("NOT_RUN", "ADAPTER_GAP", f"{rid} registered; this harness version does not drive the rest")
+    if ex.outcome == "accepted":
+        return ctx.result("NOT_RUN", "ADAPTER_GAP", f"{rid} registered; this harness drives only the fallback route")
+    ctx.refs.append(ctx.store.add(ctx.case_id, "other", {
+        "note": "route: cts-crash could not be registered (it fails the Volume XVI registration check), "
+                "so the test's fallback route is used", "reply": ex.text()[:300]}))
+    return tests_wd10.asm014(ctx, b)
 
 
 def registry():

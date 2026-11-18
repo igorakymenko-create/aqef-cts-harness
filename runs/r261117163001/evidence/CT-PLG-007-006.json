@@ -1,0 +1,31 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261117163001-ct-plg-007/reports/metrics/97527d9f-84e9-40ec-b90a-6792ac9322fc",
+  "actor": "P-APPROVER",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": {
+   "name": "cts-low-confidence-share",
+   "value": 0.3333333333333333,
+   "result_ids": [
+    "fae4c802-a0e9-460d-ba75-b411af3f8265",
+    "fa7dfba8-7869-4577-83f8-b0fd4b1f3006",
+    "ca75e74a-23a8-427d-b4f9-1ab3d9d3ae0b",
+    "025f5454-e265-4148-bfdf-e16238fc6603",
+    "6339f43a-055e-41f7-b079-9e8d62d69693",
+    "9e5d8281-fa71-4153-9d2f-9bbe400d58dc"
+   ],
+   "id": "97527d9f-84e9-40ec-b90a-6792ac9322fc",
+   "plugin": "cts-report@ct-plg-007-b281a3",
+   "execution_batch_id": "44fbc3e9-3dde-4359-aef6-6862c10f219e",
+   "recorded_at": "2026-11-18T00:30:02.685642+00:00"
+  }
+ },
+ "outcome": "accepted",
+ "note": "the Metric, retrieved"
+}

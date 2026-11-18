@@ -1,0 +1,71 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261117163003-ct-asm-014/executions/68930a45-6dbf-478b-95f4-ed064377dc0b/results",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "f5831a2b-1094-4e79-b6eb-addea5d7a0c6",
+    "execution": "68930a45-6dbf-478b-95f4-ed064377dc0b",
+    "clause": "sha256:ee0620cf4dc576fd729dd7ccf184766518f1554e77ef8ac570db90fbec2669e2/constraints/0",
+    "oracle_type": "validator",
+    "oracle": "{\"custom\":null,\"expected\":{\"minLength\":1,\"type\":\"string\"},\"name\":\"schema\",\"target\":\"response\",\"type\":\"validator\",\"version\":\"1\"}",
+    "verdict": "pass",
+    "confidence": "not_applicable",
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "schema",
+      "target": "response",
+      "expected": {
+       "type": "string",
+       "minLength": 1
+      },
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "target_evidence": "Hello! How can I help?",
+     "check": {
+      "errors": []
+     }
+    },
+    "recorded_at": "2026-11-18T00:30:03.722661Z"
+   },
+   {
+    "id": "39c43525-bbc6-41c5-b6f7-77bb782127d4",
+    "execution": "68930a45-6dbf-478b-95f4-ed064377dc0b",
+    "clause": "sha256:ee0620cf4dc576fd729dd7ccf184766518f1554e77ef8ac570db90fbec2669e2/constraints/1",
+    "oracle_type": "validator",
+    "oracle": "{\"custom\":null,\"expected\":{\"type\":\"string\"},\"name\":\"schema\",\"target\":\"artifacts.cts-absent\",\"type\":\"validator\",\"version\":\"1\"}",
+    "verdict": null,
+    "confidence": "not_applicable",
+    "disposition": "oracle_unavailable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "schema",
+      "target": "artifacts.cts-absent",
+      "expected": {
+       "type": "string"
+      },
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "error": "ValueError: Missing evidence target 'artifacts.cts-absent'"
+    },
+    "recorded_at": "2026-11-18T00:30:03.727138Z"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "retrieve the Results"
+}

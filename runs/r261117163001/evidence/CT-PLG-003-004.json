@@ -1,0 +1,91 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261117163001-ct-plg-003-a/executions/bb306c2f-0db2-4c55-a197-edabe118cd83/results",
+  "actor": "P-RELEASE",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "id": "efb3e057-e51f-4132-bfaf-3b53651aeb76",
+    "execution": "bb306c2f-0db2-4c55-a197-edabe118cd83",
+    "clause": "sha256:0d241b6d3cb7d2ee4823f0f2426f5f1351cbd6ce98678ac5a2c1411dfbe15fa0/constraints/0",
+    "oracle_type": "validator",
+    "oracle": "cts-probe@ct-plg-003-cf2554",
+    "verdict": "pass",
+    "confidence": "not_applicable",
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "configuration": {
+      "validator": "plugin:cts-probe@ct-plg-003-cf2554",
+      "target": "response",
+      "expected": {
+       "marker": 1
+      },
+      "veto": false,
+      "id": null,
+      "dimension": "functional",
+      "defect_classes": null
+     },
+     "assessment": {
+      "marker": 1
+     },
+     "ignored_reply_fields": []
+    },
+    "recorded_at": "2026-11-18T00:30:01.998935Z"
+   },
+   {
+    "id": "6cabd3e3-c71e-4bbe-82a5-d53c786a56df",
+    "execution": "bb306c2f-0db2-4c55-a197-edabe118cd83",
+    "clause": "sha256:0d241b6d3cb7d2ee4823f0f2426f5f1351cbd6ce98678ac5a2c1411dfbe15fa0/expectations/0",
+    "oracle_type": "judge",
+    "oracle": "{\"confidence_source\":\"self_rating\",\"criteria\":\"The response greets the user.\",\"model\":\"cts-scripted-judge@1\",\"type\":\"judge\",\"version\":\"http-judge-v1\"}",
+    "verdict": "pass",
+    "confidence": 0.9,
+    "disposition": "actionable",
+    "supporting_evidence": {
+     "evidence": {
+      "conversation": {
+       "turns": [
+        {
+         "prompt": "Hello",
+         "response": "Hello! How can I help?"
+        }
+       ]
+      },
+      "artifacts": [
+       {
+        "name": "latency_ms",
+        "data": 11.212340999996684,
+        "turn": 1,
+        "attempt": 1
+       }
+      ]
+     },
+     "criteria": "The response greets the user.",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-18T00:30:02.014620+00:00",
+       "completed_at": "2026-11-18T00:30:02.026252+00:00"
+      }
+     ],
+     "provider_response": {
+      "verdict": "pass",
+      "confidence": 0.9,
+      "explanation": "scripted pass",
+      "assertions": 1
+     },
+     "explanation": "scripted pass"
+    },
+    "recorded_at": "2026-11-18T00:30:02.014611Z"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "(a) F-BASE with cts-probe: retrieve the Results"
+}

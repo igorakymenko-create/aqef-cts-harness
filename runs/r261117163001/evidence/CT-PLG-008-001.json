@@ -1,0 +1,37 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/plugins",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "type": "judge",
+   "name": "cts-judge-probe",
+   "version": "ct-plg-008-ceb6a6",
+   "endpoint": "http://127.0.0.1:9200/cts-judge-probe",
+   "configuration": {
+    "oracle": "cts-judge-probe@ct-plg-008-ceb6a6",
+    "nonce": "6ac997a1309d44aa9c00c2ae0670512d"
+   }
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "type": "judge",
+   "name": "cts-judge-probe",
+   "version": "ct-plg-008-ceb6a6",
+   "endpoint": "http://127.0.0.1:9200/cts-judge-probe",
+   "configuration": {
+    "oracle": "cts-judge-probe@ct-plg-008-ceb6a6",
+    "nonce": "6ac997a1309d44aa9c00c2ae0670512d"
+   },
+   "id": "cts-judge-probe@ct-plg-008-ceb6a6",
+   "registered_at": "2026-11-18T00:30:02.721756+00:00",
+   "deprecated_at": null
+  }
+ },
+ "outcome": "accepted",
+ "note": "register judge plugin cts-judge-probe@ct-plg-008-ceb6a6"
+}

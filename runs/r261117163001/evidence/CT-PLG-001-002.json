@@ -1,0 +1,77 @@
+{
+ "note": "what cts-flaky received during its registration",
+ "calls": [
+  {
+   "role": "plugin",
+   "path": "/plugin",
+   "behavior": "cts-flaky",
+   "request": {
+    "plugin": "cts-flaky",
+    "request": {
+     "evidence": {
+      "turns": []
+     },
+     "expected": null,
+     "configuration": {
+      "oracle": "cts-flaky@ct-plg-001-ddbf4d",
+      "nonce": "1b191627cb184190a3220d0359ddc244"
+     },
+     "execution": "repeatability-probe",
+     "clause": "repeatability-probe"
+    },
+    "headers": {
+     "Host": "127.0.0.1:9200",
+     "Accept": "*/*",
+     "Accept-Encoding": "gzip, deflate",
+     "Connection": "keep-alive",
+     "User-Agent": "python-httpx/0.28.1",
+     "Content-Length": "206",
+     "Content-Type": "application/json"
+    }
+   },
+   "status": 200,
+   "response": {
+    "logged": true
+   },
+   "received_at": 1794961801.757788,
+   "answered_at": 1794961801.757792,
+   "harness_ms": 0.0
+  },
+  {
+   "role": "plugin",
+   "path": "/plugin",
+   "behavior": "cts-flaky",
+   "request": {
+    "plugin": "cts-flaky",
+    "request": {
+     "evidence": {
+      "turns": []
+     },
+     "expected": null,
+     "configuration": {
+      "oracle": "cts-flaky@ct-plg-001-ddbf4d",
+      "nonce": "1b191627cb184190a3220d0359ddc244"
+     },
+     "execution": "repeatability-probe",
+     "clause": "repeatability-probe"
+    },
+    "headers": {
+     "Host": "127.0.0.1:9200",
+     "Accept": "*/*",
+     "Accept-Encoding": "gzip, deflate",
+     "Connection": "keep-alive",
+     "User-Agent": "python-httpx/0.28.1",
+     "Content-Length": "206",
+     "Content-Type": "application/json"
+    }
+   },
+   "status": 200,
+   "response": {
+    "logged": true
+   },
+   "received_at": 1794961801.7761662,
+   "answered_at": 1794961801.7761705,
+   "harness_ms": 0.0
+  }
+ ]
+}

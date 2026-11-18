@@ -1,0 +1,27 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/plugins",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "type": "validator",
+   "name": "cts-crash",
+   "version": "ct-asm-014-173464",
+   "endpoint": "http://127.0.0.1:9200/cts-crash",
+   "configuration": {
+    "oracle": "cts-crash@ct-asm-014-173464",
+    "nonce": "013d84d922b74a74bb6178cbaabae0d4"
+   }
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 422,
+  "body": {
+   "detail": "Validator Plugin repeatability probe did not return a valid Result"
+  }
+ },
+ "outcome": "rejected",
+ "note": "register validator plugin cts-crash@ct-asm-014-173464"
+}

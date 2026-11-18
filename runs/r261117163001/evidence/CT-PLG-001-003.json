@@ -1,0 +1,41 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/plugins",
+  "actor": "P-APPROVER",
+  "content_type": "application/json",
+  "body": {
+   "type": "validator",
+   "name": "cts-len",
+   "version": "ct-plg-001-4be235",
+   "endpoint": "http://127.0.0.1:9200/cts-len",
+   "configuration": {
+    "oracle": "cts-len@ct-plg-001-4be235",
+    "nonce": "a5dbe9b12dfe4a45a00ba4e669d94ed9"
+   }
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "type": "validator",
+   "name": "cts-len",
+   "version": "ct-plg-001-4be235",
+   "endpoint": "http://127.0.0.1:9200/cts-len",
+   "configuration": {
+    "oracle": "cts-len@ct-plg-001-4be235",
+    "nonce": "a5dbe9b12dfe4a45a00ba4e669d94ed9"
+   },
+   "id": "cts-len@ct-plg-001-4be235",
+   "registered_at": "2026-11-18T00:30:01.782423+00:00",
+   "repeatability_check": {
+    "runs": 2,
+    "output_matched": true
+   },
+   "deprecated_at": null
+  }
+ },
+ "outcome": "accepted",
+ "note": "register validator plugin cts-len@ct-plg-001-4be235"
+}

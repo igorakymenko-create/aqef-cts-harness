@@ -1,0 +1,31 @@
+{
+ "manual_review": {
+  "review_id": "plg-002-gemini-1",
+  "test_id": "CT-PLG-002",
+  "case_id": "CT-PLG-002",
+  "method": "inspection",
+  "reviewer": {
+   "id": "reviewer://google/gemini-3.8-flash",
+   "role": "independent-inspector",
+   "affiliation": "AI system, commissioned by Igor Akymenko"
+  },
+  "checklist": [
+   {
+    "item_id": "1",
+    "statement": "The implementation reports a repeatability check that passed, not that the plugin was shown to be deterministic.",
+    "answer": "met",
+    "evidence_refs": [
+     "evidence://CT-PLG-002-001.json#lines 32-35",
+     "evidence://CT-PLG-002-002.json#lines 23-26",
+     "evidence://engine-PLUGINS.md#lines 23-28"
+    ],
+    "note": "In response to registration of 'cts-len' (CT-PLG-002-001.json), the engine reports 'repeatability_check': {'runs': 2, 'output_matched': true}. The retrieved registration record (CT-PLG-002-002.json) records the identical repeatability_check object. In documentation (engine-PLUGINS.md lines 23-28), the engine states: 'Validator registration calls the service twice with identical input... The registry reports only the number of runs and the match on that probe. A Validator is responsible for returning the same Result on equal input throughout use.' Neither the API response, the stored registration record, nor the documentation presents registration or the repeatability check as proof of determinism."
+   }
+  ],
+  "decision": "PASS",
+  "reason_code": "VERIFIED",
+  "signed_at": "2026-11-17T10:39:00-07:00",
+  "signature_ref": "pending://owner-attestation",
+  "notes": "No ambiguity. The implementation precisely reports 'repeatability_check' with runs count and output_matched Boolean, and docs/PLUGINS.md explicitly disclaims determinism proof, stating the registry reports only the probe run count and match."
+ }
+}

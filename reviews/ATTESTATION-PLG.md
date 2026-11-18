@@ -80,4 +80,15 @@ of the batch, two of them with Confidence 0.6, which gives the value 1/3.
    evidence, so its identifiers differ from the reviewed run `r261116204857`, which is
    kept alongside it.
 
+10. **Applied again under 1.0-CR1.5,** in run `r261117163001`, with harness 0.12.2 and the
+    same engine. Result: CT-PLG-001 to 008 PASS.
+    - 1.0-CR1.5 changed CT-PLG-005's Requirement. It now quotes Volume XVI's opening as
+      aligned with its section Validator Plugins: "checked by the Plugin Architecture as
+      far as a check can reach", where it said "enforced at the SDK level".
+    - CT-PLG-005's Fixture, Action, Expected, and Fails if are unchanged.
+    - The reviewer's checklist item 1 judged the Expected's own wording: "enforcement by
+      the SDK or the Plugin Architecture, not only documentation or a convention". So the
+      record still answers the test as it now stands. CT-PLG-002 and CT-PLG-007 are
+      unchanged.
+
 Signed through that commit, 2026-11-17.

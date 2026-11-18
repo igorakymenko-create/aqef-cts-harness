@@ -1,0 +1,546 @@
+{
+ "request": {
+  "method": "POST",
+  "path": "/projects/cts-r261117163001-ct-plg-007/executions",
+  "actor": "P-RELEASE",
+  "content_type": "application/json",
+  "body": {
+   "suite": "cts-suite",
+   "environment": "cts-env"
+  },
+  "headers": null
+ },
+ "response": {
+  "status": 201,
+  "body": {
+   "execution_batch_id": "44fbc3e9-3dde-4359-aef6-6862c10f219e",
+   "executions": [
+    {
+     "id": "21114cf3-e390-4949-8098-4b06c989f2b3",
+     "execution_batch_id": "44fbc3e9-3dde-4359-aef6-6862c10f219e",
+     "project": "cts-r261117163001-ct-plg-007",
+     "suite": "cts-suite",
+     "scenario": "s-1",
+     "principal_id": "P-RELEASE",
+     "principal_kind": "person",
+     "environment": "cts-env",
+     "dataset": null,
+     "row_id": null,
+     "variables": {
+      "query": "One"
+     },
+     "configuration": {
+      "environment": {
+       "name": "cts-env",
+       "model_version": "cts-scripted-subject@1",
+       "prompt_version": "cts-prompt@1",
+       "tool_configuration": null,
+       "action_boundary": null,
+       "infra_target": "cts-harness"
+      },
+      "scenario": {
+       "name": "s-1",
+       "contract": {
+        "name": null,
+        "constraints": [
+         {
+          "validator": "schema",
+          "target": "response",
+          "expected": {
+           "type": "string",
+           "minLength": 1
+          },
+          "veto": false,
+          "id": null,
+          "dimension": "functional",
+          "defect_classes": null
+         }
+        ],
+        "expectations": [
+         {
+          "criteria": "The response greets the user.",
+          "judge": {
+           "model": "cts-scripted-judge@1",
+           "confidence_source": "self_rating"
+          },
+          "multi_judge": null,
+          "human_reviewer": null,
+          "confidence_threshold": 0.8,
+          "review_timeout": null,
+          "on_timeout": "block",
+          "escalate_to": null,
+          "id": null,
+          "dimension": "semantic",
+          "defect_classes": null
+         }
+        ],
+        "policies": null,
+        "extends": []
+       },
+       "prompt": {
+        "template": "{{query}}"
+       },
+       "dataset": null,
+       "variables": {
+        "query": "One"
+       },
+       "seeded_control": null,
+       "evidence": null
+      },
+      "contract": {
+       "name": "effective_contract",
+       "constraints": [
+        {
+         "validator": "schema",
+         "target": "response",
+         "expected": {
+          "type": "string",
+          "minLength": 1
+         },
+         "veto": false,
+         "id": null,
+         "dimension": "functional",
+         "defect_classes": null
+        }
+       ],
+       "expectations": [
+        {
+         "criteria": "The response greets the user.",
+         "judge": {
+          "model": "cts-scripted-judge@1",
+          "confidence_source": "self_rating"
+         },
+         "multi_judge": null,
+         "human_reviewer": null,
+         "confidence_threshold": 0.8,
+         "review_timeout": null,
+         "on_timeout": "block",
+         "escalate_to": null,
+         "id": null,
+         "dimension": "semantic",
+         "defect_classes": null
+        }
+       ],
+       "policies": null,
+       "extends": [],
+       "clause_weights": {
+        "constraints": [
+         1.0
+        ],
+        "expectations": [
+         1.0
+        ]
+       }
+      },
+      "validators": {},
+      "defect_classes": [],
+      "execution": {
+       "timeout": "30s",
+       "scheduling": "sequential",
+       "parallelization": 1,
+       "retry": {
+        "max_attempts": 2,
+        "on": "infrastructure_failure"
+       }
+      }
+     },
+     "scheduling": {
+      "strategy": "sequential",
+      "order": 0,
+      "reason": "on_demand Suite × Environment; declaration order",
+      "requested_by": "P-RELEASE",
+      "requested_at": "2026-11-18T00:30:02.519868+00:00"
+     },
+     "status": "completed",
+     "created_at": "2026-11-18T00:30:02.519878+00:00",
+     "started_at": "2026-11-18T00:30:02.522538+00:00",
+     "completed_at": "2026-11-18T00:30:02.548486+00:00",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-18T00:30:02.523836+00:00",
+       "error": "HTTPStatusError: Server error '503 Service Unavailable' for url 'http://127.0.0.1:9100/subject'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+       "completed_at": "2026-11-18T00:30:02.535785+00:00"
+      },
+      {
+       "number": 2,
+       "started_at": "2026-11-18T00:30:02.536187+00:00",
+       "error": null,
+       "completed_at": "2026-11-18T00:30:02.548419+00:00"
+      }
+     ],
+     "retry_count": 1,
+     "conversation": {
+      "turns": [
+       {
+        "prompt": "One",
+        "response": "One"
+       }
+      ]
+     },
+     "partial_turns": [],
+     "artifacts": [
+      {
+       "name": "latency_ms",
+       "data": 11.916200999998239,
+       "turn": 1,
+       "attempt": 1
+      },
+      {
+       "name": "latency_ms",
+       "data": 12.117815000003418,
+       "turn": 1,
+       "attempt": 2
+      }
+     ],
+     "error": null,
+     "opening_prompt": "One",
+     "duration_ms": 24.670063999998604
+    },
+    {
+     "id": "0b243eb7-d633-47c1-80a1-741716a23a3d",
+     "execution_batch_id": "44fbc3e9-3dde-4359-aef6-6862c10f219e",
+     "project": "cts-r261117163001-ct-plg-007",
+     "suite": "cts-suite",
+     "scenario": "s-2",
+     "principal_id": "P-RELEASE",
+     "principal_kind": "person",
+     "environment": "cts-env",
+     "dataset": null,
+     "row_id": null,
+     "variables": {
+      "query": "Two"
+     },
+     "configuration": {
+      "environment": {
+       "name": "cts-env",
+       "model_version": "cts-scripted-subject@1",
+       "prompt_version": "cts-prompt@1",
+       "tool_configuration": null,
+       "action_boundary": null,
+       "infra_target": "cts-harness"
+      },
+      "scenario": {
+       "name": "s-2",
+       "contract": {
+        "name": null,
+        "constraints": [
+         {
+          "validator": "schema",
+          "target": "response",
+          "expected": {
+           "type": "string",
+           "minLength": 1
+          },
+          "veto": false,
+          "id": null,
+          "dimension": "functional",
+          "defect_classes": null
+         }
+        ],
+        "expectations": [
+         {
+          "criteria": "The response greets the user.",
+          "judge": {
+           "model": "cts-scripted-judge@1",
+           "confidence_source": "self_rating"
+          },
+          "multi_judge": null,
+          "human_reviewer": null,
+          "confidence_threshold": 0.8,
+          "review_timeout": null,
+          "on_timeout": "block",
+          "escalate_to": null,
+          "id": null,
+          "dimension": "semantic",
+          "defect_classes": null
+         }
+        ],
+        "policies": null,
+        "extends": []
+       },
+       "prompt": {
+        "template": "{{query}}"
+       },
+       "dataset": null,
+       "variables": {
+        "query": "Two"
+       },
+       "seeded_control": null,
+       "evidence": null
+      },
+      "contract": {
+       "name": "effective_contract",
+       "constraints": [
+        {
+         "validator": "schema",
+         "target": "response",
+         "expected": {
+          "type": "string",
+          "minLength": 1
+         },
+         "veto": false,
+         "id": null,
+         "dimension": "functional",
+         "defect_classes": null
+        }
+       ],
+       "expectations": [
+        {
+         "criteria": "The response greets the user.",
+         "judge": {
+          "model": "cts-scripted-judge@1",
+          "confidence_source": "self_rating"
+         },
+         "multi_judge": null,
+         "human_reviewer": null,
+         "confidence_threshold": 0.8,
+         "review_timeout": null,
+         "on_timeout": "block",
+         "escalate_to": null,
+         "id": null,
+         "dimension": "semantic",
+         "defect_classes": null
+        }
+       ],
+       "policies": null,
+       "extends": [],
+       "clause_weights": {
+        "constraints": [
+         1.0
+        ],
+        "expectations": [
+         1.0
+        ]
+       }
+      },
+      "validators": {},
+      "defect_classes": [],
+      "execution": {
+       "timeout": "30s",
+       "scheduling": "sequential",
+       "parallelization": 1,
+       "retry": {
+        "max_attempts": 2,
+        "on": "infrastructure_failure"
+       }
+      }
+     },
+     "scheduling": {
+      "strategy": "sequential",
+      "order": 1,
+      "reason": "on_demand Suite × Environment; declaration order",
+      "requested_by": "P-RELEASE",
+      "requested_at": "2026-11-18T00:30:02.520241+00:00"
+     },
+     "status": "completed",
+     "created_at": "2026-11-18T00:30:02.520248+00:00",
+     "started_at": "2026-11-18T00:30:02.568794+00:00",
+     "completed_at": "2026-11-18T00:30:02.583894+00:00",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-18T00:30:02.570147+00:00",
+       "error": null,
+       "completed_at": "2026-11-18T00:30:02.583882+00:00"
+      }
+     ],
+     "retry_count": 0,
+     "conversation": {
+      "turns": [
+       {
+        "prompt": "Two",
+        "response": "Two"
+       }
+      ]
+     },
+     "partial_turns": [],
+     "artifacts": [
+      {
+       "name": "latency_ms",
+       "data": 13.670757999996397,
+       "turn": 1,
+       "attempt": 1
+      }
+     ],
+     "error": null,
+     "opening_prompt": "Two",
+     "duration_ms": 13.770551999996883
+    },
+    {
+     "id": "e2c58aab-3145-4a65-a70a-c098c2186075",
+     "execution_batch_id": "44fbc3e9-3dde-4359-aef6-6862c10f219e",
+     "project": "cts-r261117163001-ct-plg-007",
+     "suite": "cts-suite",
+     "scenario": "s-3",
+     "principal_id": "P-RELEASE",
+     "principal_kind": "person",
+     "environment": "cts-env",
+     "dataset": null,
+     "row_id": null,
+     "variables": {
+      "query": "Three"
+     },
+     "configuration": {
+      "environment": {
+       "name": "cts-env",
+       "model_version": "cts-scripted-subject@1",
+       "prompt_version": "cts-prompt@1",
+       "tool_configuration": null,
+       "action_boundary": null,
+       "infra_target": "cts-harness"
+      },
+      "scenario": {
+       "name": "s-3",
+       "contract": {
+        "name": null,
+        "constraints": [
+         {
+          "validator": "schema",
+          "target": "response",
+          "expected": {
+           "type": "string",
+           "minLength": 1
+          },
+          "veto": false,
+          "id": null,
+          "dimension": "functional",
+          "defect_classes": null
+         }
+        ],
+        "expectations": [
+         {
+          "criteria": "The response greets the user.",
+          "judge": {
+           "model": "cts-scripted-judge@1",
+           "confidence_source": "self_rating"
+          },
+          "multi_judge": null,
+          "human_reviewer": null,
+          "confidence_threshold": 0.8,
+          "review_timeout": null,
+          "on_timeout": "block",
+          "escalate_to": null,
+          "id": null,
+          "dimension": "semantic",
+          "defect_classes": null
+         }
+        ],
+        "policies": null,
+        "extends": []
+       },
+       "prompt": {
+        "template": "{{query}}"
+       },
+       "dataset": null,
+       "variables": {
+        "query": "Three"
+       },
+       "seeded_control": null,
+       "evidence": null
+      },
+      "contract": {
+       "name": "effective_contract",
+       "constraints": [
+        {
+         "validator": "schema",
+         "target": "response",
+         "expected": {
+          "type": "string",
+          "minLength": 1
+         },
+         "veto": false,
+         "id": null,
+         "dimension": "functional",
+         "defect_classes": null
+        }
+       ],
+       "expectations": [
+        {
+         "criteria": "The response greets the user.",
+         "judge": {
+          "model": "cts-scripted-judge@1",
+          "confidence_source": "self_rating"
+         },
+         "multi_judge": null,
+         "human_reviewer": null,
+         "confidence_threshold": 0.8,
+         "review_timeout": null,
+         "on_timeout": "block",
+         "escalate_to": null,
+         "id": null,
+         "dimension": "semantic",
+         "defect_classes": null
+        }
+       ],
+       "policies": null,
+       "extends": [],
+       "clause_weights": {
+        "constraints": [
+         1.0
+        ],
+        "expectations": [
+         1.0
+        ]
+       }
+      },
+      "validators": {},
+      "defect_classes": [],
+      "execution": {
+       "timeout": "30s",
+       "scheduling": "sequential",
+       "parallelization": 1,
+       "retry": {
+        "max_attempts": 2,
+        "on": "infrastructure_failure"
+       }
+      }
+     },
+     "scheduling": {
+      "strategy": "sequential",
+      "order": 2,
+      "reason": "on_demand Suite × Environment; declaration order",
+      "requested_by": "P-RELEASE",
+      "requested_at": "2026-11-18T00:30:02.520608+00:00"
+     },
+     "status": "completed",
+     "created_at": "2026-11-18T00:30:02.520613+00:00",
+     "started_at": "2026-11-18T00:30:02.602390+00:00",
+     "completed_at": "2026-11-18T00:30:02.615490+00:00",
+     "attempts": [
+      {
+       "number": 1,
+       "started_at": "2026-11-18T00:30:02.603517+00:00",
+       "error": null,
+       "completed_at": "2026-11-18T00:30:02.615479+00:00"
+      }
+     ],
+     "retry_count": 0,
+     "conversation": {
+      "turns": [
+       {
+        "prompt": "Three",
+        "response": "Three"
+       }
+      ]
+     },
+     "partial_turns": [],
+     "artifacts": [
+      {
+       "name": "latency_ms",
+       "data": 11.911551000004295,
+       "turn": 1,
+       "attempt": 1
+      }
+     ],
+     "error": null,
+     "opening_prompt": "Three",
+     "duration_ms": 11.991006000002358
+    }
+   ],
+   "warnings": []
+  }
+ },
+ "outcome": "accepted",
+ "note": "F-SIGNALS: execute"
+}

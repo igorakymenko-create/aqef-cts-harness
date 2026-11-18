@@ -1,0 +1,31 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/projects/cts-r261117163001-ct-plg-006/datasets",
+  "actor": "P-APPROVER",
+  "content_type": null,
+  "body": null,
+  "headers": null
+ },
+ "response": {
+  "status": 200,
+  "body": [
+   {
+    "name": "ds-plugin",
+    "version": "1.0.0",
+    "source": "plugin",
+    "rows": [
+     {
+      "id": "row-1",
+      "variables": {
+       "query": "Plugin-1"
+      }
+     }
+    ],
+    "plugin": "cts-dataset@ct-plg-006-ee547e"
+   }
+  ]
+ },
+ "outcome": "accepted",
+ "note": "retrieve the Datasets"
+}
